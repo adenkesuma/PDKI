@@ -1,6 +1,9 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
+
+// import components
 import Navbar from "@/components/navbar.tsx"
+import Footer from "@/components/footer.tsx"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,6 +23,7 @@ export default function RootLayout({
         <div className="xl:container mx-auto">
           <Navbar />
           {children}
+          <Footer />
         </div>
       </body>
     </html>
