@@ -19,39 +19,39 @@ const Footer: FC = () => {
   }
 
   return (
-    <footer className="rounded-xl bg-[#274698] mx-auto">
-      <div className="m-6 flex justify-between items-start">
+    <footer className="p-8 rounded-xl bg-[#274698] mx-auto">
+      <div className="flex justify-between items-start">
         <div>
-          <h4>Perhimpunan Dokter Keluarga Indonesia</h4>
+          <h4 className="text-xl font-semibold mb-3 text-white">Perhimpunan Dokter Keluarga <br /> Indonesia</h4>
           <Image 
             src={LOGOS}
             alt="footer logos white"
           />
         </div>
-        <div className="flex justify-center">
+        <div className="flex justify-center gap-10">
           <ul>
-            <h4>About</h4>
+            <h4 className="text-lg mb-3 font-semibold text-white">About</h4>
             {aboutFooter.map((item) => (
               <li key={item.id}>
-                <Link href={item.link}>
+                <Link href={item.link} className="text-[16px] text-white">
                   {item.text}
                 </Link>
               </li>
             ))}
           </ul>
           <ul>
-            <h4>Contact Us</h4>
+            <h4 className="text-lg mb-3 font-semibold text-white">Contact Us</h4>
             {contactUsFooter.map((item) => (
-              <li key={item.id}>
+              <li key={item.id} className="text-[16px] text-white">
                 {item.text}
               </li>
             ))}
           </ul>
           <ul>
-            <h4>Terms & Conditions</h4>
+            <h4 className="text-lg mb-3 font-semibold text-white">Terms & Conditions</h4>
             {termsConditionsFooter.map((item) => (
               <li key={item.id}>
-                <Link href={item.link}>
+                <Link href={item.link} className="text-[16px] text-white">
                   {item.text}
                 </Link>
               </li>
