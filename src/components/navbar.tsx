@@ -1,6 +1,9 @@
 import { FC } from "react"
 import Image from "next/image"
 
+// import components
+import Search from "./search.tsx"
+
 // import logo
 import IMA from "../../public/assets/logos/the-indonesia-medical-association.svg"
 import WONCA from "../../public/assets/logos/wonca.svg"
@@ -10,10 +13,10 @@ interface NavbarProps {}
 
 const Navbar: FC<NavbarProps> = () => {
   return (
-    <nav>
-      <div>
-        <span>PDKI</span>
-        <ul>
+    <nav className="mx-auto py-6">
+      <div className="flex justify-between items-center">
+        <span className="font-bold text-3xl">PDKI</span>
+        <ul className="flex justify-center gap-2 items-center">
           <li>
             <Image 
               src={IMA} 
@@ -33,6 +36,7 @@ const Navbar: FC<NavbarProps> = () => {
             />
           </li>
         </ul>
+        <Search />
       </div>
     </nav>
   )
