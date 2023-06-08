@@ -16,7 +16,7 @@ const Navbar: FC<NavbarProps> = () => {
     <nav className="mx-auto py-6">
       <div className="flex justify-between items-center">
         <span className="font-bold text-3xl">PDKI</span>
-        <ul className="flex justify-center gap-2 items-center">
+        <ul className="hidden md:flex justify-center gap-2 items-center">
           <li>
             <Image 
               src={IMA} 

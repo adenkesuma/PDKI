@@ -19,39 +19,40 @@ const Footer: FC = () => {
   }
 
   return (
-    <footer className="p-8 rounded-xl bg-[#274698] mx-auto">
-      <div className="flex justify-between items-start">
-        <div>
-          <h4 className="text-xl font-semibold mb-3 text-white">Perhimpunan Dokter Keluarga <br /> Indonesia</h4>
+    <footer className="px-4 md:px-6 py-8 lg:px-10 mb:mb-6 lg:mb-8 xl:mb-14 lg:py-10 rounded-xl bg-[#274698] mx-auto">
+      <div className="flex flex-col md:flex-row md:justify-between md:items-start items-center gap-4 md:gap-6 lg:gap-8">
+        <div className="flex flex-col items-center md:items-start">
+          <h4 className="text-xl font-semibold mb-3 text-white text-center md:text-left">Perhimpunan Dokter <br /> Keluarga Indonesia</h4>
           <Image 
+            className="w-[180px] md:w-[220px]"
             src={LOGOS}
             alt="footer logos white"
           />
         </div>
-        <div className="flex justify-center gap-10">
-          <ul>
-            <h4 className="text-lg mb-3 font-semibold text-white">About</h4>
+        <div className="flex flex-row justify-center gap-4 xl:gap-16">
+          <ul className="flex flex-col items-center">
+            <h4 className="text-[16px] lg:text-lg mb-3 font-semibold text-white">About</h4>
             {aboutFooter.map((item) => (
               <li key={item.id}>
-                <Link href={item.link} className="text-[16px] text-white">
+                <Link href={item.link} className="text-[14px] lg:text-[16px] text-white">
                   {item.text}
                 </Link>
               </li>
             ))}
           </ul>
-          <ul>
-            <h4 className="text-lg mb-3 font-semibold text-white">Contact Us</h4>
+          <ul className="flex flex-col items-center">
+            <h4 className="text-[16px] lg:text-lg mb-3 font-semibold text-white">Contact Us</h4>
             {contactUsFooter.map((item) => (
-              <li key={item.id} className="text-[16px] text-white">
+              <li key={item.id} className="text-[14px] lg:text-[16px] text-white">
                 {item.text}
               </li>
             ))}
           </ul>
-          <ul>
-            <h4 className="text-lg mb-3 font-semibold text-white">Terms & Conditions</h4>
+          <ul className="flex flex-col items-center">
+            <h4 className="text-[16px] lg:text-lg mb-3 font-semibold text-white">Terms & Conditions</h4>
             {termsConditionsFooter.map((item) => (
               <li key={item.id}>
-                <Link href={item.link} className="text-[16px] text-white">
+                <Link href={item.link} className="text-[14px] lg:text-[16px] text-white">
                   {item.text}
                 </Link>
               </li>
@@ -66,6 +67,9 @@ const Footer: FC = () => {
             />
           </div>
         </div>
+      </div>
+      <div className="border-t border-white mt-8 pt-8">
+        <p className="text-center text-white text-[14px] lg:text-[16px]">&copy; Copyright PDKI 2023, All rights reserved</p>
       </div>
     </footer>
   )

@@ -1,9 +1,11 @@
+import Navigation from "../components/navigation.tsx"
+
 interface HomeProps {}
 
 const Home = () => {
   return (
     <main>
-        hello world
+      <Navigation />
     </main>
   )
 }
