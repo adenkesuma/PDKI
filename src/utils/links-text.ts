@@ -77,22 +77,22 @@ export const navigation = [
   },
   {
     id: 6,
-    text: "Become a Member",
+    text: "BecomeaMember",
     link: "/become-member"
   },
   {
     id: 7,
-    text: "PDKI Regions",
+    text: "PDKIRegions",
     link: "/pdki-regions"
   },
   {
     id: 8,
-    text: "Member Interest",
+    text: "MemberInterest",
     link: "/member-interest"
   },
   {
     id: 9,
-    text: "Training Video",
+    text: "TrainingVideo",
     link: "/training-video"
   }
 ]

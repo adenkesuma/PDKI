@@ -13,9 +13,9 @@ interface NavbarProps {}
 
 const Navbar: FC<NavbarProps> = () => {
   return (
-    <nav className="mx-auto py-6">
+    <nav className="mx-auto py-4">
       <div className="flex justify-between items-center">
-        <span className="font-bold text-3xl">PDKI</span>
+        <span className="font-bold text-4xl">PDKI</span>
         <ul className="hidden md:flex justify-center gap-2 items-center">
           <li>
             <Image 
