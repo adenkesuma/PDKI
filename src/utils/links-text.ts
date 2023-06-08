@@ -6,8 +6,8 @@ export const aboutFooter = [
   },
   {
     id: 2,
-    text: "Team",
-    link: "/team"
+    text: "Teams",
+    link: "/teams"
   },
   {
     id: 3,
