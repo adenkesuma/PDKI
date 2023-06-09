@@ -1,6 +1,10 @@
 import Navigation from "../components/navigation.tsx"
 import Image from "next/image"
 import Banner from "../../public/assets/images/banner-image.jpg"
+import TrendingVideo from "../components/trending-video.tsx"
+import TrendingNews from "../components/trending-news.tsx"
+import UpcomingConference from "../components/upcoming-conference.tsx"
+import Quote from "../components/quote.tsx"
 
 interface HomeProps {}
 
@@ -10,7 +14,7 @@ const Home = () => {
       <Navigation />
       <figure className="relative">
         <Image 
-          className="h-[400px] w-full xl:h-[600px] bg-cover bg-center rounded-br-3xl rounded-bl-3xl"
+          className="h-[400px] w-full xl:h-[600px] object-cover bg-cover bg-center rounded-br-3xl rounded-bl-3xl"
           src={Banner}
           alt="banner image"
         />
@@ -21,6 +25,16 @@ const Home = () => {
           </figcaption>
         </div>
       </figure>
+
+      <section className="flex flex-col lg:flex-row justify-between gap-8 items-start mt-12">
+        <TrendingVideo />
+        <UpcomingConference />
+        <TrendingNews />
+      </section>
+
+      <section className="my-8">
+        <Quote />
+      </section>
     </main>
   )
 }
