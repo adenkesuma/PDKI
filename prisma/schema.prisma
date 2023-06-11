@@ -1,0 +1,58 @@
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["jsonProtocol"]
+}
+
+datasource db {
+  provider = "mysql"
+  url = env("DATABASE_URL") // uses connection pooling
+  directUrl = env("DATABASE_URL_NON_POOLING") // uses a direct connection
+  shadowDatabaseUrl = env("DATABASE_URL_NON_POOLING") // used for migrations
+}
+
+model News {
+  id        String     @default(cuid()) @id
+  title     String
+  content   String?
+  description   String
+  publishedDate    DateTime
+  image     String
+  video     String?
+  tags      String
+  category  String
+  published Boolean    @default(false)
+}
+
+model Member {
+  id        String       @default(cuid()) @id
+  nama      String?
+  namaSertifikat    String
+  subspesialisasi   String
+  asalInstitusi String
+  pasFoto   String
+  noSeri    String
+  noSerkom  String
+  tempatLahir   String
+  tanggalLahir  DateTime
+  noIdi     String
+  npaPdki   String
+  createdAt     DateTime  @default(now()) @map(name: "created_at")
+  updatedAt     DateTime  @updatedAt @map(name: "updated_at")
+  @@map(name: "member")
+}
+
+model Video {
+  id        String       @default(cuid()) @id
+  title      String?
+  description    String
+  duration  String
+  videoUrl  String
+  thubmnailUrl  String
+  harga String
+  publishedDate DateTime
+
+  createdAt     DateTime  @default(now()) @map(name: "created_at")
+  updatedAt     DateTime  @updatedAt @map(name: "updated_at")
+}
