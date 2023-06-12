@@ -4,15 +4,15 @@ import Link from "next/link"
 import Image from "next/image"
 import { TbChevronRight } from "react-icons/tb"
 
-interface PopularNewsProps {}
+interface LatestNewsProps {}
 
-const PopularNews: FC<PopularNewsProps> = () => {
+const LatestNews: FC<LatestNewsProps> = () => {
   return (
-    <div>
+    <div className="mt-8">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-[26px] font-semibold text-black">Popular News</h2>
+        <h2 className="text-[26px] font-semibold text-black">Berita Terbaru</h2>
         <div className="flex justify-between items-center">
-          <Link href="/news" className="font-medium text-[18px]">View All</Link>
+          <Link href="/news" className="font-medium text-[18px]">Lihat semua berita</Link>
           <TbChevronRight
             className="w-8 h-8 font-semibold text-black"
           />
@@ -105,4 +105,4 @@ const PopularNews: FC<PopularNewsProps> = () => {
   )
 }
 
-export default PopularNews
+export default LatestNews

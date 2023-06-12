@@ -7,7 +7,7 @@ interface UpcomingConferenceProps {}
 const UpcomingConference: FC<UpcomingConferenceProps> = () => {
   return (
     <div className="w-[40%]">
-      <h2 className="font-semibold text-[26px] mb-4">Upcoming Conference</h2>
+      <h2 className="font-semibold text-[26px] mb-4">Konferensi yang akan datang</h2>
       <div className="rounded-2xl bg-[#274698]">
         <Image
           className="rounded-2xl w-full" 

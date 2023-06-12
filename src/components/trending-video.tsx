@@ -6,7 +6,7 @@ interface TrendingVideoProps {}
 const TrendingVideo: FC<TrendingVideoProps> = () => {
   return (
     <div className="w-[30%]">
-      <h2 className="font-semibold text-[26px] mb-4">Trending Video</h2>
+      <h2 className="font-semibold text-[26px] mb-4">Video Pelatihan Populer</h2>
       <div className="bg-[#274698] rounded-2xl p-4 text-white flex flex-col gap-8">
         {fakeData.map((data) => (
           <div key={data.id}>

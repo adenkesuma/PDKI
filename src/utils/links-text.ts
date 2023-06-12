@@ -52,47 +52,37 @@ export const termsConditionsFooter = [
 export const navigation = [
   {
     id: 1,
-    text: "Home",
+    text: "PDKI",
     link: "/"
   },
   {
     id: 2,
-    text: "About",
+    text: "Tentang",
     link: "/about"
   },
   {
     id: 3,
-    text: "News",
+    text: "Berita",
     link: "/news"
   },
   {
     id: 4,
-    text: "Conference",
+    text: "Konferensi",
     link: "/conference"
   },
   {
     id: 5,
-    text: "Newsletter",
+    text: "Surat",
     link: "/newsletter"
-  },
+  }, 
   {
     id: 6,
-    text: "BecomeaMember",
-    link: "/become-member"
-  },
-  {
-    id: 7,
-    text: "PDKIRegions",
+    text: "Wilayah PDKI",
     link: "/pdki-regions"
   },
   {
-    id: 8,
-    text: "MemberInterest",
-    link: "/member-interest"
-  },
-  {
-    id: 9,
-    text: "TrainingVideo",
+    id: 7,
+    text: "Video Pelatihan",
     link: "/training-video"
   }
 ]
