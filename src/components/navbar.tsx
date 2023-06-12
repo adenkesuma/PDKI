@@ -1,10 +1,8 @@
 import { FC } from "react"
 import Image from "next/image"
 
-// import components
 import Search from "./search.tsx"
 
-// import logo
 import IMA from "../../public/assets/logos/the-indonesia-medical-association.svg"
 import WONCA from "../../public/assets/logos/wonca.svg"
 import PDKI from "../../public/assets/logos/pdki.svg"
