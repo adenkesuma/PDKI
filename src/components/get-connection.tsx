@@ -22,8 +22,8 @@ const GetConnection: FC<GetConnectionProps> = ({ handleConnection, setShow }) =>
       <form
         className="flex flex-col items-center gap-8 mx-auto w-[40%]"
       >
-        <input type="text" placeholder="Masukan nama..." className="w-full rounded-2xl py-3 px-4 text-black outline-none border-2 placeholder-blue-100 border-blue-100 bg-transparent" />
-        <input type="email" placeholder="Masukan email..." className="w-full rounded-2xl py-3 px-4 text-black outline-none border-2 placeholder-blue-100 border-blue-100 bg-transparent" />
+        <input type="text" placeholder="Masukan nama..." className="w-full rounded-2xl py-3 px-4 text-blue-100 outline-none border-2 placeholder-blue-100 border-blue-100 bg-transparent" />
+        <input type="email" placeholder="Masukan email..." className="w-full rounded-2xl py-3 px-4 text-blue-100 outline-none border-2 placeholder-blue-100 border-blue-100 bg-transparent" />
         <button type="submit" className="bg-blue-100 bg-rounded-3xl py-3 px-12 font-semibold text-[#274698] rounded-2xl">Daftar</button>
       </form>
 
