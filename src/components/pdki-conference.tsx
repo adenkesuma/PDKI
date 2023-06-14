@@ -10,16 +10,16 @@ const PDKIConference: FC<PDKIConferenceProps> = () => {
   return (
     <div className="mt-8">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-[26px] font-semibold text-black">Konferensi</h2>
-        <div className="flex justify-between items-center">
-          <Link href="/news" className="font-medium text-[18px]">Lihat semua konferensi</Link>
+        <h2 className="text-[20px] lg:text-[22px] font-semibold text-black">Konferensi</h2>
+        <Link href="/news" className="flex justify-between items-center gap-2 font-medium text-[14px] md:font-[16px] lg:font-[18px]">
+          Lihat semua konferensi
           <TbChevronRight
             className="w-8 h-8 font-semibold text-black"
           />
-        </div>
+        </Link>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <div>
           <figure className="block relative overflow-hidden rounded-tl-2xl rounded-tr-2xl">
             <Image 

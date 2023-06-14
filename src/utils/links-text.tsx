@@ -77,12 +77,12 @@ export const navigation = [
   }, 
   {
     id: 6,
-    text: "wilayahPDKI",
+    text: "wilayah PDKI",
     link: "/pdki-regions"
   },
   {
     id: 7,
-    text: "VideoPelatihan",
+    text: "Video Pelatihan",
     link: "/training-video"
   }
 ]
