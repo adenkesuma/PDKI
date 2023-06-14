@@ -11,7 +11,7 @@ const UpcomingConference: FC<UpcomingConferenceProps> = () => {
       <div className="rounded-2xl bg-[#274698] h-[400px]">
         <figure className="w-full h-[70%] overflow-hidden rounded-tl-2xl rounded-tr-2xl">  
           <Image
-            className="hover:scale-125 duration-75 rounded-tl-2xl rounded-tr-2xl w-full h-full bg-cover object-cover" 
+            className="hover:scale-110 duration-100 rounded-tl-2xl rounded-tr-2xl w-full h-full bg-cover object-cover" 
             src={ConferenceImage}
             alt="conference image"
           />
