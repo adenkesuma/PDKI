@@ -20,21 +20,21 @@ const Home: FC<HomeProps> = () => {
 
   return (
     <>
-      <main className="relative container mx-auto">
+      <main className="relative px-4 sm:px-0 container mx-auto">
         <Navigation />
         <figure className="relative">
           <Image 
-            className="h-[400px] w-full xl:h-[600px] object-left bg-left rounded-br-3xl rounded-bl-3xl"
+            className="h-[400px] w-full xl:h-[600px] object-cover bg-cover rounded-br-3xl rounded-bl-3xl"
             src={Banner}
             alt="banner image"
           />
           <div className="flex flex-col items-center gap-8 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-            <h1 className="-m-8 text-[40px] xl:text-[80px] text-center font-bold text-white">PDKI</h1>
-            <figcaption className="text-[22px] xl:text-[30px] font-semibold text-white">
+            <h1 className="-m-4 md:-m-8 text-[50px] lg:text-[80px] text-center font-bold text-white">PDKI</h1>
+            <p className="text-center text-[22px] lg:text-[30px] font-semibold text-white">
               Perhimpunan Dokter Keluarga Indonesia
-            </figcaption>
+            </p>
             <button 
-              className="bg-white text-center py-[12px] px-8 rounded-3xl text-[#274698] font-medium text-[18px]"
+              className="px-6 duration-75 py-[8px] bg-white hover:bg-transparent hover:border-2 hover:border-white hover:text-white text-center md:py-[12px] md:px-8 rounded-3xl text-[#274698] font-medium text-[16px] md:text-[18px]"
               onClick={handleGetConnection}
             >
               Tambah Koneksi
@@ -42,7 +42,7 @@ const Home: FC<HomeProps> = () => {
           </div>
         </figure>
 
-        <section className="flex flex-col lg:flex-row justify-between gap-6 items-start mt-12">
+        <section className="mt-8 grid gap-6 lg:grid-cols-3">
           <TrendingVideo />
           <UpcomingConference />
           <TrendingNews />
