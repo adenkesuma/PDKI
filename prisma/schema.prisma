@@ -13,41 +13,41 @@ datasource db {
 }
 
 model News {
-  id            Int      @id @unique @default(autoincrement())
-  title         String
-  content       String
-  description   String?
-  publishedDate DateTime
-  image         String?
-  video         String?
-  tags          String?
-  category      String?
-  published     Boolean  @default(false)
+  id            Int       @id   @unique     @default(autoincrement())
+  title         String    @db.VarChar(255)
+  content       String    @db.VarChar(255)
+  description   String?   @db.VarChar(255)
+  publishedDate DateTime  @default(now())   @db.Date @map(name: "published_date")
+  image         String?   @db.VarChar(255)
+  video         String?   @db.VarChar(255)
+  tags          String?   @db.VarChar(255)
+  category      String?   @db.VarChar(255)
+  published     Boolean   @default(false)
 
   @@map(name: "news")
 }
 
 model Member {
-  id              Int       @id @unique @default(autoincrement())
+  id              Int         @id @unique @default(autoincrement())
   nama            String
-  namaSertifikat  String    @map(name: "nama_sertifikat")
+  namaSertifikat  String      @map(name: "nama_sertifikat")
   subspesialisasi String
-  asalInstitusi   String    @map(name: "asal_institusi")
-  pasFoto         String    @map(name: "pas_foto")
-  noSeri          String    @unique @map(name: "no_seri")
-  noSerkom        String    @unique @map(name: "no_serkom")
-  tempatLahir     String    @map(name: "tempat_lahir")
-  tanggalLahir    DateTime? @default(now()) @map(name: "tanggal_lahir")
-  noIdi           String    @unique @map(name: "no_idi")
-  npaPdki         String    @unique @map(name: "npa_pdki")
-  createdAt       DateTime? @default(now()) @map(name: "created_at")
-  updatedAt       DateTime? @updatedAt @map(name: "updated_at")
+  asalInstitusi   String      @map(name: "asal_institusi")
+  pasFoto         String      @map(name: "pas_foto")
+  noSeri          String      @unique @map(name: "no_seri")
+  noSerkom        String      @unique @map(name: "no_serkom")
+  tempatLahir     String      @map(name: "tempat_lahir")
+  tanggalLahir    DateTime?   @default(now()) @map(name: "tanggal_lahir")
+  noIdi           String      @unique @map(name: "no_idi")
+  npaPdki         String      @unique @map(name: "npa_pdki")
+  createdAt       DateTime?   @default(now()) @map(name: "created_at")
+  updatedAt       DateTime?   @updatedAt @map(name: "updated_at")
 
   @@map(name: "member")
 }
 
 model Video {
-  id            Int      @id @default(autoincrement())
+  id            Int       @id @default(autoincrement())
   title         String
   description   String
   duration      String
@@ -57,7 +57,7 @@ model Video {
   publishedDate DateTime
   category      String
   tags          String
-  views         String
+  views         Int       @db.UnsignedInt
   instructor    String?
 
   @@map(name: "video")
