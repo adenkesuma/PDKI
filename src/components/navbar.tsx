@@ -15,9 +15,9 @@ const Navbar: FC<NavbarProps> = () => {
 
   return (
     <>
-      <nav className="py-4 container mx-auto">
+      <nav className="py-4 px-4 sm:px-0 container mx-auto">
         <div className="flex justify-between items-center">
-          <span className="font-bold text-4xl">PDKI</span>
+          <span className="font-bold text-2xl md:text-4xl">PDKI</span>
           <ul className="hidden md:flex justify-center gap-2 items-center">
             <li>
               <Image 
@@ -39,7 +39,7 @@ const Navbar: FC<NavbarProps> = () => {
             </li>
           </ul>
           <div className="flex items-center gap-6"> 
-            <button className="px-10 py-3 rounded-3xl bg-[#329E93] text-white font-medium text-[18px]" onClick={handleShowLogin}>
+            <button className="px-6 py-[5px] md:px-10 md:py-3 rounded-3xl bg-[#329E93] text-white font-medium text-[16px] md:text-[18px]" onClick={handleShowLogin}>
                 Masuk
             </button>
           </div> 

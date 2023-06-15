@@ -1,10 +1,7 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
-
+import { montserrat } from '@/utils/font'
 import Navbar from "@/components/navbar.tsx"
 import Footer from "@/components/footer.tsx"
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'PDKI | Homepage',
@@ -18,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className}`}>
+      <body className={montserrat.className}>
           <Navbar />
           {children}
           <Footer />

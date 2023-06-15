@@ -77,7 +77,7 @@ export const navigation = [
   }, 
   {
     id: 6,
-    text: "Wilayah PDKI",
+    text: "wilayah PDKI",
     link: "/pdki-regions"
   },
   {

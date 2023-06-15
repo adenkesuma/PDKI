@@ -1,21 +1,15 @@
 import { FC } from "react"
+import { alegreya } from "@/utils/font"
 
 interface QuoteProps {}
 
 const Quote: FC<QuoteProps> = () => {
   return (
-    <div className="bg-[#274698] rounded-xl p-6">
-      <p className="text-white ">
-        <span className="font-bold text-[50px]">"</span>
-        <span className="text-[20px]">
-        We learn that working individually may have a little impact, but together we hand-in-hand
-        with other health providers, specializations, and across the countries, we could achieve 
-        the highest. Therefore, as the conclusion and resolution of this conference, we will have
-        more collaboration between countries, to learn the gaps in the past, fill in the gap of the
-        current situation and facing the future together to make better living and environment for  
-        generations to come
-        </span>
-        <span className="font-bold text-[50px]">"</span>
+    <div className="bg-[#274698] relative rounded-2xl p-8">
+      <p className={`${alegreya.className} text-white px-10 font-medium text-[26px] text-center leading-9`}>
+        <span className="font-bold text-[80px] absolute top-8 left-5">{'“'}</span>
+        Kami belajar bahwa bekerja secara individu mungkin memiliki dampak yang kecil, tetapi bersama-sama dengan penyedia layanan kesehatan lainnya, spesialisasi, dan di antara negara-negara, kita bisa mencapai yang tertinggi. Oleh karena itu, sebagai kesimpulan dan resolusi dari konferensi ini, kita akan memiliki lebih banyak kolaborasi antara negara-negara, untuk mempelajari kesenjangan di masa lalu, mengisi kesenjangan situasi saat ini, dan menghadapi masa depan bersama untuk menciptakan kehidupan dan lingkungan yang lebih baik bagi generasi mendatang.
+        <span className="font-bold text-[80px] absolute bottom-12 right-5">{'„'}</span>
       </p>
     </div>
   )

@@ -5,9 +5,9 @@ interface TrendingNewsProps {}
 
 const TrendingNews: FC<TrendingNewsProps> = () => {
   return (
-    <div className="w-[30%] h-full">
-      <h2 className="font-semibold text-[26px] mb-4">Berita Populer</h2>
-      <div className="bg-[#274698] rounded-2xl p-4 text-white flex flex-col gap-8">
+    <div className="w-full">
+      <h2 className="font-semibold text-[20px] lg:text-[22px] mb-4">Berita Populer</h2>
+      <div className="h-[400px] bg-[#274698] rounded-2xl p-4 text-white flex flex-col gap-8">
         {fakeData.map((data) => (
           <div key={data.id}>
             <h3>{data.text}</h3>
