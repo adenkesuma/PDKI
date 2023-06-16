@@ -39,7 +39,7 @@ const Navbar: FC<NavbarProps> = () => {
             </li>
           </ul>
           <div className="flex items-center gap-6"> 
-            <button className="px-6 py-[5px] md:px-10 md:py-3 rounded-3xl bg-[#329E93] text-white font-medium text-[16px] md:text-[18px]" onClick={handleShowLogin}>
+            <button className="px-6 py-[5px] md:px-10 md:py-3 rounded-3xl bg-[#274698] text-white font-medium text-[16px] md:text-[18px]" onClick={handleShowLogin}>
                 Masuk
             </button>
           </div> 
