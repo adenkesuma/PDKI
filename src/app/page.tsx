@@ -42,13 +42,13 @@ const Home: FC<HomeProps> = () => {
           </div>
         </figure>
 
-        <section className="mt-8 grid gap-6 lg:grid-cols-3">
+        <section className="mt-8 grid gap-6 lg:grid-cols-3 px-6">
           <TrendingVideo />
           <UpcomingConference />
           <TrendingNews />
         </section>
 
-        <section className="mt-8 mb-8">
+        <section className="mt-8 mb-8 px-6">
           <Quote />
           <LatestNews />
           <PDKIConference />
