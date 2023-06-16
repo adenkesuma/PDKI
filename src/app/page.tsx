@@ -24,7 +24,7 @@ const Home: FC<HomeProps> = () => {
         <Navigation />
         <figure className="relative">
           <Image 
-            className="h-[400px] w-full xl:h-[600px] object-cover bg-cover rounded-br-3xl rounded-bl-3xl"
+            className="h-[70vh] w-full object-cover bg-cover rounded-br-3xl rounded-bl-3xl"
             src={Banner}
             alt="banner image"
           />

@@ -23,7 +23,7 @@ const About: FC<AboutProps> = () => {
         <Navigation />
         <figure className="relative">
             <Image 
-              className="h-[400px] w-full xl:h-[600px] object-cover bg-cover rounded-br-3xl rounded-bl-3xl"
+              className="w-full h-[70vh] object-cover bg-cover rounded-br-3xl rounded-bl-3xl"
               src={Banner}
               alt="banner image"
             />
@@ -49,21 +49,31 @@ const About: FC<AboutProps> = () => {
             </div>
 
             <div className="flex justify-between flex-col items-start gap-12 mt-8">
-              <h2 className="text-[30px] font-bold text-[#1a1a1a]"><span className="text-[#274698]">Kelompok Studi Dokter Keluarga</span> <br/> Di dirikan oleh 16 orang</h2>
-              <div className="flex justify-between items-start gap-12">
-                <div className="w-[38%] flex justify-between items-start gap-6">
-                  <ul className="flex flex-col gap-1">
+              <h2 className="text-[30px] font-bold text-[#1a1a1a]"><span className="text-[#274698]">Kelompok Studi Dokter Keluarga</span> Di dirikan oleh 16 orang</h2>
+              <div className="flex flex-col items-start gap-12">
+                <div className="flex justify-between flex-col items-start gap-6">
+                  <ul className="flex gap-4 justify-center wrap">
                     {studyGroupOne.map((people, idx) => (
-                      <li key={idx} className="font-medium text-[#333]">{idx+1}. {people}</li>
+                      <li 
+                        key={idx} 
+                        className="font-medium text-[#fff] text-center p-2 bg-[#274698] rounded-2xl"
+                      >
+                        {people}
+                      </li>
                     ))}   
                   </ul> 
-                  <ul className="flex flex-col gap-1">
+                  <ul className="flex gap-4 justify-center wrap">
                     {studyGroupTwo.map((people, idx) => (
-                        <li key={idx} className="font-medium text-[#333]">{idx+9}. {people}</li>
+                        <li 
+                          key={idx} 
+                          className="font-medium text-[#fff] text-center p-2 bg-[#329E93] rounded-2xl"
+                        >
+                          {people}
+                        </li>
                     ))}
                   </ul>
                 </div>
-                <p className="font-medium text-[#333] w-[62%]">
+                <p className="font-medium text-[#333]">
                   Upaya-upaya ke arah pengembangan Dokter Keluarga di Indonesia terus dilakukan. Salah satu upaya yang dilakukan adalah dengan terus menjalin relasi dengan Organisasi Dokter Keluarga Internasional (WONCA). Pada tahun 1983, Dr.dr. Judilherry Justam, MM dan dr. Sudjoko Kuswadji menghadi WONCA (World Organization of National Colleges, Academies and Academic Associations of General Practitioners/Family Physicians) Conference di Singapura. Kemudian pada tahun 1986 ada sekitar 30 dokter dari Indonesia yang menghadiri WONCA Conference di London. <br /> <br />
                   Sebelum berganti nama menjadi Perhimpunan Dokter Keluarga Indonesia (PDKI) seperti sekarang, perhimpunan ini mengalami metamorphosis dan perkembangan dari waktu.
                 </p>
@@ -71,7 +81,7 @@ const About: FC<AboutProps> = () => {
             </div>
 
             <div className="flex justify-between flex-col gap-12 mt-8">
-              <h2 className="text-[30px] font-bold text-[#1a1a1a]">Metamorfosis Perhimpunan Dokter Keluarga Indonesia</h2>
+              <h2 className="text-[30px] font-bold text-[#1a1a1a]">Metamorfosis <span className="text-[#329E93]">Perhimpunan Dokter Keluarga Indonesia</span></h2>
               <Image 
                 className="w-[80%] mx-auto"
                 src={Metaporfosis} 
