@@ -19,7 +19,7 @@ const About: FC<AboutProps> = () => {
 
   return (
     <>
-      <main className="container px-4 mx-auto">
+      <main className="container px-4 sm:px-0 mx-auto">
         <Navigation />
         <figure className="relative">
             <Image 
@@ -52,21 +52,21 @@ const About: FC<AboutProps> = () => {
               <h2 className="text-[30px] font-bold text-[#1a1a1a]"><span className="text-[#274698]">Kelompok Studi Dokter Keluarga</span> Di dirikan oleh 16 orang</h2>
               <div className="flex flex-col items-start gap-12">
                 <div className="flex justify-between flex-col flex-wrap items-start gap-6">
-                  <ul className="flex gap-6 justify-around flex-wrap">
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {studyGroupOne.map((people, idx) => (
                       <li 
                         key={idx} 
-                        className="font-medium text-[#fff] w-[300px] text-center py-4 bg-[#274698] rounded-2xl"
+                        className="font-medium text-[#fff] px-4 text-center py-4 bg-[#274698] rounded-2xl"
                       >
                         {people}
                       </li>
                     ))}   
                   </ul> 
-                  <ul className="flex gap-6 justify-around flex-wrap">
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
                     {studyGroupTwo.map((people, idx) => (
                         <li 
                           key={idx} 
-                          className="font-medium text-[#fff] w-[300px] text-center py-4 bg-[#329E93] rounded-2xl"
+                          className="font-medium text-[#fff] text-center px-4 py-4 bg-[#329E93] rounded-2xl"
                         >
                           {people}
                         </li>

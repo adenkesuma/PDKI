@@ -90,7 +90,7 @@ const PDKIConference: FC<PDKIConferenceProps> = () => {
               <span className="text-[14px] text-gray-100 font-medium">200 reader</span>
             </div>
           </div>
-        </div>  
+        </div>
       </div>
     </div>
   )
