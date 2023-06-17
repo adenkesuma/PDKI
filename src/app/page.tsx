@@ -24,7 +24,7 @@ const Home: FC<HomeProps> = () => {
         <Navigation />
         <figure className="relative">
           <Image 
-            className="h-[70vh] w-full object-cover bg-cover rounded-br-3xl rounded-bl-3xl"
+            className="h-[600px] w-full object-cover bg-cover rounded-br-3xl rounded-bl-3xl"
             src={Banner}
             alt="banner image"
           />
@@ -50,8 +50,8 @@ const Home: FC<HomeProps> = () => {
 
         <section className="mt-8 mb-8 px-6">
           <Quote />
-          <LatestNews />
           <PDKIConference />
+          <LatestNews />
         </section>
       </main>
       {show === true ? <GetConnection handleConnection={handleGetConnection} setShow={setShow}/> : ""}

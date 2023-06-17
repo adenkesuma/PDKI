@@ -11,7 +11,7 @@ const PDKIConference: FC<PDKIConferenceProps> = () => {
     <div className="mt-8">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-[20px] lg:text-[22px] font-semibold text-black">Konferensi</h2>
-        <Link href="/news" className="flex justify-between items-center gap-2 font-medium text-[14px] md:font-[16px] lg:font-[18px]">
+        <Link href="/news" className="flex justify-between items-center gap-2 font-medium text-[14px] md:text-[16px] lg:text-[18px]">
           Lihat semua konferensi
           <TbChevronRight
             className="w-8 h-8 font-semibold text-black"
@@ -19,92 +19,81 @@ const PDKIConference: FC<PDKIConferenceProps> = () => {
         </Link>
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-6">
-        <div className="flex flex-col gap-8 justify-self-start">
-          <div className="flex items-center gap-4">
-            <h3 className="text-[30px] font-bold text-[#274698]">01</h3>
-            <div>
-              <h4 className="font-semibold text-[16px] text-[#1a1a1a]">Education for Primary Care</h4>
-              <p className="font-medium text-[14px] text-[#333]">Description</p>
-            </div>
-          </div>
-           <div className="flex items-center gap-4">
-            <h3 className="text-[30px] font-bold text-[#274698]">02</h3>
-            <div>
-              <h4 className="font-semibold text-[16px] text-[#1a1a1a]">Education for Primary Care</h4>
-              <p className="font-medium text-[14px] text-[#333]">Description</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <h3 className="text-[30px] font-bold text-[#274698]">03</h3>
-            <div>
-              <h4 className="font-semibold text-[16px] text-[#1a1a1a]">Education for Primary Care</h4>
-              <p className="font-medium text-[14px] text-[#333]">Description</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <h3 className="text-[30px] font-bold text-[#274698]">04</h3>
-            <div>
-              <h4 className="font-semibold text-[16px] text-[#1a1a1a]">Education for Primary Care</h4>
-              <p className="font-medium text-[14px] text-[#333]">Description</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <h3 className="text-[30px] font-bold text-[#274698]">05</h3>
-            <div>
-              <h4 className="font-semibold text-[16px] text-[#1a1a1a]">Education for Primary Care</h4>
-              <p className="text-medium text-[14px] text-[#333]">Description</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div>
+          <figure className="block overflow-hidden rounded-tl-2xl rounded-tr-2xl">
+            <Image 
+              className="duration-100 hover:scale-110 w-full rounded-tr-2xl rounded-tl-2xl"
+              src={News1}
+              alt="news 1"
+            />
+          </figure>
+          <div className="p-6 bg-[#274698] rounded-bl-2xl rounded-br-2xl">
+            <h4 className="text-white font-semibold text-lg">Education for primary care</h4>
+            <p className="text-gray-100 text-[16px] font-medium">Free access</p>
+            <div className="mt-4 flex justify-between items-center">
+              <span className="text-[14px] text-gray-100 font-medium">Jun 23</span>
+              <span className="text-[14px] text-gray-100 font-medium">200 reader</span>
             </div>
           </div>
         </div>
 
-        <figure className="h-full w-full justify-self-center">
-          <Image 
-            className="w-full h-full object-cover bg-center rounded-2xl"
-            src={News1}
-            alt="testing image"
-          />
-        </figure> 
-
-        <div className="flex flex-col gap-8 justify-self-end">
-          <div className="flex items-center gap-4">
-            <h3 className="text-[30px] font-bold text-[#274698]">06</h3>
-            <div>
-              <h4 className="font-semibold text-[16px] text-[#1a1a1a]">Education for Primary Care</h4>
-              <p className="font-medium text-[14px] text-[#333]">Description</p>
-            </div>
-          </div>
-           <div className="flex items-center gap-4">
-            <h3 className="text-[30px] font-bold text-[#274698]">07</h3>
-            <div>
-              <h4 className="font-semibold text-[16px] text-[#1a1a1a]">Education for Primary Care</h4>
-              <p className="font-medium text-[14px] text-[#333]">Description</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <h3 className="text-[30px] font-bold text-[#274698]">08</h3>
-            <div>
-              <h4 className="font-semibold text-[16px] text-[#1a1a1a]">Education for Primary Care</h4>
-              <p className="font-medium text-[14px] text-[#333]">Description</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <h3 className="text-[30px] font-bold text-[#274698]">09</h3>
-            <div>
-              <h4 className="font-semibold text-[16px] text-[#1a1a1a]">Education for Primary Care</h4>
-              <p className="font-medium text-[14px] text-[#333]">Description</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <h3 className="text-[30px] font-bold text-[#274698]">10</h3>
-            <div>
-              <h4 className="font-semibold text-[16px] text-[#1a1a1a]">Education for Primary Care</h4>
-              <p className="text-medium text-[14px] text-[#333]">Description</p>
+	      <div className="rounded-lg">
+          <figure className="block overflow-hidden rounded-tl-2xl rounded-tr-2xl">
+            <Image
+              className="duration-100 hover:scale-110 w-full rounded-tr-2xl rounded-tl-2xl"
+              src={News1}
+              alt="news 1"
+            />
+          </figure>
+          <div className="p-6 bg-[#274698] rounded-bl-2xl rounded-br-2xl">
+            <h4 className="text-white font-semibold text-lg">Education for primary care</h4>
+            <p className="text-gray-100 text-[16px] font-medium">Free access</p>
+            <div className="mt-4 flex justify-between items-center">
+              <span className="text-[14px] text-gray-100 font-medium">Jun 23</span>
+              <span className="text-[14px] text-gray-100 font-medium">200 reader</span>
             </div>
           </div>
         </div>
+
+	      <div className="rounded-lg">
+          <figure className="block overflow-hidden rounded-tl-2xl rounded-tr-2xl">
+            <Image
+              className="duration-100 hover:scale-110 w-full rounded-tr-2xl rounded-tl-2xl"
+              src={News1}
+              alt="news 1"
+            />
+          </figure>
+          <div className="p-6 bg-[#274698] rounded-br-2xl rounded-bl-2xl">
+            <h4 className="text-white font-semibold text-lg">Education for primary care</h4>
+            <p className="text-gray-100 text-[16px] font-medium">Free access</p>
+            <div className="mt-4 flex justify-between items-center">
+              <span className="text-[14px] text-gray-100 font-medium">Jun 23</span>
+              <span className="text-[14px] text-gray-100 font-medium">200 reader</span>
+            </div>
+          </div>
+        </div>
+
+	      <div className="rounded-lg">
+          <figure className="block relative overflow-hidden rounded-tl-2xl rounded-tr-2xl">
+            <Image
+              className="duration-100 hover:scale-110 w-full rounded-tl-2xl rounded-tr-2xl"
+              src={News1}
+              alt="news 1"
+            />
+          </figure>
+          <div className="p-6 bg-[#274698] rounded-br-2xl rounded-bl-2xl">
+            <h4 className="text-white font-semibold text-lg">Education for primary care</h4>
+            <p className="text-gray-100 text-[16px] font-medium">Free access</p>
+            <div className="mt-4 flex justify-between items-center">
+              <span className="text-[14px] text-gray-100 font-medium">Jun 23</span>
+              <span className="text-[14px] text-gray-100 font-medium">200 reader</span>
+            </div>
+          </div>
+        </div>  
       </div>
     </div>
   )
 }
+
 export default PDKIConference

@@ -19,16 +19,16 @@ const About: FC<AboutProps> = () => {
 
   return (
     <>
-      <main className="container mx-auto">
+      <main className="container px-4 mx-auto">
         <Navigation />
         <figure className="relative">
             <Image 
-              className="w-full h-[70vh] object-cover bg-cover rounded-br-3xl rounded-bl-3xl"
+              className="w-full h-[600px] object-cover bg-cover rounded-br-3xl rounded-bl-3xl"
               src={Banner}
               alt="banner image"
             />
             <div className="flex flex-col items-center gap-8 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-              <h1 className="text-[240px] mb-2 lg:text-[40px] text-center font-bold text-white">Sejarah Kedokteran Keluarga Indonesia</h1>
+              <h1 className="text-[50px] mb-2 text-center font-bold text-white">Sejarah Kedokteran Keluarga Indonesia</h1>
               <button 
                 className="px-6 duration-75 py-[8px] bg-white hover:bg-transparent hover:border-2 hover:border-white hover:text-white text-center md:py-[12px] md:px-8 rounded-3xl text-[#274698] font-medium text-[16px] md:text-[18px]"
                 onClick={handleGetConnection}
@@ -39,7 +39,7 @@ const About: FC<AboutProps> = () => {
           </figure>
 
           <section className="my-8 px-6">
-            <div className="flex justify-between items-start gap-12">
+            <div className="flex flex-col md:flex-row justify-between items-start gap-6 md:gap-12">
               <p className="text-[16px] font-medium text-[#333]">
                 <span className="text-3xl font-bold text-[#274698]">I</span>ndonesia sebagai negara kepulauan terbesar di dunia yang terdiri tujuh belas ribu pulau yang tersebar, tentunya memiliki tantangan tersendiri dalam distribusi layanan Kesehatan. Wilayah yang luas dan terpencar-pencar menjadi alasan dibutuhkan banyak tenaga kesehatan yang tersebar di seluruh wilayah Indonesia untuk dapat memberikan pelayanan kesehatan yang optimal. Meskipun secara kuantitas belum memadai, namun penguatan sumber daya secara kualitas perlu dimaksimalkan.
               </p>
@@ -51,22 +51,22 @@ const About: FC<AboutProps> = () => {
             <div className="flex justify-between flex-col items-start gap-12 mt-8">
               <h2 className="text-[30px] font-bold text-[#1a1a1a]"><span className="text-[#274698]">Kelompok Studi Dokter Keluarga</span> Di dirikan oleh 16 orang</h2>
               <div className="flex flex-col items-start gap-12">
-                <div className="flex justify-between flex-col items-start gap-6">
-                  <ul className="flex gap-4 justify-center wrap">
+                <div className="flex justify-between flex-col flex-wrap items-start gap-6">
+                  <ul className="flex gap-6 justify-around flex-wrap">
                     {studyGroupOne.map((people, idx) => (
                       <li 
                         key={idx} 
-                        className="font-medium text-[#fff] text-center p-2 bg-[#274698] rounded-2xl"
+                        className="font-medium text-[#fff] w-[300px] text-center py-4 bg-[#274698] rounded-2xl"
                       >
                         {people}
                       </li>
                     ))}   
                   </ul> 
-                  <ul className="flex gap-4 justify-center wrap">
+                  <ul className="flex gap-6 justify-around flex-wrap">
                     {studyGroupTwo.map((people, idx) => (
                         <li 
                           key={idx} 
-                          className="font-medium text-[#fff] text-center p-2 bg-[#329E93] rounded-2xl"
+                          className="font-medium text-[#fff] w-[300px] text-center py-4 bg-[#329E93] rounded-2xl"
                         >
                           {people}
                         </li>
@@ -83,7 +83,7 @@ const About: FC<AboutProps> = () => {
             <div className="flex justify-between flex-col gap-12 mt-8">
               <h2 className="text-[30px] font-bold text-[#1a1a1a]">Metamorfosis <span className="text-[#329E93]">Perhimpunan Dokter Keluarga Indonesia</span></h2>
               <Image 
-                className="w-[80%] mx-auto"
+                className="w-full md:w-[80%] mx-auto"
                 src={Metaporfosis} 
                 alt="metahorfosis PDKI siklus" 
               />
@@ -104,7 +104,7 @@ const About: FC<AboutProps> = () => {
             <div className="mt-8 flex flex-col gap-8">
               <h2 className="font-bold text-[30px] text-[#1a1a1a]">Ketua Perhimpunan Keluarga Indonesia</h2>
               <Image 
-                className="w-[80%] mx-auto"
+                className="w-full md:w-[80%] mx-auto"
                 src={PDKILeader}
                 alt="PDKI Leader image"
               />

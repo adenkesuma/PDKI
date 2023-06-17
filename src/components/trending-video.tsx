@@ -10,10 +10,10 @@ const TrendingVideo: FC<TrendingVideoProps> = () => {
   return (
     <div className="w-full">
       <h2 className="font-semibold text-[18px] lg:text-[20px] mb-4">Video Pelatihan Populer</h2>
-      <div className="h-[380px] bg-[#274698] rounded-2xl p-4 text-white flex flex-col gap-6">
+      <div className="h-[380px] lg:h-[430px] bg-[#274698] rounded-2xl p-4 text-white flex flex-col gap-6">
         {fakeData.map((data) => (
           <div key={data.id} className="flex items-center gap-4 hover:bg-[#19388b] rounded-xl duration-75">
-            <div className="w-[50px] h-[50px]">
+            <div className="w-[50px] h-[50px] lg:w-[60px] lg:h-[60px]">
               <Image
                 className="w-full h-full object-cover bg-center rounded-xl border-2 border-white" 
                 src={fakeImage} 
