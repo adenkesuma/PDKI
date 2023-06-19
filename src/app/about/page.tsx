@@ -44,15 +44,15 @@ const About: FC<AboutProps> = () => {
                 <span className="text-3xl font-bold text-[#274698]">I</span>ndonesia sebagai negara kepulauan terbesar di dunia yang terdiri tujuh belas ribu pulau yang tersebar, tentunya memiliki tantangan tersendiri dalam distribusi layanan Kesehatan. Wilayah yang luas dan terpencar-pencar menjadi alasan dibutuhkan banyak tenaga kesehatan yang tersebar di seluruh wilayah Indonesia untuk dapat memberikan pelayanan kesehatan yang optimal. Meskipun secara kuantitas belum memadai, namun penguatan sumber daya secara kualitas perlu dimaksimalkan.
               </p>
               <p className="text-[16px] font-medium text-[#333]">
-                <span className="text-3xl font-bold text-[#274698]">K</span>einginan untuk mewujudkan pelayanan kesehatan tingkat primer yang berkualits, telah lama dicanangkan di Indonesia. Gagasan mengenai kedokteran keluarga muncul dari sejumlah Dokter di Fakultas Kedokteran Universitas Indonesia usai menghadiri International Conference of Family Medicine di Philipina tahun 1980-an. Kemudian pada 20 Desember  tahun 1981, para tokoh ini membentuk Kelompok Studi Dokter Keluarga (KSDK) di Jakarta.
+                <span className="text-3xl font-bold text-[#274698]">K</span>einginan untuk mewujudkan pelayanan kesehatan tingkat primer yang berkualitas, telah lama dicanangkan di Indonesia. Gagasan mengenai kedokteran keluarga muncul dari sejumlah Dokter di Fakultas Kedokteran Universitas Indonesia usai menghadiri International Conference of Family Medicine di Philipina tahun 1980-an. Kemudian pada 20 Desember  tahun 1981, para tokoh ini membentuk Kelompok Studi Dokter Keluarga (KSDK) di Jakarta.
               </p>
             </div>
 
             <div className="flex justify-between flex-col items-start gap-12 mt-8">
               <h2 className="text-[30px] font-bold text-[#1a1a1a]"><span className="text-[#274698]">Kelompok Studi Dokter Keluarga</span> Di dirikan oleh 16 orang</h2>
               <div className="flex flex-col items-start gap-12">
-                <div className="flex justify-between flex-col flex-wrap items-start gap-6">
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="flex justify-between flex-col flex-wrap items-center gap-6">
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8">
                     {studyGroupOne.map((people, idx) => (
                       <li 
                         key={idx} 
@@ -62,7 +62,7 @@ const About: FC<AboutProps> = () => {
                       </li>
                     ))}   
                   </ul> 
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8 w-full">
                     {studyGroupTwo.map((people, idx) => (
                         <li 
                           key={idx} 

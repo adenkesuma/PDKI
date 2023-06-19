@@ -2,7 +2,7 @@ import { FC } from "react"
 import News1 from "../../public/assets/images/news-1.png"
 import Link from "next/link"
 import Image from "next/image"
-import { TbChevronRight, TbShare } from "react-icons/tb"
+import { TbChevronRight, TbArrowUpRight } from "react-icons/tb"
 
 interface LatestNewsProps {}
 
@@ -21,12 +21,17 @@ const LatestNews: FC<LatestNewsProps> = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div>
-          <figure className="block overflow-hidden rounded-tl-2xl rounded-tr-2xl">
+          <figure className="relative block overflow-hidden rounded-tl-2xl rounded-tr-2xl">
             <Image 
               className="duration-100 hover:scale-110 w-full rounded-tr-2xl rounded-tl-2xl"
               src={News1}
               alt="news 1"
             />
+            <div className="absolute top-5 right-5 p-2 rounded-[50%] bg-white">
+              <Link href="/news/:id">
+                <TbArrowUpRight className="w-[24px] h-[24px] text-[#274698]"/>
+              </Link>
+            </div>
           </figure>
           <div className="p-6 bg-[#274698] rounded-bl-2xl rounded-br-2xl">
             <h4 className="text-white font-semibold text-lg">Education for primary care</h4>
@@ -39,12 +44,17 @@ const LatestNews: FC<LatestNewsProps> = () => {
         </div>
 
 	      <div className="rounded-lg">
-          <figure className="block overflow-hidden rounded-tl-2xl rounded-tr-2xl">
+          <figure className="relative block overflow-hidden rounded-tl-2xl rounded-tr-2xl">
             <Image
               className="duration-100 hover:scale-110 w-full rounded-tr-2xl rounded-tl-2xl"
               src={News1}
               alt="news 1"
             />
+            <div className="absolute top-5 right-5 p-2 rounded-[50%] bg-white">
+              <Link href="/news/:id">
+                <TbArrowUpRight className="w-[24px] h-[24px] text-[#274698]"/>
+              </Link>
+            </div>
           </figure>
           <div className="p-6 bg-[#274698] rounded-bl-2xl rounded-br-2xl">
             <h4 className="text-white font-semibold text-lg">Education for primary care</h4>
@@ -57,12 +67,17 @@ const LatestNews: FC<LatestNewsProps> = () => {
         </div>
 
 	      <div className="rounded-lg">
-          <figure className="block overflow-hidden rounded-tl-2xl rounded-tr-2xl">
+          <figure className="relative block overflow-hidden rounded-tl-2xl rounded-tr-2xl">
             <Image
               className="duration-100 hover:scale-110 w-full rounded-tr-2xl rounded-tl-2xl"
               src={News1}
               alt="news 1"
             />
+            <div className="absolute top-5 right-5 p-2 rounded-[50%] bg-white">
+              <Link href="/news/:id">
+                <TbArrowUpRight className="w-[24px] h-[24px] text-[#274698]"/>
+              </Link>
+            </div>
           </figure>
           <div className="p-6 bg-[#274698] rounded-br-2xl rounded-bl-2xl">
             <h4 className="text-white font-semibold text-lg">Education for primary care</h4>
@@ -81,6 +96,11 @@ const LatestNews: FC<LatestNewsProps> = () => {
               src={News1}
               alt="news 1"
             />
+            <div className="absolute top-5 right-5 p-2 rounded-[50%] bg-white">
+              <Link href="/news/:id">
+                <TbArrowUpRight className="w-[24px] h-[24px] text-[#274698]"/>
+              </Link>
+            </div>
           </figure>
           <div className="p-6 bg-[#274698] rounded-br-2xl rounded-bl-2xl">
             <h4 className="text-white font-semibold text-lg">Education for primary care</h4>

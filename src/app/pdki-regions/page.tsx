@@ -34,25 +34,11 @@ const PDKIRegions: FC<PDKIRegionsProps> = () => {
                   Tambah Koneksi
                 </button>
               </div>
-        </figure> 
-
-        <section className="mt-8 px-6">
-          <h2 className="text-[30px] font-semibold mb-6">Region Information</h2>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {ProvinsiIndonesia.map((prov, idx) => (
-              <div key={idx}>
-                <div className="flex gap-4 items-center">
-                  <TbChevronRight className="font-semibold w-[26px] h-[26px] text-[#274698]"/>
-                  <p className="font-semibold text-[18px] text-[#333]">{prov}</p>
-                </div>
-              </div>
-            ))}
-          </ul>
-        </section>
+        </figure>  
 
         <section className="mt-8 px-6 mb-8">
           <h2 className="font-semibold text-[30px] mb-6">Region News</h2>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-col items-start sm:flex-row sm:items-center gap-6">
             <h3 className="text-xl font-semibold text-[#333]">Filter sesuai provinsi</h3>
             <select className="rounded-xl p-2 bg-[#274698] text-white">
               {ProvinsiIndonesia.map((prov, idx) => (

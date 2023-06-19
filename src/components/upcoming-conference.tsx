@@ -2,7 +2,7 @@ import { FC } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import ConferenceImage from "../../public/assets/images/conference.svg"
-import { TbShare } from "react-icons/tb"
+import { TbArrowUpRight } from "react-icons/tb"
 
 interface UpcomingConferenceProps {}
 
@@ -11,7 +11,7 @@ const UpcomingConference: FC<UpcomingConferenceProps> = () => {
     <div className="w-full">
       <h2 className="font-semibold text-[18px] lg:text-[20px] mb-4">Konferensi yang akan datang</h2>
       <div className="rounded-2xl bg-[#274698] h-[380px] lg:h-[430px]">
-        <Link href="/conference/:id">
+        <div>
           <div className="w-full h-[70%] relative overflow-hidden rounded-tl-2xl rounded-tr-2xl">  
             <Image
               className="hover:scale-110 duration-100 rounded-tl-2xl rounded-tr-2xl w-full h-full bg-cover object-cover" 
@@ -19,8 +19,8 @@ const UpcomingConference: FC<UpcomingConferenceProps> = () => {
               alt="conference image"
             />
             <div className="absolute top-5 right-5 p-2 rounded-[50%] bg-white">
-              <Link href="#">
-                <TbShare className="w-[24px] h-[24px] text-[#274698]"/>
+              <Link href="/conference/:id">
+                <TbArrowUpRight className="w-[24px] h-[24px] text-[#274698]"/>
               </Link>
             </div>
           </div>
@@ -31,7 +31,7 @@ const UpcomingConference: FC<UpcomingConferenceProps> = () => {
               <span className="text-[14px]">10 jun 2023</span>
             </div>
           </div>
-        </Link>
+        </div>
       </div>
     </div>
   )

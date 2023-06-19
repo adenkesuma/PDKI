@@ -20,7 +20,7 @@ const TrendingVideo: FC<TrendingVideoProps> = () => {
                 alt="fake image"
               />
             </div>
-            <Link href="/trending-video/:id">
+            <Link href="/training-video/:id">
               <h3 className="font-medium text-[16px] text-[#fff]">{data.text}</h3>
               <p className="font-medium text-[14px] text-[#cacaca]">{data.date}</p>
             </Link>
