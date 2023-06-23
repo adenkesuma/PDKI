@@ -75,3 +75,13 @@ export const ProvinsiIndonesia = [
     'Jakarta',
     'Bengkulu'
 ]
+
+export const filterDropdownNews = [
+    'Berita terbaru',
+    'Berita terlama'
+]
+
+export const filterDropdownConference = [
+    'Konferensi terbaru',
+    'Konferensi terlama'
+]

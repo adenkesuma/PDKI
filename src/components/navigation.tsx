@@ -8,7 +8,7 @@ const Navigation: FC = () => {
       <ul className="flex justify-center items-center gap-8 lg:gap-16 xl:gap-20 snap-x overflow-x-auto scroll-smooth snap-start">
         {navigation.map((nav) => (
           <li key={nav.id}>
-            <Link href={nav.link} className="text-[14px] lg:text-[16px] text-white font-medium hover:text-blue-300">
+            <Link href={nav.link} className="text-[14px] lg:text-[16px] text-white font-medium">
               {nav.text}
             </Link>
           </li>

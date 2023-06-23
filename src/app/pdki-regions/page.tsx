@@ -8,6 +8,7 @@ import GetConnection from "@/components/get-connection.tsx"
 import { ProvinsiIndonesia } from "@/utils/constant.tsx"
 import { TbChevronRight } from "react-icons/tb"
 import LatestNews from "@/components/latest-news.tsx"
+import PDKIConference from "@/components/pdki-conference.tsx"
 
 interface PDKIRegionsProps {}
 
@@ -49,6 +50,7 @@ const PDKIRegions: FC<PDKIRegionsProps> = () => {
             </select>
           </div>
           <LatestNews />
+          <PDKIConference />
         </section>
       </main>
       {show === true ? <GetConnection handleConnection={handleGetConnection} setShow={setShow}/> : ""}

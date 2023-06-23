@@ -6,7 +6,7 @@ interface GetConnectionProps {
   setShow: (show: boolean) => void
 }
 
-const GetConnection: FC<GetConnectionProps> = ({ handleConnection, setShow }) => {
+const GetConnection = ({ handleConnection, setShow } : GetConnectionProps) => {
 
   return (
     <div className="mx-auto fixed left-0 right-0 bottom-0 top-0 h-[100vh] w-[100%] opacity-95 bg-[#274698] flex flex-col justify-center gap-12 items-center">
