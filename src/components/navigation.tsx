@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { navigation } from "../utils/links-text.tsx"
+import { navigation } from "../utils/links-text.ts"
 import Link from "next/link"
 
 const Navigation: FC = () => {

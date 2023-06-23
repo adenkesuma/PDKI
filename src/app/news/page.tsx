@@ -3,10 +3,8 @@ import { useState } from "react"
 import { TbArrowUpRight } from "react-icons/tb"
 import { filterDropdownNews } from "@/utils/constant"
 import Link from "next/link"
-import Navigation from "@/components/navigation"
-import GetConnection from "@/components/get-connection"
+import Header from "@/components/header"
 import Image from "next/image"
-import Banner from "@/../public/assets/images/image-banner.jpg"
 
 interface NewsProps {
   id: number;
@@ -21,44 +19,26 @@ interface NewsProps {
   published: boolean;
 }
 
-async function getData() {
+async function fetchNews() {
   const res = await fetch('http://localhost:8080/api/route/news')
 
   if(!res.ok) {
     throw new Error("Failed to load")
   }
 
-  const data = await res.json()
+  const news = await res.json()
 
-  return data.data
+  return news.data
 }
 
 const News = async () => {
-  const [show, setShow] = useState<Boolean>(false)
-  const dataFetch = await getData()
-
-  const handleGetConnection = () => setShow(true)
+  const getFetchNews = await fetchNews()
 
   return (
     <>
       <main className="container px-4 sm:px-0 mx-auto">
-        <Navigation />
-        <figure className="relative">
-              <Image 
-                className="w-full h-[600px] object-cover bg-cover rounded-br-3xl rounded-bl-3xl"
-                src={Banner}
-                alt="banner image"
-              />
-              <div className="flex flex-col items-center gap-8 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-                <h1 className="text-[50px] mb-2 text-center font-bold text-white">PDKI News</h1>
-                <button 
-                  className="px-6 duration-75 py-[8px] bg-white hover:bg-transparent hover:border-2 hover:border-white hover:text-white text-center md:py-[12px] md:px-8 rounded-3xl text-[#274698] font-medium text-[16px] md:text-[18px]"
-                  onClick={handleGetConnection}
-                >
-                  Tambah Koneksi
-                </button>
-              </div>
-        </figure>  
+        {/* header dari halaman berita */}
+        <Header heading="PDKI" subheading="Berita dan Informasi" />
 
         <section className="my-12">
           <h2 className="font-semibold text-[30px] mb-4">News</h2>
@@ -77,7 +57,7 @@ const News = async () => {
 
           {/* news */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {dataFetch.map((item : NewsProps) => (
+            {getFetchNews.map((item : NewsProps) => (
                <div key={item.id} className="bg-[#274698] rounded-2xl">
                     <figure className="relative block overflow-hidden rounded-tl-2xl rounded-tr-2xl">
                         <Image 
@@ -109,7 +89,6 @@ const News = async () => {
         </section>
 
       </main>
-      {show === true ? <GetConnection handleConnection={handleGetConnection} setShow={setShow}/> : ""}
     </>
   )
 }

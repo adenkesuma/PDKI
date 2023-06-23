@@ -37,12 +37,7 @@ const Navbar: FC<NavbarProps> = () => {
                 alt="logo WONCA (world family doctors caring for people 'ASIA FACIFIC')"
               />
             </li>
-          </ul>
-          <div className="flex items-center gap-6"> 
-            <button className="px-6 py-[5px] md:px-10 md:py-3 rounded-3xl bg-[#274698] text-white font-medium text-[16px] md:text-[18px]" onClick={handleShowLogin}>
-                Masuk
-            </button>
-          </div> 
+          </ul> 
         </div>
       </nav>
       {show === true && <Login handleShowLogin={handleShowLogin} setShow={setShow}/>}

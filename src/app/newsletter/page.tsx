@@ -1,13 +1,13 @@
-import { FC } from "react"
-import Navigation from "../../components/navigation.tsx"
+import Header from "@/components/header.tsx"
 
-interface NewsletterProps {}
-
-const Newsletter: FC<NewsletterProps> = () => {
+const Newsletter = () => {
   return (
     <>
-      <Navigation />
-      <h1>Newsletter</h1>
+      <main className="container px-4 sm:px-0 mx-auto">
+        {/* header dari halaman catatan  */}
+        <Header heading="PDKI" subheading="Buletin" /> 
+
+      </main>
     </>
   )
 }

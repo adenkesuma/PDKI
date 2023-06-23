@@ -1,12 +1,8 @@
-"use client"
-import { useState } from "react"
 import { TbArrowUpRight } from "react-icons/tb"
 import { filterDropdownConference } from "@/utils/constant"
 import Link from "next/link"
-import Navigation from "@/components/navigation"
-import GetConnection from "@/components/get-connection"
 import Image from "next/image"
-import Banner from "@/../public/assets/images/image-banner.jpg"
+import Header from "@/components/header"
 
 interface ConferenceProps {
   id: number;
@@ -21,46 +17,26 @@ interface ConferenceProps {
   published: boolean;
 }
 
-async function getData() {
+async function fetchConference() {
   const res = await fetch('http://localhost:8080/api/route/conference')
 
   if(!res.ok) {
     throw new Error("Failed to load")
   }
 
-  const data = await res.json()
+  const conference = await res.json()
 
-  return data
+  return conference.data
 }
 
 const Conference = async () => {
-  const [show, setShow] = useState<Boolean>(false)
-  const fetchConference = await getData()
-
+  const getFetchConference = await fetchConference()
   console.log(fetchConference)
-
-  const handleGetConnection = () => setShow(true)
 
   return (
     <>
       <main className="container px-4 sm:px-0 mx-auto">
-        <Navigation />
-        <figure className="relative">
-              <Image 
-                className="w-full h-[600px] object-cover bg-cover rounded-br-3xl rounded-bl-3xl"
-                src={Banner}
-                alt="banner image"
-              />
-              <div className="flex flex-col items-center gap-8 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-                <h1 className="text-[50px] mb-2 text-center font-bold text-white">PDKI Konferensi</h1>
-                <button 
-                  className="px-6 duration-75 py-[8px] bg-white hover:bg-transparent hover:border-2 hover:border-white hover:text-white text-center md:py-[12px] md:px-8 rounded-3xl text-[#274698] font-medium text-[16px] md:text-[18px]"
-                  onClick={handleGetConnection}
-                >
-                  Tambah Koneksi
-                </button>
-              </div>
-        </figure>  
+        <Header heading="PDKI" subheading="Konferensi dan Acara" /> 
 
         <section className="my-12">
           <h2 className="font-semibold text-[30px] mb-4">Konferensi</h2>
@@ -79,7 +55,7 @@ const Conference = async () => {
 
           {/* confernce */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {fetchConference.map((item : ConferenceProps) => (
+            {getFetchConference.map((item : ConferenceProps) => (
                <div key={item.id} className="bg-[#274698] rounded-2xl">
                     <figure className="relative block overflow-hidden rounded-tl-2xl rounded-tr-2xl">
                         <Image 
@@ -111,7 +87,6 @@ const Conference = async () => {
         </section>
 
       </main>
-      {show === true ? <GetConnection handleConnection={handleGetConnection} setShow={setShow}/> : ""}
     </>
   )
 }

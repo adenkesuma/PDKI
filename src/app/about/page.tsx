@@ -7,36 +7,14 @@ import Metaporfosis from "@/../public/assets/svg/metaporfosis.svg"
 import PDKILeader from "@/../public/assets/images/pdki-leader.png"
 import Banner from "@/../public/assets/images/image-banner.jpg" 
 import { studyGroupOne, studyGroupTwo } from "@/utils/constant.tsx"
+import Header from "@/components/header.tsx"
 
-interface AboutProps {}
-
-const About: FC<AboutProps> = () => {
-  const [show, setShow] = useState<Boolean>(false)
-
-  const handleGetConnection = () => {
-    setShow(true)
-  }
-
+const About = () => {
   return (
     <>
       <main className="container px-4 sm:px-0 mx-auto">
-        <Navigation />
-        <figure className="relative">
-            <Image 
-              className="w-full h-[600px] object-cover bg-cover rounded-br-3xl rounded-bl-3xl"
-              src={Banner}
-              alt="banner image"
-            />
-            <div className="flex flex-col items-center gap-8 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-              <h1 className="text-[50px] mb-2 text-center font-bold text-white">Sejarah Kedokteran Keluarga Indonesia</h1>
-              <button 
-                className="px-6 duration-75 py-[8px] bg-white hover:bg-transparent hover:border-2 hover:border-white hover:text-white text-center md:py-[12px] md:px-8 rounded-3xl text-[#274698] font-medium text-[16px] md:text-[18px]"
-                onClick={handleGetConnection}
-              >
-                Tambah Koneksi
-              </button>
-            </div>
-          </figure>
+          {/* header dari halaman tentang */}
+          <Header heading="PDKI" subheading="Sejarah Perhimpunan Keluarga Indonesia" />
 
           <section className="my-8 px-6">
             <div className="flex flex-col md:flex-row justify-between items-start gap-6 md:gap-12">
@@ -117,7 +95,6 @@ const About: FC<AboutProps> = () => {
             </div>
           </section>
       </main>
-      {show === true ? <GetConnection handleConnection={handleGetConnection} setShow={setShow}/> : ""}
     </>
   )
 }
