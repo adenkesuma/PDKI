@@ -30,11 +30,11 @@ async function getData() {
 
   const data = await res.json()
 
-  return data
+  return data.data
 }
 
 const Conference = async () => {
-  const [show, setShow] = useState<Boolean>(false)
+  const [show, setShow] = useState(false)
   const fetchConference = await getData()
 
   console.log(fetchConference)
@@ -79,7 +79,7 @@ const Conference = async () => {
 
           {/* confernce */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {fetchConference.map((item : ConferenceProps) => (
+            {fetchConference?.map((item : ConferenceProps) => (
                <div key={item.id} className="bg-[#274698] rounded-2xl">
                     <figure className="relative block overflow-hidden rounded-tl-2xl rounded-tr-2xl">
                         <Image 
