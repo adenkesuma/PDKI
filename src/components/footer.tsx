@@ -6,17 +6,12 @@ import Link from "next/link"
 import { socialMedia } from "@/utils/constant.tsx"
 
 // import utils
-import { aboutFooter, contactUsFooter, termsConditionsFooter } from "../utils/links-text.tsx"
+import { aboutFooter, contactUsFooter, termsConditionsFooter } from "../utils/links-text.ts"
 
 // import logos
 import LOGOS from "../../public/assets/logos/footer-logos.svg"
 
 const Footer: FC = () => {
-  const [hide, setHide] = useState<Boolean>(false)
-  
-  const handleHide = () => {
-    setHide(!hide)
-  }
 
   return (
     <footer className="px-4 pb-4 lg:px-0 lg:pb-0">

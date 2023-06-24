@@ -1,34 +1,51 @@
-import { FC } from "react"
+import { NewsProps } from "@/utils/interface"
 import Image from "next/image"
 import Link from "next/link"
-import fakeImage from "@/../public/assets/images/news-3.png"
-import { fakeData } from "../utils/fake-data.ts"
 
-interface TrendingNewsProps {}
+async function fetchTrendingNews() {
+  const res = await fetch("http://localhost:8080/api/route/news")
 
-const TrendingNews: FC<TrendingNewsProps> = () => {
+  if (!res.ok) {
+    throw new Error("fetching data invalid")
+  }
+
+  const trendingVideo = res.json()
+
+  return trendingVideo
+}
+
+const TrendingNews = async () => {
+  const getTrendingNews = await fetchTrendingNews()
+
+  // mengurutkan data berdasarkan views
+  const sortedVideos = getTrendingNews.data.sort((a: { views: number}, b: { views: number}) => b.views - a.views)
+
+  // mengambil 5 data teratas dengan views terbanyak
+  const topVideos: [] = sortedVideos.slice(0, 5)
+
   return (
-    <div className="w-full">
+    <div className="w-full overflow-hidden">
       <h2 className="font-semibold text-[18px] lg:text-[20px] mb-4">Berita Populer</h2>
-      <div className="h-[380px] lg:h-[430px] bg-[#274698] rounded-2xl p-4 text-white flex flex-col gap-6">
-        {fakeData.map((data) => (
-          <div key={data.id} className="flex items-center gap-4 hover:bg-[#19388b] rounded-xl duration-75">
-            <div className="w-[50px] lg:h-[60px] lg:w-[60px] h-[50px]">
+      <div className="h-[380px] lg:h-[410px] bg-[#274698] rounded-2xl p-4 text-white flex flex-col gap-6">
+        {topVideos.map((item: NewsProps) => (
+          <div key={item.id} className="flex items-center gap-4 hover:bg-[#19388b] rounded-xl duration-75">
+            <div className="w-[50px] h-[50px] lg:w-[60px] lg:h-[55px]">
               <Image
+                width={300}
+                height={200}
                 className="w-full h-full object-cover bg-center rounded-xl border-2 border-white" 
-                src={fakeImage} 
-                alt="fake image"
+                src={item.image} 
+                alt="Image"
               />
             </div>
-            <Link href="/news/:id">
-              <h3 className="text-[16px] font-medium text-[#fff]">{data.text}</h3>
-              <p className="font-medium text-[14px] text-[#cacaca]">{data.date}</p>
+            <Link href="/training-video/:id" className="w-full overflow-hidden">
+              <h3 className="font-medium text-[16px] text-[#fff] text-ellipsis whitespace-nowrap overflow-hidden">{item.title}</h3>
+              <p className="font-medium text-[14px] text-[#cacaca] text-ellipsis whitespace-nowrap overflow-hidden">{item.description}</p>
             </Link>
           </div>
-        ))}
+        ))} 
       </div>
     </div>
   )
 }
-
 export default TrendingNews

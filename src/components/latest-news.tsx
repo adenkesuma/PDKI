@@ -1,12 +1,34 @@
-import { FC } from "react"
 import News1 from "../../public/assets/images/news-1.png"
 import Link from "next/link"
 import Image from "next/image"
 import { TbChevronRight, TbArrowUpRight } from "react-icons/tb"
+import { NewsProps } from "@/utils/interface";
 
-interface LatestNewsProps {}
+interface Item {
+  id: number;
+}
 
-const LatestNews: FC<LatestNewsProps> = () => {
+async function fetchLatestNews() {
+  const res = await fetch('http://localhost:8080/api/route/news')
+
+  if (!res.ok) {
+    throw new Error('fetching data invalid')
+  }
+
+  const latestNews = res.json()
+
+  return latestNews
+}
+
+const LatestNews = async () => {
+  const getLatestNews = await fetchLatestNews()
+
+  const sortedData = getLatestNews.data.sort((a: Item, b: Item) => b.id - a.id)
+
+  const fourLatestNews = sortedData.slice(0, 4)
+
+  console.log(fourLatestNews)
+
   return (
     <div className="mt-8">
       <div className="flex justify-between items-center mb-6">
@@ -20,98 +42,34 @@ const LatestNews: FC<LatestNewsProps> = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div>
-          <figure className="relative block overflow-hidden rounded-tl-2xl rounded-tr-2xl">
-            <Image 
-              className="duration-100 hover:scale-110 w-full rounded-tr-2xl rounded-tl-2xl"
-              src={News1}
-              alt="news 1"
-            />
-            <div className="absolute top-5 right-5 p-2 rounded-[50%] bg-white">
-              <Link href="/news/:id">
-                <TbArrowUpRight className="w-[24px] h-[24px] text-[#274698]"/>
-              </Link>
+        {fourLatestNews.map((item: NewsProps) => ( 
+          <div key={item.id}>
+            <figure className="h-[160px] relative block overflow-hidden rounded-tl-2xl rounded-tr-2xl">
+              <Image 
+                width={300}
+                height={300}
+                className="duration-100 object-cover bg-cover h-full hover:scale-110 w-full rounded-tr-2xl rounded-tl-2xl"
+                src={item.image}
+                alt="news 1"
+              />
+              <div className="absolute top-5 right-5 p-2 rounded-[50%] bg-white">
+                <Link href="/news/:id">
+                  <TbArrowUpRight className="w-[24px] h-[24px] text-[#274698]"/>
+                </Link>
+              </div>
+            </figure>
+            <div className="flex flex-col justify-between p-6 bg-[#274698] rounded-bl-2xl overflow-hidden rounded-br-2xl h-[140px]">
+              <div>
+                <h4 className="text-white font-semibold text-[16px] text-ellipsis overflow-hidden whitespace-nowrap">{item.title}</h4>
+                <p className="text-gray-300 text-[14px] font-medium text-ellipsis overflow-hidden whitespace-nowrap">{item.description}</p>
+              </div>
+              <div className="mt-4 flex justify-between items-center">
+                <span className="text-[14px] text-gray-100 font-medium">{item.publishedDate}</span>
+                <span className="text-[14px] text-gray-100 font-medium">{item.tags}</span>
+              </div>
             </div>
-          </figure>
-          <div className="p-6 bg-[#274698] rounded-bl-2xl rounded-br-2xl">
-            <h4 className="text-white font-semibold text-lg">Education for primary care</h4>
-            <p className="text-gray-100 text-[16px] font-medium">Free access</p>
-            <div className="mt-4 flex justify-between items-center">
-              <span className="text-[14px] text-gray-100 font-medium">Jun 23</span>
-              <span className="text-[14px] text-gray-100 font-medium">200 reader</span>
-            </div>
-          </div>
-        </div>
-
-	      <div className="rounded-lg">
-          <figure className="relative block overflow-hidden rounded-tl-2xl rounded-tr-2xl">
-            <Image
-              className="duration-100 hover:scale-110 w-full rounded-tr-2xl rounded-tl-2xl"
-              src={News1}
-              alt="news 1"
-            />
-            <div className="absolute top-5 right-5 p-2 rounded-[50%] bg-white">
-              <Link href="/news/:id">
-                <TbArrowUpRight className="w-[24px] h-[24px] text-[#274698]"/>
-              </Link>
-            </div>
-          </figure>
-          <div className="p-6 bg-[#274698] rounded-bl-2xl rounded-br-2xl">
-            <h4 className="text-white font-semibold text-lg">Education for primary care</h4>
-            <p className="text-gray-100 text-[16px] font-medium">Free access</p>
-            <div className="mt-4 flex justify-between items-center">
-              <span className="text-[14px] text-gray-100 font-medium">Jun 23</span>
-              <span className="text-[14px] text-gray-100 font-medium">200 reader</span>
-            </div>
-          </div>
-        </div>
-
-	      <div className="rounded-lg">
-          <figure className="relative block overflow-hidden rounded-tl-2xl rounded-tr-2xl">
-            <Image
-              className="duration-100 hover:scale-110 w-full rounded-tr-2xl rounded-tl-2xl"
-              src={News1}
-              alt="news 1"
-            />
-            <div className="absolute top-5 right-5 p-2 rounded-[50%] bg-white">
-              <Link href="/news/:id">
-                <TbArrowUpRight className="w-[24px] h-[24px] text-[#274698]"/>
-              </Link>
-            </div>
-          </figure>
-          <div className="p-6 bg-[#274698] rounded-br-2xl rounded-bl-2xl">
-            <h4 className="text-white font-semibold text-lg">Education for primary care</h4>
-            <p className="text-gray-100 text-[16px] font-medium">Free access</p>
-            <div className="mt-4 flex justify-between items-center">
-              <span className="text-[14px] text-gray-100 font-medium">Jun 23</span>
-              <span className="text-[14px] text-gray-100 font-medium">200 reader</span>
-            </div>
-          </div>
-        </div>
-
-	      <div className="rounded-lg">
-          <figure className="block relative overflow-hidden rounded-tl-2xl rounded-tr-2xl">
-            <Image
-              className="duration-100 hover:scale-110 w-full rounded-tl-2xl rounded-tr-2xl"
-              src={News1}
-              alt="news 1"
-            />
-            <div className="absolute top-5 right-5 p-2 rounded-[50%] bg-white">
-              <Link href="/news/:id">
-                <TbArrowUpRight className="w-[24px] h-[24px] text-[#274698]"/>
-              </Link>
-            </div>
-          </figure>
-          <div className="p-6 bg-[#274698] rounded-br-2xl rounded-bl-2xl">
-            <h4 className="text-white font-semibold text-lg">Education for primary care</h4>
-            <p className="text-gray-100 text-[16px] font-medium">Free access</p>
-            <div className="mt-4 flex justify-between items-center">
-              <span className="text-[14px] text-gray-100 font-medium">Jun 23</span>
-              <span className="text-[14px] text-gray-100 font-medium">200 reader</span>
-            </div>
-          </div>
-        </div>
-
+          </div> 
+        ))}
       </div>
     </div>
   )
