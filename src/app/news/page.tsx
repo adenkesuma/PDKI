@@ -6,7 +6,12 @@ import { NewsProps } from "@/utils/interface"
 
 
 async function fetchNews() {
-  const res = await fetch('http://localhost:8080/api/route/news')
+  const res = await fetch('http://localhost:8080/api/route/news', {
+    cache: 'no-store',
+    next: {
+      revalidate: 10
+    }
+  })
 
   if(!res.ok) {
     throw new Error("Failed to load")

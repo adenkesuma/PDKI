@@ -7,13 +7,18 @@ import { ConferenceProps } from "@/utils/interface"
 
 
 async function fetchConference() {
-  const res = await fetch('http://localhost:8080/api/route/conference')
+  const res = await fetch('http://localhost:8080/api/route/conference', {
+    cache: 'no-cache',
+    next: {
+      revalidate: 10
+    }
+  })
 
   if(!res.ok) {
     throw new Error("Failed to load")
   }
 
-  const conference = await res.json()
+  const conference = await await res.json()
 
   return conference
 }
@@ -32,7 +37,7 @@ const Conference = async () => {
           <input type="text" />
 
           {/* news */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {getFetchConference.data.map((item : ConferenceProps) => (
                <div key={item.id}>
                   <figure className="h-[160px] relative block overflow-hidden rounded-tl-2xl rounded-tr-2xl">
@@ -54,10 +59,10 @@ const Conference = async () => {
                       <h4 className="text-white font-semibold text-[16px] text-ellipsis overflow-hidden whitespace-nowrap">{item.title}</h4>
                       <p className="text-gray-300 text-[14px] font-medium text-ellipsis overflow-hidden whitespace-nowrap">{item.description}</p>
                     </div>
-                    {/* <div className="mt-4 flex justify-between items-center">
-                      <span className="text-[14px] text-gray-100 font-medium">{item.publishedDate}</span>
-                      <span className="text-[14px] text-gray-100 font-medium">{item.tags}</span>
-                    </div> */}
+                    <div className="mt-4 flex justify-between items-center">
+                      <span className="text-[14px] text-gray-100 font-medium">{item.startDate}</span>
+                      <span className="text-[14px] text-gray-100 font-medium">{item.organizer}</span>
+                    </div>
                   </div>
                 </div>  
             ))} 

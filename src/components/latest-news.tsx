@@ -1,4 +1,3 @@
-import News1 from "../../public/assets/images/news-1.png"
 import Link from "next/link"
 import Image from "next/image"
 import { TbChevronRight, TbArrowUpRight } from "react-icons/tb"
@@ -9,13 +8,18 @@ interface Item {
 }
 
 async function fetchLatestNews() {
-  const res = await fetch('http://localhost:8080/api/route/news')
+  const res = await fetch('http://localhost:8080/api/route/news', {
+    cache: 'no-store',
+    next: {
+      revalidate: 10
+    }
+  })
 
   if (!res.ok) {
-    throw new Error('fetching data invalid')
+    throw new Error('fetching data failed')
   }
 
-  const latestNews = res.json()
+  const latestNews = await res.json()
 
   return latestNews
 }
@@ -23,11 +27,9 @@ async function fetchLatestNews() {
 const LatestNews = async () => {
   const getLatestNews = await fetchLatestNews()
 
-  const sortedData = getLatestNews.data.sort((a: Item, b: Item) => b.id - a.id)
+  const sortedData = await getLatestNews.data.sort((a: Item, b: Item) => b.id - a.id)
 
-  const fourLatestNews = sortedData.slice(0, 4)
-
-  console.log(fourLatestNews)
+  const fourLatestNews = await sortedData.slice(0, 4)
 
   return (
     <div className="mt-8">
@@ -41,7 +43,7 @@ const LatestNews = async () => {
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {fourLatestNews.map((item: NewsProps) => ( 
           <div key={item.id}>
             <figure className="h-[160px] relative block overflow-hidden rounded-tl-2xl rounded-tr-2xl">

@@ -4,12 +4,11 @@ import TrendingNews from "../components/trending-news.tsx"
 import UpcomingConference from "../components/upcoming-conference.tsx"
 import Quote from "../components/quote.tsx"
 import LatestNews from "../components/latest-news.tsx"
-import PDKIConference from "../components/pdki-conference.tsx"
 import Header from "@/components/header.tsx"
 import TrendingVideo from "@/components/trending-video.tsx"
+import LatestConference from "../components/latest-conference.tsx"
 
 const Home = async () => {
-  const getTrendingVideo = await TrendingVideo() 
 
   return (
     <>
@@ -25,7 +24,7 @@ const Home = async () => {
 
         <section className="mt-8 mb-8 px-6">
           <Quote />
-          <PDKIConference />
+          <LatestConference />
           <LatestNews />
         </section>
       </main>

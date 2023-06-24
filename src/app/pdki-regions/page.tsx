@@ -2,7 +2,7 @@
 import { ProvinsiIndonesia } from "@/utils/constant.tsx"
 import Header from "@/components/header"
 import LatestNews from "@/components/latest-news.tsx"
-import PDKIConference from "@/components/pdki-conference.tsx"
+import PDKIConference from "@/components/latest-conference"
 
 const PDKIRegions = () => {
 

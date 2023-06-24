@@ -3,13 +3,18 @@ import Image from "next/image"
 import Link from "next/link"
 
 async function fetchTrendingVideo() {
-  const res = await fetch("http://localhost:8080/api/route/video")
+  const res = await fetch("http://localhost:8080/api/route/video", {
+    cache: 'no-store',
+    next: {
+      revalidate: 10
+    }
+  })
 
   if (!res.ok) {
     throw new Error("fetching data invalid")
   }
 
-  const trendingVideo = res.json()
+  const trendingVideo = await res.json()
 
   return trendingVideo
 }
@@ -18,10 +23,10 @@ const TrendingVideo = async () => {
   const getTrendingVideo = await fetchTrendingVideo()
 
   // mengurutkan data berdasarkan views
-  const sortedVideos = getTrendingVideo.data.sort((a: { views: number}, b: { views: number}) => b.views - a.views)
+  const sortedVideos = await getTrendingVideo.data.sort((a: { views: number}, b: { views: number}) => b.views - a.views)
 
   // mengambil 5 data teratas dengan views terbanyak
-  const topVideos: [] = sortedVideos.slice(0, 5)
+  const topVideos: [] = await sortedVideos.slice(0, 5)
 
   return (
     <div className="w-full overflow-hidden">
