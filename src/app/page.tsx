@@ -17,7 +17,7 @@ const Home = async () => {
         {/* header dari halaman awal */}
         <Header heading="PDKI" subheading="Perhimpunan Keluarga Dokter Indonesia" />        
 
-        <section className="mt-8 grid gap-6 lg:grid-cols-3 px-6">
+        <section className="mt-8 grid gap-6 md:grid-cols-3 px-6">
           <TrendingVideo /> 
           <UpcomingConference />
           <TrendingNews />

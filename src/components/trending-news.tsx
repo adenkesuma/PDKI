@@ -25,13 +25,13 @@ const TrendingNews = async () => {
 
   return (
     <div className="w-full overflow-hidden">
-      <h2 className="font-semibold text-[18px] lg:text-[20px] mb-4">Video Pelatihan Populer</h2>
-      <div className="h-[380px] lg:h-[430px] bg-[#274698] rounded-2xl p-4 text-white flex flex-col gap-6">
+      <h2 className="font-semibold text-[18px] lg:text-[20px] mb-4">Berita Populer</h2>
+      <div className="h-[380px] lg:h-[410px] bg-[#274698] rounded-2xl p-4 text-white flex flex-col gap-6">
         {topVideos.map((item: NewsProps) => (
           <div key={item.id} className="flex items-center gap-4 hover:bg-[#19388b] rounded-xl duration-75">
-            <div className="w-[50px] h-[50px] lg:w-[60px] lg:h-[60px]">
+            <div className="w-[50px] h-[50px] lg:w-[60px] lg:h-[55px]">
               <Image
-                width={200}
+                width={300}
                 height={200}
                 className="w-full h-full object-cover bg-center rounded-xl border-2 border-white" 
                 src={item.image} 

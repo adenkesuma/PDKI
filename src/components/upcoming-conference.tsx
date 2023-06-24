@@ -4,13 +4,11 @@ import Link from "next/link"
 import ConferenceImage from "../../public/assets/images/conference.svg"
 import { TbArrowUpRight } from "react-icons/tb"
 
-interface UpcomingConferenceProps {}
-
-const UpcomingConference: FC<UpcomingConferenceProps> = () => {
+const UpcomingConference = () => {
   return (
     <div className="w-full">
       <h2 className="font-semibold text-[18px] lg:text-[20px] mb-4">Konferensi yang akan datang</h2>
-      <div className="rounded-2xl bg-[#274698] h-[380px] lg:h-[430px]">
+      <div className="flex rounded-2xl bg-[#274698] h-[380px] lg:h-[410px]">
         <div>
           <div className="w-full h-[70%] relative overflow-hidden rounded-tl-2xl rounded-tr-2xl">  
             <Image
@@ -25,7 +23,7 @@ const UpcomingConference: FC<UpcomingConferenceProps> = () => {
             </div>
           </div>
           <div className="py-3 px-6 text-white flex flex-col justify-between gap-4 h-[30%]">
-            <h3 className="text-[18px] xl:text-[20px] font-semibold">28th WONCA Europe Conference 2023</h3>
+            <h3 className="text-[16px] md:text-[18px] xl:text-[20px] font-semibold">28th WONCA Europe Conference 2023</h3>
             <div className="flex justify-between items-center">
               <span className="text-[14px]">Brussels, Belgium</span>
               <span className="text-[14px]">10 jun 2023</span>

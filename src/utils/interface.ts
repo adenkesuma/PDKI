@@ -26,3 +26,22 @@ export interface NewsProps {
   categories: string;
   published: boolean;
 }
+
+export interface ConferenceProps {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  startDate: string;
+  endDate: string;
+  location: string;
+  organizer: string;
+  websiteUrl: string;
+  registrationRequired: boolean;
+  registrationDeadline: string;
+  speakers: string;
+  isFree: boolean;
+  topic: string;
+  createdAt: string;
+  updatedAt: string;
+}
