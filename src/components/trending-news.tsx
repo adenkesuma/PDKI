@@ -14,9 +14,9 @@ async function fetchTrendingNews() {
     throw new Error("fetching data invalid")
   }
 
-  const trendingVideo = await res.json()
+  const trendingNews = await res.json()
 
-  return trendingVideo
+  return trendingNews
 }
 
 const TrendingNews = async () => {

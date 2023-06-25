@@ -18,8 +18,8 @@ const Header = ({ heading, subheading } : HeaderProps) => {
     return (
         <>
             <header>
-                    <Navigation />
-                    <figure className="relative">
+                <Navigation />
+                <figure className="relative">
                     <Image 
                         className="w-full h-[600px] object-cover bg-cover rounded-br-3xl rounded-bl-3xl"
                         src={Banner}
@@ -37,7 +37,7 @@ const Header = ({ heading, subheading } : HeaderProps) => {
                         Tambah Koneksi
                         </button>
                     </div>
-                    </figure> 
+                </figure> 
             </header> 
             {show && <GetConnection setShow={setShow} handleConnection={handleConnection}/>}
         </>

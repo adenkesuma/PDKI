@@ -1,11 +1,26 @@
 "use client"
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, useEffect, useState } from "react"
 import { ProvinsiIndonesia } from "@/utils/constant.tsx"
 import Header from "@/components/header"
 
 const PDKIRegions = async () => {
   const [chooseRegion, setChooseRegion] = useState("")
   const [regionData, setRegionData] = useState([])
+
+  useEffect(() => {
+    fetchRegionData()
+  }, [])
+
+  const fetchRegionData = () => {
+    fetch('http://localhost:8080/api/route/news')
+      .then((res) => res.json())
+      .then((data) => {
+        setRegionData(data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
 
   // handle dropdown change and fetch the news data
   const handleDropdownChange = (e: ChangeEvent<HTMLSelectElement>) => {

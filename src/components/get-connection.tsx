@@ -16,19 +16,19 @@ const GetConnection = ({ handleConnection, setShow } : GetConnectionProps) => {
       </div>
 
       <div>
-        <h2 className="text-[46px] text-blue-100 font-bold text-center">Daftarkan Diri Anda</h2>
-        <p className="text-[18px] font-medium text-blue-100">Tetap selalu update dengan berita-berita dan konferensi terbaru dari PDKI</p>
+        <h2 className="text-[20px] md:text-[28px] lg:text-[46px] text-blue-100 font-bold text-center">Daftarkan Diri Anda</h2>
+        <p className="text-[14px] md:text-[16px] text-center mt-4 lg:text-[18px] font-medium text-blue-100">Tetap selalu update dengan berita-berita dan konferensi terbaru dari PDKI</p>
       </div>
       <form
-        className="flex flex-col items-center gap-8 mx-auto w-[40%]"
+        className="flex flex-col items-center gap-8 mx-auto w-[80%] lg:w-[40%]"
       >
         <input type="text" placeholder="Masukan nama..." className="w-full rounded-2xl py-3 px-4 text-blue-100 outline-none border-2 placeholder-blue-100 border-blue-100 bg-transparent" />
         <input type="email" placeholder="Masukan email..." className="w-full rounded-2xl py-3 px-4 text-blue-100 outline-none border-2 placeholder-blue-100 border-blue-100 bg-transparent" />
         <button type="submit" className="bg-blue-100 bg-rounded-3xl py-3 px-12 font-semibold text-[#274698] rounded-2xl">Daftar</button>
       </form>
 
-      <div className="w-[40%]">
-        <p className="text-center text-blue-100">
+      <div className="w-[90%] lg:w-[50%]">
+        <p className="text-center text-blue-100 text-[14px]">
           Dengan mengirimkan informasi saya, saya setuju untuk menerima pembaruan personalisasi tentang berita ataupun konferensi PDKI, berdasarkan informasi,
           minat, aktifitas, kunjungan situs web dan data perangkat saya, sesuai dengan kebijakan privasi
         </p>

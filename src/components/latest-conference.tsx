@@ -35,8 +35,8 @@ const LatestConference = async () => {
     <div className="mt-8">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-[20px] lg:text-[22px] font-semibold text-black">Konferensi Terbaru</h2>
-        <Link href="/news" className="flex justify-between items-center gap-2 font-medium text-[14px] md:text-[16px] lg:text-[18px]">
-          Lihat semua konferensi
+        <Link href="/news" className="flex justify-between items-center gap-1 sm:gap-2 font-medium text-[14px] md:text-[16px] lg:text-[18px]">
+          Lihat semua
           <TbChevronRight
             className="w-8 h-8 font-semibold text-black"
           />

@@ -26,7 +26,7 @@ const Footer: FC = () => {
             />
             <p className="text-center font-medium mt-4 text-white text-[14px]">&copy; Copyright PDKI 2023, All rights reserved</p>
           </div>
-          <div className="flex flex-row justify-center gap-4 xl:gap-16">
+          <div className="flex flex-col sm:flex-row justify-center gap-4 xl:gap-16">
             <ul className="flex flex-col gap-4 items-center">
               <h4 className="text-[16px] lg:text-lg mb-3 font-semibold text-white">About</h4>
               {aboutFooter.map((item) => (

@@ -31,12 +31,12 @@ const News = async () => {
         {/* header dari halaman berita */}
         <Header heading="PDKI" subheading="Berita dan Informasi" />
 
-        <section className="my-12">
+        <section className="my-12 px-4 lg:px-6">
           <h2 className="font-semibold text-[30px] mb-4">News</h2>
           <input type="text" />
 
           {/* news */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {getFetchNews.data.map((item : NewsProps) => (
                <div key={item.id}>
                   <figure className="h-[160px] relative block overflow-hidden rounded-tl-2xl rounded-tr-2xl">

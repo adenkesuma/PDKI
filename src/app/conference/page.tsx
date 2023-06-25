@@ -32,7 +32,7 @@ const Conference = async () => {
         {/* header dari halaman berita */}
         <Header heading="PDKI" subheading="Konferensi dan Acara" />
 
-        <section className="my-12">
+        <section className="my-12 px-4 lg:px-6">
           <h2 className="font-semibold text-[30px] mb-4">Konferensi</h2>
           <input type="text" />
 
