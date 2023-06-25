@@ -43,7 +43,7 @@ const TrendingNews = async () => {
                 alt="Image"
               />
             </div>
-            <Link href="/training-video/:id" className="w-full overflow-hidden">
+            <Link href="/training-news/:id" className="w-full overflow-hidden">
               <h3 className="font-medium text-[16px] text-[#fff] text-ellipsis whitespace-nowrap overflow-hidden">{item.title}</h3>
               <p className="font-medium text-[14px] text-[#cacaca] text-ellipsis whitespace-nowrap overflow-hidden">{item.description}</p>
             </Link>

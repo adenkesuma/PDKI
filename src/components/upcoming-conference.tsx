@@ -23,7 +23,6 @@ const UpcomingConference = async () => {
 
   const upcomingDataConference = await upcomingConference.data
   const data = upcomingDataConference[upcomingDataConference.length - 1]
-  console.log(data)
 
   return (
     <div className="w-full">
