@@ -7,6 +7,9 @@ import { ConferenceProps } from "@/utils/interface"
 async function fetchUpcomingConference() {
   const res = await fetch('http://localhost:8080/api/route/conference', {
     cache: 'no-store',
+    next: {
+      revalidate: 10
+    }
   })
 
   if (!res.ok) {

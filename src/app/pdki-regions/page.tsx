@@ -1,10 +1,28 @@
 "use client"
+import { ChangeEvent, useState } from "react"
 import { ProvinsiIndonesia } from "@/utils/constant.tsx"
 import Header from "@/components/header"
-import LatestNews from "@/components/latest-news.tsx"
-import PDKIConference from "@/components/latest-conference"
 
-const PDKIRegions = () => {
+const PDKIRegions = async () => {
+  const [chooseRegion, setChooseRegion] = useState("")
+  const [regionData, setRegionData] = useState([])
+
+  // handle dropdown change and fetch the news data
+  const handleDropdownChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    const region = e.target.value
+    setChooseRegion(region)
+
+    fetch(`http://localhost:8080/api/route/news?region=${region}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        setRegionData(data)
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  }
+
 
   return (
     <>
@@ -16,7 +34,11 @@ const PDKIRegions = () => {
           <h2 className="font-semibold text-[30px] mb-6">Region News</h2>
           <div className="flex flex-col items-start sm:flex-row sm:items-center gap-6">
             <h3 className="text-xl font-semibold text-[#333]">Filter sesuai provinsi</h3>
-            <select className="rounded-xl p-2 bg-[#274698] text-white">
+            <select 
+              value={chooseRegion} 
+              className="rounded-xl p-2 bg-[#274698] text-white"
+              onChange={handleDropdownChange} 
+              >
               {ProvinsiIndonesia.map((prov, idx) => (
                 <option value={prov} key={idx}>
                   {prov}
@@ -24,8 +46,6 @@ const PDKIRegions = () => {
               ))}
             </select>
           </div>
-          <LatestNews />
-          <PDKIConference />
         </section>
       </main>
     </>

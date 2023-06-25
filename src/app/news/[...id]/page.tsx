@@ -13,7 +13,7 @@ async function fetchNewsDetail(id: string) {
         throw new Error('fetching data invalid')
     }
 
-    const getNews = res.json()
+    const getNews = await res.json()
 
     return getNews
 }

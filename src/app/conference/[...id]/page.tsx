@@ -13,7 +13,7 @@ async function fetchConferenceDetail(id: string) {
         throw new Error('fetching data invalid')
     }
 
-    const getConference = res.json()
+    const getConference = await res.json()
 
     return getConference
 }
