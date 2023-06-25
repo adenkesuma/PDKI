@@ -41,6 +41,7 @@ export const studyGroupTwo = [
 ]
 
 export const ProvinsiIndonesia = [
+    'All Region',
     'Bali',
     'Papua',
     'Aceh',

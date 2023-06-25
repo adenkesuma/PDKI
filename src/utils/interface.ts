@@ -46,3 +46,23 @@ export interface ConferenceProps {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface Item {
+  id: number;
+}
+
+
+export interface HeaderProps {
+  heading?: string;
+  subheading?: string;
+}
+
+export interface FormData {
+  name: string;
+  email: string;
+}
+
+export interface RegionProps {
+  selectedRegion: string;
+}
+

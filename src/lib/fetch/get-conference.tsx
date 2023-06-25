@@ -1,0 +1,16 @@
+export async function fetchConference() {
+    const res = await fetch('http://localhost:8080/api/route/conference', {
+      cache: 'no-store',
+      next: {
+        revalidate: 10
+      }
+    })
+  
+    if (!res.ok) {
+      throw new Error('fetching data failed')
+    }
+  
+    const conference = await res.json()
+  
+    return conference
+}

@@ -1,26 +1,10 @@
+import { fetchNews } from "@/lib/fetch/get-news"
 import { NewsProps } from "@/utils/interface"
 import Image from "next/image"
 import Link from "next/link"
 
-async function fetchTrendingNews() {
-  const res = await fetch("http://localhost:8080/api/route/news", {
-    cache: 'no-store',
-    next: {
-      revalidate: 10
-    }
-  })
-
-  if (!res.ok) {
-    throw new Error("fetching data invalid")
-  }
-
-  const trendingNews = await res.json()
-
-  return trendingNews
-}
-
 const TrendingNews = async () => {
-  const getTrendingNews = await fetchTrendingNews()
+  const getTrendingNews = await fetchNews()
 
   // mengurutkan data berdasarkan views
   const sortedVideos = await getTrendingNews.data.sort((a: { views: number}, b: { views: number}) => b.views - a.views)

@@ -1,34 +1,13 @@
 import Link from "next/link"
 import Image from "next/image"
+import { fetchNews } from "@/lib/fetch/get-news";
 import { TbChevronRight, TbArrowUpRight } from "react-icons/tb"
 import { NewsProps } from "@/utils/interface";
-
-interface Item {
-  id: number;
-}
-
-async function fetchLatestNews() {
-  const res = await fetch('http://localhost:8080/api/route/news', {
-    cache: 'no-store',
-    next: {
-      revalidate: 10
-    }
-  })
-
-  if (!res.ok) {
-    throw new Error('fetching data failed')
-  }
-
-  const latestNews = await res.json()
-
-  return latestNews
-}
+import { Item } from "@/utils/interface";
 
 const LatestNews = async () => {
-  const getLatestNews = await fetchLatestNews()
-
+  const getLatestNews = await fetchNews()
   const sortedData = await getLatestNews.data.sort((a: Item, b: Item) => b.id - a.id)
-
   const fourLatestNews = await sortedData.slice(0, 4)
 
   return (
@@ -65,8 +44,8 @@ const LatestNews = async () => {
                 <h4 className="text-white font-semibold text-[16px] text-ellipsis overflow-hidden whitespace-nowrap">{item.title}</h4>
                 <p className="text-gray-300 text-[14px] font-medium text-ellipsis overflow-hidden whitespace-nowrap">{item.description}</p>
               </div>
-              <div className="mt-4 flex justify-between items-center">
-                <span className="text-[14px] text-gray-100 font-medium">{item.publishedDate}</span>
+              <div className="mt-4 flex justify-between items-center gap-6">
+                <span className="text-[14px] text-gray-100 font-medium overflow-hidden text-ellipsis whitespace-nowrap">{item.region}</span>
                 <span className="text-[14px] text-gray-100 font-medium">{item.tags}</span>
               </div>
             </div>

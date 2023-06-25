@@ -2,33 +2,12 @@ import Link from "next/link"
 import Image from "next/image"
 import { TbChevronRight, TbArrowUpRight } from "react-icons/tb"
 import { ConferenceProps } from "@/utils/interface"
-
-interface Item {
-  id: number;
-}
-
-async function fetchLatestConference() {
-  const res = await fetch('http://localhost:8080/api/route/conference', { 
-    cache: 'no-store',
-    next: {
-      revalidate: 10
-    }
-  })
-
-  if(!res.ok) {
-    throw new Error('fetching data invalid')
-  }
-
-  const latestConference = await res.json()
-
-  return latestConference
-}
+import { fetchConference } from "@/lib/fetch/get-conference";
+import { Item } from "@/utils/interface";
 
 const LatestConference = async () => {
-  const getLatestConference = await fetchLatestConference()
-
+  const getLatestConference = await fetchConference()
   const sortedData = await getLatestConference.data.sort((a: Item, b: Item) => b.id - a.id)
-
   const fourLatestConference = await sortedData.slice(0, 4)
 
   return (
@@ -65,8 +44,8 @@ const LatestConference = async () => {
                <h4 className="text-white font-semibold text-[16px] text-ellipsis overflow-hidden whitespace-nowrap">{item.title}</h4>
                <p className="text-gray-300 text-[14px] font-medium text-ellipsis overflow-hidden whitespace-nowrap">{item.description}</p>
              </div>
-             <div className="mt-4 flex justify-between items-center">
-               <span className="text-[14px] text-gray-100 font-medium">{item.startDate}</span>
+             <div className="mt-4 flex justify-between items-center gap-6">
+               <span className="text-[14px] text-gray-100 font-medium whitespace-nowrap text-ellipsis overflow-hidden">{item.location}</span>
                <span className="text-[14px] text-gray-100 font-medium">{item.organizer}</span>
              </div>
            </div>

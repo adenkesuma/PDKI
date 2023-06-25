@@ -1,27 +1,9 @@
-"use client"
 import { TbArrowUpRight } from "react-icons/tb"
 import Link from "next/link"
 import Header from "@/components/header"
 import Image from "next/image"
 import { ConferenceProps } from "@/utils/interface"
-
-
-async function fetchConference() {
-  const res = await fetch('http://localhost:8080/api/route/conference', {
-    cache: 'no-cache',
-    next: {
-      revalidate: 10
-    }
-  })
-
-  if(!res.ok) {
-    throw new Error("Failed to load")
-  }
-
-  const conference = await await res.json()
-
-  return conference
-}
+import { fetchConference } from "@/lib/fetch/get-conference"
 
 const Conference = async () => {
   const getFetchConference = await fetchConference()

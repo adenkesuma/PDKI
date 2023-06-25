@@ -4,11 +4,7 @@ import Navigation from "./navigation"
 import Image from "next/image"
 import Banner from "@/../public/assets/images/image-banner.jpg"
 import GetConnection from "./get-connection"
-
-interface HeaderProps {
-    heading?: string;
-    subheading?: string;
-}
+import { HeaderProps } from "@/utils/interface"
 
 const Header = ({ heading, subheading } : HeaderProps) => {
     const [show, setShow] = useState<boolean>(false)

@@ -1,14 +1,8 @@
-"use client"
-
-import { FC, useState } from "react"
+import { FC } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { socialMedia } from "@/utils/constant.tsx"
-
-// import utils
 import { aboutFooter, contactUsFooter, termsConditionsFooter } from "../utils/links-text.ts"
-
-// import logos
 import LOGOS from "../../public/assets/logos/footer-logos.svg"
 
 const Footer: FC = () => {
