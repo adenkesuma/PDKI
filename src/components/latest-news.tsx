@@ -55,7 +55,7 @@ const LatestNews = async () => {
                 alt="news 1"
               />
               <div className="absolute top-5 right-5 p-2 rounded-[50%] bg-white">
-                <Link href="/news/:id">
+                <Link href={`/news/${item.id}`}>
                   <TbArrowUpRight className="w-[24px] h-[24px] text-[#274698]"/>
                 </Link>
               </div>

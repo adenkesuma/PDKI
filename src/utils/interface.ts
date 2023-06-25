@@ -25,6 +25,7 @@ export interface NewsProps {
   tags: string;
   categories: string;
   published: boolean;
+  region: string;
 }
 
 export interface ConferenceProps {
