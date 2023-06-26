@@ -1,30 +1,31 @@
-// "use client"
-// import { useState, useEffect, useCallback, ChangeEvent } from "react"
+"use client"
+import { useState, useEffect, useCallback, ChangeEvent, cache } from "react"
 import Link from "next/link"
 import Header from "@/components/header"
 import Image from "next/image"
-import { TbSearch } from "react-icons/tb"
 import { TbArrowUpRight } from "react-icons/tb"
 import { NewsProps } from "@/utils/interface"
-import { fetchNews } from "@/lib/fetch/get-news"
+import Search from "@/components/search"
 
-const News = async () => {
-  // const [search, setSearch] = useState<string>('')
-  // const [newsData, setNewsData] = useState<NewsProps[]>([])
+const News = () => {
+  const [search, setSearch] = useState<string>('')
+  const [newsData, setNewsData] = useState<NewsProps[]>([]) 
 
-  const getFetchNews = await fetchNews()
+  useEffect(() => {
+    fetch(`http://localhost:8080/api/route/news?title=${search}`, {
+      cache: 'no-store',
+      mode: 'cors'
+    })
+    .then((res) => res.json())
+    .then((data) => setNewsData(data.data))
+    .catch((err) => {
+      console.log(err)
+    })
+  }, [search]) 
 
-  // useEffect(() => {
-  //   fetch(`http:localhost:8080/api/route/news?q=${search}`)
-  //   .then((res) => res.json())
-  //   .then((data) => setNewsData(data))
-  // }, [search]) 
-
-  // const onSetSearch = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-  //   setSearch(event.target.value)
-  // }, [])
-
-  // console.log(newsData)
+  const onSetSearch = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value)
+  }, [])
 
   return (
     <>
@@ -35,21 +36,12 @@ const News = async () => {
         <section className="my-12 px-4 lg:px-6">
           <div className="flex flex-col gap-4 md:flex-row justify-between items-center">
             <h2 className="font-semibold text-[30px] mb-4">News</h2>
-            <div className="relative">   
-              <input 
-                className="bg-gray-100 border-[1.6px] border-[#666] rounded-2xl py-2 pl-4 pr-8 w-[80%] sm:w-[350px]"
-                type="text" 
-                placeholder="Ketikan judul berita ..."
-                // value={search}
-                // onChange={onSetSearch}
-              />
-              <TbSearch className="absolute top-[10px] right-3 text-xl text-[#666]"/>
-            </div>
+            <Search search={search} onSetSearch={onSetSearch} /> 
           </div>
 
           {/* news */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-            {getFetchNews.data.map((item : NewsProps) => (
+            {newsData.map((item : NewsProps) => (
                <div key={item.id}>
                   <figure className="h-[160px] relative block overflow-hidden rounded-tl-2xl rounded-tr-2xl">
                     <Image 

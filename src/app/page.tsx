@@ -8,6 +8,8 @@ import Header from "@/components/header.tsx"
 import TrendingVideo from "@/components/trending-video.tsx"
 import LatestConference from "../components/latest-conference.tsx"
 
+import GoogleTranslate from "@/components/google-translate.tsx"
+
 const Home = async () => {
 
   return (

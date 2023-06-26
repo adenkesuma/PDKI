@@ -10,20 +10,26 @@ interface GetConnectionProps {
 }
 
 const GetConnection = async ({ handleConnection, setShow } : GetConnectionProps) => {
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: ""
-  })
+  // const [formData, setFormData] = useState<FormData>({
+  //   name: "",
+  //   email: ""
+  // })
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    })
-  }
+  // const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  //   setFormData({
+  //     ...formData,
+  //     [event.target.name]: event.target.value,
+  //   })
+  // }
 
-  const handleSubmit = async (event: FormEvent) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    const formData = {
+      name: event.target.name.value,
+      email: event.target.email.value
+    }
+
+    alert(`your name is ${formData.name} and your email is ${formData.email}`)
 
     try {
       const response = await fetch('http://localhost:8080/api/route/member', {
@@ -34,16 +40,14 @@ const GetConnection = async ({ handleConnection, setShow } : GetConnectionProps)
         body: JSON.stringify(formData)
       })
 
-      if (response.ok) {
-        console.log('success la')
-      } else {
-        console.error('Form submission failed')
-      }
+      const result = response.json()
+      console.log(result)
+      
     } catch (err) {
       console.error('An error oncurred', err)
     }
 
-  }
+  } 
 
   return (
     <div className="mx-auto z-50 fixed left-0 right-0 bottom-0 top-0 h-[100vh] w-[100%] opacity-95 bg-[#274698] flex flex-col justify-center gap-12 items-center">
@@ -59,14 +63,14 @@ const GetConnection = async ({ handleConnection, setShow } : GetConnectionProps)
       <form
         onSubmit={handleSubmit}
         method="post"
-        className="flex flex-col items-center gap-8 mx-auto w-[80%] lg:w-[40%]"
+        className="flex flex-col items-center gap-8 mx-auto w-[80%] md:w-[60%] lg:w-[40%]"
       >
         <input 
           type="text" 
           id="name"
           name="name"
-          value={formData.name}
-          onChange={handleChange}
+          // value={formData.name}
+          // onChange={handleChange}
           placeholder="Masukan nama..." 
           required 
           className="w-full rounded-2xl py-3 px-4 text-blue-100 outline-none border-2 placeholder-blue-100 border-blue-100 bg-transparent" 
@@ -75,8 +79,8 @@ const GetConnection = async ({ handleConnection, setShow } : GetConnectionProps)
           type="email" 
           id="email"
           name="email"
-          value={formData.email}
-          onChange={handleChange}
+          // value={formData.email}
+          // onChange={handleChange}
           placeholder="Masukan email..." 
           required 
           className="w-full rounded-2xl py-3 px-4 text-blue-100 outline-none border-2 placeholder-blue-100 border-blue-100 bg-transparent" 

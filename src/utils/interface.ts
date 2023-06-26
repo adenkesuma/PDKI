@@ -66,3 +66,8 @@ export interface RegionProps {
   selectedRegion: string;
 }
 
+export interface SearchProps {
+  search: string;
+  onSetSearch: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+

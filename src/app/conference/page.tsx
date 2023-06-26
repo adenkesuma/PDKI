@@ -1,26 +1,47 @@
+"use client"
+import { useState, useCallback, useEffect, ChangeEvent } from "react"
 import { TbArrowUpRight } from "react-icons/tb"
 import Link from "next/link"
 import Header from "@/components/header"
 import Image from "next/image"
+import Search from "@/components/search"
 import { ConferenceProps } from "@/utils/interface"
-import { fetchConference } from "@/lib/fetch/get-conference"
 
-const Conference = async () => {
-  const getFetchConference = await fetchConference()
+const Conference = () => {
+  const [search, setSearch] = useState<string>('')
+  const [conferenceData, setConferenceData] = useState<ConferenceProps[]>([]) 
+
+  useEffect(() => {
+    fetch(`http://localhost:8080/api/route/conference?title=${search}`, {
+      cache: 'no-store',
+      mode: 'cors'
+    })
+    .then((res) => res.json())
+    .then((data) => setConferenceData(data.data))
+    .catch((err) => {
+      console.log(err)
+    })
+  }, [search]) 
+
+  const onSetSearch = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value)
+  }, [])
 
   return (
     <>
       <main className="container px-4 sm:px-0 mx-auto">
-        {/* header dari halaman berita */}
+        {/* header */}
         <Header heading="PDKI" subheading="Konferensi dan Acara" />
 
         <section className="my-12 px-4 lg:px-6">
-          <h2 className="font-semibold text-[30px] mb-4">Konferensi</h2>
-          <input type="text" />
+          <div className="flex flex-col gap-4 md:flex-row justify-between items-center">
+            <h2 className="font-semibold text-[30px] mb-4">Conference</h2>
+            <Search search={search} onSetSearch={onSetSearch} /> 
+          </div>
 
-          {/* news */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {getFetchConference.data.map((item : ConferenceProps) => (
+          {/* conference */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+            {conferenceData.map((item : ConferenceProps) => (
                <div key={item.id}>
                   <figure className="h-[160px] relative block overflow-hidden rounded-tl-2xl rounded-tr-2xl">
                     <Image 
