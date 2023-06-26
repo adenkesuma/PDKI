@@ -36,8 +36,10 @@ const TrendingVideo = async () => {
           <div key={item.id} className="flex items-center gap-4 hover:bg-[#19388b] rounded-xl duration-75">
             <div className="w-[50px] h-[50px] lg:w-[60px] lg:h-[55px]">
               <Image
+                width={300}
+                height={200}
                 className="w-full h-full object-cover bg-center rounded-xl border-2 border-white" 
-                src={item.thumnailUrl} 
+                src={item.thumbnailUrl} 
                 alt="Image"
               />
             </div>

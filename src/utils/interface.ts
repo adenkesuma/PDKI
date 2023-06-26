@@ -4,7 +4,7 @@ export interface VideoProps {
   description: string;
   duration: string;
   videoUrl: string;
-  thumnailUrl: string;
+  thumbnailUrl: string;
   isPrivate: boolean;
   harga: number;
   publishedDate: string;
@@ -71,3 +71,7 @@ export interface SearchProps {
   onSetSearch: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
+export interface VideoPlayerProps {
+  videoUrl: string;
+  thumbnailUrl: string;
+}

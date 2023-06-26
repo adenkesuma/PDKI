@@ -4,8 +4,8 @@ import Navbar from "@/components/navbar.tsx"
 import Footer from "@/components/footer.tsx"
 
 export const metadata = {
-  title: 'PDKI | Homepage',
-  description: 'persatuan dokter keluarga indonesia',
+  title: 'PDKI | perhimpunan dokter keluarga indonesia',
+  description: 'perhimpunan dokter keluarga indonesia',
 }
 
 export default function RootLayout({

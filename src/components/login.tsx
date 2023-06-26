@@ -23,17 +23,27 @@ const Login: FC<LoginProps> = ({ handleShowLogin, setShow }) => {
             <select 
               name="role" 
               id="role"
-              className="outline-none py-[6px] px-3 rounded-xl"
+              className="bg-blue-100 outline-none font-medium text-[#333] py-[6px] px-3 rounded-xl"
             >
-              <option value="admin">Admin</option>
-              <option value="member">Member</option>
+              <option value="admin" className="p-2 rounded-md">Admin</option>
+              <option value="member" className="p-2 rounded-md">Member</option>
             </select>
           </div>
         </div>
         <form className="flex flex-col items-center gap-8 mx-auto w-[80%] md:w-[60%] lg:w-[40%]">
-          <input type="text" placeholder="Masukan nama..." className="w-full rounded-2xl py-3 px-4 text-blue-100 outline-none border-2 placeholder-blue-100 border-blue-100 bg-transparent" />
-          <input type="email" placeholder="Masukan email..." className="w-full rounded-2xl py-3 px-4 text-blue-100 outline-none border-2 placeholder-blue-100 border-blue-100 bg-transparent" />
-          <button type="submit" className="bg-blue-100 bg-rounded-3xl py-3 px-12 font-semibold text-[#274698] rounded-2xl">Masuk</button>
+          <input 
+            type="text" 
+            placeholder="Masukan nama..." 
+            className="w-full rounded-2xl py-3 px-4 text-blue-100 outline-none border-2 placeholder-blue-100 border-blue-100 bg-transparent" />
+          <input 
+            type="email" 
+            placeholder="Masukan email..." 
+            className="w-full rounded-2xl py-3 px-4 text-blue-100 outline-none border-2 placeholder-blue-100 border-blue-100 bg-transparent" />
+          <button 
+            type="submit" 
+            className="bg-blue-100 hover:bg-blue-300 bg-rounded-3xl py-3 px-12 font-semibold text-[#274698] rounded-2xl">
+            Masuk
+          </button>
         </form>
         <div className="w-[90%] md:w-[60%] lg:w-[50%]">
           <p className="text-center text-blue-100">

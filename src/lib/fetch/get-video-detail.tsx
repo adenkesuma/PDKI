@@ -1,5 +1,5 @@
-export async function fetchConferenceDetail(id: string) {
-    const res = await fetch(`http://localhost:8080/api/route/conference/${id}`, {
+export async function fetchVideoDetail(id: string) {
+    const res = await fetch(`http://localhost:8080/api/route/video/${id}`, {
         cache: 'no-store',
         mode: 'cors',
         next: {
@@ -12,7 +12,7 @@ export async function fetchConferenceDetail(id: string) {
         throw new Error('fetching data invalid')
     }
 
-    const conferenceDetail = await res.json()
+    const videoDetail = await res.json()
 
-    return conferenceDetail
+    return videoDetail
 }

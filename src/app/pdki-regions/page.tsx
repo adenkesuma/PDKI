@@ -4,6 +4,13 @@ import { ChangeEvent, useEffect, useState } from "react"
 import { ProvinsiIndonesia } from "@/utils/constant.tsx"
 import RegionData from "@/components/region-data"
 import Header from "@/components/header"
+import { Metadata } from "next"
+
+// metadata
+// export const metadata: Metadata = {
+//   title: 'PDKI | Region',
+//   description: 'persatuan dokter keluarga indonesia',
+// }
 
 const PDKIRegions = async () => {
   const [selectedRegion, setSelectedRegion] = useState<string>('')

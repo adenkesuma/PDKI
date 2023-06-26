@@ -9,7 +9,8 @@ const nextConfig = {
             'www.woncaeurope.org',
             'www.woncaaprc2022.org',
             'rma.acrrm.org.au',
-            'woncaeurope2020.org'
+            'woncaeurope2020.org',
+            'i.ytimg.com',
         ]
     }
 }

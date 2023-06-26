@@ -13,7 +13,7 @@ const ConferenceId = async ({
     return (
         <div className="px-8 container mx-auto mt-8 xl:px-12">
             <div>
-                <h2 className="md:text-[30px] lg:text-[35px] xl:text-[40px] font-semibold text-[!1a1a1a]">{conferenceDetail?.title}</h2>
+                <h2 className="md:text-[30px] lg:text-[35px] xl:text-[40px] font-semibold text-[#1a1a1a]">{conferenceDetail?.title}</h2>
                 <p className="mt-2 text-[14px] md:text-[16px] xl:text-[18px] font-medium">Topic : {conferenceDetail?.topic}</p>
 
                 <figure className="mt-10">

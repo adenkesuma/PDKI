@@ -1,13 +1,15 @@
-"use client"
-import { FC, useState } from "react"
-import GetConnection from "@/components/get-connection.tsx"
-import Navigation from "../../components/navigation.tsx"
 import Image from "next/image"
 import Metaporfosis from "@/../public/assets/svg/metaporfosis.svg"
 import PDKILeader from "@/../public/assets/images/pdki-leader.png"
-import Banner from "@/../public/assets/images/image-banner.jpg" 
 import { studyGroupOne, studyGroupTwo } from "@/utils/constant.tsx"
 import Header from "@/components/header.tsx"
+import { Metadata } from "next"
+
+// metadata
+export const metadata: Metadata = {
+  title: 'PDKI | About',
+  description: 'persatuan dokter keluarga indonesia',
+}
 
 const About = () => {
   return (
