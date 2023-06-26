@@ -1,5 +1,4 @@
 import Image from "next/image"
-import Link from "next/link"
 import { fetchNewsDetail } from "@/lib/fetch/get-news-detail"
 
 const NewsId = async ({
@@ -18,7 +17,7 @@ const NewsId = async ({
     const date = newsDate.getDate()
 
     return (
-        <div className="px-8 container mx-auto mt-8">
+        <div className="px-8 xl:px-12 container mx-auto mt-8">
             <div>
                 <h2 className="md:text-[30px] lg:text-[35px] xl:text-[40px] font-semibold text-[!1a1a1a]">{newsDetail?.title}</h2>
                 <p className="mt-2 text-[14px] md:text-[16px] xl:text-[18px] font-medium">{newsDetail?.description}</p>

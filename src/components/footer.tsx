@@ -8,7 +8,7 @@ import LOGOS from "../../public/assets/logos/footer-logos.svg"
 const Footer: FC = () => {
 
   return (
-    <footer className="px-4 pb-4 lg:px-0 lg:pb-0">
+    <footer className="px-4 pb-4 lg:px-0 lg:pb-0 xl:px-8">
       <div className="container mx-auto px-4 md:px-6 py-8 lg:px-10 mb:mb-6 lg:mb-8 xl:mb-14 lg:py-10 rounded-3xl bg-[#274698]">
         <div className="flex flex-col md:flex-row md:justify-between md:items-start items-center gap-4 md:gap-6 lg:gap-8">
           <div className="flex flex-col items-center md:items-start">

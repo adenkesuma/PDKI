@@ -6,7 +6,7 @@ import RegionData from "@/components/region-data"
 import Header from "@/components/header"
 
 const PDKIRegions = async () => {
-  const [selectedRegion, setSelectedRegion] = useState<string>("All Region")
+  const [selectedRegion, setSelectedRegion] = useState<string>('')
 
   const handleRegionChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setSelectedRegion(event.target.value)

@@ -16,7 +16,7 @@ const About = () => {
           {/* header dari halaman tentang */}
           <Header heading="PDKI" subheading="Sejarah Perhimpunan Keluarga Indonesia" />
 
-          <section className="my-8 px-6">
+          <section className="my-8 px-6 xl:px-12">
             <div className="flex flex-col md:flex-row justify-between items-start gap-6 md:gap-12">
               <p className="text-[16px] font-medium text-[#333]">
                 <span className="text-3xl font-bold text-[#274698]">I</span>ndonesia sebagai negara kepulauan terbesar di dunia yang terdiri tujuh belas ribu pulau yang tersebar, tentunya memiliki tantangan tersendiri dalam distribusi layanan Kesehatan. Wilayah yang luas dan terpencar-pencar menjadi alasan dibutuhkan banyak tenaga kesehatan yang tersebar di seluruh wilayah Indonesia untuk dapat memberikan pelayanan kesehatan yang optimal. Meskipun secara kuantitas belum memadai, namun penguatan sumber daya secara kualitas perlu dimaksimalkan.

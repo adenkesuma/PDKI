@@ -30,7 +30,7 @@ const TrendingVideo = async () => {
 
   return (
     <div className="w-full overflow-hidden">
-      <h2 className="font-semibold text-[18px] lg:text-[20px] mb-4">Video Pelatihan Populer</h2>
+      <h2 className="font-semibold text-[18px] lg:text-[20px] mb-4">Video Pelatihan populer</h2>
       <div className="h-[380px] lg:h-[410px] bg-[#274698] rounded-2xl p-4 text-white flex flex-col gap-6">
         {topVideos.map((item: VideoProps) => (
           <div key={item.id} className="flex items-center gap-4 hover:bg-[#19388b] rounded-xl duration-75">

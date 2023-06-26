@@ -10,25 +10,15 @@ const RegionData: FC<RegionProps> = ({ selectedRegion }) => {
     const [newsList, setNewsList] = useState<NewsProps[]>([])
 
     useEffect(() => {
-        const fetchNews = async () => {
-            try {
-                if (selectedRegion === 'All Region') {
-                    const response = await fetch('http://localhost:8080/api/route/news', {
-                        cache: 'no-store'
-                    })
-                    const data = await response.json()
-                    setNewsList(data.data)
-                } else {
-                    const response = await fetch(`http://localhost:8080/api/route/news?region=${selectedRegion}`)
-                    const data = await response.json()
-                    setNewsList(data.data)
-                } 
-            } catch (err) {
-                console.error('An error occurred', err)
-            }
-        }
-
-        fetchNews()
+        fetch(`http://localhost:8080/api/route/news?region=${selectedRegion}`, {
+            cache: 'no-store',
+            mode: 'cors'
+        })
+        .then((res) => res.json())
+        .then((data) => setNewsList(data.data))
+        .catch((err) => {
+            console.log(err)
+        })
     }, [selectedRegion])
 
     return (

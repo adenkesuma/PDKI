@@ -12,7 +12,7 @@ const Navbar: FC = () => {
 
   return (
     <>
-      <nav className="py-4 px-4 sm:px-0 container mx-auto">
+      <nav className="py-4 px-4 sm:px-0 container mx-auto xl:px-8">
         <div className="flex justify-between items-center">
           <span className="font-bold text-2xl md:text-4xl">PDKI</span>
           <ul className="hidden sm:flex justify-center gap-0 md:gap-2 items-center">

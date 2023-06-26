@@ -13,7 +13,7 @@ const Header = ({ heading, subheading } : HeaderProps) => {
 
     return (
         <>
-            <header>
+            <header className="xl:px-8">
                 <Navigation />
                 <figure className="relative">
                     <Image 
