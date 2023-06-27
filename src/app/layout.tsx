@@ -1,7 +1,5 @@
 import './globals.css'
 import { montserrat } from '@/utils/font'
-import Navbar from "@/components/navbar.tsx"
-import Footer from "@/components/footer.tsx"
 
 export const metadata = {
   title: 'PDKI | perhimpunan dokter keluarga indonesia',
@@ -16,9 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={montserrat.className}>
-          <Navbar />
           {children}
-          <Footer />
       </body>
     </html>
   )

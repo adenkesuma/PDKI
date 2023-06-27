@@ -44,9 +44,9 @@ const LatestConference = async () => {
                <h4 className="text-white font-semibold text-[16px] text-ellipsis overflow-hidden whitespace-nowrap">{item.title}</h4>
                <p className="text-gray-300 text-[14px] font-medium text-ellipsis overflow-hidden whitespace-nowrap">{item.description}</p>
              </div>
-             <div className="mt-4 flex justify-between items-center gap-6">
-               <span className="text-[14px] text-gray-100 font-medium whitespace-nowrap text-ellipsis overflow-hidden">{item.location}</span>
-               <span className="text-[14px] text-gray-100 font-medium">{item.organizer}</span>
+             <div className="mt-4 flex justify-between items-center gap-8">
+               <span className="text-[14px] text-gray-100 font-medium whitespace-nowrap text-normal overflow-hidden">{item.location}</span>
+               <span className="text-[14px] text-gray-100 font-medium whitespace-nowrap text-normal overflow-hidden">{item.organizer}</span>
              </div>
            </div>
           </div> 

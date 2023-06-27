@@ -6,6 +6,8 @@ import Image from "next/image"
 import { TbArrowUpRight } from "react-icons/tb"
 import { NewsProps } from "@/utils/interface"
 import Search from "@/components/search"
+import Navbar from "@/components/navbar"
+import Footer from "@/components/footer"
 
 const News = () => {
   const [search, setSearch] = useState<string>('')
@@ -29,6 +31,7 @@ const News = () => {
 
   return (
     <>
+      <Navbar />
       <main className="container px-4 sm:px-0 mx-auto">
         {/* header dari halaman berita */}
         <Header heading="PDKI" subheading="Berita dan Informasi" />
@@ -63,7 +66,7 @@ const News = () => {
                       <p className="text-gray-300 text-[14px] font-medium text-ellipsis overflow-hidden whitespace-nowrap">{item.description}</p>
                     </div>
                     <div className="mt-4 flex justify-between items-center">
-                      <span className="text-[14px] text-gray-100 font-medium">{item.publishedDate}</span>
+                      <span className="text-[14px] text-gray-100 font-medium">{`${new Date(item.publishedDate).getDate()} - ${new Date(item.publishedDate).getMonth()} - ${new Date(item.publishedDate).getFullYear()}`}</span>
                       <span className="text-[14px] text-gray-100 font-medium">{item.tags}</span>
                     </div>
                   </div>
@@ -71,8 +74,8 @@ const News = () => {
             ))} 
           </div>         
         </section>
-
       </main>
+      <Footer />
     </>
   )
 }

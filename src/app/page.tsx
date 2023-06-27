@@ -7,11 +7,14 @@ import LatestNews from "../components/latest-news.tsx"
 import Header from "@/components/header.tsx"
 import TrendingVideo from "@/components/trending-video.tsx"
 import LatestConference from "../components/latest-conference.tsx"
+import Navbar from "@/components/navbar.tsx"
+import Footer from "@/components/footer.tsx"
 
 const Home = () => {
 
   return (
     <>
+      <Navbar />
       <main className="relative px-4 sm:px-0 container mx-auto">
         {/* header dari halaman awal */}
         <Header heading="PDKI" subheading="Perhimpunan Keluarga Dokter Indonesia" />        
@@ -28,6 +31,7 @@ const Home = () => {
           <LatestNews />
         </section>
       </main>
+      <Footer />
     </>
   )
 }

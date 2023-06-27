@@ -3,7 +3,9 @@ import Metaporfosis from "@/../public/assets/svg/metaporfosis.svg"
 import PDKILeader from "@/../public/assets/images/pdki-leader.png"
 import { studyGroupOne, studyGroupTwo } from "@/utils/constant.tsx"
 import Header from "@/components/header.tsx"
+import Navbar from "@/components/navbar"
 import { Metadata } from "next"
+import Footer from "@/components/footer"
 
 // metadata
 export const metadata: Metadata = {
@@ -14,6 +16,7 @@ export const metadata: Metadata = {
 const About = () => {
   return (
     <>
+      <Navbar />
       <main className="container px-4 sm:px-0 mx-auto">
           {/* header dari halaman tentang */}
           <Header heading="PDKI" subheading="Sejarah Perhimpunan Keluarga Indonesia" />
@@ -97,6 +100,7 @@ const About = () => {
             </div>
           </section>
       </main>
+      <Footer />
     </>
   )
 }

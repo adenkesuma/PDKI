@@ -13,13 +13,12 @@ const GetConnection = ({ handleConnection, setShow } : GetConnectionProps) => {
   const [nama, setNama] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false)
-  const [showPopup, setShowPopup] = useState<boolean>(false)
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
     try {
-      const res = await fetch('http://localhost:8080/api/route/get-connected', {
+      const res = await fetch('http://localhost:8080/api/route/connected', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -30,7 +29,6 @@ const GetConnection = ({ handleConnection, setShow } : GetConnectionProps) => {
       if (res.ok) {
         const data =  await res.json()
         setIsSubmitted(true)
-        // setShow(false)
       } else {
         console.error('failed to load data')
       } 
@@ -39,9 +37,9 @@ const GetConnection = ({ handleConnection, setShow } : GetConnectionProps) => {
     }
   } 
 
-  // // popup statment
+  // popup statment
   useEffect(() => {
-    if (isSubmitted) {
+    if (isSubmitted === true) {
       setTimeout(() => {
         setIsSubmitted(false)
         setShow(false)

@@ -41,40 +41,134 @@ export const studyGroupTwo = [
 ]
 
 export const ProvinsiIndonesia = [
-    'All Region',
-    'Bali',
-    'Papua',
-    'Aceh',
-    'Jawa Barat',
-    'Jawa Timur',
-    'Jawa Tengah',
-    'Lampung',
-    'Banten',
-    'Maluku',
-    'Papua Barat',
-    'Sumatra Utara',
-    'Daerah Istimewa Yogyakarta',
-    'Sulawesi Selatan',
-    'Riau',
-    'Sumatra Barat',
-    'Kalimantan Timur',
-    'Sumatra Selatan',
-    'Kepulauan Riau',
-    'Nusa Tenggara Timur',
-    'Kepulauan Bangka Belitung',
-    'Kalimantan Barat',
-    'Kalimantan Selatan',
-    'Sulawesi Tenggara',
-    'Kalimantan Tengah',
-    'Sulawesi Utara',
-    'Kalimantan Utara',
-    'Sulawesi Tengah',
-    'Nusa Tenggara Barat',
-    'Maluku Utara',
-    'Sulawesi Barat',
-    'Jambi',
-    'Jakarta',
-    'Bengkulu'
+    {
+        opt: 'All region',
+        value: ''
+    },
+    {
+        opt: 'Bali',
+        value: 'bali'
+    },
+    {
+        opt: 'Papua',
+        value: 'papua'
+    },
+    {
+        opt: 'Aceh',
+        value: 'aceh'
+    },
+    {
+        opt: 'Jawa Barat',
+        value: 'jawa+barat'
+    },
+    {
+        opt: 'Jawa Timur',
+        value: 'jawa+timur'
+    },
+    {
+        opt: 'Jawa tengah',
+        value: 'jawa+tengah'
+    },
+    {
+        opt: 'Lampung',
+        value: 'lampung'
+    },
+    {
+        opt: 'Banten',
+        value: 'banten'
+    },
+    {
+        opt: 'Maluku',
+        value: 'maluku'
+    },
+    {
+        opt: 'Sumatra Utara',
+        value: 'sumatra+utara'
+    },
+    {
+        opt: 'Yogyakarta',
+        value: 'yogyakarta'
+    },
+    {
+        opt: 'Sulawesi Selatan',
+        value: 'sulawesi selatan'
+    },
+    {
+        opt: 'Riau',
+        value: 'riau'
+    },
+    {
+        opt: 'Sumatra Barat',
+        value: 'sumatra+barat'
+    },
+    {
+        opt: 'Kalimantan Timur',
+        value: 'kalimantan+timur'
+    },
+    {
+        opt: 'Sumatra Selatan',
+        value: 'sumatra+selatan'
+    },
+    {
+        opt: 'Nusa Tenggara Timur',
+        value: 'nusa+tenggara+timur'
+    },
+    {
+        opt: 'Bangka Belitung',
+        value: 'bangka+belitung'
+    },
+    {
+        opt: 'Kalimantan barat',
+        value: 'kalimantan+barat'
+    },
+    {
+        opt: 'Kalimantan Selatan',
+        value: 'kalimantan+selatan'
+    },
+    {
+        opt: 'Sulawesi Tenggara',
+        value: 'sulawesi+tenggara'
+    },
+    {
+        opt: 'Kalimantan Tengah',
+        value: 'kalimantan+tengah'
+    },
+    {
+        opt: 'Sulawesi Utara',
+        value: 'sulawesi+utara'
+    },
+    {
+        opt: 'Kalimantan Utara',
+        value: 'kalimantan+utara'
+    },
+    {
+        opt: 'Sulawesi Tengah',
+        value: 'sulawesi+tengah'
+    },
+    {
+        opt: 'Nusa Tenggara Barat',
+        value: 'nusa+tenggara+barat'
+    },
+    {
+        opt: 'Maluku Utara',
+        value: 'maluku+utara'
+    },
+    {
+        opt: 'Sulawesi Barat',
+        value: 'sulawesi+barat'
+    },
+    {
+        opt: 'Jambi',
+        value: 'jambi'
+    },
+    {
+        opt: 'Jakarta',
+        value: 'jakarta'
+    },
+    {
+        opt: 'Bengkulu',
+        value: 'bengkulu'
+    } 
 ]
 
 export const filterDropdownNews = [

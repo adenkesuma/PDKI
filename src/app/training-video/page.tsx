@@ -1,4 +1,6 @@
 import Header from "@/components/header.tsx"
+import Navbar from "@/components/navbar"
+import Footer from "@/components/footer"
 import Image from "next/image"
 import Link from "next/link"
 import { fetchVideo } from "@/lib/fetch/get-video"
@@ -10,6 +12,7 @@ const TrainingVideo = async () => {
 
   return (
     <>
+      <Navbar />
       <main className="container px-4 sm:px-0 mx-auto">
         {/* header dari halaman video pelatihan */}
         <Header heading="PDKI" subheading="video pelatihan" /> 
@@ -61,8 +64,8 @@ const TrainingVideo = async () => {
             ))}
           </div>
         </section>
-
       </main>
+      <Footer />
     </>
   )
 }

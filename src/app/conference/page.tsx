@@ -6,6 +6,8 @@ import Header from "@/components/header"
 import Image from "next/image"
 import Search from "@/components/search"
 import { ConferenceProps } from "@/utils/interface"
+import Footer from "@/components/footer"
+import Navbar from "@/components/navbar"
 
 const Conference = () => {
   const [search, setSearch] = useState<string>('')
@@ -29,6 +31,7 @@ const Conference = () => {
 
   return (
     <>
+      <Navbar />
       <main className="container px-4 sm:px-0 mx-auto">
         {/* header */}
         <Header heading="PDKI" subheading="Konferensi dan Acara" />
@@ -62,17 +65,17 @@ const Conference = () => {
                       <h4 className="text-white font-semibold text-[16px] text-ellipsis overflow-hidden whitespace-nowrap">{item.title}</h4>
                       <p className="text-gray-300 text-[14px] font-medium text-ellipsis overflow-hidden whitespace-nowrap">{item.description}</p>
                     </div>
-                    <div className="mt-4 flex justify-between items-center">
-                      <span className="text-[14px] text-gray-100 font-medium">{item.startDate}</span>
-                      <span className="text-[14px] text-gray-100 font-medium">{item.organizer}</span>
+                    <div className="mt-4 flex justify-between items-center gap-4">
+                      <span className="text-[14px] text-gray-100 font-medium">{`${new Date(item.startDate).getDate()} - ${new Date(item.startDate).getMonth()} - ${new Date(item.startDate).getFullYear()}`}</span>
+                      <span className="text-[14px] text-gray-100 font-medium overflow-hidden text-normal whitespace-nowrap">{item.organizer}</span>
                     </div>
                   </div>
                 </div>  
             ))} 
           </div>         
         </section>
-
       </main>
+      <Footer />
     </>
   )
 }

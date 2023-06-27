@@ -4,13 +4,8 @@ import { ChangeEvent, useEffect, useState } from "react"
 import { ProvinsiIndonesia } from "@/utils/constant.tsx"
 import RegionData from "@/components/region-data"
 import Header from "@/components/header"
-import { Metadata } from "next"
-
-// metadata
-// export const metadata: Metadata = {
-//   title: 'PDKI | Region',
-//   description: 'persatuan dokter keluarga indonesia',
-// }
+import Navbar from "@/components/navbar"
+import Footer from "@/components/footer"
 
 const PDKIRegions = async () => {
   const [selectedRegion, setSelectedRegion] = useState<string>('')
@@ -21,6 +16,7 @@ const PDKIRegions = async () => {
 
   return (
     <>
+      <Navbar />
       <main className="container px-4 sm:px-0 mx-auto">
         {/* header dari halaman wilayah pdki */}
         <Header heading="PDKI" subheading="Lingkup dan Wilayah" />
@@ -35,8 +31,8 @@ const PDKIRegions = async () => {
               onChange={handleRegionChange} 
               >
               {ProvinsiIndonesia.map((prov, idx) => (
-                <option value={prov} key={idx}>
-                  {prov}
+                <option value={prov.value} key={idx}>
+                  {prov.opt}
                 </option>
               ))}
             </select>
@@ -56,6 +52,7 @@ const PDKIRegions = async () => {
           </div>
         </section>
       </main>
+      <Footer />
     </>
   )
 }
