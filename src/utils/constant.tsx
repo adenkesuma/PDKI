@@ -1,4 +1,5 @@
-import { TbBrandInstagram, TbBrandFacebook, TbBrandYoutube } from "react-icons/tb"
+import { TbBrandInstagram, TbBrandFacebook, TbBrandYoutube, TbVideo, TbNews, TbUsersGroup, TbLayoutDashboard } from "react-icons/tb"
+import { GiVideoConference } from "react-icons/gi"
 
 export const socialMedia = [
     {
@@ -180,3 +181,4 @@ export const filterDropdownConference = [
     'Konferensi terbaru',
     'Konferensi terlama'
 ]
+
