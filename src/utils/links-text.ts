@@ -86,3 +86,31 @@ export const navigation = [
     link: "/training-video"
   }
 ]
+
+export const sidebarLinks = [
+  {
+    id: 1,
+    text: 'Dashboard',
+    link: 'dashboard'
+  },
+  {
+    id: 2,
+    text: 'Member',
+    link: 'member'
+  },
+  {
+    id: 3,
+    text: 'Berita',
+    link: 'news'
+  },
+  {
+    id: 4,
+    text: 'Konferensi',
+    link: 'conference'
+  },
+  {
+    id: 5,
+    text: 'Video',
+    link: 'video'
+  }
+]

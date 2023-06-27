@@ -5,3 +5,7 @@
 .text-stroke {
     text-shadow: -1px -1px 0 #555, 1px -1px 0 #555, -1px 1px 0 #555, 1px 1px 0 #555;
 }
+
+.active {
+    background-color: #ffffff;
+}
