@@ -76,3 +76,21 @@ export interface VideoPlayerProps {
   thumbnailUrl: string;
 }
 
+export interface MemberProps {
+  memberId: number;
+  nama: string; 
+  username: string;
+  password: string;
+  namaSertifikat: string;
+  subspesialisasi: string;
+  asalInstitusi: string;
+  pasFoto: string;
+  noSeri: string;
+  noSerkom: string;
+  tempatLahir: string;
+  tanggalLahir: string;
+  noIdi: number;
+  npaPdki: string;
+  createdAt: string;
+  updatedAt: string;
+}

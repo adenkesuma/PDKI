@@ -19,7 +19,7 @@ const NewsId = async ({
     const date = newsDate.getDate()
 
     return (
-        <>
+        <div className="bg-gray-100">
             <Navbar/>
             <div className="px-8 xl:px-12 container mx-auto mt-8">
                 <div>
@@ -49,7 +49,7 @@ const NewsId = async ({
                 </div>
             </div>
             <Footer />
-        </>
+        </div>
     )
 }
 

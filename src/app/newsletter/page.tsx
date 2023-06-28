@@ -4,7 +4,7 @@ import Footer from "@/components/footer"
 
 const Newsletter = () => {
   return (
-    <>
+    <div className="bg-gray-100">
       <Navbar />
       <main className="container px-4 sm:px-0 mx-auto">
         {/* header dari halaman catatan  */}
@@ -15,7 +15,7 @@ const Newsletter = () => {
         </section>
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
 

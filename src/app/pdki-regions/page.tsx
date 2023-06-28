@@ -15,7 +15,7 @@ const PDKIRegions = async () => {
   }
 
   return (
-    <>
+    <div className="bg-gray-100">
       <Navbar />
       <main className="container px-4 sm:px-0 mx-auto">
         {/* header dari halaman wilayah pdki */}
@@ -53,7 +53,7 @@ const PDKIRegions = async () => {
         </section>
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
 

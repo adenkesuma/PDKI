@@ -34,9 +34,9 @@ const RegionData: FC<RegionProps> = ({ selectedRegion }) => {
                         src={item.image}
                         alt="news 1"
                     />
-                    <div className="absolute top-5 right-5 p-2 rounded-[50%] bg-white">
+                    <div className="absolute top-5 right-5 p-2 rounded-[50%] bg-[#fff] shadow-md shadow-gray-400">
                         <Link href={`/news/${item.id}`}>
-                        <TbArrowUpRight className="w-[24px] h-[24px] text-[#274698]"/>
+                            <TbArrowUpRight className="w-[24px] h-[24px] text-[#274698]"/>
                         </Link>
                     </div>
                     </figure>

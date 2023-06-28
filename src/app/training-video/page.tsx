@@ -11,7 +11,7 @@ const TrainingVideo = async () => {
   const videoData = await fetchVideo()
 
   return (
-    <>
+    <div className="bg-gray-100">
       <Navbar />
       <main className="container px-4 sm:px-0 mx-auto">
         {/* header dari halaman video pelatihan */}
@@ -66,7 +66,7 @@ const TrainingVideo = async () => {
         </section>
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
 

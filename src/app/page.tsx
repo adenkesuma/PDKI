@@ -13,7 +13,7 @@ import Footer from "@/components/footer.tsx"
 const Home = () => {
 
   return (
-    <>
+    <div className="bg-gray-100">
       <Navbar />
       <main className="relative px-4 sm:px-0 container mx-auto">
         {/* header dari halaman awal */}
@@ -32,7 +32,7 @@ const Home = () => {
         </section>
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
 

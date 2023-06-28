@@ -13,7 +13,7 @@ const ConferenceId = async ({
     const conferenceDetail = await fetchConferenceDetail(id)
 
     return (
-        <>
+        <div className="bg-gray-100">
             <Navbar />
             <div className="px-8 container mx-auto mt-8 xl:px-12">
                 <div>
@@ -52,7 +52,7 @@ const ConferenceId = async ({
                 </div>
             </div>
             <Footer />
-        </>
+        </div>
     )
 }
 

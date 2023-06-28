@@ -12,7 +12,7 @@ const TrainingVideoId = async ({
     const videoDetail = await fetchVideoDetail(id)
 
     return (
-        <>
+        <div className="bg-gray-100">
             <Navbar />
             <div className="px-8 container mx-auto mt-8 xl:px-12">
                 <div>
@@ -26,7 +26,7 @@ const TrainingVideoId = async ({
                 </div>
             </div>
             <Footer />
-        </>
+        </div>
     )
 }
 

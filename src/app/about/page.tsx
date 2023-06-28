@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 const About = () => {
   return (
-    <>
+    <div className="bg-gray-100">
       <Navbar />
       <main className="container px-4 sm:px-0 mx-auto">
           {/* header dari halaman tentang */}
@@ -101,7 +101,7 @@ const About = () => {
           </section>
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
 

@@ -30,7 +30,7 @@ const Conference = () => {
   }, [])
 
   return (
-    <>
+    <div className="bg-gray-100">
       <Navbar />
       <main className="container px-4 sm:px-0 mx-auto">
         {/* header */}
@@ -54,7 +54,7 @@ const Conference = () => {
                       src={item.image}
                       alt="news 1"
                     />
-                    <div className="absolute top-5 right-5 p-2 rounded-[50%] bg-white">
+                    <div className="absolute top-5 right-5 p-2 rounded-[50%] bg-[#fff] shadow-md shadow-gray-400">
                       <Link href={`/conference/${item.id}`}>
                         <TbArrowUpRight className="w-[24px] h-[24px] text-[#274698]"/>
                       </Link>
@@ -76,7 +76,7 @@ const Conference = () => {
         </section>
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
 
