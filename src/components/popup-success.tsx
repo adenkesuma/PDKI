@@ -1,6 +1,6 @@
 import { TbCheck } from "react-icons/tb"
 
-const PopUpSuccess = () => {
+const PopupSuccess = () => {
     return (
       <div className="w-[300px] rounded-2xl bg-blue-100 p-4 z-[99999] absolute top-5">
         <div className="flex justify-center gap-[20px] items-center">
@@ -13,4 +13,4 @@ const PopUpSuccess = () => {
     )
 }
 
-export default PopUpSuccess
+export default PopupSuccess

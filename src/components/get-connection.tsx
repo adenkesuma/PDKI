@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react"
 import { FormEvent } from "react"
 import { TbX } from "react-icons/tb"
-import PopUpSuccess from "./pop-up-success"
+import PopupSuccess from "./popup-success"
 
 interface GetConnectionProps {
   handleConnection: () => void
@@ -94,7 +94,7 @@ const GetConnection = ({ handleConnection, setShow } : GetConnectionProps) => {
           </p>
         </div>
 
-        {isSubmitted && <PopUpSuccess />}
+        {isSubmitted && <PopupSuccess />}
       </div>
     </>
   )
