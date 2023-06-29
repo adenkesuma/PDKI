@@ -24,12 +24,6 @@ const Sidebar = ({ path }) => {
               onClick={() => handleNavClick(item.link)}
               className={`flex flex-start gap-4 items-center pl-6 w-full rounded-xl p-2 ${path === item.link ? 'active' : ''}`}
             >
-              <Link 
-                href={`${item.link}`}
-                className={`text-left font-medium ${path === item.link ? 'font-semibold text-[#274698]' : 'text-[#fff]'}`}
-              >
-                {item.text}
-              </Link>
               {
                 item.link === 'dashboard' ? <TbLayoutDashboard className={`text-lg ${path === item.link ? 'text-[#274698]' : 'text-[#fff]'}`}/> : 
                 item.link === 'member' ? <TbUsersGroup className={`text-lg ${path === item.link ? 'text-[#274698]' : 'text-[#fff]'}`}/> :
@@ -37,16 +31,22 @@ const Sidebar = ({ path }) => {
                 item.link === 'conference' ? <GiVideoConference className={`text-lg ${path === item.link ? 'text-[#274698]' : 'text-[#fff]'}`}/> :
                 item.link === 'video' ? <TbVideo className={`text-lg ${path === item.link ? 'text-[#274698]' : 'text-[#fff]'}`}/> : ''
               }
+              <Link 
+                href={`${item.link}`}
+                className={`text-left font-medium ${path === item.link ? 'font-semibold text-[#274698]' : 'text-[#fff]'}`}
+              >
+                {item.text}
+              </Link>
             </button>
           ))}
         </div>
       </div>
 
-      <button className="hover:bg-[#fff] hover:font-semibold hover:text-[#274698] font-medium text-[#fff] flex justify-start pl-6 gap-4 items-center rounded-xl p-2">
-        <p>Logout</p>
+      <button className="hover:bg-[#fff] hover:font-semibold hover:text-[#274698] duration-75 font-medium text-[#fff] flex justify-start pl-6 gap-4 items-center rounded-xl p-2">
         <TbLogout 
           className="text-lg"
         />
+        <p>Logout</p>
       </button>
     </aside>
   ) 

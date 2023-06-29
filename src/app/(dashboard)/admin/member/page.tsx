@@ -1,15 +1,21 @@
 "use client"
 import { useState, useEffect, useCallback, ChangeEvent } from "react"
 import { MemberProps } from "@/utils/interface"
-import { TbUser } from "react-icons/tb"
+import { TbPlus, TbUser } from "react-icons/tb"
+import Link from "next/link"
 import Image from "next/image"
 import Search from "@/components/search"
 import Sidebar from "@/components/sidebar"
-import BarcodeGenerator from "@/components/barcode-generator"
+import Table from "@/components/table"
 
 const Member = () => {
+  const [showDetail, setShowDetail] = useState<boolean>(false)
   const [search, setSearch] = useState<string>('')
   const [member, setMember] = useState<[]>([]) 
+
+  const handleShowDetail = () => (
+    setShowDetail(!showDetail)
+  )
 
   useEffect(() => {
     fetch(`http://localhost:8080/api/route/admin/member?nama=${search}`, {
@@ -23,59 +29,44 @@ const Member = () => {
     })
   }, [search]) 
 
-  console.log(member)
-
   const onSetSearch = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value)
   }, [])
- 
+
   return (
-    <main className="bg-gray-100">
-      <div className="relative flex gap-8">
-        <div className="p-4">
+    <main className="bg-gray-100 h-full">
+      <div className="flex gap-8 bg-gray-100">
+        <div className="p-4 bg-gray-100 relative">
           <Sidebar path={'member'} />
         </div>
         <div className="h-[500vh] w-full inherit ml-[240px] flex flex-col gap-8 relative bg-gray-100">
+          {/* navigation for member data */}
           <nav className="fixed w-[76.6%] bg-gray-100 right-[14px] flex justify-between items-center pb-6 pr-4 pt-6">
-            <p className="font-medium text-[20px]">Member</p>
+            <h3 className="font-medium text-[22px]">Membership</h3>
 
             {/* search */}
             <div className="flex items-center justify-between gap-6">
               <Search search={search} onSetSearch={onSetSearch} />
               <div className="flex gap-4 items-center justify-between">
-                <div className="rounded-2xl bg-[#fff] shadow-md shadow-gray-300 p-3">
+                <Link href={`#`} className="rounded-2xl bg-[#fff] shadow-md shadow-gray-300 p-3">
                   <TbUser className="text-lg text-black" />
-                </div>
-                <p className="">Nama Admin</p>
+                </Link>
               </div>              
+
             </div>
           </nav>
 
-          <div className="flex flex-col gap-6 mt-[92px] mr-[20px] bg-gray-100 pb-4">
-            {member.map((item : MemberProps) => (
-              <div key={item.memberId} className="bg-[#fff] rounded-2xl p-4 shadow-sm shadow-gray-300 flex justify-between items-center">
-                <div>
-                  <h3 className="text-[18px] font-medium">Nama : {item.nama}</h3>
-                  <p className="text-[15px] font-medium text-[#666]">Asal Institusi : {item.asalInstitusi}</p>
-                  <BarcodeGenerator code={item.noIdi} />
-                </div>
-                <div className="flex gap-4 items-center">
-                  {/* <Image 
-                    width={200}
-                    height={200}
-                    className="w-[200px] h-[200px]"
-                    src={`http://localhost:8080${item.pasFoto}`} 
-                    alt={item.nama} 
-                  /> */}
+          <div className="mt-[90px] mr-6 flex flex-col gap-6">
+            <div className="flex justify-end">
+              <button
+                className="flex items-center gap-2 bg-transparent border-2 border-green-600 rounded-2xl px-4 py-2 text-green-600 font-medium text-[16px] hover:bg-green-600 hover:text-[#fff] duration-75"
+              >
+                <TbPlus className="text-lg" />
+                Add Member
+              </button>
+            </div>
 
-                  <button 
-                    className=""
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-            ))}
+            <Table member={member} showDetail={showDetail} handleShowDetail={handleShowDetail}/>
           </div>
         </div>
       </div>
