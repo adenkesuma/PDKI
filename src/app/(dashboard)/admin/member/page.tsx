@@ -2,7 +2,7 @@
 import { useState, useEffect, useCallback, ChangeEvent } from "react"
 import { MemberProps } from "@/utils/interface"
 import { TbUser } from "react-icons/tb"
-// import Image from "next/image"
+import Image from "next/image"
 import Search from "@/components/search"
 import Sidebar from "@/components/sidebar"
 import BarcodeGenerator from "@/components/barcode-generator"
@@ -23,10 +23,12 @@ const Member = () => {
     })
   }, [search]) 
 
+  console.log(member)
+
   const onSetSearch = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value)
   }, [])
-
+ 
   return (
     <main className="bg-gray-100">
       <div className="relative flex gap-8">
@@ -55,16 +57,22 @@ const Member = () => {
                 <div>
                   <h3 className="text-[18px] font-medium">Nama : {item.nama}</h3>
                   <p className="text-[15px] font-medium text-[#666]">Asal Institusi : {item.asalInstitusi}</p>
+                  <BarcodeGenerator code={item.noIdi} />
                 </div>
                 <div className="flex gap-4 items-center">
                   {/* <Image 
                     width={200}
                     height={200}
                     className="w-[200px] h-[200px]"
-                    src={`${item.pasFoto}`} 
+                    src={`http://localhost:8080${item.pasFoto}`} 
                     alt={item.nama} 
                   /> */}
-                  <BarcodeGenerator code={item.noIdi} />
+
+                  <button 
+                    className=""
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
             ))}
