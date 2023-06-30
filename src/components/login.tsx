@@ -1,5 +1,6 @@
-import { FC, useState } from "react"
+import { FC } from "react"
 import { TbX } from "react-icons/tb"
+import Link from "next/link"
 
 interface LoginProps {
   handleShowLogin: () => void
@@ -44,6 +45,7 @@ const Login: FC<LoginProps> = ({ handleShowLogin, setShow }) => {
             className="bg-blue-100 hover:bg-blue-300 bg-rounded-3xl py-3 px-12 font-semibold text-[#274698] rounded-2xl">
             Masuk
           </button>
+          <Link href="/admin/dashboard">to dashboard</Link>
         </form>
         <div className="w-[90%] md:w-[60%] lg:w-[50%]">
           <p className="text-center text-blue-100">

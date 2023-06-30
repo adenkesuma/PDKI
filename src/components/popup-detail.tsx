@@ -3,7 +3,7 @@ import { MdOutlineDelete } from "react-icons/md"
 import Link from "next/link"
 
 interface Props {
-  npaPdki: number;
+  npaPdki: string;
 }
 
 const PopupDetail = ({ npaPdki } : Props) => {
