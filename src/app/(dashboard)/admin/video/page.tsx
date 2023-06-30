@@ -26,12 +26,7 @@ const Video = () => {
     setSearch(event.target.value)
   }, [])  
 
-  return (
-    <main className="bg-gray-100">
-      <div className="flex gap-8 bg-gray-100">
-        <div className="p-4 bg-gray-100 relative">
-          <Sidebar path={'video'} />
-        </div>
+  return ( 
         <div className="w-full inherit ml-[240px] flex flex-col gap-2 relative bg-gray-100 h-[5000px]">
           {/* navigation for conference data */}
           <nav className="sticky top-0 bg-gray-100 right-[14px] flex justify-between items-center pb-6 pr-4 pt-6 z-[999]">
@@ -52,9 +47,7 @@ const Video = () => {
           <div className="mr-6 flex flex-col gap-6">
             <VideoData video={video} />
           </div>
-        </div>
-      </div>
-    </main>
+        </div> 
   )
 }
 
