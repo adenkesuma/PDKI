@@ -5,7 +5,6 @@ import { TbDots, TbPlus } from "react-icons/tb"
 import PopupDetail from "./popup-detail"
 
 const MemberData = ({ member } : any) => {
-    console.log(member)
     const [selectedMemberClick, setSelectedMemberClick] = useState<number | null>(null)
     const [showDetail, setShowDetail] = useState<boolean>(false)
 
