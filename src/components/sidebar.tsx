@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 import { sidebarLinks } from "@/utils/links-text"
 import { TbLayoutDashboard, TbLogout, TbNews, TbUsersGroup, TbVideo } from "react-icons/tb"
 import Link from "next/link"
@@ -12,6 +13,9 @@ interface Props {
 }
 
 const Sidebar = ({ selectedCategory, setSelectedCategory } : Props) => {
+  const pathname = usePathname() as string
+  const splitArray: string[] = pathname?.split('/')
+  const desiredValue: string = splitArray[splitArray.length - 1] 
 
   return (
     <aside className="bg-[#274698] rounded-2xl p-6 h-[95vh] w-[250px] fixed flex flex-col justify-between">
