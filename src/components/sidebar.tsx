@@ -4,11 +4,8 @@ import { sidebarLinks } from "@/utils/links-text"
 import { TbLayoutDashboard, TbLogout, TbNews, TbUsersGroup, TbVideo } from "react-icons/tb"
 import Link from "next/link"
 import { GiVideoConference } from "react-icons/gi"
-<<<<<<< HEAD
 import { signOut } from "next-auth/react"
 // import { MemberLinkSidebar } from "@/utils/constant"
-=======
->>>>>>> 138ad6c2c4507dc2b6da8a61a868a15e2bcd7f3b
 
 interface Props {
   selectedCategory: string;

@@ -4,7 +4,8 @@ import CredentialProvider from "next-auth/providers/credentials";
 
 const authOptions: NextAuthOptions = {
     session: {
-        strategy: 'jwt'
+        strategy: 'jwt',
+        maxAge: 30 * 24 * 60 * 60,
     },
     providers: [
          CredentialProvider({
@@ -68,20 +69,21 @@ const authOptions: NextAuthOptions = {
     ],
     pages: {signIn: '/'},
     callbacks: {
-        jwt : ({ token, user, account }) => {
-          if (account){
-            token.access = user.id
-          }
-          return token
+        session: async ({session, token}) => { 
+            session.user = token.user;
+            return session;
         },
-        session: ({session, token}) => {
-            if (token){
-                session.user.id = token.id
-            }
-            return session
-        }
+        jwt : async ({ token, user}) => {
+            if (user) {
+                token.user = user;
+              }
+              return token;
+        },
       },
       secret: process.env.NEXTAUTH_SECRET,
+      jwt: {
+        secret: process.env.JWT_SIGNIN_PRIVATE_KEY
+      }
 }
 
 export default NextAuth(authOptions);
