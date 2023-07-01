@@ -22,6 +22,8 @@ const Dashboard = () => {
   const { data: session, status} = useSession()
   const router = useRouter()
 
+  console.log(session?.user.username)
+
   if (status === "authenticated"){
     return (
       <div className="w-full inherit ml-[240px] flex flex-col gap-2 relative bg-gray-100">

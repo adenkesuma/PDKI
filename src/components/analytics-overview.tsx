@@ -4,7 +4,7 @@ import Link from "next/link"
 const AnalyticsOverview = () => {
   return (
     <header className="flex flex-col gap-6">
-        <h2 className="text-[18px] xl:text-[20px] text-[#1a1a1a] font-semibold">Ringkasan Analisis</h2>
+        <h2 className="text-[18px] xl:text-[20px] text-[#1a1a1a] font-semibold">Ringkasan Jumlah Data</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="relative overflow-hidden rounded-2xl px-4 py-8 bg-[rgba(0,0,255,0.1)] flex flex-col items-center">
                 <h3 className="text-[30px] lg:text-[34px] font-semibold text-[#1a1a1a] z-50">200</h3>

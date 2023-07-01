@@ -21,8 +21,8 @@ interface ContentProps {
 
 const Content = styled.div<ContentProps>`
   background-image: url(${props => props.url});
-  width: 100px;
-  height: 100px;
+  width: 400px;
+  height: 400px;
   background-size: cover;
   background-position: center;
   border-radius: 20px;
