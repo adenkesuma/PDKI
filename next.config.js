@@ -11,6 +11,7 @@ const nextConfig = {
             'rma.acrrm.org.au',
             'woncaeurope2020.org',
             'i.ytimg.com',
+            'localhost'
         ]
     }
 }

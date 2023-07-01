@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react"
+import Image from "next/image"
 import { MemberProps } from "@/utils/interface"
 import { TbDots, TbPlus } from "react-icons/tb"
 import PopupDetail from "./popup-detail"
@@ -36,6 +37,7 @@ const MemberData = ({ member } : any) => {
             <div className="w-full">
                 {member.map((item : MemberProps) => (
                     <ul key={item.memberId} className="p-6 mb-6 flex justify-between items-center font-medium text-gray-800 bg-[#fff] rounded-2xl shadow-md shadow-gray-200">
+                        <Image src={item.pasFoto} alt="foto member" width={100} height={100}/>
                         <li className="w-[5%]">{item.memberId}</li>
                         <li className="w-[60%]">{item.nama}</li>
                         <li className="w-[10%]">{item.noIdi}</li>

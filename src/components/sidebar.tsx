@@ -6,10 +6,6 @@ import { TbLayoutDashboard, TbLogout, TbNews, TbUsersGroup, TbVideo } from "reac
 import Link from "next/link"
 import { GiVideoConference } from "react-icons/gi"
 import { signOut } from "next-auth/react"
-<<<<<<< HEAD
-// import { MemberLinkSidebar } from "@/utils/constant"
-=======
->>>>>>> b7835aca9570488a544ac2841b991958ac45ada3
 
 interface Props {
   selectedCategory: string;
