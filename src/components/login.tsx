@@ -114,7 +114,6 @@ const Login: FC<LoginProps> = ({ handleShowLogin, setShow }) => {
             Masuk
           </button>
         </form >
-          <Link href="/admin/dashboard">to dashboard</Link>
         <div className="w-[90%] md:w-[60%] lg:w-[50%]">
           <p className="text-center text-blue-100">
             Login hanya bisa dilakukan untuk yang sudah memiliki akun
