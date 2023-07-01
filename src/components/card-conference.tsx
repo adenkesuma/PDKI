@@ -1,22 +1,27 @@
-import { NewsProps } from "@/utils/interface"
+import { ConferenceProps } from "@/utils/interface"
 import { TbEdit, TbEye } from "react-icons/tb"
 import { MdOutlineDelete } from "react-icons/md"
 import Image from "next/image"
 import Link from "next/link"
 
-const CardNews = ({
-    id,
-    title,
-    content,
-    description,
-    image,
-    published,
-    publishedDate,
-    categories,
-    region,
-    video,
-    tags
-} : NewsProps) => {
+const CardConference = ({
+   id,
+   title,
+   description,
+   image,
+   startDate,
+   endDate,
+   location,
+   organizer,
+   websiteUrl,
+   registrationDeadline,
+   registrationRequired,
+   speakers,
+   isFree,
+   topic,
+   createdAt,
+   updatedAt 
+} : ConferenceProps) => {
   return (
     <div className="bg-[#fff] rounded-2xl p-3 shadow-md shadow-gray-300">
       <figure className="relative">
@@ -42,14 +47,17 @@ const CardNews = ({
         </div>
       </figure>
       <div className="mt-6 pb-4 px-4 w-full flex flex-col gap-4">
-        <h4 className="text-[16px] xl:text-[18px] font-medium text-ellipsis whitespace-nowrap overflow-hidden">{title}</h4>
-        <div className="flex justify-between items-center gap-6">
-          <span className="text-[14px] xl:text-[16px] font-medium text-[#777]">{`${new Date(publishedDate).getDate()} - ${new Date(publishedDate).getMonth()} - ${new Date(publishedDate).getFullYear()}`}</span>
-          <span className="text-[14px] xl:text-[16px] font-medium text-[#777]">{region}</span>
+        <div> 
+            <h4 className="text-[16px] xl:text-[18px] text-[#1a1a1a] font-medium text-ellipsis whitespace-nowrap overflow-hidden">{title}</h4>
+            <p className="text-[14px] xl:text-[16px] font-medium text-[#444]">{location}</p>
+        </div>
+        <div className="flex justify-between items-center gap-14 overflow-hidden text-ellipsis whitespace-nowrap">
+          <span className="text-[14px] xl:text-[16px] font-medium text-[#777]">{`${new Date(startDate).getDate()} - ${new Date(startDate).getMonth()} - ${new Date(startDate).getFullYear()}`}</span>
+          <span className="text-[14px] xl:text-[16px] font-medium text-[#777] text-ellipsis whitespace-nowrap overflow-hidden">{speakers}</span>
         </div>
       </div>
     </div>
   )
 }
 
-export default CardNews
+export default CardConference

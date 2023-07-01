@@ -4,14 +4,9 @@ import { getSession, useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 
 const Dashboard = () => {
+  // session 
   const { data: session, status } = useSession()
   const router = useRouter()
-
-  if (status === "loading"){
-    return (
-      <h1>Loading...</h1>
-    )
-  }
 
   if (status === "authenticated"){
     return (
@@ -26,7 +21,7 @@ const Dashboard = () => {
     )
   }
   if (status === "unauthenticated"){
-    router.push('/')
+    router.push("/")
   }
 }
 export default Dashboard

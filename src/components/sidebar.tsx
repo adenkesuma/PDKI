@@ -4,11 +4,7 @@ import { sidebarLinks } from "@/utils/links-text"
 import { TbLayoutDashboard, TbLogout, TbNews, TbUsersGroup, TbVideo } from "react-icons/tb"
 import Link from "next/link"
 import { GiVideoConference } from "react-icons/gi"
-<<<<<<< HEAD
 import { signOut } from "next-auth/react"
-// import { MemberLinkSidebar } from "@/utils/constant"
-=======
->>>>>>> 138ad6c2c4507dc2b6da8a61a868a15e2bcd7f3b
 
 interface Props {
   selectedCategory: string;
@@ -24,7 +20,7 @@ const Sidebar = ({ selectedCategory, setSelectedCategory } : Props) => {
 
         <div className="flex flex-col gap-6 mt-14">
           {sidebarLinks.map((item) => (
-            <div key={item.id}>
+            <Link key={item.id} href={`${item.link}`}>
               <button 
                 onClick={() => setSelectedCategory(item.link)}
                 className={`flex flex-start gap-4 items-center pl-6 w-full rounded-xl p-2 ${selectedCategory === item.link ? 'active' : ''}`}
@@ -36,14 +32,13 @@ const Sidebar = ({ selectedCategory, setSelectedCategory } : Props) => {
                   item.link === 'conference' ? <GiVideoConference className={`text-lg ${selectedCategory === item.link ? 'text-[#274698]' : 'text-[#fff]'}`}/> :
                   item.link === 'video' ? <TbVideo className={`text-lg ${selectedCategory === item.link ? 'text-[#274698]' : 'text-[#fff]'}`}/> : ''
                 }
-                <Link 
-                  href={`${item.link}`}
+                <p 
                   className={`text-left font-medium ${selectedCategory === item.link ? 'font-semibold text-[#274698]' : 'text-[#fff]'}`}
                 >
                   {item.text}
-                </Link>
+                </p>
               </button> 
-            </div>
+            </Link>
           ))}
         </div>
       </div>

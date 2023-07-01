@@ -1,7 +1,8 @@
 import { ConferenceProps } from "@/utils/interface"
 import { TbPlus } from "react-icons/tb"
+import CardConference from "./card-conference"
 
-const ConferenceData = ({ conference }) => {
+const ConferenceData = ({ conference }: any) => {
     return (
         <div>
             <div className="flex justify-end gap-4">
@@ -13,9 +14,29 @@ const ConferenceData = ({ conference }) => {
               </button>
             </div> 
 
+          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
             {conference.map((item : ConferenceProps) => (
-                <p key={item.id}>{item.title}</p>
+              <CardConference 
+                key={item?.id} 
+                id={item?.id}
+                title={item?.title} 
+                description={item?.description} 
+                image={item?.image}
+                startDate={item?.startDate}
+                endDate={item?.endDate}
+                location={item?.location}
+                organizer={item?.organizer}
+                websiteUrl={item?.websiteUrl}
+                registrationRequired={item?.registrationRequired}
+                registrationDeadline={item?.registrationDeadline}
+                speakers={item?.speakers}
+                isFree={item?.isFree}
+                topic={item?.topic}
+                createdAt={item?.createdAt}
+                updatedAt={item?.updatedAt}
+              />
             ))}
+          </section>
         </div>
     )
 }

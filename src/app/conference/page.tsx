@@ -45,7 +45,7 @@ const Conference = () => {
           {/* conference */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
             {conferenceData.map((item : ConferenceProps) => (
-               <div key={item.id}>
+               <div key={item.id} className="shadow-md shadow-gray-300 rounded-2xl">
                   <figure className="h-[160px] relative block overflow-hidden rounded-tl-2xl rounded-tr-2xl">
                     <Image 
                       width={300}

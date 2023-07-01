@@ -11,10 +11,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
     
-    return (
-        <main className='flex gap-8'>
-            <NavbarAdmin /> 
-            {children}
-        </main>
-    )
+  return (
+    <main className='flex gap-8'>
+        <NavbarAdmin /> 
+        {children}
+    </main>
+  )
 }
