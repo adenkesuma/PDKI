@@ -4,7 +4,8 @@ import { sidebarLinks } from "@/utils/links-text"
 import { TbLayoutDashboard, TbLogout, TbNews, TbUsersGroup, TbVideo } from "react-icons/tb"
 import Link from "next/link"
 import { GiVideoConference } from "react-icons/gi"
-import { MemberLinkSidebar } from "@/utils/constant"
+import { signOut } from "next-auth/react"
+// import { MemberLinkSidebar } from "@/utils/constant"
 
 const Sidebar = ({ path }) => {
   const [navActive, setNavActive] = useState<string>('')
@@ -45,7 +46,9 @@ const Sidebar = ({ path }) => {
         </div>
       </div>
 
-      <button className="hover:bg-[#fff] hover:font-semibold hover:text-[#274698] duration-75 font-medium text-[#fff] flex justify-start pl-6 gap-4 items-center rounded-xl p-2">
+      <button 
+      onClick={() => signOut({callbackUrl: '/'})}
+      className="hover:bg-[#fff] hover:font-semibold hover:text-[#274698] duration-75 font-medium text-[#fff] flex justify-start pl-6 gap-4 items-center rounded-xl p-2">
         <TbLogout 
           className="text-lg"
         />

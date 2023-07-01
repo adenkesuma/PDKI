@@ -1,3 +1,4 @@
+import {NextAuthProvider} from './provider'
 import './globals.css'
 import { montserrat } from '@/utils/font'
 
@@ -12,10 +13,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+
     <html lang="en">
       <body className={`${montserrat.className} bg-gray-100`}>
+      <NextAuthProvider>
           {children}
+      </NextAuthProvider>
       </body>
     </html>
+
   )
 }

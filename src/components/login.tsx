@@ -1,5 +1,7 @@
-import { FC, useState } from "react"
+import { ChangeEvent, FC, FormEvent, useState } from "react"
 import { TbX } from "react-icons/tb"
+import {signIn}  from "next-auth/react"
+import { useRouter, useSearchParams } from "next/navigation"
 
 interface LoginProps {
   handleShowLogin: () => void
@@ -7,7 +9,60 @@ interface LoginProps {
 }
 
 const Login: FC<LoginProps> = ({ handleShowLogin, setShow }) => {
+  const router = useRouter()
+  const [loginBy, setLoginBy] = useState("admin")
+  const [loading, setLoading] = useState(false)
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
 
+  const [error, setError] = useState("")
+  
+  const searchParams = useSearchParams();
+  const callbackUrlAdmin = searchParams?.get("callbackUrl") || "/admin/dashboard";
+  const callbackUrlMember = searchParams?.get("callbackUrl") || "/member/dashboard";
+
+ 
+  
+  async function onSubmit (e: FormEvent){
+    e.preventDefault()
+
+    try{
+      setLoading(true);
+      if (loginBy == "admin"){
+        const res = await signIn("admin-login", {
+          redirect: false,
+          username: username,
+          password: password,
+          callbackUrlAdmin
+        });
+        
+        setLoading(false)
+        if (!res?.error){
+          router.push(callbackUrlAdmin)
+        }else{
+          setLoading(false)
+          setError("Invalid username or password")
+        }
+      }else if (loginBy == "member"){
+        const res = await signIn("member-login", {
+          redirect: false,
+          username: username,
+          password: password,
+          callbackUrlMember
+        });
+        
+        setLoading(false)
+        if (!res?.error){
+          router.push(callbackUrlMember)
+        }else{
+          setLoading(false)
+          setError("Invalid username or password")
+        }
+      }
+    }catch(err: any){
+      setError(err)
+    }
+  }
   return (
     <>
       <div className="mx-auto fixed left-0 right-0 bottom-0 top-0 h-[100vh] w-[100%] opacity-95 bg-[#274698] flex flex-col justify-center gap-12 items-center z-50">
@@ -21,30 +76,43 @@ const Login: FC<LoginProps> = ({ handleShowLogin, setShow }) => {
           <div className="flex items-center gap-4 mt-4">
             <p className="text-blue-100 font-medium text-[16px]">Login Sebagai</p>
             <select 
+              defaultValue={"admin"}
               name="role" 
               id="role"
               className="bg-blue-100 outline-none font-medium text-[#333] py-[6px] px-3 rounded-xl"
+              onChange={(e) => {
+                setLoginBy(e.target.value); 
+              }}
             >
               <option value="admin" className="p-2 rounded-md">Admin</option>
               <option value="member" className="p-2 rounded-md">Member</option>
             </select>
           </div>
         </div>
-        <form className="flex flex-col items-center gap-8 mx-auto w-[80%] md:w-[60%] lg:w-[40%]">
+        {error && (
+        <p className="text-center bg-red-300 py-4 mb-6 rounded">{error}</p>
+      )}
+        <form className="flex flex-col items-center gap-8 mx-auto w-[80%] md:w-[60%] lg:w-[40%]"
+          onSubmit={onSubmit}
+        >
           <input 
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             type="text" 
-            placeholder="Masukan nama..." 
+            placeholder="Masukan username..." 
             className="w-full rounded-2xl py-3 px-4 text-blue-100 outline-none border-2 placeholder-blue-100 border-blue-100 bg-transparent" />
           <input 
-            type="email" 
-            placeholder="Masukan email..." 
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            type="password" 
+            placeholder="Masukan password..." 
             className="w-full rounded-2xl py-3 px-4 text-blue-100 outline-none border-2 placeholder-blue-100 border-blue-100 bg-transparent" />
           <button 
             type="submit" 
             className="bg-blue-100 hover:bg-blue-300 bg-rounded-3xl py-3 px-12 font-semibold text-[#274698] rounded-2xl">
             Masuk
           </button>
-        </form>
+        </form >
         <div className="w-[90%] md:w-[60%] lg:w-[50%]">
           <p className="text-center text-blue-100">
             Login hanya bisa dilakukan untuk yang sudah memiliki akun

@@ -8,13 +8,14 @@ const authOptions: NextAuthOptions = {
     },
     providers: [
          CredentialProvider({
-            type: 'credentials',
+            id: "member-login",
+            name: 'member',
             credentials: {
                 username: {label: "Username", type: "text", placeholder: "Masukkan Username..."},
                 password: {label: "password", type: "password", placeholder: "Masukkan password..."},
             },
             async authorize(credentials, req) {
-                const res = await fetch('http://localhost:8080/api/route/admin/signin',
+                const res = await fetch(`http://localhost:8080/api/route/signin/member`,
                 {
                     method: "POST",
                     headers: {
@@ -26,10 +27,39 @@ const authOptions: NextAuthOptions = {
                     })
                 })
 
-                const admin = await res.json();
+                const user = await res.json();
                 
-                if (res.ok && admin){
-                    return admin
+                if (res.ok && user){
+                    return user
+                }
+                return null
+            
+            },
+         }),
+         CredentialProvider({
+            id: "admin-login",
+            name: 'admin',
+            credentials: {
+                username: {label: "Username", type: "text", placeholder: "Masukkan Username..."},
+                password: {label: "password", type: "password", placeholder: "Masukkan password..."},
+            },
+            async authorize(credentials, req) {
+                const res = await fetch(`http://localhost:8080/api/route/signin/admin`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type" : "application/json",
+                    },
+                    body: JSON.stringify({
+                        username: credentials?.username,
+                        password: credentials?.password
+                    })
+                })
+
+                const user = await res.json();
+                
+                if (res.ok && user){
+                    return user
                 }
                 return null
             
@@ -40,7 +70,7 @@ const authOptions: NextAuthOptions = {
     callbacks: {
         jwt : ({ token, user, account }) => {
           if (account){
-            token.acces = user.id
+            token.access = user.id
           }
           return token
         },
@@ -51,7 +81,7 @@ const authOptions: NextAuthOptions = {
             return session
         }
       },
-      secret: process.env.JWT_SECRET,
+      secret: process.env.NEXTAUTH_SECRET,
 }
 
 export default NextAuth(authOptions);
