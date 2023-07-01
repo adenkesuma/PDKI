@@ -2,25 +2,15 @@
 import { useState } from "react"
 import { MemberProps } from "@/utils/interface"
 import { TbDots, TbPlus } from "react-icons/tb"
-import { CgArrowLongUp, CgArrowLongDown } from "react-icons/cg"
 import PopupDetail from "./popup-detail"
 
-const MemberData = ({ member }) => {
+const MemberData = ({ member } : any) => {
     const [selectedMemberClick, setSelectedMemberClick] = useState<number | null>(null)
     const [showDetail, setShowDetail] = useState<boolean>(false)
 
     const handleShowDetail = (id : number) => {
         setShowDetail(!showDetail)
         setSelectedMemberClick((prevId) => (prevId === id ? null : id))
-    }
-
-    // asc & desc logic
-    const sortDataDescending = (data) => {
-        return data.sort((a, b) => b.id - a.id)
-    }
-
-    const sortDataAscending = (data) => {
-        return data.sort((a, b) => a.id - b.id)
     }
 
     return (
