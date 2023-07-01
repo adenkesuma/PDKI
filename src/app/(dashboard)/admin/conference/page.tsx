@@ -38,7 +38,7 @@ const Conference = () => {
       <div className="w-full inherit ml-[240px] flex flex-col gap-2 relative bg-gray-100 pb-6">
         {/* navigation for conference data */}
         <nav className="sticky top-0 bg-gray-100 right-[14px] flex justify-between items-center pb-6 pr-4 pt-6 z-[999]">
-          <h3 className="font-medium text-[22px]">Konferensi</h3>
+          <h3 className="font-semibold text-[30px] text-[#1a1a1a]">Konferensi</h3>
           {/* search */}
           <div className="flex items-center justify-between gap-6">
             <Search search={search} onSetSearch={onSetSearch} />

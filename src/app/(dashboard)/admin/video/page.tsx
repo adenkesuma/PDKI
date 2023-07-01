@@ -35,9 +35,9 @@ const Video = () => {
   if (status === "authenticated") {
     return ( 
       <div className="w-full inherit ml-[240px] flex flex-col gap-2 relative bg-gray-100 h-[5000px]">
-        {/* navigation for conference data */}
+        {/* navigation for video data */}
         <nav className="sticky top-0 bg-gray-100 right-[14px] flex justify-between items-center pb-6 pr-4 pt-6 z-[999]">
-          <h3 className="font-medium text-[22px]">Video Pelatihan</h3>
+          <h3 className="font-semibold text-[30px] text-[#1a1a1a]">Video Pelatihan</h3>
           {/* search */}
           <div className="flex items-center justify-between gap-6">
             <Search search={search} onSetSearch={onSetSearch} />
