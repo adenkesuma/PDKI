@@ -1,5 +1,4 @@
 "use client"
-import { useState, useEffect, useCallback, ChangeEvent } from "react"
 import Sidebar from "@/components/sidebar"
 import Search from "@/components/search"
 import Link from "next/link"
@@ -7,8 +6,18 @@ import { TbUser } from "react-icons/tb"
 import { getSession, useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import DashboardData from "@/components/dashboard-data"
+import { useEffect, useState } from "react"
 
 const Dashboard = () => {
+  const [news, setNews] = useState<[]>([])
+
+  useEffect(() => {
+    fetch('http://localhost:8080/api/route/news')
+    .then((res) => res.json())
+    .then((data) => setNews(data.data))
+    .catch((err) => console.log(err))
+  }, [])
+
   // session
   const { data: session, status} = useSession()
   const router = useRouter()
@@ -30,7 +39,7 @@ const Dashboard = () => {
         </nav>
 
         <div className="mr-6 flex flex-col gap-6">
-          <DashboardData />
+          <DashboardData news={news} />
         </div>
   
       </div> 

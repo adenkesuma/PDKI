@@ -1,10 +1,15 @@
 import React from 'react'
 import AnalyticsOverview from './analytics-overview'
+import HorizontalNews from './horizontal-news'
 
-const DashboardData = () => {
+const DashboardData = ({ news }: any) => {
   return (
     <div>
-        <AnalyticsOverview />
+      {/* analytics overview */}
+      <AnalyticsOverview />
+
+      {/* horizontal scroll news */}
+      <HorizontalNews news={news} />
     </div>
   )
 }
