@@ -4,10 +4,13 @@ import Image from "next/image"
 import { MemberProps } from "@/utils/interface"
 import { TbDots, TbPlus } from "react-icons/tb"
 import PopupDetail from "./popup-detail"
+import { useRouter } from "next/navigation"
+
 
 const MemberData = ({ member } : any) => {
     const [selectedMemberClick, setSelectedMemberClick] = useState<number | null>(null)
     const [showDetail, setShowDetail] = useState<boolean>(false)
+    const router = useRouter()
 
     const handleShowDetail = (id : number) => {
         setShowDetail(!showDetail)
@@ -18,6 +21,7 @@ const MemberData = ({ member } : any) => {
         <div>
             <div className="flex justify-end gap-4">
               <button
+              onClick={() => router.push('/admin/member/post-member')}
                 className="flex items-center gap-2 bg-transparent border-2 border-[#274698] rounded-2xl px-4 py-2 text-[#274698] font-medium text-[16px] hover:bg-[#274698] hover:text-[#fff] duration-75"
               >
                 <TbPlus className="text-lg" />

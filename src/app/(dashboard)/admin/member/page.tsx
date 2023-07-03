@@ -43,7 +43,7 @@ const Member = () => {
           <div className="flex items-center justify-between gap-6">
             <Search search={search} onSetSearch={onSetSearch} />
             <div className="flex gap-4 items-center justify-between">
-              <Link href={`/admin/member/post-member`} className="rounded-2xl bg-[#fff] shadow-md shadow-gray-300 p-3">
+              <Link href={`#`} className="rounded-2xl bg-[#fff] shadow-md shadow-gray-300 p-3">
                 <TbUser className="text-lg text-[#888]" />
               </Link>
             </div>              

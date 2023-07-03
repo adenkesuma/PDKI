@@ -66,13 +66,19 @@ const PostMember = () => {
 
     const loadImage = (event: any) => {
         const image = event.target.files[0]
-        setPreview(URL.createObjectURL(image))
+        setPreview(URL?.createObjectURL(image))
         setMemberData(prevState => ({
             ...prevState,
             file: image
+        }))   
+    }
+
+    const deleteImage = () => {
+        setPreview("")
+        setMemberData(prevState => ({
+            ...prevState,
+            file: ""
         }))
-        console.log(new Date(memberData.tanggalLahir).toISOString());
-        
     }
 
     const handleChange = (event: any) => {
@@ -82,10 +88,6 @@ const PostMember = () => {
             [name]: value
         }))
         
-    }
-
-    const convertDate  = (event: any) => {
-
     }
 
   const onSetSearch = useCallback((event: ChangeEvent<HTMLInputElement>) => {
@@ -136,7 +138,7 @@ const PostMember = () => {
                 checked={memberData.subspesialisasi === "Community Oriented Primary Care (COPC)"}
                 onChange={handleChange}
                 />
-                <label htmlFor="regular">COPC</label>
+                <label htmlFor="copc">COPC</label>
             </div>
             <div className="flex gap-8">
                 <input
@@ -147,7 +149,7 @@ const PostMember = () => {
                     checked={memberData.subspesialisasi === "Family Oriented Medical Care (FOMC)"}
                     onChange={handleChange}
                 />
-                <label htmlFor="">FOMC</label>
+                <label htmlFor="fomc">FOMC</label>
             </div>
       </div>
         <input 
@@ -157,15 +159,23 @@ const PostMember = () => {
             type="text" 
             placeholder="Masukan Asal Institusi..." 
             className="w-full rounded-2xl py-3 px-4 border-2" />
-        <input 
-            name="file"
-            onChange={loadImage}
-            type="file" 
-            placeholder="Masukan Pas Foto..." 
-            className="file-input" />
+        <div className="flex space-x-24">    
+            <input 
+                name="file"
+                onChange={loadImage}
+                type="file" 
+                accept=".jpg,.jpeg,.png"
+            />
+            
+            {preview == "" && memberData.file == ""?
+            ("")
+            :
+            <button className="border-solid border-2 rounded-md bg-white font-semibold p-3" onClick={deleteImage}>cancel</button>     
+        }
+        </div>    
         {preview? (
 
-            <figure className="image is-128x128">
+            <figure className="image">
                 <Image src={preview} alt="preview" width={128} height={128} />
             </figure>
         ):  ("")}
