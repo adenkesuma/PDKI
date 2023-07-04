@@ -1,12 +1,13 @@
 "use client"
 import { useState, useEffect, useCallback, ChangeEvent } from "react"
 import { MemberProps } from "@/utils/interface"
-import { TbUser } from "react-icons/tb"
+import { TbUpload, TbUser } from "react-icons/tb"
 import Link from "next/link"
 import { getSession, useSession } from "next-auth/react"
 import Search from "@/components/search"
 import { redirect, useRouter } from "next/navigation"
 import Image from "next/image"
+import BackNavigate from "@/components/back-navigate"
 
 const PostConference = () => {
   const [search, setSearch] = useState<string>('')
@@ -20,12 +21,13 @@ const PostConference = () => {
     location: "",
     organizer: "",
     websiteUrl: "",
-    registrationRequired: "",
+    registrationRequired: "false",
     registrationDeadline: "",
     speakers: "",
     topic: '',
     file: ""
   }) 
+  const router = useRouter()
   
   // session 
   const { data: session, status} = useSession({
@@ -71,6 +73,14 @@ const PostConference = () => {
         }))      
     }
 
+    const deleteImage = () => {
+        setPreview("")
+        setConferenceData(prevState => ({
+            ...prevState,
+            file: ""
+        }))
+    }
+
     const handleChange = (event: any) => {
         const {name, value} = event.target
         setConferenceData(prevState => ({
@@ -80,198 +90,234 @@ const PostConference = () => {
         
     }
 
-  const onSetSearch = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-    setSearch(event.target.value)
-  }, [])
+    const redirectBack = () => {
+        router.push("/admin/conference")
+    }
 
-  if (status === "authenticated") {
-    return (   
-    <div className="w-full my-10">
-        <form className="flex flex-col items-center gap-8 mx-auto w-[80%] md:w-[60%] lg:w-[40%]"
-        onSubmit={addMember}
-      >
-    <div className="w-full">
-        <label htmlFor="title">Judul Konferensi</label>
-        <input 
-            id="title"
-            name="title"
-            value={conferenceData.title}
-            onChange={handleChange}
-            type="text" 
-            placeholder="Masukan Judul..." 
-            className="w-full rounded-2xl py-3 px-4  border-2" />
-    </div>
-    <div className="w-full">
-        <label htmlFor="description">Deskripsi Konferensi</label>
-        <input
-            id="description"
-            name="description"
-            value={conferenceData.description}
-            onChange={handleChange}
-            type="text" 
-            placeholder="Masukan Deskripsi..." 
-            className="w-full rounded-2xl py-3 px-4 border-2" />
-    </div>
-    <div className="w-full">
-        <label htmlFor="image">Gambar Konferensi</label>
-        <input 
-            id="image"
-            name="file"
-            onChange={loadImage}
-            type="file" 
-            placeholder="Masukan Gambar..." 
-            className="file-input" />
-    
-        {preview? (
-            <figure className="image is-128x128">
-                <Image src={preview} alt="preview" width={128} height={128} />
-            </figure>
-        ):  ("")}
-    </div>
-    <div className="w-full">
-        <label htmlFor="startDate">Tanggal Mulai Konferensi</label>
-        <input 
-            id="startDate"
-            name="startDate"
-            value={conferenceData.startDate}
-            onChange={handleChange}
-            type="date" 
-            placeholder="Masukan Tanggal Mulai Konferensi..." 
-            className="w-full rounded-2xl py-3 px-4 border-2" />
-    </div>
-    <div className="w-full">
-        <label htmlFor="endDate">Gambar Konferensi</label>
-        <input 
-            id="endDate"
-            name="endDate"
-            value={conferenceData.endDate}
-            onChange={handleChange}
-            type="date" 
-            placeholder="Masukan Tanggal Selesai Konferensi..." 
-            className="w-full rounded-2xl py-3 px-4 border-2" />
-    </div>
-    <div className="w-full">
-        <label htmlFor="region">Region Konferensi</label>
-        <input 
-            id="region"
-            type="text"
-            name="region"
-            value={conferenceData.region}
-            onChange={handleChange}
-            placeholder="Masukan Region Konferensi..." 
-            className="w-full rounded-2xl py-3 px-4 border-2" />
-    </div>
-    <div className="w-full">
-        <label htmlFor="location">Lokasi Konferensi</label>
-        <input 
-            id="location"
-            name="location"
-            value={conferenceData.location}
-            onChange={handleChange}
-            type="text" 
-            placeholder="Masukan Lokasi Konferensi..." 
-            className="w-full rounded-2xl py-3 px-4 border-2" />
-    </div>
-    <div className="w-full">
-        <label htmlFor="organizer">Penyelenggara Konferensi</label>
-        <input 
-            id="organizer"
-            name="organizer"
-            value={conferenceData.organizer}
-            onChange={handleChange}
-            type="text" 
-            placeholder="Masukan Penyelenggara Konferensi..." 
-            className="w-full rounded-2xl py-3 px-4 border-2" />
-    </div>
-    <div className="w-full">
-        <label htmlFor="websiteUrl">Link Website Konferensi</label>
-        <input 
-            id="websiteUrl"
-            name="websiteUrl"
-            value={conferenceData.websiteUrl}
-            onChange={handleChange}
-            type="text" 
-            placeholder="Masukan URL Website Konferensi..." 
-            className="w-full rounded-2xl py-3 px-4 border-2" />
-    </div>
-    <div className="w-full text-center">
-        <label htmlFor="registrationRequired">Registrasi Konferensi</label>
-       <div className="flex w-full space-x-96">
-            <div className="flex gap-8">
-                <input
-                    type="radio"
-                    name="registrationRequired"
-                    value="true"
-                    id="true"
-                    checked={conferenceData.registrationRequired === "true"}
-                    onChange={handleChange}
-                />
-                <label htmlFor="true">Perlu Registrasi</label>
+    const onSetSearch = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+        setSearch(event.target.value)
+    }, [])
+
+    if (status === "authenticated") {
+        return (  
+            <div className="w-full my-10 flex flex-col ml-[240px]">
+                {/* arrow back */}
+                <BackNavigate path={"conference"} title={"konferensi"} />
+
+                <form 
+                    className="flex flex-col items-center gap-8 mx-auto w-[80%]"
+                    onSubmit={addMember}
+                >
+                    <div className="w-full">
+                        <label htmlFor="title" className="font-medium">Judul Konferensi</label>
+                        <input 
+                            id="title"
+                            name="title"
+                            value={conferenceData.title}
+                            onChange={handleChange}
+                            type="text" 
+                            placeholder="Masukan Judul..." 
+                            className="w-full rounded-2xl py-3 px-4 mt-2 border border-[#d4d4d4]" 
+                        />
+                    </div>
+                    <div className="w-full">
+                        <label htmlFor="description" className="font-medium">Deskripsi Konferensi</label>
+                        <input
+                            id="description"
+                            name="description"
+                            value={conferenceData.description}
+                            onChange={handleChange}
+                            type="text" 
+                            placeholder="Masukan Deskripsi..." 
+                            className="w-full rounded-2xl py-3 px-4 border border-[#d4d4d4] mt-2" 
+                        />
+                    </div>
+                    <div className="w-full">
+                        <label htmlFor="image" className="font-medium">Foto Terkait Konferensi</label>
+                        <div className="relative flex justify-center w-full flex-col items-center gap-8 space-x-24 border border-[#d4d4d4] bg-[#fff] rounded-2xl p-8 mt-2">    
+                            {preview ? (
+                                <figure className="image">
+                                    <Image src={preview} alt="preview" width={200} height={200} />
+                                </figure> ) : (
+                                <div className="flex flex-col justify-center items-center gap-4">
+                                    <TbUpload className="text-[50px] text-[#888]" />
+                                    <p className="text-center text-[14px] font-medium text-[#888]">Klik button untuk memasukan gambar</p>
+                                </div> 
+                            )}
+                            <input 
+                                name="file"
+                                onChange={loadImage}
+                                type="file" 
+                                accept=".jpg,.jpeg,.png"
+                                id="image"
+                                className="file:bg-[#274698] file:px-4 file:py-2 file:rounded-xl file:border-none file:text-[#fff] file:font-medium file:text-[#14px] file:mr-6 hover:file:bg-blue-600"
+                            />
+                            {preview == "" && conferenceData.file == ""?
+                                ("")
+                                :
+                                <button 
+                                    className="absolute top-4 -left-20 border-solid border-2 rounded-xl bg-white font-medium px-4 py-2 hover:bg-gray-300" 
+                                    onClick={deleteImage}
+                                >
+                                    Cancel
+                                </button>     
+                            }
+                        </div>
+                    </div>       
+                    <div className="w-full">
+                        <label htmlFor="startDate" className="font-medium">Tanggal Mulai Konferensi</label>
+                        <input 
+                            id="startDate"
+                            name="startDate"
+                            value={conferenceData.startDate}
+                            onChange={handleChange}
+                            type="date" 
+                            placeholder="Masukan Tanggal Mulai Konferensi..." 
+                            className="mt-2 w-full rounded-2xl py-3 px-4 border border-[#d4d4d4]" 
+                        />
+                    </div>
+                    <div className="w-full">
+                        <label htmlFor="endDate" className="font-medium">Tanggal Selesai Konferensi</label>
+                        <input 
+                            id="endDate"
+                            name="endDate"
+                            value={conferenceData.endDate}
+                            onChange={handleChange}
+                            type="date" 
+                            placeholder="Masukan Tanggal Selesai Konferensi..." 
+                            className="w-full mt-2 rounded-2xl py-3 px-4 border border-[#d4d4d4]" 
+                        />
+                    </div>
+                    <div className="w-full">
+                        <label htmlFor="region" className="font-medium">Region Konferensi</label>
+                        <input 
+                            id="region"
+                            type="text"
+                            name="region"
+                            value={conferenceData.region}
+                            onChange={handleChange}
+                            placeholder="Masukan Region Konferensi..." 
+                            className="mt-2 w-full rounded-2xl py-3 px-4 border border-[#d4d4d4]" 
+                        />
+                    </div>
+                    <div className="w-full">
+                        <label htmlFor="location" className="font-medium">Lokasi Konferensi</label>
+                        <input 
+                            id="location"
+                            name="location"
+                            value={conferenceData.location}
+                            onChange={handleChange}
+                            type="text" 
+                            placeholder="Masukan Lokasi Konferensi..." 
+                            className="w-full rounded-2xl py-3 px-4 border border-[#d4d4d4] mt-2" 
+                        />
+                    </div>
+                    <div className="w-full">
+                        <label htmlFor="organizer" className="font-medium">Penyelenggara Konferensi</label>
+                        <input 
+                            id="organizer"
+                            name="organizer"
+                            value={conferenceData.organizer}
+                            onChange={handleChange}
+                            type="text" 
+                            placeholder="Masukan Penyelenggara Konferensi..." 
+                            className="w-full mt-2 rounded-2xl py-3 px-4 border border-[#d4d4d4]" 
+                        />
+                    </div>
+                    <div className="w-full">
+                        <label htmlFor="websiteUrl" className="font-medium">Link Website Konferensi</label>
+                        <input 
+                            id="websiteUrl"
+                            name="websiteUrl"
+                            value={conferenceData.websiteUrl}
+                            onChange={handleChange}
+                            type="text" 
+                            placeholder="Masukan URL Website Konferensi..." 
+                            className="w-full mt-2 rounded-2xl py-3 px-4 border border-[#d4d4d4]"
+                        />
+                    </div>
+                    <div className="w-full flex flex-col gap-2">
+                        <label htmlFor="registrationRequired" className="font-medium">Registrasi Konferensi</label>
+                        <div className="flex flex-col">
+                            <div className="flex gap-8">
+                                <input
+                                    type="radio"
+                                    name="registrationRequired"
+                                    value="true"
+                                    id="true"
+                                    checked={conferenceData.registrationRequired === "true"}
+                                    onChange={handleChange}
+                                />
+                                <label htmlFor="true" className="text-[14px] font-medium text-gray-800">Perlu Registrasi</label>
+                            </div>
+                            <div className="flex gap-8">
+                                <input
+                                    type="radio"
+                                    name="registrationRequired"
+                                    value="false"
+                                    id="false"
+                                    checked={conferenceData.registrationRequired === "false"}
+                                    onChange={handleChange}
+                                />
+                                <label htmlFor="false" className="text-[14px] font-medium text-gray-800">Tidak Perlu Registrasi</label>
+                            </div>
+                    </div>
+                    </div>
+                    {
+                        conferenceData.registrationRequired === "true"
+                        ?
+                        (
+                        <div className="w-full">
+                            <label htmlFor="registrationDeadline" className="font-medium">Deadline Registrasi</label>
+                            <input 
+                                id="registrationDeadline"
+                                name="registrationDeadline"
+                                value={conferenceData.registrationDeadline}
+                                onChange={handleChange}
+                                type="date" 
+                                placeholder="Masukan Deadline Pendaftaran Konferensi..." 
+                                className="w-full mt-2 rounded-2xl py-3 px-4 border border-[#d4d4d4]" 
+                            />
+                        </div>
+                        )
+                        :
+                        ("")
+                    }
+                    <div className="w-full">
+                        <label htmlFor="speakers" className="font-medium">Pembicara</label>
+                        <input 
+                            id="speakers"
+                            name="speakers"
+                            value={conferenceData.speakers}
+                            onChange={handleChange}
+                            type="text" 
+                            placeholder="Masukan Pembicara Konferensi..." 
+                            className="mt-2 w-full rounded-2xl py-3 px-4 border border-[#d4d4d4]" 
+                        />
+                    </div>
+                    <div className="w-full">
+                        <label htmlFor="topic" className="font-medium">Topik Konferensi</label>
+                        <input 
+                            id="topic"
+                            name="topic"
+                            value={conferenceData.topic}
+                            onChange={handleChange}
+                            type="text" 
+                            placeholder="Masukan Pembicara Konferensi..." 
+                            className="w-full rounded-2xl py-3 px-4 mt-2 border border-[#d4d4d4]" 
+                        />
+                    </div>
+                    <button 
+                        type="submit" 
+                        className="text-[#fff] hover:bg-blue-600 bg-rounded-3xl py-3 px-12 font-semibold bg-[#274698] rounded-2xl"
+                        onClick={redirectBack}
+                    >
+                        Upload Konferensi
+                    </button>
+                </form >
             </div>
-            <div className="flex gap-8">
-                <input
-                    type="radio"
-                    name="registrationRequired"
-                    value="false"
-                    id="false"
-                    checked={conferenceData.registrationRequired === "false"}
-                    onChange={handleChange}
-                />
-                <label htmlFor="false">Tidak Perlu Registrasi</label>
-            </div>
-      </div>
-    </div>
-      {
-        conferenceData.registrationRequired === "true"
-        ?
-        (
-        <div className="w-full">
-            <label htmlFor="registrationDeadline">Deadline Registrasi</label>
-            <input 
-                id="registrationDeadline"
-                name="registrationDeadline"
-                value={conferenceData.registrationDeadline}
-                onChange={handleChange}
-                type="date" 
-                placeholder="Masukan Deadline Pendaftaran Konferensi..." 
-                className="w-full rounded-2xl py-3 px-4 border-2" />
-        </div>
         )
-        :
-        ("")
-      }
-    <div className="w-full">
-        <label htmlFor="speakers">Pembicara</label>
-        <input 
-            id="speakers"
-            name="speakers"
-            value={conferenceData.speakers}
-            onChange={handleChange}
-            type="text" 
-            placeholder="Masukan Pembicara Konferensi..." 
-            className="w-full rounded-2xl py-3 px-4 border-2" />
-    </div>
-    <div className="w-full">
-        <label htmlFor="topic">Topik Konferensi</label>
-        <input 
-            id="topic"
-            name="topic"
-            value={conferenceData.topic}
-            onChange={handleChange}
-            type="text" 
-            placeholder="Masukan Pembicara Konferensi..." 
-            className="w-full rounded-2xl py-3 px-4 border-2" />
-    </div>
-        <button 
-          type="submit" 
-          className="bg-blue-100 hover:bg-blue-300 bg-rounded-3xl py-3 px-12 font-semibold text-[#274698] rounded-2xl">
-          Post Konferensi
-        </button>
-      </form >
-    </div>
-    )
-  }
-
+    }
 }
 
 export default PostConference
