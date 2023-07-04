@@ -4,7 +4,7 @@ import Search from "@/components/search"
 import Link from "next/link"
 import { TbUser } from "react-icons/tb"
 import { getSession, useSession } from "next-auth/react"
-import { useRouter } from "next/navigation"
+import { redirect, useRouter } from "next/navigation"
 import DashboardData from "@/components/dashboard-data"
 import { useEffect, useState } from "react"
 
@@ -19,11 +19,12 @@ const Dashboard = () => {
   }, [])
 
   // session
-  const { data: session, status} = useSession()
-  const router = useRouter()
-
-  console.log(session?.user.username)
-
+  const { data: session, status} = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect('/')
+    },
+  })
   if (status === "authenticated"){
     return (
       <div className="w-full inherit ml-[240px] flex flex-col gap-2 relative bg-gray-100">
@@ -47,8 +48,6 @@ const Dashboard = () => {
       </div> 
     )
   }
-  if (status === "unauthenticated"){
-    router.push("/")
-  }
 }
+
 export default Dashboard
