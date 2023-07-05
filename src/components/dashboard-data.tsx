@@ -11,7 +11,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { fetchData, options } from '@/lib/fetch/dashboard-fetch'
 
-const DashboardData = ({ news, member, conference }) => {
+const DashboardData = ({ news, member, conference }: any) => {
   const [selectedMemberClick, setSelectedMemberClick] = useState<number | null>(null)
   const [showDetail, setShowDetail] = useState<boolean>(false)
 

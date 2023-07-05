@@ -33,9 +33,9 @@ const News = () => {
 
   if (status === "authenticated") {
     return ( 
-      <div className="w-full inherit ml-[240px] flex flex-col gap-2 relative bg-gray-100 pb-6">
+      <div className="w-full inherit flex flex-col gap-2 relative bg-gray-100 pb-6">
         {/* navigation for News data */}
-        <nav className="sticky top-0 bg-gray-100 right-[14px] flex justify-between items-center pb-6 pr-4 pt-6 z-[999]">
+        <nav className="sticky top-0 bg-gray-100 ml-[236px] right-[14px] flex justify-between items-center pb-6 pr-4 pt-6 z-[999]">
           <h3 className="font-semibold text-[30px] text-[#1a1a1a]">Berita</h3>
           {/* search */}
           <div className="flex items-center justify-between gap-6">
@@ -47,7 +47,8 @@ const News = () => {
             </div>              
           </div>
         </nav>
-        <div className="mr-6 flex flex-col gap-6">
+
+        <div className="mr-6 flex flex-col gap-6 ml-[240px]">
           <NewsData news={news} />
         </div>
       </div>

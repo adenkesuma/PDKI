@@ -18,7 +18,7 @@ const Sidebar = ({ selectedCategory, setSelectedCategory } : Props) => {
   const desiredValue: string = splitArray[splitArray.length - 1] 
 
   return (
-    <aside className="bg-[#274698] rounded-2xl p-6 h-[95vh] w-[250px] fixed flex flex-col justify-between">
+    <aside className="bg-[#274698] rounded-2xl p-6 h-[95vh] w-[250px] fixed flex flex-col justify-between z-[999]">
       <div>
         <h2 className="pl-6 text-[30px] font-bold text-[#fff]">PDKI</h2>
 

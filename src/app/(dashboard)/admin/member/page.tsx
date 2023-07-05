@@ -34,9 +34,9 @@ const Member = () => {
 
   if (status === "authenticated") {
     return (   
-      <div className="w-full inherit ml-[240px] flex flex-col gap-2 relative bg-gray-100">
+      <div className="w-full inherit flex flex-col gap-2 relative bg-gray-100">
         {/* navigation for member data */}
-        <nav className="sticky top-0 bg-gray-100 right-[14px] flex justify-between items-center pb-6 pr-4 pt-6 z-[999]">
+        <nav className="sticky top-0 ml-[236px] bg-gray-100 right-[14px] flex justify-between items-center pb-6 pr-4 pt-6 z-[999]">
           <h3 className="font-semibold text-[30px] text-[#1a1a1a]">Membership</h3>
   
           {/* search */}
@@ -50,7 +50,7 @@ const Member = () => {
           </div>
         </nav>
   
-        <div className="mr-6 flex flex-col gap-6">
+        <div className="mr-6 flex flex-col gap-6 ml-[240px]">
           <MemberData member={member} />
         </div>
       </div>

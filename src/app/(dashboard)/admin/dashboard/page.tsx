@@ -55,9 +55,9 @@ const Dashboard = () => {
 
   if (status === "authenticated"){
     return (
-      <div className="w-full inherit ml-[240px] flex flex-col gap-2 relative bg-gray-100">
+      <div className="w-full inherit flex flex-col gap-2 relative bg-gray-100">
         {/* navigation for dashboard data */}
-        <nav className="sticky top-0 bg-gray-100 right-[14px] flex justify-between items-center pb-6 pr-4 pt-6 z-[999]">
+        <nav className="sticky top-0 ml-[236px] bg-gray-100 right-[14px] flex justify-between items-center pb-6 pr-4 pt-6 z-[999]">
           <h3 className="font-semibold text-[30px] text-[#1a1a1a]">Dashboard</h3>
   
           <div className="flex items-center justify-between gap-6">
@@ -69,7 +69,7 @@ const Dashboard = () => {
           </div>
         </nav>
 
-        <div className="mr-6 flex flex-col gap-6">
+        <div className="mr-6 flex flex-col ml-[240px] gap-6">
           <DashboardData news={news} conference={conference} member={member} />
         </div>
   

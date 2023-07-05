@@ -1,7 +1,11 @@
 import { useEffect, useRef } from 'react'
 import JsBarcode from 'jsbarcode'
 
-const BarcodeGenerator: React.FC = ({ code }) => {
+interface Props {
+  code: string;
+}
+
+const BarcodeGenerator = ({ code }: Props) => {
   const barcodeRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
@@ -13,7 +17,7 @@ const BarcodeGenerator: React.FC = ({ code }) => {
     }
   }, [code])
 
-  return <canvas className='w-[100px]' ref={barcodeRef}></canvas>
+  return <canvas className='w-full' ref={barcodeRef}></canvas>
 }
 
 export default BarcodeGenerator
