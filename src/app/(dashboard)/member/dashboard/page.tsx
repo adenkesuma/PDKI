@@ -28,7 +28,7 @@ const MemberDashboard = async () => {
     <>
       {/* data user */}
       {user.map((item) => (
-        <div key={item.memberId} className="flex gap-8">
+        <div key={item.memberId} className="flex gap-8 mt-8">
           <aside>
             <div className="w-[350px] h-[350px]">
               <Image
