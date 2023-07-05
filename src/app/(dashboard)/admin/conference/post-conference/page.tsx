@@ -119,7 +119,6 @@ const PostConference = () => {
             name="file"
             onChange={loadImage}
             type="file" 
-            placeholder="Masukan Gambar..." 
             className="file-input" />
     
         {preview? (
