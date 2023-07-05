@@ -54,6 +54,10 @@ const PostNews = () => {
                 method: "POST",
                 body : formData
             })
+
+            if (formData !== null) {
+                router.push("/admin/news")
+            }
         }catch(err){
             console.log(err);
             
@@ -84,10 +88,6 @@ const PostNews = () => {
             [name]: value
         }))
         
-    }
-
-    const redirectBack = () => {
-        router.push("/admin/news")
     }
 
     const onSetSearch = useCallback((event: ChangeEvent<HTMLInputElement>) => {
@@ -252,7 +252,6 @@ const PostNews = () => {
                     </div>
                     <button 
                         type="submit" 
-                        onClick={redirectBack}
                         className="text-[#fff] hover:bg-blue-600 bg-rounded-3xl py-3 px-12 font-semibold bg-[#274698] rounded-2xl"
                     >
                         Tambah Berita

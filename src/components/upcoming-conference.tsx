@@ -28,7 +28,7 @@ const UpcomingConference = async () => {
                 src={data?.image}
                 alt="conference image"
               />
-              <div className="absolute top-5 right-5 p-2 rounded-[50%] bg-[#fff] shadow-md shadow-gray-400">
+              <div className="absolute top-5 right-5 p-2 rounded-[50%] bg-[#fff] shadow-sm shadow-gray-600">
                 <Link href={`/conference/${data?.id}`}>
                   <TbArrowUpRight className="w-[24px] h-[24px] text-[#274698]"/>
                 </Link>

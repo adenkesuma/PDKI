@@ -5,7 +5,8 @@ export async function fetchConferenceDetail(id: string) {
         next: {
             revalidate: 10,
             tags: ['conferenceId'],            
-        }
+        },
+        method: 'GET'
     })
 
     if (!res.ok) {

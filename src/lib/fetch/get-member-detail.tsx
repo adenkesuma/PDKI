@@ -5,7 +5,8 @@ export async function fetchMemberDetail(id: string) {
         next: {
             revalidate: 10,
             tags: ['memberId'],            
-        }
+        },
+        method: 'GET'
     })
 
     if (!res.ok) {

@@ -5,7 +5,8 @@ export async function fetchVideo() {
     next: {
         revalidate: 10,
         tags: ['video']
-    }
+    },
+    method: 'GET'
   })
 
   if (!res.ok) {

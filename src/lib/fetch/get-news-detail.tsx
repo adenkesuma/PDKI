@@ -5,7 +5,8 @@ export async function fetchNewsDetail(id: string) {
         next: {
             revalidate: 10,
             tags: ['newsId']
-        }
+        },
+        method: 'GET'
     })
 
     if (!res.ok) {

@@ -27,17 +27,17 @@ const Sidebar = ({ selectedCategory, setSelectedCategory } : Props) => {
             <Link key={item.id} href={`${item.link}`}>
               <button 
                 onClick={() => setSelectedCategory(item.link)}
-                className={`flex flex-start gap-4 items-center pl-6 w-full rounded-xl p-2 ${selectedCategory === item.link ? 'active' : ''}`}
+                className={`flex flex-start gap-4 items-center pl-6 w-full rounded-xl p-2 ${desiredValue === item.link ? 'active' : ''}`}
               >
                 {
-                  item.link === 'dashboard' ? <TbLayoutDashboard className={`text-lg ${selectedCategory === item.link ? 'text-[#274698]' : 'text-[#fff]'}`}/> : 
-                  item.link === 'member' ? <TbUsersGroup className={`text-lg ${selectedCategory === item.link ? 'text-[#274698]' : 'text-[#fff]'}`}/> :
-                  item.link === 'news' ? <TbNews className={`text-lg ${selectedCategory === item.link ? 'text-[#274698]' : 'text-[#fff]'}`}/> :
-                  item.link === 'conference' ? <GiVideoConference className={`text-lg ${selectedCategory === item.link ? 'text-[#274698]' : 'text-[#fff]'}`}/> :
-                  item.link === 'video' ? <TbVideo className={`text-lg ${selectedCategory === item.link ? 'text-[#274698]' : 'text-[#fff]'}`}/> : ''
+                  item.link === 'dashboard' ? <TbLayoutDashboard className={`text-lg ${desiredValue === item.link ? 'text-[#274698]' : 'text-[#fff]'}`}/> : 
+                  item.link === 'member' ? <TbUsersGroup className={`text-lg ${desiredValue === item.link ? 'text-[#274698]' : 'text-[#fff]'}`}/> :
+                  item.link === 'news' ? <TbNews className={`text-lg ${desiredValue === item.link ? 'text-[#274698]' : 'text-[#fff]'}`}/> :
+                  item.link === 'conference' ? <GiVideoConference className={`text-lg ${desiredValue === item.link ? 'text-[#274698]' : 'text-[#fff]'}`}/> :
+                  item.link === 'video' ? <TbVideo className={`text-lg ${desiredValue === item.link ? 'text-[#274698]' : 'text-[#fff]'}`}/> : ''
                 }
                 <p 
-                  className={`text-left font-medium ${selectedCategory === item.link ? 'font-semibold text-[#274698]' : 'text-[#fff]'}`}
+                  className={`text-left font-medium ${desiredValue === item.link ? 'font-semibold text-[#274698]' : 'text-[#fff]'}`}
                 >
                   {item.text}
                 </p>
