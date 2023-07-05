@@ -13,8 +13,8 @@ export default function RootLayout({
     
   return (
     <main className='flex gap-8'>
-        <NavbarAdmin /> 
-        {children}
+      <NavbarAdmin /> 
+      {children}
     </main>
   )
 }

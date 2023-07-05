@@ -34,6 +34,31 @@ const DashboardData = ({ news }: any) => {
     <div className='flex flex-col gap-6'>
       {/* analytics overview */}
       <AnalyticsOverview />
+      
+      {/* member */}
+       <div>
+        <h2 className="text-[18px] xl:text-[20px] text-[#1a1a1a] font-semibold mb-6">Ketua PDKI</h2>
+          
+        <section>
+          <div className="w-full">
+                {member.map((item : MemberProps) => (
+                    <ul key={item.memberId} className="p-6 mb-6 flex justify-between items-center font-medium text-gray-800 bg-[#fff] rounded-2xl shadow-md shadow-gray-200">
+                        <li className="w-[5%]">{item.memberId}</li>
+                        <li className="w-[60%]">{item.nama}</li>
+                        <li className="w-[10%]">{item.noIdi}</li>
+                        <li className="w-[13%]">{item.npaPdki}</li>
+                        <li className="w-[10%]">{item.noSeri}</li>
+                        <li className="w-[2%] relative">
+                            <button className="cursor-pointer" onClick={() => handleShowDetail(item.memberId)}>
+                                <TbDots />
+                                {selectedMemberClick === item.memberId && <PopupDetail npaPdki={item.npaPdki} />}
+                            </button>
+                        </li>
+                    </ul>
+                ))}
+            </div>
+        </section>
+      </div>
 
       {/* news */}
       <div>
@@ -59,30 +84,6 @@ const DashboardData = ({ news }: any) => {
         </section>
       </div>
 
-      {/* member */}
-       <div>
-        <h2 className="text-[18px] xl:text-[20px] text-[#1a1a1a] font-semibold mb-6">Ketua PDKI</h2>
-          
-        <section>
-          <div className="w-full">
-                {member.map((item : MemberProps) => (
-                    <ul key={item.memberId} className="p-6 mb-6 flex justify-between items-center font-medium text-gray-800 bg-[#fff] rounded-2xl shadow-md shadow-gray-200">
-                        <li className="w-[5%]">{item.memberId}</li>
-                        <li className="w-[60%]">{item.nama}</li>
-                        <li className="w-[10%]">{item.noIdi}</li>
-                        <li className="w-[13%]">{item.npaPdki}</li>
-                        <li className="w-[10%]">{item.noSeri}</li>
-                        <li className="w-[2%] relative">
-                            <button className="cursor-pointer" onClick={() => handleShowDetail(item.memberId)}>
-                                <TbDots />
-                                {selectedMemberClick === item.memberId && <PopupDetail npaPdki={item.npaPdki} />}
-                            </button>
-                        </li>
-                    </ul>
-                ))}
-            </div>
-        </section>
-      </div>
 
     </div>
   )
