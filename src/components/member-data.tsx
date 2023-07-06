@@ -39,7 +39,7 @@ const MemberData = ({ member } : any) => {
             </ul>
 
             <div className="w-full">
-                {member.map((item : MemberProps) => (
+                {member?.map((item : MemberProps) => (
                     <ul key={item.memberId} className="p-6 mb-6 flex justify-between items-center font-medium text-gray-800 bg-[#fff] rounded-2xl shadow-md shadow-gray-200">
                         <Image src={item.pasFoto} alt="foto member" width={100} height={100}/>
                         <li className="w-[5%]">{item.memberId}</li>

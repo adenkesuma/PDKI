@@ -41,7 +41,7 @@ const DashboardData = ({ news }: any) => {
           
         <section>
           <div className="w-full">
-                {member.map((item : MemberProps) => (
+                {member?.map((item : MemberProps) => (
                     <ul key={item.memberId} className="p-6 mb-6 flex justify-between items-center font-medium text-gray-800 bg-[#fff] rounded-2xl shadow-md shadow-gray-200">
                         <li className="w-[5%]">{item.memberId}</li>
                         <li className="w-[60%]">{item.nama}</li>

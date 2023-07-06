@@ -59,7 +59,8 @@ const PostMember = () => {
         try{
             await fetch(`http://localhost:8080/api/route/admin/member`,  {
                 method: "POST",
-                body : formData
+                body : formData,
+                credentials: "include"
             })
         }catch(err){
             console.log(err);
