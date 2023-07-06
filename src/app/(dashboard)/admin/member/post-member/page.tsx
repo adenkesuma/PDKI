@@ -62,6 +62,10 @@ const PostMember = () => {
                 body : formData,
                 credentials: "include"
             })
+
+            if (formData !== null) {
+                router.push("/admin/member")
+            }
         }catch(err){
             console.log(err);
             
@@ -91,10 +95,6 @@ const PostMember = () => {
             ...prevState,
             [name]: value
         }))    
-    }
-
-    const redirectBack = () => {
-        router.push("/admin/member")
     }
 
     const onSetSearch = useCallback((event: ChangeEvent<HTMLInputElement>) => {
@@ -295,7 +295,6 @@ const PostMember = () => {
                     <button 
                         type="submit" 
                         className="text-[#fff] hover:bg-blue-600 bg-rounded-2xl py-3 px-12 font-semibold bg-[#274698] rounded-2xl"
-                        onClick={redirectBack}
                     >
                         Tambah Member
                     </button>

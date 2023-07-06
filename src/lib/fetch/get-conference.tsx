@@ -4,7 +4,8 @@ export async function fetchConference() {
       mode: 'cors',
       next: {
         revalidate: 10
-      }
+      },
+      method: 'GET'
     })
   
     if (!res.ok) {

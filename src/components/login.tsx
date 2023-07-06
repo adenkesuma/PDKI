@@ -91,7 +91,7 @@ const Login: FC<LoginProps> = ({ handleShowLogin, setShow }) => {
           </div>
         </div>
         {error && (
-        <p className="text-center bg-red-300 py-4 mb-6 rounded">{error}</p>
+        <p className="text-center bg-red-300 mb-6 rounded-lg py-2 px-4 font-medium text-red-800">{error}</p>
       )}
         <form className="flex flex-col items-center gap-8 mx-auto w-[80%] md:w-[60%] lg:w-[40%]"
           onSubmit={onSubmit}

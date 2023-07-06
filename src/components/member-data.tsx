@@ -30,8 +30,9 @@ const MemberData = ({ member } : any) => {
             </div>
 
             <ul className="mt-6 flex justify-between px-6 items-center mb-6 font-semibold text-gray-800">
-                <li className="w-[5%]">No</li>
-                <li className="w-[60%]">Nama</li>
+                <li className="w-[4%]">No</li>
+                <li className="w-[8%] pl-3">Foto</li>
+                <li className="w-[53%]">Nama</li>
                 <li className="w-[10%]">No Idi</li>
                 <li className="w-[13%]">Npa PDKI</li>
                 <li className="w-[10%]">No Seri</li>
@@ -39,11 +40,25 @@ const MemberData = ({ member } : any) => {
             </ul>
 
             <div className="w-full">
+<<<<<<< HEAD
                 {member?.map((item : MemberProps) => (
+=======
+                {member.map((item : MemberProps, idx: number) => (
+>>>>>>> 0554c8b838714da13932a238e985a715a3023dd4
                     <ul key={item.memberId} className="p-6 mb-6 flex justify-between items-center font-medium text-gray-800 bg-[#fff] rounded-2xl shadow-md shadow-gray-200">
-                        <Image src={item.pasFoto} alt="foto member" width={100} height={100}/>
-                        <li className="w-[5%]">{item.memberId}</li>
-                        <li className="w-[60%]">{item.nama}</li>
+                        <li className="w-[4%]">{idx+1}</li>
+                        {/* image */}
+                        <li className="w-[8%] flex justify-start">
+                            <Image 
+                                src={item.pasFoto} 
+                                alt="foto member" 
+                                width={100} 
+                                height={100}
+                                className="h-[50px] w-[50px] rounded-xl"
+                            />
+                        </li>
+                        {/* another data */}
+                        <li className="w-[53%]">{item.nama}</li>
                         <li className="w-[10%]">{item.noIdi}</li>
                         <li className="w-[13%]">{item.npaPdki}</li>
                         <li className="w-[10%]">{item.noSeri}</li>

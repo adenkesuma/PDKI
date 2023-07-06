@@ -7,16 +7,12 @@ import { getSession, useSession } from "next-auth/react"
 import { redirect, useRouter } from "next/navigation"
 import DashboardData from "@/components/dashboard-data"
 import { useEffect, useState } from "react"
+import { fetchData, options } from "@/lib/fetch/dashboard-fetch"
 
 const Dashboard = () => {
-  const [news, setNews] = useState<[]>([])
-
-  useEffect(() => {
-    fetch('http://localhost:8080/api/route/news')
-    .then((res) => res.json())
-    .then((data) => setNews(data.data))
-    .catch((err) => console.log(err))
-  }, [])
+  const [member, setMember] = useState([])
+  const [news, setNews] = useState([])
+  const [conference, setConference] = useState([])
 
   // session
   const { data: session, status} = useSession({
@@ -25,11 +21,43 @@ const Dashboard = () => {
       redirect('/')
     },
   })
+
+   useEffect(() => {
+    const fetchAllData = async () => {
+      const memberUrl = "http://localhost:8080/api/route/admin/member"
+      const newsUrl = "http://localhost:8080/api/route/news"
+      const conferenceUrl = "http://localhost:8080/api/route/conference"
+
+      // fetching member data
+      const memberData = await fetchData(
+        `${memberUrl}`,
+        options
+      )
+      setMember(memberData.data)
+
+      // fetching news data
+      const newsData = await fetchData(
+        `${newsUrl}`,
+        options
+      )
+      setNews(newsData.data)
+
+      // fetching conference data
+      const conferenceData = await fetchData(
+        `${conferenceUrl}`,
+        options
+      )
+      setConference(conferenceData.data)
+    }
+
+    fetchAllData()
+  }, [])
+
   if (status === "authenticated"){
     return (
-      <div className="w-full inherit ml-[240px] flex flex-col gap-2 relative bg-gray-100">
+      <div className="w-full inherit flex flex-col gap-2 relative bg-gray-100">
         {/* navigation for dashboard data */}
-        <nav className="sticky top-0 bg-gray-100 right-[14px] flex justify-between items-center pb-6 pr-4 pt-6 z-[999]">
+        <nav className="sticky top-0 ml-[236px] bg-gray-100 right-[14px] flex justify-between items-center pb-6 pr-4 pt-6 z-[999]">
           <h3 className="font-semibold text-[30px] text-[#1a1a1a]">Dashboard</h3>
   
           <div className="flex items-center justify-between gap-6">
@@ -41,8 +69,8 @@ const Dashboard = () => {
           </div>
         </nav>
 
-        <div className="mr-6 flex flex-col gap-6">
-          <DashboardData news={news} />
+        <div className="mr-6 flex flex-col ml-[240px] gap-6">
+          <DashboardData news={news} conference={conference} member={member} />
         </div>
   
       </div> 
