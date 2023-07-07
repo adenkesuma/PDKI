@@ -22,7 +22,7 @@ const MemberDashboard = async () => {
         method: 'GET'
       })
       const data = await res.json()
-      setUser(data.data)
+      setUser(data)
     }
 
     getUser()
