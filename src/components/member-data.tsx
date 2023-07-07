@@ -61,7 +61,7 @@ const MemberData = ({ member } : any) => {
                         <li className="w-[2%] relative">
                             <button className="cursor-pointer" onClick={() => handleShowDetail(item.memberId)}>
                                 <TbDots />
-                                {selectedMemberClick === item.memberId && <PopupDetail npaPdki={item.npaPdki} />}
+                                {selectedMemberClick === item.memberId && <PopupDetail npaPdki={item.npaPdki} member={member} />}
                             </button>
                         </li>
                     </ul>

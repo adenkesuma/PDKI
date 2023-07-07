@@ -8,8 +8,13 @@ import Search from "@/components/search"
 import { redirect, useRouter } from "next/navigation"
 import Image from "next/image"
 import BackNavigate from "@/components/back-navigate"
+import { fetchData, options } from "@/lib/fetch/dashboard-fetch"
 
-const PostConference = () => {
+const EditConference = ({
+  params: { conferenceId }
+}: {
+  params: { conferenceId: string }
+}) => {
   const [search, setSearch] = useState<string>('')
   const [preview, setPreview] = useState('')
   const [conferenceData, setConferenceData] = useState({
@@ -37,7 +42,33 @@ const PostConference = () => {
     }
   })
 
-    const addMember = async (event: any) => {
+  useEffect(()=> {
+        const fetchDataNews = async () => {
+            const getConferenceData = await fetchData(
+                `http://localhost:8080/api/route/admin/news/${conferenceId}`,
+                options
+            )
+            setConferenceData({
+              title: getConferenceData.data.title,
+              description: getConferenceData.data.description,
+              startDate: getConferenceData.data.startDate,
+              endDate: getConferenceData.data.endDate,
+              region: getConferenceData.data.region,
+              location: getConferenceData.data.location,
+              organizer: getConferenceData.data.organizer,
+              websiteUrl: getConferenceData.data.websiteUrl,
+              registrationRequired: getConferenceData.data.registrationRequired,
+              registrationDeadline: getConferenceData.data.registrationDeadline,
+              speakers: getConferenceData.data.speakers,
+              topic: getConferenceData.data.topic,
+              file: getConferenceData.data.image
+            })
+        }
+
+        fetchDataNews()
+    }, [])
+
+    const editConference = async (event: any) => {
         event.preventDefault();
         const formData = new FormData()
         formData.append("file", conferenceData.file)
@@ -55,8 +86,8 @@ const PostConference = () => {
         formData.append("topic", conferenceData.topic)
         try{
             await fetch(`http://localhost:8080/api/route/admin/conference`,  {
-                method: "POST",
-                body : formData
+                method: "PUT",
+                body : JSON.stringify(formData)
             })
         }catch(err){
             console.log(err);
@@ -106,7 +137,7 @@ const PostConference = () => {
 
                 <form 
                     className="flex flex-col items-center gap-8 mx-auto w-[80%]"
-                    onSubmit={addMember}
+                    onSubmit={editConference}
                 >
                     <div className="w-full">
                         <label htmlFor="title" className="font-medium">Judul Konferensi</label>
@@ -320,4 +351,4 @@ const PostConference = () => {
     }
 }
 
-export default PostConference
+export default EditConference

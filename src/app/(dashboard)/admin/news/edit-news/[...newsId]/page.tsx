@@ -10,8 +10,14 @@ import { redirect, useRouter } from "next/navigation"
 import Image from "next/image"
 import { MdArrowBackIosNew } from "react-icons/md"
 import BackNavigate from "@/components/back-navigate"
+import { fetchData, options } from "@/lib/fetch/dashboard-fetch"
 
-const PostNews = () => {
+const EditNews = ({
+  params: { newsId }
+} :
+{
+  params: { newsId: string }
+}) => {
     const [search, setSearch] = useState<string>('')
     const [preview, setPreview] = useState('')
     const [newsData, setNewsData] = useState({
@@ -36,7 +42,30 @@ const PostNews = () => {
         }
     })
 
-    const addMember = async (event: any) => {
+     useEffect(()=> {
+        const fetchDataNews = async () => {
+            const getNewsData = await fetchData(
+                `http://localhost:8080/api/route/admin/news/${newsId}`,
+                options
+            )
+            setNewsData({
+              title: getNewsData.data.title,
+              content: getNewsData.data.content,
+              description: getNewsData.data.description,
+              publishedDate: getNewsData.data.publishedDate,
+              video: getNewsData.data.video,
+              tags: getNewsData.data.tags,
+              category: getNewsData.data.tags,
+              published: getNewsData.data.published,
+              region: getNewsData.data.region,
+              file: getNewsData.data.image
+            })
+        }
+
+        fetchDataNews()
+    }, [])
+
+    const editConference = async (event: any) => {
         event.preventDefault();
         const formData = new FormData()
         formData.append("file", newsData.file)
@@ -50,9 +79,9 @@ const PostNews = () => {
         formData.append("published", newsData.published)
         formData.append("region", newsData.region)
         try{
-            await fetch(`http://localhost:8080/api/route/admin/news`,  {
-                method: "POST",
-                body : formData
+            await fetch(`http://localhost:8080/api/route/admin/news/${newsId}`,  {
+                method: "PUT",
+                body : JSON.stringify(formData)
             })
 
             if (formData !== null) {
@@ -103,7 +132,7 @@ const PostNews = () => {
                 {/* form */}
                 <form 
                     className="flex flex-col items-center gap-8 mx-auto w-[80%]"
-                    onSubmit={addMember}
+                    onSubmit={editConference}
                 >
                     <div className="w-full">
                         <label htmlFor="title" className="font-medium">Judul Berita</label>
@@ -264,4 +293,4 @@ const PostNews = () => {
 
 }
 
-export default PostNews
+export default EditNews
