@@ -10,7 +10,7 @@ import VideoData from "@/components/video-data"
 
 const Video = () => {
   const [search, setSearch] = useState<string>('')
-  const [video, setVideo] = useState<[]>([]) 
+  const [video, setVideo] = useState<[]>([])
 
   // session
   const { data: session, status } = useSession()
@@ -21,19 +21,19 @@ const Video = () => {
       cache: 'no-store',
       mode: 'cors'
     })
-    .then((res) => res.json())
-    .then((data) => setVideo(data.data))
-    .catch((err) => {
-      console.log(err)
-    })
-  }, [search]) 
+      .then((res) => res.json())
+      .then((data) => setVideo(data.data))
+      .catch((err) => {
+        console.log(err)
+      })
+  }, [search])
 
   const onSetSearch = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value)
-  }, [])  
+  }, [])
 
   if (status === "authenticated") {
-    return ( 
+    return (
       <div className="w-full inherit ml-[240px] flex flex-col gap-2 relative bg-gray-100 h-[5000px]">
         {/* navigation for video data */}
         <nav className="sticky top-0 bg-gray-100 right-[14px] flex justify-between items-center pb-6 pr-4 pt-6 z-[999]">
@@ -45,13 +45,13 @@ const Video = () => {
               <Link href={`#`} className="rounded-2xl bg-[#fff] shadow-md shadow-gray-300 p-3">
                 <TbUser className="text-lg text-[#888]" />
               </Link>
-            </div>              
+            </div>
           </div>
         </nav>
         <div className="mr-6 flex flex-col gap-6">
           <VideoData video={video} />
         </div>
-      </div> 
+      </div>
     )
   }
 

@@ -7,12 +7,12 @@ import PopupDetail from "./popup-detail"
 import { useRouter } from "next/navigation"
 
 
-const MemberData = ({ member } : any) => {
+const MemberData = ({ member }: any) => {
     const [selectedMemberClick, setSelectedMemberClick] = useState<number | null>(null)
     const [showDetail, setShowDetail] = useState<boolean>(false)
     const router = useRouter()
 
-    const handleShowDetail = (id : number) => {
+    const handleShowDetail = (id: number) => {
         setShowDetail(!showDetail)
         setSelectedMemberClick((prevId) => (prevId === id ? null : id))
     }
@@ -20,13 +20,13 @@ const MemberData = ({ member } : any) => {
     return (
         <div>
             <div className="flex justify-end gap-4">
-              <button
-              onClick={() => router.push('/admin/member/post-member')}
-                className="flex items-center gap-2 bg-transparent border-2 border-[#274698] rounded-2xl px-4 py-2 text-[#274698] font-medium text-[16px] hover:bg-[#274698] hover:text-[#fff] duration-75"
-              >
-                <TbPlus className="text-lg" />
-                Tambah Member
-              </button>
+                <button
+                    onClick={() => router.push('/admin/member/post-member')}
+                    className="flex items-center gap-2 bg-transparent border-2 border-[#274698] rounded-2xl px-4 py-2 text-[#274698] font-medium text-[16px] hover:bg-[#274698] hover:text-[#fff] duration-75"
+                >
+                    <TbPlus className="text-lg" />
+                    Tambah Member
+                </button>
             </div>
 
             <ul className="mt-6 flex justify-between px-6 items-center mb-6 font-semibold text-gray-800">
@@ -40,19 +40,15 @@ const MemberData = ({ member } : any) => {
             </ul>
 
             <div className="w-full">
-<<<<<<< HEAD
-                {member?.map((item : MemberProps) => (
-=======
-                {member.map((item : MemberProps, idx: number) => (
->>>>>>> 0554c8b838714da13932a238e985a715a3023dd4
+                {member?.map((item: MemberProps, idx: number) => (
                     <ul key={item.memberId} className="p-6 mb-6 flex justify-between items-center font-medium text-gray-800 bg-[#fff] rounded-2xl shadow-md shadow-gray-200">
-                        <li className="w-[4%]">{idx+1}</li>
+                        <li className="w-[4%]">{idx + 1}</li>
                         {/* image */}
                         <li className="w-[8%] flex justify-start">
-                            <Image 
-                                src={item.pasFoto} 
-                                alt="foto member" 
-                                width={100} 
+                            <Image
+                                src={item.pasFoto}
+                                alt="foto member"
+                                width={100}
                                 height={100}
                                 className="h-[50px] w-[50px] rounded-xl"
                             />
