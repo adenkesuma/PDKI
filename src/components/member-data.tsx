@@ -50,7 +50,7 @@ const MemberData = ({ member }: any) => {
                                 alt="foto member"
                                 width={100}
                                 height={100}
-                                className="h-[50px] w-[50px] rounded-xl"
+                                className="h-[50px] object-cover bg-cover w-[50px] rounded-xl"
                             />
                         </li>
                         {/* another data */}

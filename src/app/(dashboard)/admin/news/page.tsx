@@ -18,7 +18,8 @@ const News = () => {
   useEffect(() => {
     fetch(`http://localhost:8080/api/route/news?title=${search}`, {
       cache: 'no-store',
-      mode: 'cors'
+      mode: 'cors',
+      credentials: "include"
     })
       .then((res) => res.json())
       .then((data) => setNews(data.data))

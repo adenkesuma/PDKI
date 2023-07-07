@@ -12,10 +12,10 @@ import Image from 'next/image'
 import { fetchData, options } from '@/lib/fetch/dashboard-fetch'
 
 const DashboardData = ({ news, member, conference, totalNews, totalConference, totalMember }: any) => {
-  const [selectedMemberClick, setSelectedMemberClick] = useState<number | null>(null)
+  const [selectedMemberClick, setSelectedMemberClick] = useState<string | null>(null)
   const [showDetail, setShowDetail] = useState<boolean>(false)
 
-  const handleShowDetail = (id: number) => {
+  const handleShowDetail = (id: string) => {
     setShowDetail(!showDetail)
     setSelectedMemberClick((prevId) => (prevId === id ? null : id))
   }
@@ -63,7 +63,7 @@ const DashboardData = ({ news, member, conference, totalNews, totalConference, t
                     alt={item.nama}
                     width={100}
                     height={100}
-                    className="h-[50px] w-[50px] rounded-xl"
+                    className="object-cover bg-cover h-[50px] w-[50px] rounded-xl"
                   />
                 </li>
                 <li className="w-[58%]">{item.nama}</li>
@@ -71,9 +71,9 @@ const DashboardData = ({ news, member, conference, totalNews, totalConference, t
                 <li className="w-[13%]">{item.npaPdki}</li>
                 <li className="w-[10%]">{item.noSeri}</li>
                 <li className="w-[2%] relative">
-                  <button className="cursor-pointer" onClick={() => handleShowDetail(item.memberId)}>
+                  <button className="cursor-pointer" onClick={() => handleShowDetail(item.npaPdki)}>
                     <TbDots />
-                    {selectedMemberClick === item.memberId && <PopupDetail npaPdki={item.npaPdki} />}
+                    {selectedMemberClick === item.npaPdki && <PopupDetail npaPdki={item.npaPdki} />}
                   </button>
                 </li>
               </ul>

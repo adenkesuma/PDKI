@@ -20,7 +20,8 @@ const Conference = () => {
   useEffect(() => {
     fetch(`http://localhost:8080/api/route/conference?title=${search}`, {
       cache: 'no-store',
-      mode: 'cors'
+      mode: 'cors',
+      credentials: "include"
     })
     .then((res) => res.json())
     .then((data) => setConference(data.data))
