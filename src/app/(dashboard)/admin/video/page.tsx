@@ -19,7 +19,8 @@ const Video = () => {
   useEffect(() => {
     fetch(`http://localhost:8080/api/route/video?title=${search}`, {
       cache: 'no-store',
-      mode: 'cors'
+      mode: 'cors',
+      credentials: "include"
     })
       .then((res) => res.json())
       .then((data) => setVideo(data.data))

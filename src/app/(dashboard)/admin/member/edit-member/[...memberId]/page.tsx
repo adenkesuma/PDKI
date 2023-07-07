@@ -37,7 +37,7 @@ const EditMember = ({
         const fetchDataMember = async () => {
             const getMemberData = await fetchData(
                 `http://localhost:8080/api/route/admin/member/${memberId}`,
-                options
+                options,
             )
             setMemberData({
                 nama: getMemberData.data.nama,

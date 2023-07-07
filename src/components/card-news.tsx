@@ -18,12 +18,13 @@ const CardNews = ({
     tags
 } : NewsProps) => {
 
-  const handleDeleteNews = async () => {
+  const handleDeleteNews = () => {
     const deleteConfirm = window.confirm("apakah anda yakin ingin menghapus berita ini ?") 
     if (deleteConfirm === true) {
-      await fetch(`http://localhost:8080/api/route/admin/news/${id}`,  {
+      fetch(`http://localhost:8080/api/route/admin/news?id=${id}`,  {
         method: "DELETE",
         headers: { 'Content-Type': 'application/json' },
+        credentials: "include"
       })
     }
     console.log(deleteConfirm)

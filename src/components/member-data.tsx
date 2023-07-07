@@ -8,11 +8,11 @@ import { useRouter } from "next/navigation"
 
 
 const MemberData = ({ member }: any) => {
-    const [selectedMemberClick, setSelectedMemberClick] = useState<number | null>(null)
+    const [selectedMemberClick, setSelectedMemberClick] = useState<string | null>(null)
     const [showDetail, setShowDetail] = useState<boolean>(false)
     const router = useRouter()
 
-    const handleShowDetail = (id: number) => {
+    const handleShowDetail = (id: string) => {
         setShowDetail(!showDetail)
         setSelectedMemberClick((prevId) => (prevId === id ? null : id))
     }
@@ -50,7 +50,7 @@ const MemberData = ({ member }: any) => {
                                 alt="foto member"
                                 width={100}
                                 height={100}
-                                className="h-[50px] w-[50px] rounded-xl"
+                                className="h-[50px] object-cover bg-cover w-[50px] rounded-xl"
                             />
                         </li>
                         {/* another data */}
@@ -59,9 +59,9 @@ const MemberData = ({ member }: any) => {
                         <li className="w-[13%]">{item.npaPdki}</li>
                         <li className="w-[10%]">{item.noSeri}</li>
                         <li className="w-[2%] relative">
-                            <button className="cursor-pointer" onClick={() => handleShowDetail(item.memberId)}>
+                            <button className="cursor-pointer" onClick={() => handleShowDetail(item.npaPdki)}>
                                 <TbDots />
-                                {selectedMemberClick === item.memberId && <PopupDetail npaPdki={item.npaPdki} member={member} />}
+                                {selectedMemberClick === item.npaPdki && <PopupDetail npaPdki={item.npaPdki} />}
                             </button>
                         </li>
                     </ul>

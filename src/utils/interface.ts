@@ -85,6 +85,7 @@ export interface MemberProps {
   subspesialisasi: string;
   asalInstitusi: string;
   pasFoto: string;
+  sertifikat: string;
   noSeri: string;
   noSerkom: string;
   tempatLahir: string;
