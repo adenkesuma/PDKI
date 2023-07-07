@@ -52,7 +52,8 @@ const PostNews = () => {
         try{
             await fetch(`http://localhost:8080/api/route/admin/news`,  {
                 method: "POST",
-                body : formData
+                body : formData,
+                credentials: "include"
             })
 
             if (formData !== null) {

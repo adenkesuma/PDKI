@@ -15,7 +15,7 @@ const DashboardData = ({ news, member, conference, totalNews, totalConference, t
   const [selectedMemberClick, setSelectedMemberClick] = useState<number | null>(null)
   const [showDetail, setShowDetail] = useState<boolean>(false)
 
-  const handleShowDetail = (id : number) => {
+  const handleShowDetail = (id: number) => {
     setShowDetail(!showDetail)
     setSelectedMemberClick((prevId) => (prevId === id ? null : id))
   }
@@ -38,13 +38,13 @@ const DashboardData = ({ news, member, conference, totalNews, totalConference, t
   return (
     <div className='flex flex-col gap-6'>
       {/* analytics overview */}
-      <AnalyticsOverview 
+      <AnalyticsOverview
         totalMember={totalMember}
         totalNews={totalNews}
         totalConference={totalConference}
       />
-      
-       <div>
+
+      <div>
         <div className='flex justify-between items-center'>
           <h2 className="text-[18px] xl:text-[20px] text-[#1a1a1a] font-semibold mb-6">Member Terbaru</h2>
           <Link href="/admin/member" className='font-medium text-[16px] flex justify-between items-center gap-3'>
@@ -52,33 +52,33 @@ const DashboardData = ({ news, member, conference, totalNews, totalConference, t
             <TbChevronRight className='text-[24px]' />
           </Link>
         </div>
-          
+
         <section>
           <div className="w-full">
-                {fiveLatestMember.map((item : MemberProps, idx: number) => (
-                    <ul key={item.memberId} className="p-6 mb-6 flex justify-between items-center font-medium text-gray-800 bg-[#fff] rounded-2xl shadow-md shadow-gray-200">
-                        <li className="w-[8%] pr-4">
-                          <Image 
-                            src={item.pasFoto}
-                            alt={item.nama}
-                            width={100}
-                            height={100}
-                            className="h-[50px] w-[50px] rounded-xl"
-                          />
-                        </li>
-                        <li className="w-[58%]">{item.nama}</li>
-                        <li className="w-[10%]">{item.noIdi}</li>
-                        <li className="w-[13%]">{item.npaPdki}</li>
-                        <li className="w-[10%]">{item.noSeri}</li>
-                        <li className="w-[2%] relative">
-                            <button className="cursor-pointer" onClick={() => handleShowDetail(item.memberId)}>
-                                <TbDots />
-                                {selectedMemberClick === item.memberId && <PopupDetail npaPdki={item.npaPdki} />}
-                            </button>
-                        </li>
-                    </ul>
-                ))}
-            </div>
+            {fiveLatestMember.map((item: MemberProps, idx: number) => (
+              <ul key={item.memberId} className="p-6 mb-6 flex justify-between items-center font-medium text-gray-800 bg-[#fff] rounded-2xl shadow-md shadow-gray-200">
+                <li className="w-[8%] pr-4">
+                  <Image
+                    src={item.pasFoto}
+                    alt={item.nama}
+                    width={100}
+                    height={100}
+                    className="h-[50px] w-[50px] rounded-xl"
+                  />
+                </li>
+                <li className="w-[58%]">{item.nama}</li>
+                <li className="w-[10%]">{item.noIdi}</li>
+                <li className="w-[13%]">{item.npaPdki}</li>
+                <li className="w-[10%]">{item.noSeri}</li>
+                <li className="w-[2%] relative">
+                  <button className="cursor-pointer" onClick={() => handleShowDetail(item.memberId)}>
+                    <TbDots />
+                    {selectedMemberClick === item.memberId && <PopupDetail npaPdki={item.npaPdki} />}
+                  </button>
+                </li>
+              </ul>
+            ))}
+          </div>
         </section>
       </div>
 
@@ -91,14 +91,14 @@ const DashboardData = ({ news, member, conference, totalNews, totalConference, t
             <TbChevronRight className='text-[24px]' />
           </Link>
         </div>
-          
+
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-2">
-          {threeLatestNews.map((item : NewsProps) => (
-            <CardNews 
-              key={item?.id} 
+          {threeLatestNews.map((item: NewsProps) => (
+            <CardNews
+              key={item?.id}
               id={item?.id}
-              title={item?.title} 
-              description={item?.description} 
+              title={item?.title}
+              description={item?.description}
               image={item?.image}
               video={item?.video}
               content={item?.content}
@@ -110,7 +110,7 @@ const DashboardData = ({ news, member, conference, totalNews, totalConference, t
             />
           ))}
         </section>
-      </div> 
+      </div>
 
       {/* conference */}
       <div className='mb-6'>
@@ -121,31 +121,31 @@ const DashboardData = ({ news, member, conference, totalNews, totalConference, t
             <TbChevronRight className='text-[24px]' />
           </Link>
         </div>
-          
+
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-2">
-          {threeLatestConference.map((item : ConferenceProps) => (
-            <CardConference 
-                key={item?.id} 
-                id={item?.id}
-                title={item?.title} 
-                description={item?.description} 
-                image={item?.image}
-                startDate={item?.startDate}
-                endDate={item?.endDate}
-                location={item?.location}
-                organizer={item?.organizer}
-                websiteUrl={item?.websiteUrl}
-                registrationRequired={item?.registrationRequired}
-                registrationDeadline={item?.registrationDeadline}
-                speakers={item?.speakers}
-                isFree={item?.isFree}
-                topic={item?.topic}
-                createdAt={item?.createdAt}
-                updatedAt={item?.updatedAt}
-              />
+          {threeLatestConference.map((item: ConferenceProps) => (
+            <CardConference
+              key={item?.id}
+              id={item?.id}
+              title={item?.title}
+              description={item?.description}
+              image={item?.image}
+              startDate={item?.startDate}
+              endDate={item?.endDate}
+              location={item?.location}
+              organizer={item?.organizer}
+              websiteUrl={item?.websiteUrl}
+              registrationRequired={item?.registrationRequired}
+              registrationDeadline={item?.registrationDeadline}
+              speakers={item?.speakers}
+              isFree={item?.isFree}
+              topic={item?.topic}
+              createdAt={item?.createdAt}
+              updatedAt={item?.updatedAt}
+            />
           ))}
         </section>
-      </div> 
+      </div>
     </div>
   )
 }
