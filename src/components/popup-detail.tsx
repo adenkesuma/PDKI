@@ -6,10 +6,9 @@ import { useEffect } from "react";
 
 interface Props {
   npaPdki: string;
-  member: any;
 }
 
-const PopupDetail = ({ npaPdki, member } : Props) => {
+const PopupDetail = ({ npaPdki } : Props) => {
 
   const handleDeleteMember = async () => {
     const deleteConfirm = window.confirm("apakah anda yakin ingin menghapus member ini ?") 

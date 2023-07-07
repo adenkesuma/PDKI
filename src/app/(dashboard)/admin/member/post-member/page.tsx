@@ -104,7 +104,7 @@ const PostMember = () => {
         return (   
             <div className="w-full my-10 flex flex-col ml-[240px]">
                 {/* arrow back  */}
-                <BackNavigate path={"member"} title={"member"} />
+                <BackNavigate path={"member"} text={"Tambah Member Baru"} />
 
                 {/* form */}
                 <form 
