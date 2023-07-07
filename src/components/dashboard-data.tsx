@@ -11,7 +11,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { fetchData, options } from '@/lib/fetch/dashboard-fetch'
 
-const DashboardData = ({ news, member, conference }: any) => {
+const DashboardData = ({ news, member, conference, totalNews, totalConference, totalMember }: any) => {
   const [selectedMemberClick, setSelectedMemberClick] = useState<number | null>(null)
   const [showDetail, setShowDetail] = useState<boolean>(false)
 
@@ -38,7 +38,11 @@ const DashboardData = ({ news, member, conference }: any) => {
   return (
     <div className='flex flex-col gap-6'>
       {/* analytics overview */}
-      <AnalyticsOverview />
+      <AnalyticsOverview
+        totalMember={totalMember}
+        totalNews={totalNews}
+        totalConference={totalConference}
+      />
 
       <div>
         <div className='flex justify-between items-center'>

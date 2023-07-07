@@ -53,6 +53,10 @@ const Dashboard = () => {
     fetchAllData()
   }, [])
 
+  const totalMember = member.length
+  const totalNews = news.length
+  const totalConference = conference.length
+
   if (status === "authenticated"){
     return (
       <div className="w-full inherit flex flex-col gap-2 relative bg-gray-100">
@@ -70,7 +74,14 @@ const Dashboard = () => {
         </nav>
 
         <div className="mr-6 flex flex-col ml-[240px] gap-6">
-          <DashboardData news={news} conference={conference} member={member} />
+          <DashboardData 
+            news={news} 
+            conference={conference} 
+            member={member} 
+            totalNews={totalNews}
+            totalMember={totalMember}
+            totalConference={totalConference}
+          />
         </div>
   
       </div> 

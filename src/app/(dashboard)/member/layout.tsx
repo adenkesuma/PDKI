@@ -43,15 +43,6 @@ export default function RootLayout({
               />
             </li>
           </ul> 
-
-        <ul className="flex items-center justify-between gap-8">
-          <Link className="font-medium text-[18px] cursor-pointer text-[#1a1a1a] hover:border-b border-[#1a1a1a] duration-75" href="/member/dashboard">
-            User
-          </Link>
-          <Link className="font-medium text-[18px] cursor-pointer text-[#1a1a1a] hover:border-b border-[#1a1a1a] duration-75" href="/member/dashboard/sertificate">
-            Sertificate
-          </Link>
-        </ul>
       </nav>
 
       {children}

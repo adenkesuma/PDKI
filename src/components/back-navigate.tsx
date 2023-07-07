@@ -3,18 +3,18 @@ import { MdArrowBackIosNew } from "react-icons/md"
 
 interface Props {
     path: string;
-    title: string;
+    text: string;
 }
 
-const BackNavigate = ({ path, title }: Props) => {
+const BackNavigate = ({ path, text }: Props) => {
     return (
         <div>
-            <Link href={`/admin/${path}`} className="flex gap-6 items-center">
-                    <MdArrowBackIosNew className="text-[24px]"/>
-                    <Link href={`/admin/${path}`} className="text-[18px] font-medium text-[#1a1a1a]">Kembali</Link>
+            <Link href={`/admin/${path}`} className="flex gap-6 items-center font-medium">
+                <MdArrowBackIosNew className="text-[24px]"/>
+                Kembali
             </Link>
             <h2 className="text-center mt-8 mb-10 font-semibold text-[30px]">
-                Masukan <span className="capitalize">{title}</span> Baru
+                {text}
             </h2> 
         </div>
     )

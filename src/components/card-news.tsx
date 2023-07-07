@@ -17,6 +17,18 @@ const CardNews = ({
     video,
     tags
 } : NewsProps) => {
+
+  const handleDeleteNews = async () => {
+    const deleteConfirm = window.confirm("apakah anda yakin ingin menghapus berita ini ?") 
+    if (deleteConfirm === true) {
+      await fetch(`http://localhost:8080/api/route/admin/news/${id}`,  {
+        method: "DELETE",
+        headers: { 'Content-Type': 'application/json' },
+      })
+    }
+    console.log(deleteConfirm)
+  }
+
   return (
     <div className="bg-[#fff] rounded-2xl p-3 shadow-md shadow-gray-300">
       <figure className="relative">
@@ -36,7 +48,10 @@ const CardNews = ({
           <Link href="#" className="hover:bg-[#274698] hover:text-[#fff] text-[#555] duration-75 bg-[#fff] rounded-lg p-2 shadow-sm shadow-gray-500">
             <TbEdit className="text-[24px]" />
           </Link>
-          <button className="bg-[#fff] rounded-lg p-2 shadow-sm shadow-gray-500 hover:bg-red-600 hover:text-[#fff] text-red-600">
+          <button 
+            className="bg-[#fff] rounded-lg p-2 shadow-sm shadow-gray-500 hover:bg-red-600 hover:text-[#fff] text-red-600"
+            onClick={handleDeleteNews}
+          >
             <MdOutlineDelete className="text-[24px]" />
           </button>
         </div>
