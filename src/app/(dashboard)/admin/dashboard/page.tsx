@@ -15,14 +15,15 @@ const Dashboard = () => {
   const [conference, setConference] = useState([])
 
   // session
-  const { data: session, status} = useSession({
+  const { data: session, status } = useSession({
     required: true,
     onUnauthenticated() {
       redirect('/')
     },
   })
 
-   useEffect(() => {
+  useEffect(() => {
+
     const fetchAllData = async () => {
       const memberUrl = "http://localhost:8080/api/route/admin/member"
       const newsUrl = "http://localhost:8080/api/route/news"
@@ -34,6 +35,7 @@ const Dashboard = () => {
         options
       )
       setMember(memberData.data)
+      console.log(member);
 
       // fetching news data
       const newsData = await fetchData(
@@ -53,38 +55,38 @@ const Dashboard = () => {
     fetchAllData()
   }, [])
 
-  const totalMember = member.length
-  const totalNews = news.length
-  const totalConference = conference.length
+  const totalMember = member?.length
+  const totalNews = news?.length
+  const totalConference = conference?.length
 
-  if (status === "authenticated"){
+  if (status === "authenticated") {
     return (
       <div className="w-full inherit flex flex-col gap-2 relative bg-gray-100">
         {/* navigation for dashboard data */}
         <nav className="sticky top-0 ml-[236px] bg-gray-100 right-[14px] flex justify-between items-center pb-6 pr-4 pt-6 z-[999]">
           <h3 className="font-semibold text-[30px] text-[#1a1a1a]">Dashboard</h3>
-  
+
           <div className="flex items-center justify-between gap-6">
             <div className="flex gap-4 items-center justify-between">
               <Link href={`#`} className="rounded-2xl bg-[#fff] shadow-md shadow-gray-300 p-3">
                 <TbUser className="text-lg text-[#888]" />
               </Link>
-            </div>              
+            </div>
           </div>
         </nav>
 
         <div className="mr-6 flex flex-col ml-[240px] gap-6">
-          <DashboardData 
-            news={news} 
-            conference={conference} 
-            member={member} 
+          <DashboardData
+            news={news}
+            conference={conference}
+            member={member}
             totalNews={totalNews}
             totalMember={totalMember}
             totalConference={totalConference}
           />
         </div>
-  
-      </div> 
+
+      </div>
     )
   }
 }

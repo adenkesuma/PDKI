@@ -7,7 +7,8 @@ interface OptionsProps {
 
 export const options = {
     method: 'GET',
-    headers: {'Content-Type': 'application/json'},
+    headers: { 'Content-Type': 'application/json' },
+    credentials: "include"
 }
 
 export const fetchData = async (url: string, options: OptionsProps) => {

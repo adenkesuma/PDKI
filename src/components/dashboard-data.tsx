@@ -22,18 +22,18 @@ const DashboardData = ({ news, member, conference, totalNews, totalConference, t
 
   // get 3 news updated
   const getLatestNews = news
-  const sortedNews = getLatestNews.sort((a: Item, b: Item) => b.id - a.id)
-  const threeLatestNews = sortedNews.slice(0, 3)
+  const sortedNews = getLatestNews?.sort((a: Item, b: Item) => b.id - a.id)
+  const threeLatestNews = sortedNews?.slice(0, 3)
 
   // // get 5 member updated
   const getLatestMember = member
-  const sortedMember = getLatestMember.sort((a: Item, b: Item) => b.id - a.id)
-  const fiveLatestMember = sortedMember.slice(0, 5)
+  const sortedMember = getLatestMember?.sort((a: Item, b: Item) => b.id - a.id)
+  const fiveLatestMember = sortedMember?.slice(0, 5)
 
   // // get 3 conference updated
   const getLatestConfrence = conference
-  const sortedConfernce = getLatestConfrence.sort((a: Item, b: Item) => b.id - a.id)
-  const threeLatestConference = sortedConfernce.slice(0, 3)
+  const sortedConfernce = getLatestConfrence?.sort((a: Item, b: Item) => b.id - a.id)
+  const threeLatestConference = sortedConfernce?.slice(0, 3)
 
   return (
     <div className='flex flex-col gap-6'>
@@ -55,7 +55,7 @@ const DashboardData = ({ news, member, conference, totalNews, totalConference, t
 
         <section>
           <div className="w-full">
-            {fiveLatestMember.map((item: MemberProps, idx: number) => (
+            {fiveLatestMember?.map((item: MemberProps, idx: number) => (
               <ul key={item.memberId} className="p-6 mb-6 flex justify-between items-center font-medium text-gray-800 bg-[#fff] rounded-2xl shadow-md shadow-gray-200">
                 <li className="w-[8%] pr-4">
                   <Image
@@ -117,7 +117,7 @@ const DashboardData = ({ news, member, conference, totalNews, totalConference, t
         <div className='flex justify-between items-center'>
           <h2 className="text-[18px] xl:text-[20px] text-[#1a1a1a] font-semibold mb-6">Konferensi Terbaru</h2>
           <Link href="/admin/news" className='font-medium text-[16px] flex justify-between items-center gap-3'>
-            Lihat Semua Berita
+            Lihat Semua Konferensi
             <TbChevronRight className='text-[24px]' />
           </Link>
         </div>
