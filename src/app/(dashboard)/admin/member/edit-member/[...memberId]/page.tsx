@@ -31,7 +31,9 @@ const EditMember = ({
         noIdi: "",
         npaPdki: "",
         imageFile: "",
-        pdfFile: ""
+        pdfFile: "",
+        sertifikat: "",
+        pasFoto: "",
     })
 
     useEffect(() => {
@@ -53,8 +55,10 @@ const EditMember = ({
                 tanggalLahir: getMemberData.data.tanggalLahir,
                 noIdi: getMemberData.data.noIdi,
                 npaPdki: getMemberData.data.npaPdki,
-                imageFile: getMemberData.data.pasFoto,
-                pdfFile: getMemberData.data.sertifikat
+                imageFile: "",
+                pdfFile: "",
+                sertifikat: getMemberData.data.sertifikat,
+                pasFoto: getMemberData.data.pasFoto
             })
         }
 
@@ -73,8 +77,12 @@ const EditMember = ({
     const updatedMember = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const formData = new FormData()
-        formData.append("imageFile", memberData.imageFile)
-        formData.append("pdfFile", memberData.pdfFile)
+        if (memberData.imageFile !== "") {
+            formData.append("imageFile", memberData.imageFile)
+        }
+        if (memberData.pdfFile !== "") {
+            formData.append("pdfFile", memberData.pdfFile)
+        }
         formData.append("nama", memberData.nama)
         formData.append("namaSertifikat", memberData.namaSertifikat)
         formData.append("username", memberData.username)
@@ -87,6 +95,8 @@ const EditMember = ({
         formData.append("noIdi", memberData.noIdi)
         formData.append("noSerkom", memberData.noSerkom)
         formData.append("npaPdki", memberData.npaPdki)
+        formData.append("sertifikat", memberData.sertifikat)
+        formData.append("pasFoto", memberData.pasFoto)
 
         // post data
         try {
@@ -101,7 +111,6 @@ const EditMember = ({
             }
         } catch (err) {
             console.log(err);
-
         }
     }
 
@@ -112,8 +121,6 @@ const EditMember = ({
             ...prevState,
             imageFile: image
         }))
-        console.log(image);
-
     }
 
     const loadPdf = (event: any) => {
@@ -271,7 +278,7 @@ const EditMember = ({
                         </div>
                     </div>
                     <div className="w-full">
-                        <label htmlFor="image" className="font-medium">Pas Foto</label>
+                        <label htmlFor="image" className="font-medium">Sertifikat</label>
                         <div className="relative flex justify-center w-full flex-col items-center gap-8 space-x-24 border border-[#d4d4d4] bg-[#fff] rounded-2xl p-8 mt-2">
                             <input
                                 name="file"
