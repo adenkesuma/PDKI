@@ -33,7 +33,7 @@ const ConferenceDetail = ({
         <div className="mr-8 px-4 py-4 rounded-2xl bg-[#fff]">
             <div className="p-8 container mx-auto">
                 <div>
-                    <h2 className="md:text-[30px] lg:text-[35px] xl:text-[40px] font-semibold text-[#1a1a1a]">{conference?.title}</h2>
+                    <h2 className="text-[24px] xl:text-[30px] font-semibold text-[#1a1a1a]">{conference?.title}</h2>
                     <p className="mt-2 text-[14px] md:text-[16px] xl:text-[18px] font-medium">Topic : {conference?.topic}</p>
 
                     <figure className="mt-10">

@@ -3,6 +3,7 @@ import { TbEdit, TbEye } from "react-icons/tb"
 import { MdOutlineDelete } from "react-icons/md"
 import Image from "next/image"
 import Link from "next/link"
+import { useEffect, useState } from "react"
 
 const CardConference = ({
    id,
@@ -22,17 +23,22 @@ const CardConference = ({
    createdAt,
    updatedAt 
 } : ConferenceProps) => {
+  const [selected, setSelected] = useState<string | null>(null)
 
-  const handleDeleteConference = async () => {
+  const handleDeleteConference = async (id: string) => {
+    setSelected((prevId) => (prevId === id ? null : id))
+
+
     const deleteConfirm = window.confirm("apakah anda yakin ingin menghapus konferensi ini ?") 
     if (deleteConfirm === true) {
-      await fetch(`http://localhost:8080/api/route/admin/conference/${id}`,  {
+      await fetch(`http://localhost:8080/api/route/admin/conference?id=${selected}`,  {
         method: "DELETE",
         headers: { 'Content-Type': 'application/json' },
+        credentials: "include"
       })
     }
-    console.log(deleteConfirm)
   }
+  console.log(selected)
 
   return (
     <div className="bg-[#fff] rounded-2xl p-3 shadow-md shadow-gray-300">
@@ -54,7 +60,7 @@ const CardConference = ({
             <TbEdit className="text-[24px]" />
           </Link>
           <button 
-            onClick={handleDeleteConference}
+            onClick={() => handleDeleteConference(id)}
             className="bg-[#fff] rounded-lg p-2 shadow-sm shadow-gray-500 hover:bg-red-600 hover:text-[#fff] text-red-600"
           >
             <MdOutlineDelete className="text-[24px]" />
