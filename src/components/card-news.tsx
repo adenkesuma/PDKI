@@ -27,7 +27,6 @@ const CardNews = ({
         credentials: "include"
       })
     }
-    console.log(deleteConfirm)
   }
 
   return (

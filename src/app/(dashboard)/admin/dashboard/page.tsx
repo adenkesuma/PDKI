@@ -35,8 +35,6 @@ const Dashboard = () => {
         options
       )
       setMember(memberData.data)
-      console.log(member);
-
       // fetching news data
       const newsData = await fetchData(
         `${newsUrl}`,

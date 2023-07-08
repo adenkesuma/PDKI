@@ -31,7 +31,6 @@ const CardConference = ({
         headers: { 'Content-Type': 'application/json' },
       })
     }
-    console.log(deleteConfirm)
   }
 
   return (
