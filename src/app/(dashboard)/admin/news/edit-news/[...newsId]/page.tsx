@@ -1,14 +1,9 @@
 "use client"
 import { useState, useEffect, useCallback, ChangeEvent } from "react"
-import { MemberProps } from "@/utils/interface"
-import { TbUpload, TbUser } from "react-icons/tb"
-import Link from "next/link"
-import { getSession, useSession } from "next-auth/react"
-import Search from "@/components/search"
-import newsData from "@/components/member-data"
+import { TbUpload } from "react-icons/tb"
+import {useSession } from "next-auth/react"
 import { redirect, useRouter } from "next/navigation"
 import Image from "next/image"
-import { MdArrowBackIosNew } from "react-icons/md"
 import BackNavigate from "@/components/back-navigate"
 import { fetchData, options } from "@/lib/fetch/dashboard-fetch"
 
@@ -31,6 +26,7 @@ const EditNews = ({
         published: "",
         region: "",
         file: "",
+        image: "",
     }) 
     const router = useRouter()
     
@@ -45,20 +41,21 @@ const EditNews = ({
      useEffect(()=> {
         const fetchDataNews = async () => {
             const getNewsData = await fetchData(
-                `http://localhost:8080/api/route/admin/news/${newsId}`,
+                `http://localhost:8080/api/route/news/${newsId}`,
                 options
             )
             setNewsData({
-              title: getNewsData.data.title,
-              content: getNewsData.data.content,
-              description: getNewsData.data.description,
-              publishedDate: getNewsData.data.publishedDate,
-              video: getNewsData.data.video,
-              tags: getNewsData.data.tags,
-              category: getNewsData.data.tags,
-              published: getNewsData.data.published,
-              region: getNewsData.data.region,
-              file: getNewsData.data.image
+              title: getNewsData.title,
+              content: getNewsData.content,
+              description: getNewsData.description,
+              publishedDate: getNewsData.publishedDate,
+              video: getNewsData.video,
+              tags: getNewsData.tags,
+              category: getNewsData.tags,
+              published: getNewsData.published,
+              region: getNewsData.region,
+              file: "", 
+              image: getNewsData.image 
             })
         }
 
@@ -81,7 +78,8 @@ const EditNews = ({
         try{
             await fetch(`http://localhost:8080/api/route/admin/news/${newsId}`,  {
                 method: "PUT",
-                body : JSON.stringify(formData)
+                body : formData,
+                credentials: "include"
             })
 
             if (formData !== null) {
@@ -116,6 +114,7 @@ const EditNews = ({
             ...prevState,
             [name]: value
         }))
+        console.log(newsData.file);
         
     }
 
@@ -127,7 +126,7 @@ const EditNews = ({
         return (
             <div className="w-full my-10 flex flex-col ml-[240px]">
                 {/* arrow back  */}
-                <BackNavigate path={"news"} text={"Upload Berita Baru"} />
+                <BackNavigate path={"news"} text={"Edit Berita"} />
 
                 {/* form */}
                 <form 

@@ -77,7 +77,6 @@ export interface VideoPlayerProps {
 }
 
 export interface MemberProps {
-  memberId: number;
   nama: string; 
   username: string;
   password: string;
@@ -90,7 +89,7 @@ export interface MemberProps {
   noSerkom: string;
   tempatLahir: string;
   tanggalLahir: string;
-  noIdi: number;
+  noIdi: string;
   npaPdki: string;
   createdAt: string;
   updatedAt: string;

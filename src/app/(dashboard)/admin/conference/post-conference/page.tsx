@@ -1,16 +1,12 @@
 "use client"
-import { useState, useEffect, useCallback, ChangeEvent } from "react"
-import { MemberProps } from "@/utils/interface"
-import { TbUpload, TbUser } from "react-icons/tb"
-import Link from "next/link"
-import { getSession, useSession } from "next-auth/react"
-import Search from "@/components/search"
+import { useState, useCallback, ChangeEvent } from "react"
+import { TbUpload } from "react-icons/tb"
+import { useSession } from "next-auth/react"
 import { redirect, useRouter } from "next/navigation"
 import Image from "next/image"
 import BackNavigate from "@/components/back-navigate"
 
 const PostConference = () => {
-  const [search, setSearch] = useState<string>('')
   const [preview, setPreview] = useState('')
   const [conferenceData, setConferenceData] = useState({
     title: "",
@@ -22,7 +18,6 @@ const PostConference = () => {
     organizer: "",
     websiteUrl: "",
     registrationRequired: "false",
-    registrationDeadline: "",
     speakers: "",
     topic: '',
     file: ""
@@ -49,7 +44,6 @@ const PostConference = () => {
         formData.append("organizer", conferenceData.organizer)
         formData.append("websiteUrl", conferenceData.websiteUrl)
         formData.append("registrationRequired", conferenceData.registrationRequired)
-        formData.append("registrationDeadline", conferenceData.registrationDeadline)
         formData.append("region", conferenceData.region)
         formData.append("speakers", conferenceData.speakers)
         formData.append("topic", conferenceData.topic)
@@ -94,10 +88,6 @@ const PostConference = () => {
     const redirectBack = () => {
         router.push("/admin/conference")
     }
-
-    const onSetSearch = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-        setSearch(event.target.value)
-    }, [])
 
     if (status === "authenticated") {
         return (  
@@ -262,28 +252,8 @@ const PostConference = () => {
                                 />
                                 <label htmlFor="false" className="text-[14px] font-medium text-gray-800">Tidak Perlu Registrasi</label>
                             </div>
-                    </div>
-                    </div>
-                    {
-                        conferenceData.registrationRequired === "true"
-                        ?
-                        (
-                        <div className="w-full">
-                            <label htmlFor="registrationDeadline" className="font-medium">Deadline Registrasi</label>
-                            <input 
-                                id="registrationDeadline"
-                                name="registrationDeadline"
-                                value={conferenceData.registrationDeadline}
-                                onChange={handleChange}
-                                type="date" 
-                                placeholder="Masukan Deadline Pendaftaran Konferensi..." 
-                                className="w-full mt-2 rounded-2xl py-3 px-4 border border-[#d4d4d4]" 
-                            />
                         </div>
-                        )
-                        :
-                        ("")
-                    }
+                    </div>
                     <div className="w-full">
                         <label htmlFor="speakers" className="font-medium">Pembicara</label>
                         <input 

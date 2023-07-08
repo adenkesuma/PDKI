@@ -1,10 +1,7 @@
 "use client"
 import { useState, useEffect, useCallback, ChangeEvent } from "react"
-import { MemberProps } from "@/utils/interface"
 import { TbUpload, TbUser } from "react-icons/tb"
-import Link from "next/link"
-import { getSession, useSession } from "next-auth/react"
-import Search from "@/components/search"
+import {useSession } from "next-auth/react"
 import { redirect, useRouter } from "next/navigation"
 import Image from "next/image"
 import BackNavigate from "@/components/back-navigate"
@@ -27,7 +24,6 @@ const EditConference = ({
     organizer: "",
     websiteUrl: "",
     registrationRequired: "false",
-    registrationDeadline: "",
     speakers: "",
     topic: '',
     file: ""
@@ -45,26 +41,27 @@ const EditConference = ({
   useEffect(()=> {
         const fetchDataNews = async () => {
             const getConferenceData = await fetchData(
-                `http://localhost:8080/api/route/admin/news/${conferenceId}`,
+                `http://localhost:8080/api/route/conference/${conferenceId}`,
                 options
             )
             setConferenceData({
-              title: getConferenceData.data.title,
-              description: getConferenceData.data.description,
-              startDate: getConferenceData.data.startDate,
-              endDate: getConferenceData.data.endDate,
-              region: getConferenceData.data.region,
-              location: getConferenceData.data.location,
-              organizer: getConferenceData.data.organizer,
-              websiteUrl: getConferenceData.data.websiteUrl,
-              registrationRequired: getConferenceData.data.registrationRequired,
-              registrationDeadline: getConferenceData.data.registrationDeadline,
-              speakers: getConferenceData.data.speakers,
-              topic: getConferenceData.data.topic,
-              file: getConferenceData.data.image
+              title: getConferenceData.title,
+              description: getConferenceData.description,
+              startDate: getConferenceData.startDate,
+              endDate: getConferenceData.endDate,
+              region: getConferenceData.region,
+              location: getConferenceData.location,
+              organizer: getConferenceData.organizer,
+              websiteUrl: getConferenceData.websiteUrl,
+              registrationRequired: getConferenceData.registrationRequired,
+              speakers: getConferenceData.speakers,
+              topic: getConferenceData.topic,
+              file: getConferenceData.image
             })
+            console.log(getConferenceData.startDate);
+            
         }
-
+        
         fetchDataNews()
     }, [])
 
@@ -80,14 +77,14 @@ const EditConference = ({
         formData.append("organizer", conferenceData.organizer)
         formData.append("websiteUrl", conferenceData.websiteUrl)
         formData.append("registrationRequired", conferenceData.registrationRequired)
-        formData.append("registrationDeadline", conferenceData.registrationDeadline)
         formData.append("region", conferenceData.region)
         formData.append("speakers", conferenceData.speakers)
         formData.append("topic", conferenceData.topic)
         try{
-            await fetch(`http://localhost:8080/api/route/admin/conference`,  {
+            await fetch(`http://localhost:8080/api/route/admin/conference/${conferenceId}`,  {
                 method: "PUT",
-                body : JSON.stringify(formData)
+                body : formData,
+                credentials: "include"
             })
         }catch(err){
             console.log(err);
@@ -292,28 +289,8 @@ const EditConference = ({
                                 />
                                 <label htmlFor="false" className="text-[14px] font-medium text-gray-800">Tidak Perlu Registrasi</label>
                             </div>
-                    </div>
-                    </div>
-                    {
-                        conferenceData.registrationRequired === "true"
-                        ?
-                        (
-                        <div className="w-full">
-                            <label htmlFor="registrationDeadline" className="font-medium">Deadline Registrasi</label>
-                            <input 
-                                id="registrationDeadline"
-                                name="registrationDeadline"
-                                value={conferenceData.registrationDeadline}
-                                onChange={handleChange}
-                                type="date" 
-                                placeholder="Masukan Deadline Pendaftaran Konferensi..." 
-                                className="w-full mt-2 rounded-2xl py-3 px-4 border border-[#d4d4d4]" 
-                            />
                         </div>
-                        )
-                        :
-                        ("")
-                    }
+                    </div>
                     <div className="w-full">
                         <label htmlFor="speakers" className="font-medium">Pembicara</label>
                         <input 

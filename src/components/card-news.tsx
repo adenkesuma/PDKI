@@ -21,13 +21,13 @@ const CardNews = ({
   const handleDeleteNews = () => {
     const deleteConfirm = window.confirm("apakah anda yakin ingin menghapus berita ini ?") 
     if (deleteConfirm === true) {
-      fetch(`http://localhost:8080/api/route/admin/news?id=${id}`,  {
+      fetch(`http://localhost:8080/api/route/admin/news/${id}`,  {
         method: "DELETE",
         headers: { 'Content-Type': 'application/json' },
         credentials: "include"
       })
     }
-    console.log(deleteConfirm)
+    window.location.reload()
   }
 
   return (
@@ -46,7 +46,7 @@ const CardNews = ({
           <Link href={`news/${id}`} className="hover:bg-[#274698] hover:text-[#fff] text-[#555] duration-75 bg-[#fff] rounded-lg p-2 shadow-sm shadow-gray-500">
             <TbEye className="text-[24px]" />
           </Link>
-          <Link href="#" className="hover:bg-[#274698] hover:text-[#fff] text-[#555] duration-75 bg-[#fff] rounded-lg p-2 shadow-sm shadow-gray-500">
+        <Link href={`/admin/news/edit-news/${id}`} className="hover:bg-[#274698] hover:text-[#fff] text-[#555] duration-75 bg-[#fff] rounded-lg p-2 shadow-sm shadow-gray-500">
             <TbEdit className="text-[24px]" />
           </Link>
           <button 

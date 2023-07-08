@@ -41,7 +41,7 @@ const MemberData = ({ member }: any) => {
 
             <div className="w-full">
                 {member?.map((item: MemberProps, idx: number) => (
-                    <ul key={item.memberId} className="p-6 mb-6 flex justify-between items-center font-medium text-gray-800 bg-[#fff] rounded-2xl shadow-md shadow-gray-200">
+                    <ul key={item.npaPdki} className="p-6 mb-6 flex justify-between items-center font-medium text-gray-800 bg-[#fff] rounded-2xl shadow-md shadow-gray-200">
                         <li className="w-[4%]">{idx + 1}</li>
                         {/* image */}
                         <li className="w-[8%] flex justify-start">

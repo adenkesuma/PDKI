@@ -1,12 +1,9 @@
 "use client"
 import { useState, useEffect, useCallback, ChangeEvent, FormEvent } from "react"
-import { MemberProps } from "@/utils/interface"
-import { TbUpload, TbUser } from "react-icons/tb"
-import { getSession, useSession } from "next-auth/react"
-import Search from "@/components/search"
+import { TbUpload } from "react-icons/tb"
+import { useSession } from "next-auth/react"
 import { redirect, useRouter } from "next/navigation"
 import Image from "next/image"
-import { MdArrowBackIosNew } from "react-icons/md"
 import BackNavigate from "@/components/back-navigate"
 import { fetchData, options } from "@/lib/fetch/dashboard-fetch"
 
@@ -60,6 +57,7 @@ const EditMember = ({
                 sertifikat: getMemberData.data.sertifikat,
                 pasFoto: getMemberData.data.pasFoto
             })
+            
         }
 
         fetchDataMember()
@@ -70,7 +68,8 @@ const EditMember = ({
         required: true,
         onUnauthenticated() {
             redirect("/")
-        }
+        },
+
     })
     const router = useRouter()
 

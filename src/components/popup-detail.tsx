@@ -2,7 +2,6 @@
 import { TbEdit, TbEye } from "react-icons/tb"
 import { MdOutlineDelete } from "react-icons/md"
 import Link from "next/link"
-import { useEffect } from "react";
 
 interface Props {
   npaPdki: string;
@@ -19,6 +18,7 @@ const PopupDetail = ({ npaPdki }: Props) => {
         credentials: "include"
       })
     }
+    window.location.reload()
   }
 
   return (

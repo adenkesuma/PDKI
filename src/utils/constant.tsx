@@ -1,5 +1,4 @@
-import { TbBrandInstagram, TbBrandFacebook, TbBrandYoutube, TbVideo, TbNews, TbUsersGroup, TbLayoutDashboard } from "react-icons/tb"
-import { GiVideoConference } from "react-icons/gi"
+import { TbBrandInstagram, TbBrandFacebook, TbBrandYoutube } from "react-icons/tb"
 
 export const socialMedia = [
     {

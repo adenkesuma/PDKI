@@ -1,10 +1,8 @@
 "use client"
-import Sidebar from "@/components/sidebar"
-import Search from "@/components/search"
 import Link from "next/link"
 import { TbUser } from "react-icons/tb"
-import { getSession, useSession } from "next-auth/react"
-import { redirect, useRouter } from "next/navigation"
+import { useSession } from "next-auth/react"
+import { redirect } from "next/navigation"
 import DashboardData from "@/components/dashboard-data"
 import { useEffect, useState } from "react"
 import { fetchData, options } from "@/lib/fetch/dashboard-fetch"
@@ -35,8 +33,6 @@ const Dashboard = () => {
         options
       )
       setMember(memberData.data)
-      console.log(member);
-
       // fetching news data
       const newsData = await fetchData(
         `${newsUrl}`,
