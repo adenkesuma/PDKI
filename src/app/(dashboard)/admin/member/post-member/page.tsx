@@ -85,7 +85,6 @@ const PostMember = () => {
     }
     const loadPdf = (event: any) => {
         const pdf = event.target.files[0]
-        console.log(event.target.files);
         setPreview(URL?.createObjectURL(pdf))
         setMemberData(prevState => ({
             ...prevState,
