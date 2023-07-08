@@ -1,17 +1,12 @@
 "use client"
-import { useState, useEffect, useCallback, ChangeEvent, FormEvent } from "react"
-import { MemberProps } from "@/utils/interface"
-import { TbUpload, TbUser } from "react-icons/tb"
-import Link from "next/link"
-import { getSession, useSession } from "next-auth/react"
-import Search from "@/components/search"
+import { useState, useCallback, ChangeEvent, FormEvent } from "react"
+import { TbUpload } from "react-icons/tb"
+import { useSession } from "next-auth/react"
 import { redirect, useRouter } from "next/navigation"
 import Image from "next/image"
-import { MdArrowBackIosNew } from "react-icons/md"
 import BackNavigate from "@/components/back-navigate"
 
 const PostMember = () => {
-    const [search, setSearch] = useState<string>('')
     const [preview, setPreview] = useState('')
     const [memberData, setMemberData] = useState({
         nama: "",
@@ -115,11 +110,6 @@ const PostMember = () => {
             [name]: value
         }))
     }
-
-    const onSetSearch = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-        setSearch(event.target.value)
-    }, [])
-
     if (status === "authenticated") {
         return (
             <div className="w-full my-10 flex flex-col ml-[240px]">

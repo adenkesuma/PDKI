@@ -1,18 +1,12 @@
 "use client"
-import { useState, useEffect, useCallback, ChangeEvent } from "react"
-import { MemberProps } from "@/utils/interface"
-import { TbUpload, TbUser } from "react-icons/tb"
-import Link from "next/link"
-import { getSession, useSession } from "next-auth/react"
-import Search from "@/components/search"
-import newsData from "@/components/member-data"
+import { useState, useCallback, ChangeEvent } from "react"
+import { TbUpload } from "react-icons/tb"
+import {useSession } from "next-auth/react"
 import { redirect, useRouter } from "next/navigation"
 import Image from "next/image"
-import { MdArrowBackIosNew } from "react-icons/md"
 import BackNavigate from "@/components/back-navigate"
 
 const PostNews = () => {
-    const [search, setSearch] = useState<string>('')
     const [preview, setPreview] = useState('')
     const [newsData, setNewsData] = useState({
         title: "",
@@ -22,7 +16,7 @@ const PostNews = () => {
         video: "",
         tags: "",
         category: "",
-        published: "",
+        published: "true",
         region: "",
         file: "",
     }) 
@@ -90,10 +84,6 @@ const PostNews = () => {
         }))
         
     }
-
-    const onSetSearch = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-        setSearch(event.target.value)
-    }, [])
 
     if (status === "authenticated") {
         return (

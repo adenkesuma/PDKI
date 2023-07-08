@@ -10,7 +10,24 @@ const ConferenceDetail = ({
 } : {
     params: { conferenceId: string }
 }) => {
-    const [conference, setConference] = useState<ConferenceProps>()
+    const [conference, setConference] = useState<ConferenceProps>({
+        id: 0,
+        title: "",
+        description: "",
+        image: "",
+        startDate: "",
+        endDate: "",
+        location: "",
+        organizer: "",
+        websiteUrl: "",
+        registrationRequired: false,
+        registrationDeadline: "",
+        speakers: "",
+        isFree: false,
+        topic: "",
+        createdAt: "",
+        updatedAt: "",
+    })
 
     useEffect(() => {
         const fetchConference = async () => {

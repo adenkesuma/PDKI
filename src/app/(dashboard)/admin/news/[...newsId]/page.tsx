@@ -9,11 +9,23 @@ const NewsDetail = ({
 } : {
     params: { newsId: string }
 }) => {
-    const [news, setNews] = useState<NewsProps>()
+    const [news, setNews] = useState<NewsProps>({
+        id: 0,
+        title: "",
+        content: "",
+        description: "",
+        publishedDate: "",
+        image: "",
+        video: "",
+        tags: "",
+        categories: "",
+        published: false,
+        region: "",
+    })
 
     useEffect(() => {
         const fetchNews = async () => {
-            await fetch(`http://localhost:8080/api/route/news/${newsId}`)
+            await fetch(`http://localhost:8080/api/route/admin/news/${newsId}`)
             .then((res) => res.json())
             .then((data) => {
                 setNews(data)

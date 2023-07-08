@@ -22,7 +22,6 @@ const PostConference = () => {
     organizer: "",
     websiteUrl: "",
     registrationRequired: "false",
-    registrationDeadline: "",
     speakers: "",
     topic: '',
     file: ""
@@ -49,7 +48,6 @@ const PostConference = () => {
         formData.append("organizer", conferenceData.organizer)
         formData.append("websiteUrl", conferenceData.websiteUrl)
         formData.append("registrationRequired", conferenceData.registrationRequired)
-        formData.append("registrationDeadline", conferenceData.registrationDeadline)
         formData.append("region", conferenceData.region)
         formData.append("speakers", conferenceData.speakers)
         formData.append("topic", conferenceData.topic)
@@ -262,28 +260,8 @@ const PostConference = () => {
                                 />
                                 <label htmlFor="false" className="text-[14px] font-medium text-gray-800">Tidak Perlu Registrasi</label>
                             </div>
-                    </div>
-                    </div>
-                    {
-                        conferenceData.registrationRequired === "true"
-                        ?
-                        (
-                        <div className="w-full">
-                            <label htmlFor="registrationDeadline" className="font-medium">Deadline Registrasi</label>
-                            <input 
-                                id="registrationDeadline"
-                                name="registrationDeadline"
-                                value={conferenceData.registrationDeadline}
-                                onChange={handleChange}
-                                type="date" 
-                                placeholder="Masukan Deadline Pendaftaran Konferensi..." 
-                                className="w-full mt-2 rounded-2xl py-3 px-4 border border-[#d4d4d4]" 
-                            />
                         </div>
-                        )
-                        :
-                        ("")
-                    }
+                    </div>
                     <div className="w-full">
                         <label htmlFor="speakers" className="font-medium">Pembicara</label>
                         <input 

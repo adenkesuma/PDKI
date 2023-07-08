@@ -8,10 +8,27 @@ import { useEffect, useState } from "react"
 const MemberDetil = ({
   params: { memberId }
 } : {
-  params: { memberId: string }
+  params: { memberId: "string" }
 }) => {
 
-  const [member, setMember] = useState<MemberProps>()
+  const [member, setMember] = useState<MemberProps>({
+    nama: "", 
+    username: "",
+    password: "",
+    namaSertifikat: "",
+    subspesialisasi: "",
+    asalInstitusi: "",
+    pasFoto: "",
+    sertifikat: "",
+    noSeri: "",
+    noSerkom: "",
+    tempatLahir: "",
+    tanggalLahir: "",
+    noIdi: "",
+    npaPdki: "",
+    createdAt: "",
+    updatedAt: "",
+  })
 
   useEffect(() => {
     const fetchMember = async () => {

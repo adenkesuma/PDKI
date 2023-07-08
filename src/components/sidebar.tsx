@@ -1,5 +1,4 @@
 "use client"
-import { useState } from "react"
 import { usePathname } from "next/navigation"
 import { sidebarLinks } from "@/utils/links-text"
 import { TbLayoutDashboard, TbLogout, TbNews, TbUsersGroup, TbVideo } from "react-icons/tb"
@@ -24,7 +23,7 @@ const Sidebar = ({ selectedCategory, setSelectedCategory } : Props) => {
 
         <div className="flex flex-col gap-6 mt-14">
           {sidebarLinks.map((item) => (
-            <Link key={item.id} href={`${item.link}`}>
+            <Link key={item.id} href={`/admin/${item.link}`}>
               <button 
                 onClick={() => setSelectedCategory(item.link)}
                 className={`flex flex-start gap-4 items-center pl-6 w-full rounded-xl p-2 ${desiredValue === item.link ? 'active' : ''}`}

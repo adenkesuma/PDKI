@@ -19,6 +19,7 @@ const PopupDetail = ({ npaPdki }: Props) => {
         credentials: "include"
       })
     }
+    window.location.reload()
   }
 
   return (
