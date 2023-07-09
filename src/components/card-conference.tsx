@@ -22,12 +22,8 @@ const CardConference = ({
   createdAt,
   updatedAt
 }: ConferenceProps) => {
-  const [selected, setSelected] = useState<string | null>(null)
 
-  const handleDeleteConference = async (id: string) => {
-    setSelected((prevId) => (prevId === id ? null : id))
-
-
+  const handleDeleteConference = async () => {
     const deleteConfirm = window.confirm("apakah anda yakin ingin menghapus konferensi ini ?")
     if (deleteConfirm === true) {
       await fetch(`${process.env.BASE_URL}/api/route/admin/conference/${id}`, {
@@ -35,8 +31,6 @@ const CardConference = ({
         headers: { 'Content-Type': 'application/json' },
         credentials: "include"
       })
-      window.location.reload()
-
     }
   }
 
@@ -60,7 +54,7 @@ const CardConference = ({
             <TbEdit className="text-[24px]" />
           </Link>
           <button
-            onClick={() => handleDeleteConference(id.toString())}
+            onClick={() => handleDeleteConference()}
             className="bg-[#fff] rounded-lg p-2 shadow-sm shadow-gray-500 hover:bg-red-600 hover:text-[#fff] text-red-600"
           >
             <MdOutlineDelete className="text-[24px]" />

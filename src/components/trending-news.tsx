@@ -7,7 +7,7 @@ const TrendingNews = async () => {
   const getTrendingNews = await fetchNews()
 
   // mengurutkan data berdasarkan views
-  const sortedVideos = await getTrendingNews.data.sort((a: { views: number}, b: { views: number}) => b.views - a.views)
+  const sortedVideos = await getTrendingNews.data.sort((a: { views: number }, b: { views: number }) => b.views - a.views)
 
   // mengambil 5 data teratas dengan views terbanyak
   const topVideos: [] = await sortedVideos.slice(0, 5)
@@ -22,8 +22,8 @@ const TrendingNews = async () => {
               <Image
                 width={300}
                 height={200}
-                className="w-full h-full object-cover bg-center rounded-xl border-2 border-white" 
-                src={item.image} 
+                className="w-full h-full object-cover bg-center rounded-xl border-2 border-white"
+                src={process.env.BASE_URL + item.image}
                 alt="Image"
               />
             </div>
@@ -32,7 +32,7 @@ const TrendingNews = async () => {
               <p className="font-medium text-[14px] text-[#cacaca] text-ellipsis whitespace-nowrap overflow-hidden">{item.description}</p>
             </Link>
           </div>
-        ))} 
+        ))}
       </div>
     </div>
   )
