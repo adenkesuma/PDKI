@@ -6,45 +6,44 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 
 const CardConference = ({
-   id,
-   title,
-   description,
-   image,
-   startDate,
-   endDate,
-   location,
-   organizer,
-   websiteUrl,
-   registrationDeadline,
-   registrationRequired,
-   speakers,
-   isFree,
-   topic,
-   createdAt,
-   updatedAt 
-} : ConferenceProps) => {
+  id,
+  title,
+  description,
+  image,
+  startDate,
+  endDate,
+  location,
+  organizer,
+  websiteUrl,
+  registrationRequired,
+  speakers,
+  isFree,
+  topic,
+  createdAt,
+  updatedAt
+}: ConferenceProps) => {
   const [selected, setSelected] = useState<string | null>(null)
 
   const handleDeleteConference = async (id: string) => {
     setSelected((prevId) => (prevId === id ? null : id))
 
 
-    const deleteConfirm = window.confirm("apakah anda yakin ingin menghapus konferensi ini ?") 
+    const deleteConfirm = window.confirm("apakah anda yakin ingin menghapus konferensi ini ?")
     if (deleteConfirm === true) {
-      await fetch(`http://localhost:8080/api/route/admin/conference/${id}`,  {
+      await fetch(`http://localhost:8080/api/route/admin/conference/${id}`, {
         method: "DELETE",
         headers: { 'Content-Type': 'application/json' },
         credentials: "include"
       })
       window.location.reload()
-      
+
     }
   }
 
   return (
     <div className="bg-[#fff] rounded-2xl p-3 shadow-md shadow-gray-300">
       <figure className="relative">
-        <Image 
+        <Image
           width={200}
           height={200}
           className="rounded-[12px] w-full h-[200px] lg:h-[230px] object-cover bg-center bg-cover"
@@ -60,7 +59,7 @@ const CardConference = ({
           <Link href={`/admin/conference/edit-conference/${id}`} className="hover:bg-[#274698] hover:text-[#fff] text-[#555] duration-75 bg-[#fff] rounded-lg p-2 shadow-sm shadow-gray-500">
             <TbEdit className="text-[24px]" />
           </Link>
-          <button 
+          <button
             onClick={() => handleDeleteConference(id.toString())}
             className="bg-[#fff] rounded-lg p-2 shadow-sm shadow-gray-500 hover:bg-red-600 hover:text-[#fff] text-red-600"
           >
@@ -69,9 +68,9 @@ const CardConference = ({
         </div>
       </figure>
       <div className="mt-6 pb-4 px-4 w-full flex flex-col gap-4">
-        <div> 
-            <h4 className="text-[16px] xl:text-[18px] text-[#1a1a1a] font-medium text-ellipsis whitespace-nowrap overflow-hidden">{title}</h4>
-            <p className="text-[14px] xl:text-[16px] font-medium text-[#444]">{location}</p>
+        <div>
+          <h4 className="text-[16px] xl:text-[18px] text-[#1a1a1a] font-medium text-ellipsis whitespace-nowrap overflow-hidden">{title}</h4>
+          <p className="text-[14px] xl:text-[16px] font-medium text-[#444]">{location}</p>
         </div>
         <div className="flex justify-between items-center gap-14 overflow-hidden text-ellipsis whitespace-nowrap">
           <span className="text-[14px] xl:text-[16px] font-medium text-[#777]">{`${new Date(startDate).getDate()} - ${new Date(startDate).getMonth()} - ${new Date(startDate).getFullYear()}`}</span>
