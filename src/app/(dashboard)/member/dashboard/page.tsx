@@ -5,6 +5,31 @@ import BarcodeGenerator from "@/components/barcode-generator"
 import { redirect } from "next/navigation"
 
 const MemberDashboard = async () => {
+<<<<<<< HEAD
+  const [user, setUser] = useState([])
+  
+  // user 
+  const { data: session, status } = useSession()
+  // const username = session?.user.nama.toLowerCase()
+  const username = session?.user.namaSertifikat
+
+  // useEffect(() => {
+  //   const getUser = async () => {
+  //     const res = await fetch(`http://localhost:8080/api/route/admin/member?nama=${username}`, {
+  //       credentials: "include",
+  //       headers: { 'Content-Type': 'application/json'},
+  //       method: 'GET'
+  //     })
+  //     const data = await res.json()
+  //     setUser(data)
+  //   }
+
+  //   getUser()
+  // }, [username])
+
+  // console.log(user)
+=======
+>>>>>>> 3116bfafe9e2dae2870cb71865d30968b34862ad
 
   // user 
   const { data: session, status } = useSession({
@@ -17,6 +42,13 @@ const MemberDashboard = async () => {
   const user = session?.user
 
 
+<<<<<<< HEAD
+  // dummy sertificate
+  // const fileUrl = "/file.pdf"
+
+  return (
+=======
+>>>>>>> 3116bfafe9e2dae2870cb71865d30968b34862ad
   if (user?.npaPdki !== undefined) {
     return (
       <>
@@ -41,7 +73,11 @@ const MemberDashboard = async () => {
           </aside>
           <main className="bg-[#fff] rounded-2xl w-full p-8">
             <div className="flex flex-col gap-6 ">
+<<<<<<< HEAD
+              <h2 className="text-[24px] font-semibold">Profil User?</h2>
+=======
               <h2 className="text-[24px] font-semibold">Profil Member</h2>
+>>>>>>> 3116bfafe9e2dae2870cb71865d30968b34862ad
 
               <div className="flex flex-col gap-3">
                 <h3 className="text-[16px] font-medium text-[#333]">Nama: {user?.nama}</h3>
@@ -56,6 +92,9 @@ const MemberDashboard = async () => {
 
               <h2 className="text-[24px] font-semibold">Sertifikat</h2>
 
+<<<<<<< HEAD
+             <div>
+=======
               <div className="w-[300px]">
                 {user?.sertifikat ? 
                 <div className="p-2 w-[300px] h-[400px] border border-gray-800 rounded-2xl flex justify-center items-center">
@@ -63,6 +102,7 @@ const MemberDashboard = async () => {
                 </div>
                 :
                 <>
+>>>>>>> 3116bfafe9e2dae2870cb71865d30968b34862ad
                 <Image
                   src={user?.sertifikat}
                   alt="sertifikat"
