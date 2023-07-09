@@ -1,11 +1,8 @@
-export async function fetchMemberDetail(id: string) {
+import { cache } from "react"
+
+export const fetchMemberDetail = cache(async (id: string) => {
     const res = await fetch(`http://localhost:8080/api/route/admin/${id}`, {
-        cache: 'no-store',
         mode: 'cors',
-        next: {
-            revalidate: 10,
-            tags: ['memberId'],            
-        },
         method: 'GET'
     })
 
@@ -16,4 +13,4 @@ export async function fetchMemberDetail(id: string) {
     const memberDetail = await res.json()
 
     return memberDetail
-}
+})

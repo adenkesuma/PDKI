@@ -2,7 +2,6 @@
 import { useState, useEffect, useCallback, ChangeEvent } from "react"
 import { useRouter } from "next/navigation"
 import { useSession, getSession } from "next-auth/react"
-import Sidebar from "@/components/sidebar"
 import Search from "@/components/search"
 import Link from "next/link"
 import { TbUser } from "react-icons/tb"

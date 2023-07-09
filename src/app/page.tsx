@@ -1,5 +1,3 @@
-import Image from "next/image"
-import Link from "next/link"
 import TrendingNews from "../components/trending-news.tsx"
 import UpcomingConference from "../components/upcoming-conference.tsx"
 import Quote from "../components/quote.tsx"
@@ -17,10 +15,10 @@ const Home = () => {
       <Navbar />
       <main className="relative px-4 sm:px-0 container mx-auto">
         {/* header dari halaman awal */}
-        <Header heading="PDKI" subheading="Perhimpunan Keluarga Dokter Indonesia" />        
+        <Header heading="PDKI" subheading="Perhimpunan Keluarga Dokter Indonesia" />
 
         <section className="mt-8 grid gap-6 md:grid-cols-3 px-6 xl:px-12">
-          <TrendingVideo /> 
+          <TrendingVideo />
           <UpcomingConference />
           <TrendingNews />
         </section>

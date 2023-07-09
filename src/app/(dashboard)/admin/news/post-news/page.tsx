@@ -1,7 +1,7 @@
 "use client"
-import { useState, useCallback, ChangeEvent } from "react"
+import { useState } from "react"
 import { TbUpload } from "react-icons/tb"
-import {useSession } from "next-auth/react"
+import { useSession } from "next-auth/react"
 import { redirect, useRouter } from "next/navigation"
 import Image from "next/image"
 import BackNavigate from "@/components/back-navigate"
@@ -19,13 +19,13 @@ const PostNews = () => {
         published: "true",
         region: "",
         file: "",
-    }) 
+    })
     const router = useRouter()
-    
+
     // session 
-    const { data: session, status} = useSession({
+    const { data: session, status } = useSession({
         required: true,
-        onUnauthenticated(){
+        onUnauthenticated() {
             redirect("/")
         }
     })
@@ -43,21 +43,21 @@ const PostNews = () => {
         formData.append("category", newsData.category)
         formData.append("published", newsData.published)
         formData.append("region", newsData.region)
-        try{
-            await fetch(`http://localhost:8080/api/route/admin/news`,  {
+        try {
+            await fetch(`http://localhost:8080/api/route/admin/news`, {
                 method: "POST",
-                body : formData,
+                body: formData,
                 credentials: "include"
             })
 
             if (formData !== null) {
                 router.push("/admin/news")
             }
-        }catch(err){
+        } catch (err) {
             console.log(err);
-            
+
         }
-    } 
+    }
 
     const loadImage = (event: any) => {
         const image = event.target.files[0]
@@ -65,7 +65,7 @@ const PostNews = () => {
         setNewsData(prevState => ({
             ...prevState,
             file: image
-        }))      
+        }))
     }
 
     const deleteImage = () => {
@@ -77,12 +77,12 @@ const PostNews = () => {
     }
 
     const handleChange = (event: any) => {
-        const {name, value} = event.target
+        const { name, value } = event.target
         setNewsData(prevState => ({
             ...prevState,
             [name]: value
         }))
-        
+
     }
 
     if (status === "authenticated") {
@@ -92,29 +92,29 @@ const PostNews = () => {
                 <BackNavigate path={"news"} text={"Upload Berita Baru"} />
 
                 {/* form */}
-                <form 
+                <form
                     className="flex flex-col items-center gap-8 mx-auto w-[80%]"
                     onSubmit={addMember}
                 >
                     <div className="w-full">
                         <label htmlFor="title" className="font-medium">Judul Berita</label>
-                        <input 
+                        <input
                             name="title"
                             value={newsData.title}
                             onChange={handleChange}
-                            type="text" 
-                            placeholder="Masukan Judul..." 
-                            className="w-full rounded-2xl py-3 px-4 border border-[#d4d4d4] mt-2" 
+                            type="text"
+                            placeholder="Masukan Judul..."
+                            className="w-full rounded-2xl py-3 px-4 border border-[#d4d4d4] mt-2"
                         />
                     </div>
                     <div className="w-full">
                         <label htmlFor="content" className="font-medium">Konten Berita</label>
-                        <textarea 
+                        <textarea
                             name="content"
                             value={newsData.content}
                             onChange={handleChange}
-                            placeholder="Masukan Content..." 
-                            className="w-full rounded-2xl py-3 px-4 mt-2 border border-[#d4d4d4]" 
+                            placeholder="Masukan Content..."
+                            className="w-full rounded-2xl py-3 px-4 mt-2 border border-[#d4d4d4]"
                         />
                     </div>
                     <div className="w-full">
@@ -123,84 +123,84 @@ const PostNews = () => {
                             name="description"
                             value={newsData.description}
                             onChange={handleChange}
-                            placeholder="Masukan Deskripsi..." 
-                            className="w-full rounded-2xl py-3 px-4 border border-[#d4d4d4] mt-2" 
+                            placeholder="Masukan Deskripsi..."
+                            className="w-full rounded-2xl py-3 px-4 border border-[#d4d4d4] mt-2"
                         />
                     </div>
                     <div className="w-full">
                         <label htmlFor="publishedDate" className="font-medium">Tanggal Saat Membuat Berita</label>
-                        <input 
+                        <input
                             name="publishedDate"
                             value={newsData.publishedDate}
                             onChange={handleChange}
-                            type="date" 
-                            placeholder="Masukan Nama Tanggal..." 
-                            className="mt-2 w-full rounded-2xl py-3 px-4 border border-[#d4d4d4]" 
+                            type="date"
+                            placeholder="Masukan Nama Tanggal..."
+                            className="mt-2 w-full rounded-2xl py-3 px-4 border border-[#d4d4d4]"
                         />
                     </div>
                     <div className="w-full">
                         <label htmlFor="image" className="font-medium">Gambar Terkait</label>
-                        <div className="relative flex justify-center w-full flex-col items-center gap-8 space-x-24 border border-[#d4d4d4] bg-[#fff] rounded-2xl p-8 mt-2">    
+                        <div className="relative flex justify-center w-full flex-col items-center gap-8 space-x-24 border border-[#d4d4d4] bg-[#fff] rounded-2xl p-8 mt-2">
                             {preview ? (
                                 <figure className="image">
                                     <Image src={preview} alt="preview" width={200} height={200} />
-                                </figure> ) : (
+                                </figure>) : (
                                 <div className="flex flex-col justify-center items-center gap-4">
                                     <TbUpload className="text-[50px] text-[#888]" />
                                     <p className="text-center text-[14px] font-medium text-[#888]">Klik button untuk memasukan gambar</p>
-                                </div> 
+                                </div>
                             )}
-                            <input 
+                            <input
                                 name="file"
                                 onChange={loadImage}
-                                type="file" 
+                                type="file"
                                 accept=".jpg,.jpeg,.png"
                                 id="image"
                                 className="file:bg-[#274698] file:px-4 file:py-2 file:rounded-xl file:border-none file:text-[#fff] file:font-medium file:text-[#14px] file:mr-6 hover:file:bg-blue-600"
                             />
-                            {preview == "" && newsData.file == ""?
+                            {preview == "" && newsData.file == "" ?
                                 ("")
                                 :
-                                <button 
-                                    className="absolute top-4 -left-20 border-solid border-2 rounded-xl bg-white font-medium px-4 py-2 hover:bg-gray-300" 
+                                <button
+                                    className="absolute top-4 -left-20 border-solid border-2 rounded-xl bg-white font-medium px-4 py-2 hover:bg-gray-300"
                                     onClick={deleteImage}
                                 >
                                     Cancel
-                                </button>     
+                                </button>
                             }
                         </div>
-                    </div>      
+                    </div>
                     <div className="w-full">
                         <label htmlFor="video" className="font-medium">Video Terkait</label>
-                        <input 
+                        <input
                             name="video"
                             value={newsData.video}
                             onChange={handleChange}
-                            type="text" 
-                            placeholder="Masukan URL Video..." 
+                            type="text"
+                            placeholder="Masukan URL Video..."
                             className="w-full rounded-2xl py-3 px-4 border border-[#d4d4d4] mt-2"
                         />
                     </div>
                     <div className="w-full">
                         <label htmlFor="tags" className="font-medium">Tags Berita</label>
-                        <input 
+                        <input
                             name="tags"
                             value={newsData.tags}
                             onChange={handleChange}
-                            type="text" 
-                            placeholder="Masukan Tagline Berita..." 
-                            className="mt-2 w-full rounded-2xl py-3 px-4 border border-[#d4d4d4]" 
+                            type="text"
+                            placeholder="Masukan Tagline Berita..."
+                            className="mt-2 w-full rounded-2xl py-3 px-4 border border-[#d4d4d4]"
                         />
                     </div>
                     <div className="w-full">
                         <label htmlFor="category" className="font-medium">Category Berita</label>
-                        <input 
+                        <input
                             name="category"
                             value={newsData.category}
                             onChange={handleChange}
-                            type="text" 
-                            placeholder="Masukan Kategori Berita..." 
-                            className="mt-2 w-full rounded-2xl py-3 px-4 border border-[#d4d4d4]" 
+                            type="text"
+                            placeholder="Masukan Kategori Berita..."
+                            className="mt-2 w-full rounded-2xl py-3 px-4 border border-[#d4d4d4]"
                         />
                     </div>
                     <div className="w-full flex flex-col gap-2">
@@ -208,12 +208,12 @@ const PostNews = () => {
                         <div>
                             <div className="flex gap-8">
                                 <input
-                                type="radio"
-                                name="published"
-                                value="true"
-                                id="true"
-                                checked={newsData.published === "true"}
-                                onChange={handleChange}
+                                    type="radio"
+                                    name="published"
+                                    value="true"
+                                    id="true"
+                                    checked={newsData.published === "true"}
+                                    onChange={handleChange}
                                 />
                                 <label htmlFor="true" className="font-medium text-[14px]">Publish</label>
                             </div>
@@ -232,24 +232,24 @@ const PostNews = () => {
                     </div>
                     <div className="w-full">
                         <label htmlFor="region" className="font-medium">Wilayah Berita Terkait</label>
-                        <input 
+                        <input
                             name="region"
                             value={newsData.region}
                             onChange={handleChange}
-                            type="text" 
-                            placeholder="Masukan Region Berita..." 
-                            className="mt-2 w-full rounded-2xl py-3 px-4 border border-[#d4d4d4]" 
+                            type="text"
+                            placeholder="Masukan Region Berita..."
+                            className="mt-2 w-full rounded-2xl py-3 px-4 border border-[#d4d4d4]"
                         />
                     </div>
-                    <button 
-                        type="submit" 
+                    <button
+                        type="submit"
                         className="text-[#fff] hover:bg-blue-600 bg-rounded-3xl py-3 px-12 font-semibold bg-[#274698] rounded-2xl"
                     >
                         Tambah Berita
                     </button>
                 </form >
             </div>
-        
+
         )
     }
 
