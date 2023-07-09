@@ -12,7 +12,7 @@ const Conference = () => {
   const [conference, setConference] = useState<[]>([])
 
   // session
-  const { data: session, status } = useSession()
+  const { status } = useSession()
   const router = useRouter()
 
   useEffect(() => {
@@ -32,7 +32,9 @@ const Conference = () => {
     setSearch(event.target.value)
   }, [])
 
-  if (status === "authenticated") {
+  if (status === "unauthenticated") {
+    redirect('/')
+  } else {
     return (
       <div className="w-full inherit flex flex-col gap-2 relative bg-gray-100 pb-6">
         {/* navigation for conference data */}
@@ -56,9 +58,6 @@ const Conference = () => {
     )
   }
 
-  if (status === "unauthenticated") {
-    redirect('/')
-  }
 
 }
 

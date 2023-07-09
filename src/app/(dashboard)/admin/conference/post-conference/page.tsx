@@ -1,5 +1,5 @@
 "use client"
-import { useState, useCallback, ChangeEvent } from "react"
+import { useState } from "react"
 import { TbUpload } from "react-icons/tb"
 import { useSession } from "next-auth/react"
 import { redirect, useRouter } from "next/navigation"
@@ -7,30 +7,30 @@ import Image from "next/image"
 import BackNavigate from "@/components/back-navigate"
 
 const PostConference = () => {
-  const [preview, setPreview] = useState('')
-  const [conferenceData, setConferenceData] = useState({
-    title: "",
-    description: "",
-    startDate: "",
-    endDate: "",
-    region: "",
-    location: "",
-    organizer: "",
-    websiteUrl: "",
-    registrationRequired: "false",
-    speakers: "",
-    topic: '',
-    file: ""
-  }) 
-  const router = useRouter()
-  
-  // session 
-  const { data: session, status} = useSession({
-    required: true,
-    onUnauthenticated(){
-        redirect("/")
-    }
-  })
+    const [preview, setPreview] = useState('')
+    const [conferenceData, setConferenceData] = useState({
+        title: "",
+        description: "",
+        startDate: "",
+        endDate: "",
+        region: "",
+        location: "",
+        organizer: "",
+        websiteUrl: "",
+        registrationRequired: "false",
+        speakers: "",
+        topic: '',
+        file: ""
+    })
+    const router = useRouter()
+
+    // session 
+    const { data: session, status } = useSession({
+        required: true,
+        onUnauthenticated() {
+            redirect("/")
+        }
+    })
 
     const addMember = async (event: any) => {
         event.preventDefault();
@@ -47,17 +47,16 @@ const PostConference = () => {
         formData.append("region", conferenceData.region)
         formData.append("speakers", conferenceData.speakers)
         formData.append("topic", conferenceData.topic)
-        try{
-            await fetch(`http://localhost:8080/api/route/admin/conference`,  {
+        try {
+            await fetch(`http://localhost:8080/api/route/admin/conference`, {
                 method: "POST",
-                body : formData,
+                body: formData,
                 credentials: "include"
             })
-        }catch(err){
+        } catch (err) {
             console.log(err);
-            
         }
-    } 
+    }
 
     const loadImage = (event: any) => {
         const image = event.target.files[0]
@@ -65,7 +64,7 @@ const PostConference = () => {
         setConferenceData(prevState => ({
             ...prevState,
             file: image
-        }))      
+        }))
     }
 
     const deleteImage = () => {
@@ -77,38 +76,38 @@ const PostConference = () => {
     }
 
     const handleChange = (event: any) => {
-        const {name, value} = event.target
+        const { name, value } = event.target
         setConferenceData(prevState => ({
             ...prevState,
             [name]: value
         }))
-        
+
     }
 
     const redirectBack = () => {
-        router.push("/admin/conference")
+        router.back()
     }
 
     if (status === "authenticated") {
-        return (  
+        return (
             <div className="w-full my-10 flex flex-col ml-[240px]">
                 {/* arrow back */}
                 <BackNavigate path={"conference"} text={"Upload Konferensi Baru"} />
 
-                <form 
+                <form
                     className="flex flex-col items-center gap-8 mx-auto w-[80%]"
                     onSubmit={addMember}
                 >
                     <div className="w-full">
                         <label htmlFor="title" className="font-medium">Judul Konferensi</label>
-                        <input 
+                        <input
                             id="title"
                             name="title"
                             value={conferenceData.title}
                             onChange={handleChange}
-                            type="text" 
-                            placeholder="Masukan Judul..." 
-                            className="w-full rounded-2xl py-3 px-4 mt-2 border border-[#d4d4d4]" 
+                            type="text"
+                            placeholder="Masukan Judul..."
+                            className="w-full rounded-2xl py-3 px-4 mt-2 border border-[#d4d4d4]"
                         />
                     </div>
                     <div className="w-full">
@@ -118,112 +117,112 @@ const PostConference = () => {
                             name="description"
                             value={conferenceData.description}
                             onChange={handleChange}
-                            type="text" 
-                            placeholder="Masukan Deskripsi..." 
-                            className="w-full rounded-2xl py-3 px-4 border border-[#d4d4d4] mt-2" 
+                            type="text"
+                            placeholder="Masukan Deskripsi..."
+                            className="w-full rounded-2xl py-3 px-4 border border-[#d4d4d4] mt-2"
                         />
                     </div>
                     <div className="w-full">
                         <label htmlFor="image" className="font-medium">Foto Terkait Konferensi</label>
-                        <div className="relative flex justify-center w-full flex-col items-center gap-8 space-x-24 border border-[#d4d4d4] bg-[#fff] rounded-2xl p-8 mt-2">    
+                        <div className="relative flex justify-center w-full flex-col items-center gap-8 space-x-24 border border-[#d4d4d4] bg-[#fff] rounded-2xl p-8 mt-2">
                             {preview ? (
                                 <figure className="image">
                                     <Image src={preview} alt="preview" width={200} height={200} />
-                                </figure> ) : (
+                                </figure>) : (
                                 <div className="flex flex-col justify-center items-center gap-4">
                                     <TbUpload className="text-[50px] text-[#888]" />
                                     <p className="text-center text-[14px] font-medium text-[#888]">Klik button untuk memasukan gambar</p>
-                                </div> 
+                                </div>
                             )}
-                            <input 
+                            <input
                                 name="file"
                                 onChange={loadImage}
-                                type="file" 
+                                type="file"
                                 accept=".jpg,.jpeg,.png"
                                 id="image"
                                 className="file:bg-[#274698] file:px-4 file:py-2 file:rounded-xl file:border-none file:text-[#fff] file:font-medium file:text-[#14px] file:mr-6 hover:file:bg-blue-600"
                             />
-                            {preview == "" && conferenceData.file == ""?
+                            {preview == "" && conferenceData.file == "" ?
                                 ("")
                                 :
-                                <button 
-                                    className="absolute top-4 -left-20 border-solid border-2 rounded-xl bg-white font-medium px-4 py-2 hover:bg-gray-300" 
+                                <button
+                                    className="absolute top-4 -left-20 border-solid border-2 rounded-xl bg-white font-medium px-4 py-2 hover:bg-gray-300"
                                     onClick={deleteImage}
                                 >
                                     Cancel
-                                </button>     
+                                </button>
                             }
                         </div>
-                    </div>       
+                    </div>
                     <div className="w-full">
                         <label htmlFor="startDate" className="font-medium">Tanggal Mulai Konferensi</label>
-                        <input 
+                        <input
                             id="startDate"
                             name="startDate"
                             value={conferenceData.startDate}
                             onChange={handleChange}
-                            type="date" 
-                            placeholder="Masukan Tanggal Mulai Konferensi..." 
-                            className="mt-2 w-full rounded-2xl py-3 px-4 border border-[#d4d4d4]" 
+                            type="date"
+                            placeholder="Masukan Tanggal Mulai Konferensi..."
+                            className="mt-2 w-full rounded-2xl py-3 px-4 border border-[#d4d4d4]"
                         />
                     </div>
                     <div className="w-full">
                         <label htmlFor="endDate" className="font-medium">Tanggal Selesai Konferensi</label>
-                        <input 
+                        <input
                             id="endDate"
                             name="endDate"
                             value={conferenceData.endDate}
                             onChange={handleChange}
-                            type="date" 
-                            placeholder="Masukan Tanggal Selesai Konferensi..." 
-                            className="w-full mt-2 rounded-2xl py-3 px-4 border border-[#d4d4d4]" 
+                            type="date"
+                            placeholder="Masukan Tanggal Selesai Konferensi..."
+                            className="w-full mt-2 rounded-2xl py-3 px-4 border border-[#d4d4d4]"
                         />
                     </div>
                     <div className="w-full">
                         <label htmlFor="region" className="font-medium">Region Konferensi</label>
-                        <input 
+                        <input
                             id="region"
                             type="text"
                             name="region"
                             value={conferenceData.region}
                             onChange={handleChange}
-                            placeholder="Masukan Region Konferensi..." 
-                            className="mt-2 w-full rounded-2xl py-3 px-4 border border-[#d4d4d4]" 
+                            placeholder="Masukan Region Konferensi..."
+                            className="mt-2 w-full rounded-2xl py-3 px-4 border border-[#d4d4d4]"
                         />
                     </div>
                     <div className="w-full">
                         <label htmlFor="location" className="font-medium">Lokasi Konferensi</label>
-                        <input 
+                        <input
                             id="location"
                             name="location"
                             value={conferenceData.location}
                             onChange={handleChange}
-                            type="text" 
-                            placeholder="Masukan Lokasi Konferensi..." 
-                            className="w-full rounded-2xl py-3 px-4 border border-[#d4d4d4] mt-2" 
+                            type="text"
+                            placeholder="Masukan Lokasi Konferensi..."
+                            className="w-full rounded-2xl py-3 px-4 border border-[#d4d4d4] mt-2"
                         />
                     </div>
                     <div className="w-full">
                         <label htmlFor="organizer" className="font-medium">Penyelenggara Konferensi</label>
-                        <input 
+                        <input
                             id="organizer"
                             name="organizer"
                             value={conferenceData.organizer}
                             onChange={handleChange}
-                            type="text" 
-                            placeholder="Masukan Penyelenggara Konferensi..." 
-                            className="w-full mt-2 rounded-2xl py-3 px-4 border border-[#d4d4d4]" 
+                            type="text"
+                            placeholder="Masukan Penyelenggara Konferensi..."
+                            className="w-full mt-2 rounded-2xl py-3 px-4 border border-[#d4d4d4]"
                         />
                     </div>
                     <div className="w-full">
                         <label htmlFor="websiteUrl" className="font-medium">Link Website Konferensi</label>
-                        <input 
+                        <input
                             id="websiteUrl"
                             name="websiteUrl"
                             value={conferenceData.websiteUrl}
                             onChange={handleChange}
-                            type="text" 
-                            placeholder="Masukan URL Website Konferensi..." 
+                            type="text"
+                            placeholder="Masukan URL Website Konferensi..."
                             className="w-full mt-2 rounded-2xl py-3 px-4 border border-[#d4d4d4]"
                         />
                     </div>
@@ -256,30 +255,30 @@ const PostConference = () => {
                     </div>
                     <div className="w-full">
                         <label htmlFor="speakers" className="font-medium">Pembicara</label>
-                        <input 
+                        <input
                             id="speakers"
                             name="speakers"
                             value={conferenceData.speakers}
                             onChange={handleChange}
-                            type="text" 
-                            placeholder="Masukan Pembicara Konferensi..." 
-                            className="mt-2 w-full rounded-2xl py-3 px-4 border border-[#d4d4d4]" 
+                            type="text"
+                            placeholder="Masukan Pembicara Konferensi..."
+                            className="mt-2 w-full rounded-2xl py-3 px-4 border border-[#d4d4d4]"
                         />
                     </div>
                     <div className="w-full">
                         <label htmlFor="topic" className="font-medium">Topik Konferensi</label>
-                        <input 
+                        <input
                             id="topic"
                             name="topic"
                             value={conferenceData.topic}
                             onChange={handleChange}
-                            type="text" 
-                            placeholder="Masukan Pembicara Konferensi..." 
-                            className="w-full rounded-2xl py-3 px-4 mt-2 border border-[#d4d4d4]" 
+                            type="text"
+                            placeholder="Masukan Pembicara Konferensi..."
+                            className="w-full rounded-2xl py-3 px-4 mt-2 border border-[#d4d4d4]"
                         />
                     </div>
-                    <button 
-                        type="submit" 
+                    <button
+                        type="submit"
                         className="text-[#fff] hover:bg-blue-600 bg-rounded-3xl py-3 px-12 font-semibold bg-[#274698] rounded-2xl"
                         onClick={redirectBack}
                     >

@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link"
-import { ChangeEvent, useEffect, useState } from "react"
+import { ChangeEvent, useState } from "react"
 import { ProvinsiIndonesia } from "@/utils/constant.tsx"
 import RegionData from "@/components/region-data"
 import Header from "@/components/header"
@@ -25,11 +25,11 @@ const PDKIRegions = async () => {
           <h2 className="font-semibold text-[30px] mb-6">Region News</h2>
           <div className="flex flex-col items-start sm:flex-row sm:items-center gap-6">
             <h3 className="text-lg font-medium text-[#1a1a1a]">Filter sesuai provinsi</h3>
-            <select 
-              value={selectedRegion} 
+            <select
+              value={selectedRegion}
               className="rounded-xl p-2 bg-[#274698] text-white"
-              onChange={handleRegionChange} 
-              >
+              onChange={handleRegionChange}
+            >
               {ProvinsiIndonesia.map((prov, idx) => (
                 <option value={prov.value} key={idx}>
                   {prov.opt}
@@ -46,7 +46,7 @@ const PDKIRegions = async () => {
 
           <div className="mt-6">
             <h3 className="text-[18px] font-medium text-[#1a1a1a]">
-              Contact Admin klik : 
+              Contact Admin klik :
               <Link href="https://wa.me/081276169833" className="text-[#274698]"> disini</Link>
             </h3>
           </div>

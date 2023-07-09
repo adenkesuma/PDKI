@@ -12,7 +12,7 @@ const Video = () => {
   const [video, setVideo] = useState<[]>([])
 
   // session
-  const { data: session, status } = useSession()
+  const { status } = useSession()
   const router = useRouter()
 
   useEffect(() => {

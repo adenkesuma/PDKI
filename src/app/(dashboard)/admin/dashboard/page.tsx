@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link"
 import { TbUser } from "react-icons/tb"
-import { useSession } from "next-auth/react"
+import { getSession, useSession } from "next-auth/react"
 import { redirect } from "next/navigation"
 import DashboardData from "@/components/dashboard-data"
 import { useEffect, useState } from "react"
@@ -12,13 +12,8 @@ const Dashboard = () => {
   const [news, setNews] = useState([])
   const [conference, setConference] = useState([])
 
-  // session
-  const { data: session, status } = useSession({
-    required: true,
-    onUnauthenticated() {
-      redirect('/')
-    },
-  })
+  // session  
+  const { status } = useSession()
 
   useEffect(() => {
 
