@@ -14,4 +14,3 @@ export const fetchConference = cache(async () => {
 
   return conference
 })
->>>>>>> 5bbc18b1efb8df76556fae834a2f2a71cf67c49d
