@@ -2,7 +2,6 @@
 import { useState, useEffect, useCallback, ChangeEvent } from "react"
 import { useRouter } from "next/navigation"
 import { useSession, getSession } from "next-auth/react"
-import Sidebar from "@/components/sidebar"
 import Search from "@/components/search"
 import Link from "next/link"
 import { TbUser } from "react-icons/tb"
@@ -13,11 +12,11 @@ const Video = () => {
   const [video, setVideo] = useState<[]>([])
 
   // session
-  const { data: session, status } = useSession()
+  const { status } = useSession()
   const router = useRouter()
 
   useEffect(() => {
-    fetch(`http://localhost:8080/api/route/video?title=${search}`, {
+    fetch(`${process.env.BASE_URL}/api/route/video?title=${search}`, {
       cache: 'no-store',
       mode: 'cors',
       credentials: "include"

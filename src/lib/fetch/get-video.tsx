@@ -1,11 +1,8 @@
-export async function fetchVideo() {
-  const res = await fetch('http://localhost:8080/api/route/video', {
-    cache: 'no-store',
+import { cache } from "react"
+
+export const fetchVideo = cache(async () => {
+  const res = await fetch(`${process.env.BASE_URL}/api/route/video`, {
     mode: 'cors',
-    // next: {
-    //     revalidate: 10,
-    //     tags: ['video']
-    // },
     method: 'GET'
   })
 
@@ -16,4 +13,4 @@ export async function fetchVideo() {
   const video = await res.json()
 
   return video
-}
+})

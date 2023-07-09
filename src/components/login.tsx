@@ -1,6 +1,6 @@
-import { ChangeEvent, FC, FormEvent, useState } from "react"
+import { ChangeEvent, FC, FormEvent, useEffect, useState } from "react"
 import { TbX } from "react-icons/tb"
-import {signIn}  from "next-auth/react"
+import { signIn } from "next-auth/react"
 import { useRouter, useSearchParams } from "next/navigation"
 import Link from "next/link"
 
@@ -17,50 +17,51 @@ const Login: FC<LoginProps> = ({ handleShowLogin, setShow }) => {
   const [password, setPassword] = useState("")
 
   const [error, setError] = useState("")
-  
+
   const searchParams = useSearchParams();
   const callbackUrlAdmin = searchParams?.get("callbackUrl") || "/admin/dashboard";
   const callbackUrlMember = searchParams?.get("callbackUrl") || "/member/dashboard";
 
- 
-  
-  async function onSubmit (e: FormEvent){
+  useEffect(() => {
+    loginBy === "admin" ? router.prefetch("/admin/dashboard") : router.prefetch("/member/dashboard")
+  }, [router])
+
+
+  async function onSubmit(e: FormEvent) {
     e.preventDefault()
 
-    try{
+    try {
       setLoading(true);
-      if (loginBy == "admin"){
+      if (loginBy == "admin") {
         const res = await signIn("admin-login", {
           redirect: false,
           username: username,
           password: password,
           callbackUrlAdmin
         });
-        
-        setLoading(false)
-        if (!res?.error){
+
+        if (!res?.error) {
           router.push(callbackUrlAdmin)
-        }else{
-          setLoading(false)
+        } else {
           setError("Invalid username or password")
         }
-      }else if (loginBy == "member"){
+      } else if (loginBy == "member") {
         const res = await signIn("member-login", {
           redirect: false,
           username: username,
           password: password,
           callbackUrlMember
         });
-        
+
         setLoading(false)
-        if (!res?.error){
+        if (!res?.error) {
           router.push(callbackUrlMember)
-        }else{
+        } else {
           setLoading(false)
           setError("Invalid username or password")
         }
       }
-    }catch(err: any){
+    } catch (err: any) {
       setError(err)
     }
   }
@@ -76,13 +77,13 @@ const Login: FC<LoginProps> = ({ handleShowLogin, setShow }) => {
           <h2 className="text-[46px] text-blue-100 font-bold text-center">Login</h2>
           <div className="flex items-center gap-4 mt-4">
             <p className="text-blue-100 font-medium text-[16px]">Login Sebagai</p>
-            <select 
+            <select
               defaultValue={"admin"}
-              name="role" 
+              name="role"
               id="role"
               className="bg-blue-100 outline-none font-medium text-[#333] py-[6px] px-3 rounded-xl"
               onChange={(e) => {
-                setLoginBy(e.target.value); 
+                setLoginBy(e.target.value);
               }}
             >
               <option value="admin" className="p-2 rounded-md">Admin</option>
@@ -91,32 +92,32 @@ const Login: FC<LoginProps> = ({ handleShowLogin, setShow }) => {
           </div>
         </div>
         {error && (
-        <p className="text-center bg-red-300 mb-6 rounded-lg py-2 px-4 font-medium text-red-800">{error}</p>
-      )}
+          <p className="text-center bg-red-300 mb-6 rounded-lg py-2 px-4 font-medium text-red-800">{error}</p>
+        )}
         <form className="flex flex-col items-center gap-8 mx-auto w-[80%] md:w-[60%] lg:w-[40%]"
           onSubmit={onSubmit}
         >
-          <input 
+          <input
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            type="text" 
-            placeholder="Masukan username..." 
+            type="text"
+            placeholder="Masukan username..."
             className="w-full rounded-2xl py-3 px-4 text-blue-100 outline-none border-2 placeholder-blue-100 border-blue-100 bg-transparent" />
-          <input 
+          <input
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            type="password" 
-            placeholder="Masukan password..." 
+            type="password"
+            placeholder="Masukan password..."
             className="w-full rounded-2xl py-3 px-4 text-blue-100 outline-none border-2 placeholder-blue-100 border-blue-100 bg-transparent" />
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className="bg-blue-100 hover:bg-blue-300 bg-rounded-3xl py-3 px-12 font-semibold text-[#274698] rounded-2xl">
             Masuk
           </button>
         </form >
         <div className="w-[90%] md:w-[60%] lg:w-[50%]">
           <p className="text-center text-blue-100">
-            Login hanya bisa dilakukan untuk yang sudah memiliki akun
+            Login hanya bisa dilakukan bagi member PDKI yang sudah memiliki akun
           </p>
         </div>
       </div>

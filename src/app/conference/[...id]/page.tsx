@@ -6,7 +6,7 @@ import Navbar from "@/components/navbar"
 
 const ConferenceId = async ({
     params: { id }
-} : {
+}: {
     params: { id: string }
 }) => {
 
@@ -21,12 +21,12 @@ const ConferenceId = async ({
                     <p className="mt-2 text-[14px] md:text-[16px] xl:text-[18px] font-medium">Topic : {conferenceDetail?.topic}</p>
 
                     <figure className="mt-10">
-                        <Image 
+                        <Image
                             width={400}
                             height={400}
                             className="w-full h-full rounded-2xl"
-                            src={conferenceDetail?.image} 
-                            alt={conferenceDetail?.title} 
+                            src={conferenceDetail?.image}
+                            alt={conferenceDetail?.title}
                         />
                     </figure>
 
@@ -41,8 +41,7 @@ const ConferenceId = async ({
                         <div className="mt-8 flex flex-col gap-2">
                             <p className="text-[14px] md:text-[16px] font-medium text-[#1a1a1a]">Penyelenggara: {conferenceDetail?.organizer}</p>
                             <p className="text-[14px] md:text-[16px] font-medium text-[#1a1a1a]">Location: {conferenceDetail?.location}</p>
-                            <p className="text-[14px] md:text-[16px] font-medium text-[#1a1a1a]">Ketentuan: {conferenceDetail?.isFree ? "Gratis" : "Berbayar"}</p>
-                            <p className="text-[14px] md:text-[16px] font-medium text-[#1a1a1a]">Link url click : 
+                            <p className="text-[14px] md:text-[16px] font-medium text-[#1a1a1a]">Link url click :
                                 <Link className="text-[#274698] hover:font-bold" href={conferenceDetail?.websiteUrl}>
                                     {" "}disini
                                 </Link>

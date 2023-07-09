@@ -82,8 +82,8 @@ export const ProvinsiIndonesia = [
         value: 'maluku'
     },
     {
-        opt: 'Sumatra Utara',
-        value: 'sumatra+utara'
+        opt: 'Sumatera Utara',
+        value: 'sumatera+utara'
     },
     {
         opt: 'Yogyakarta',
@@ -98,16 +98,16 @@ export const ProvinsiIndonesia = [
         value: 'riau'
     },
     {
-        opt: 'Sumatra Barat',
-        value: 'sumatra+barat'
+        opt: 'Sumatera Barat',
+        value: 'sumatera+barat'
     },
     {
         opt: 'Kalimantan Timur',
         value: 'kalimantan+timur'
     },
     {
-        opt: 'Sumatra Selatan',
-        value: 'sumatra+selatan'
+        opt: 'Sumatera Selatan',
+        value: 'sumatera+selatan'
     },
     {
         opt: 'Nusa Tenggara Timur',
@@ -168,7 +168,7 @@ export const ProvinsiIndonesia = [
     {
         opt: 'Bengkulu',
         value: 'bengkulu'
-    } 
+    }
 ]
 
 export const filterDropdownNews = [

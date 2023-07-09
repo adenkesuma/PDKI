@@ -136,7 +136,6 @@ const DashboardData = ({ news, member, conference, totalNews, totalConference, t
               organizer={item?.organizer}
               websiteUrl={item?.websiteUrl}
               registrationRequired={item?.registrationRequired}
-              registrationDeadline={item?.registrationDeadline}
               speakers={item?.speakers}
               isFree={item?.isFree}
               topic={item?.topic}

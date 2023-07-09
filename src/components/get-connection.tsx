@@ -9,7 +9,7 @@ interface GetConnectionProps {
   setShow: (show: boolean) => void
 }
 
-const GetConnection = ({ handleConnection, setShow } : GetConnectionProps) => {
+const GetConnection = ({ handleConnection, setShow }: GetConnectionProps) => {
   const [nama, setNama] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false)
@@ -18,7 +18,7 @@ const GetConnection = ({ handleConnection, setShow } : GetConnectionProps) => {
     event.preventDefault()
 
     try {
-      const res = await fetch('http://localhost:8080/api/route/connected', {
+      const res = await fetch(`${process.env.BASE_URL}/api/route/connected`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -27,15 +27,15 @@ const GetConnection = ({ handleConnection, setShow } : GetConnectionProps) => {
       })
 
       if (res.ok) {
-        const data =  await res.json()
+        const data = await res.json()
         setIsSubmitted(true)
       } else {
         console.error('failed to load data')
-      } 
+      }
     } catch (err) {
       console.error('An error oncurred', err)
     }
-  } 
+  }
 
   // popup statment
   useEffect(() => {
@@ -64,25 +64,25 @@ const GetConnection = ({ handleConnection, setShow } : GetConnectionProps) => {
           method="post"
           className="flex flex-col items-center gap-8 mx-auto w-[80%] md:w-[60%] lg:w-[40%]"
         >
-          <input 
-            type="text" 
+          <input
+            type="text"
             id="nama"
             name="nama"
             value={nama}
             onChange={(e) => setNama(e.target.value)}
-            placeholder="Masukan nama..." 
-            required 
-            className="w-full rounded-2xl py-3 px-4 text-blue-100 outline-none border-2 placeholder-blue-100 border-blue-100 bg-transparent" 
+            placeholder="Masukan nama..."
+            required
+            className="w-full rounded-2xl py-3 px-4 text-blue-100 outline-none border-2 placeholder-blue-100 border-blue-100 bg-transparent"
           />
-          <input 
-            type="email" 
+          <input
+            type="email"
             id="email"
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Masukan email..." 
-            required 
-            className="w-full rounded-2xl py-3 px-4 text-blue-100 outline-none border-2 placeholder-blue-100 border-blue-100 bg-transparent" 
+            placeholder="Masukan email..."
+            required
+            className="w-full rounded-2xl py-3 px-4 text-blue-100 outline-none border-2 placeholder-blue-100 border-blue-100 bg-transparent"
           />
           <button type="submit" className="bg-blue-100 bg-rounded-3xl py-3 px-12 font-semibold text-[#274698] rounded-2xl hover:bg-blue-200">Daftar</button>
         </form>

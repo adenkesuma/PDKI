@@ -7,6 +7,7 @@ import BarcodeGenerator from "@/components/barcode-generator"
 // import useDownloader from "react-use-downloader"
 
 const MemberDashboard = async () => {
+<<<<<<< HEAD
   const [user, setUser] = useState([])
   
   // user 
@@ -29,6 +30,8 @@ const MemberDashboard = async () => {
   // }, [username])
 
   // console.log(user)
+=======
+>>>>>>> 5bbc18b1efb8df76556fae834a2f2a71cf67c49d
 
   // user 
   const { data: session, status } = useSession({
@@ -42,11 +45,15 @@ const MemberDashboard = async () => {
 
   // const { download } = useDownloader()
 
+<<<<<<< HEAD
   // dummy sertificate
   // const fileUrl = "/file.pdf"
 
   return (
   {if (user?.npaPdki !== undefined) {
+=======
+  if (user?.npaPdki !== undefined) {
+>>>>>>> 5bbc18b1efb8df76556fae834a2f2a71cf67c49d
     return (
       <>
         {/* data user */}
@@ -71,7 +78,11 @@ const MemberDashboard = async () => {
           </aside>
           <main className="bg-[#fff] rounded-2xl w-full p-8">
             <div className="flex flex-col gap-6 ">
+<<<<<<< HEAD
               <h2 className="text-[24px] font-semibold">Profil User?</h2>
+=======
+              <h2 className="text-[24px] font-semibold">Profil Member</h2>
+>>>>>>> 5bbc18b1efb8df76556fae834a2f2a71cf67c49d
 
               <div className="flex flex-col gap-3">
                 <h3 className="text-[16px] font-medium text-[#333]">Nama: {user?.nama}</h3>
@@ -86,6 +97,7 @@ const MemberDashboard = async () => {
 
               <h2 className="text-[24px] font-semibold">Sertifikat</h2>
 
+<<<<<<< HEAD
              <div>
                 <Image
                   src={user?.pasFoto}
@@ -99,6 +111,31 @@ const MemberDashboard = async () => {
                 >
                   Download Sertifikat
                 </button>
+=======
+              <div className="w-[300px]">
+                {user?.sertifikat ?
+                  <div className="p-2 w-[300px] h-[400px] border border-gray-800 rounded-2xl flex justify-center items-center">
+                    <h2 className="text-[#888] font-medium text-[18px]">Belum Memiliki Sertifikat</h2>
+                  </div>
+                  :
+                  <>
+                    <Image
+                      src={user?.sertifikat}
+                      alt="sertifikat"
+                      width={300}
+                      height={400}
+                    />
+                    <button
+                      className="text-[#fff] hover:bg-blue-600 bg-rounded-2xl py-3 px-12 font-semibold bg-[#274698] rounded-2xl mt-6 w-full"
+                    // onClick={() => download(fileUrl, filename)}
+                    >
+                      Download Sertifikat
+                    </button>
+                  </>
+                }
+
+
+>>>>>>> 5bbc18b1efb8df76556fae834a2f2a71cf67c49d
               </div>
 
             </div>

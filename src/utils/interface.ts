@@ -39,7 +39,6 @@ export interface ConferenceProps {
   organizer: string;
   websiteUrl: string;
   registrationRequired: boolean;
-  registrationDeadline: string;
   speakers: string;
   isFree: boolean;
   topic: string;
@@ -77,7 +76,7 @@ export interface VideoPlayerProps {
 }
 
 export interface MemberProps {
-  nama: string; 
+  nama: string;
   username: string;
   password: string;
   namaSertifikat: string;
@@ -90,7 +89,9 @@ export interface MemberProps {
   tempatLahir: string;
   tanggalLahir: string;
   noIdi: string;
-  npaPdki: string;
+  npaPdki: any;
   createdAt: string;
   updatedAt: string;
+  isExLeader: boolean;
+  isLeader: boolean;
 }

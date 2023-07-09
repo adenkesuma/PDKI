@@ -1,11 +1,8 @@
-export async function fetchConferenceDetail(id: string) {
-    const res = await fetch(`http://localhost:8080/api/route/conference/${id}`, {
-        cache: 'no-store',
+import { cache } from "react"
+
+export const fetchConferenceDetail = cache(async (id: string) => {
+    const res = await fetch(`${process.env.BASE_URL}/api/route/conference/${id}`, {
         mode: 'cors',
-        // next: {
-        //     revalidate: 10,
-        //     tags: ['conferenceId'],            
-        // },
         method: 'GET'
     })
 
@@ -16,4 +13,4 @@ export async function fetchConferenceDetail(id: string) {
     const conferenceDetail = await res.json()
 
     return conferenceDetail
-}
+})

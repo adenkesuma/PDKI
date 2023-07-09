@@ -12,11 +12,11 @@ const Member = () => {
   const [member, setMember] = useState<[]>([])
 
   // session 
-  const { data: session, status } = useSession()
+  const { status } = useSession()
   const router = useRouter()
 
   useEffect(() => {
-    fetch(`http://localhost:8080/api/route/admin/member?nama=${search}`, {
+    fetch(`${process.env.BASE_URL}/api/route/admin/member?nama=${search}`, {
       cache: 'no-store',
       mode: 'cors',
       credentials: 'include'

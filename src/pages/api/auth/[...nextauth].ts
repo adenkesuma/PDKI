@@ -1,4 +1,4 @@
-import NextAuth, {NextAuthOptions} from "next-auth";
+import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialProvider from "next-auth/providers/credentials";
 
 
@@ -8,82 +8,82 @@ const authOptions: NextAuthOptions = {
         maxAge: 60 * 60 * 24,
     },
     providers: [
-         CredentialProvider({
+        CredentialProvider({
             id: "member-login",
             name: 'member',
             credentials: {
-                username: {label: "Username", type: "text", placeholder: "Masukkan Username..."},
-                password: {label: "password", type: "password", placeholder: "Masukkan password..."},
+                username: { label: "Username", type: "text", placeholder: "Masukkan Username..." },
+                password: { label: "password", type: "password", placeholder: "Masukkan password..." },
             },
             async authorize(credentials, req) {
-                const res = await fetch(`http://localhost:8080/api/route/signin/member`,
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type" : "application/json",
-                    },
-                    body: JSON.stringify({
-                        username: credentials?.username,
-                        password: credentials?.password
+                const res = await fetch(`${process.env.BASE_URL}/api/route/signin/member`,
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            username: credentials?.username,
+                            password: credentials?.password
+                        })
                     })
-                })
 
                 const user = await res.json();
-                
-                if (res.ok && user){
+
+                if (res.ok && user) {
                     return user
                 }
                 return null
-            
+
             },
-         }),
-         CredentialProvider({
+        }),
+        CredentialProvider({
             id: "admin-login",
             name: 'admin',
             credentials: {
-                username: {label: "Username", type: "text", placeholder: "Masukkan Username..."},
-                password: {label: "password", type: "password", placeholder: "Masukkan password..."},
+                username: { label: "Username", type: "text", placeholder: "Masukkan Username..." },
+                password: { label: "password", type: "password", placeholder: "Masukkan password..." },
             },
             async authorize(credentials, req) {
-                const res = await fetch(`http://localhost:8080/api/route/signin/admin`,
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type" : "application/json",
-                    },
-                    body: JSON.stringify({
-                        username: credentials?.username,
-                        password: credentials?.password
+                const res = await fetch(`${process.env.BASE_URL}/api/route/signin/admin`,
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            username: credentials?.username,
+                            password: credentials?.password
+                        })
                     })
-                })
 
                 const user = await res.json();
-                
-                if (res.ok && user){
+
+                if (res.ok && user) {
                     return user
                 }
                 return null
-            
+
             },
-         })
+        })
     ],
-    pages: {signIn: '/'},
+    pages: { signIn: '/' },
     callbacks: {
-        session: async ({session, token}) => { 
+        session: async ({ session, token }) => {
             session.user = token.user;
             return session;
         },
-        jwt : async ({ token, user}) => {
+        jwt: async ({ token, user }) => {
             if (user) {
                 token.user = user;
-              }
-              return token;
+            }
+            return token;
         },
-      },
-      secret: process.env.NEXTAUTH_SECRET,
-      jwt: {
+    },
+    secret: process.env.NEXTAUTH_SECRET,
+    jwt: {
         secret: process.env.JWT_SIGNIN_PRIVATE_KEY
-      }
+    }
 }
 
 export default NextAuth(authOptions);

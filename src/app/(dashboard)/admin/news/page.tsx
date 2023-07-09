@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect, useCallback, ChangeEvent } from "react"
 import { useSession } from "next-auth/react"
-import { useRouter } from "next/navigation"
+import { redirect, useRouter } from "next/navigation"
 import Search from "@/components/search"
 import Link from "next/link"
 import { TbUser } from "react-icons/tb"
@@ -12,11 +12,11 @@ const News = () => {
   const [news, setNews] = useState<[]>([])
 
   // session
-  const { data: session, status } = useSession()
+  const { status } = useSession()
   const router = useRouter()
 
   useEffect(() => {
-    fetch(`http://localhost:8080/api/route/news?title=${search}`, {
+    fetch(`${process.env.BASE_URL}/api/route/news?title=${search}`, {
       cache: 'no-store',
       mode: 'cors',
       credentials: "include"
@@ -57,7 +57,7 @@ const News = () => {
   }
 
   if (status === "unauthenticated") {
-    router.push("/")
+    redirect('/')
   }
 }
 

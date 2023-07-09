@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link"
 import { TbUser } from "react-icons/tb"
-import { useSession } from "next-auth/react"
+import { getSession, useSession } from "next-auth/react"
 import { redirect } from "next/navigation"
 import DashboardData from "@/components/dashboard-data"
 import { useEffect, useState } from "react"
@@ -12,20 +12,15 @@ const Dashboard = () => {
   const [news, setNews] = useState([])
   const [conference, setConference] = useState([])
 
-  // session
-  const { data: session, status } = useSession({
-    required: true,
-    onUnauthenticated() {
-      redirect('/')
-    },
-  })
+  // session  
+  const { status } = useSession()
 
   useEffect(() => {
 
     const fetchAllData = async () => {
-      const memberUrl = "http://localhost:8080/api/route/admin/member"
-      const newsUrl = "http://localhost:8080/api/route/news"
-      const conferenceUrl = "http://localhost:8080/api/route/conference"
+      const memberUrl = `${process.env.BASE_URL}/api/route/admin/member`
+      const newsUrl = `${process.env.BASE_URL}/api/route/news`
+      const conferenceUrl = `${process.env.BASE_URL}/api/route/conference`
 
       // fetching member data
       const memberData = await fetchData(

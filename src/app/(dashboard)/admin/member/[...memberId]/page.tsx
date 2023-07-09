@@ -7,12 +7,12 @@ import { useEffect, useState } from "react"
 
 const MemberDetil = ({
   params: { memberId }
-} : {
-  params: { memberId: "string" }
+}: {
+  params: { memberId: string }
 }) => {
 
   const [member, setMember] = useState<MemberProps>({
-    nama: "", 
+    nama: "",
     username: "",
     password: "",
     namaSertifikat: "",
@@ -25,24 +25,33 @@ const MemberDetil = ({
     tempatLahir: "",
     tanggalLahir: "",
     noIdi: "",
-    npaPdki: "",
+    npaPdki: null,
     createdAt: "",
     updatedAt: "",
+    isExLeader: false,
+    isLeader: false
   })
 
   useEffect(() => {
-    const fetchMember = async () => {
-      await fetch(`http://localhost:8080/api/route/admin/member/${memberId}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setMember(data.data)
+    const fetchMember = () => {
+      fetch(`${process.env.BASE_URL}/api/route/admin/member/${memberId}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        credentials: "include"
       })
-      .catch((err) => {
-        console.log(err)
-      })
+        .then((res) => res.json())
+        .then((data) => {
+          setMember(data)
+        })
+        .catch((err) => {
+          console.log("Error fetching data", err);
+        })
     }
+
     fetchMember()
-  }, [])
+  }, [member])
 
   return (
     <div className="w-full my-10 flex flex-col ml-[240px]">
@@ -50,13 +59,13 @@ const MemberDetil = ({
 
       <div className="flex justify-evenly gap-8 bg-[#fff] py-12 px-8 rounded-2xl mr-8">
         <div>
-          <Image 
+          <Image
             className="w-[150px] h-[200px] object-cover rounded-xl"
             alt="profile user"
             src={member?.pasFoto}
             width={150}
             height={200}
-          /> 
+          />
           <h2 className="mt-6 text-center font-semibold text-[20px] text-[#1a1a1a]">{member?.namaSertifikat}</h2>
         </div>
 
@@ -71,12 +80,12 @@ const MemberDetil = ({
           <div className="mt-6 w-[200px]">
             <span className="text-[18px] text-[#333] font-medium">Barcode User</span>
             <BarcodeGenerator code={member?.npaPdki} />
-          </div> 
+          </div>
         </div>
 
         <div className="w-[35%] h-[500px] flex flex-col items-center gap-8">
           <div className="border border-gray-300 w-full h-full rounded-xl p-4 flex justify-center items-center">
-            {member?.sertifikat ? 
+            {member?.sertifikat ?
               <h2 className="text-center text-[#888] font-medium text-[18px]">Belum Memiliki Sertifikat</h2> :
               <Image
                 width={300}
@@ -87,10 +96,10 @@ const MemberDetil = ({
               />
             }
           </div>
-          <a 
+          <a
             className="bg-[#274698] hover:bg-blue-700 duration-75 text-center rounded-xl py-2 px-4 text-[#fff] font-medium"
             href={member?.sertifikat}
-            rel="noopener noreferrer" 
+            rel="noopener noreferrer"
             download={true}
           >
             Download Sertifikat
