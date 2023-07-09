@@ -55,7 +55,7 @@ const MemberDetil = ({
 
   return (
     <div className="w-full my-10 flex flex-col ml-[240px]">
-      <BackNavigate path="/member" text="User Detail" />
+      <BackNavigate path="member" text="User Detail" />
 
       <div className="flex justify-evenly gap-8 bg-[#fff] py-12 px-8 rounded-2xl mr-8">
         <div>
@@ -84,26 +84,18 @@ const MemberDetil = ({
         </div>
 
         <div className="w-[35%] h-[500px] flex flex-col items-center gap-8">
-          <div className="border border-gray-300 w-full h-full rounded-xl p-4 flex justify-center items-center">
-            {member?.sertifikat ?
-              <h2 className="text-center text-[#888] font-medium text-[18px]">Belum Memiliki Sertifikat</h2> :
-              <Image
-                width={300}
-                height={300}
+          <div className="border border-gray-300 w-full h-full rounded-xl flex justify-center items-center">
+            {process.env.BASE_URL + member?.sertifikat ?
+              <embed
+                width="100%"
+                height="500px"
+                type="application/pdf"
                 src={process.env.BASE_URL + member?.sertifikat}
-                alt="sertifikat"
-                className="w-full"
-              />
+                className="w-full rounded-xl border-b border-gray-200"
+              /> :
+              <h2 className="text-center text-[#888] font-medium text-[18px]">Belum Memiliki Sertifikat</h2> 
             }
           </div>
-          <a
-            className="bg-[#274698] hover:bg-blue-700 duration-75 text-center rounded-xl py-2 px-4 text-[#fff] font-medium"
-            href={member?.sertifikat}
-            rel="noopener noreferrer"
-            download={true}
-          >
-            Download Sertifikat
-          </a>
         </div>
 
       </div>
