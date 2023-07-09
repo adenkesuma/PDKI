@@ -40,22 +40,22 @@ const EditMember = ({
                 options,
             )
             setMemberData({
-                nama: getMemberData.data.nama,
-                username: getMemberData.data.username,
+                nama: getMemberData.nama,
+                username: getMemberData.username,
                 password: "",
-                namaSertifikat: getMemberData.data.namaSertifikat,
-                subspesialisasi: getMemberData.data.subspesialisasi,
-                asalInstitusi: getMemberData.data.asalInstitusi,
-                noSeri: getMemberData.data.noSeri,
-                noSerkom: getMemberData.data.noSerkom,
-                tempatLahir: getMemberData.data.tempatLahir,
-                tanggalLahir: getMemberData.data.tanggalLahir,
-                noIdi: getMemberData.data.noIdi,
-                npaPdki: getMemberData.data.npaPdki,
+                namaSertifikat: getMemberData.namaSertifikat,
+                subspesialisasi: getMemberData.subspesialisasi,
+                asalInstitusi: getMemberData.asalInstitusi,
+                noSeri: getMemberData.noSeri,
+                noSerkom: getMemberData.noSerkom,
+                tempatLahir: getMemberData.tempatLahir,
+                tanggalLahir: getMemberData.tanggalLahir,
+                noIdi: getMemberData.noIdi,
+                npaPdki: getMemberData.npaPdki,
                 imageFile: "",
                 pdfFile: "",
-                sertifikat: getMemberData.data.sertifikat,
-                pasFoto: getMemberData.data.pasFoto
+                sertifikat: getMemberData.sertifikat,
+                pasFoto: getMemberData.pasFoto
             })
 
         }
@@ -124,7 +124,6 @@ const EditMember = ({
 
     const loadPdf = (event: any) => {
         const pdf = event.target.files[0]
-        setPreview(URL?.createObjectURL(pdf))
         setMemberData(prevState => ({
             ...prevState,
             pdfFile: pdf

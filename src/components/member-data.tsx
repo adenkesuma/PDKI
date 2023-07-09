@@ -46,7 +46,7 @@ const MemberData = ({ member }: any) => {
                         {/* image */}
                         <li className="w-[8%] flex justify-start">
                             <Image
-                                src={item.pasFoto}
+                                src={process.env.BASE_URL + item.pasFoto}
                                 alt="foto member"
                                 width={100}
                                 height={100}
