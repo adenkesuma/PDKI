@@ -2,10 +2,10 @@ export async function fetchVideoDetail(id: string) {
     const res = await fetch(`http://localhost:8080/api/route/video/${id}`, {
         cache: 'no-store',
         mode: 'cors',
-        next: {
-            revalidate: 10,
-            tags: ['conferenceId'],            
-        },
+        // next: {
+        //     revalidate: 10,
+        //     tags: ['conferenceId'],            
+        // },
         method: 'GET'
     })
 

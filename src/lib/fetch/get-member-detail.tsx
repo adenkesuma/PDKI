@@ -2,10 +2,10 @@ export async function fetchMemberDetail(id: string) {
     const res = await fetch(`http://localhost:8080/api/route/admin/${id}`, {
         cache: 'no-store',
         mode: 'cors',
-        next: {
-            revalidate: 10,
-            tags: ['memberId'],            
-        },
+        // next: {
+        //     revalidate: 10,
+        //     tags: ['memberId'],            
+        // },
         method: 'GET'
     })
 
