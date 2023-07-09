@@ -39,7 +39,7 @@ const News = () => {
         <section className="my-12 px-4 lg:px-6 xl:px-12">
           <div className="flex flex-col gap-4 md:flex-row justify-between items-center">
             <h2 className="font-semibold text-[30px] mb-4">News</h2>
-            <Search search={search} onSetSearch={onSetSearch} />
+            <Search search={search} onSetSearch={onSetSearch} holder={"Cari sesuai judul berita..."} />
           </div>
 
           {/* news */}

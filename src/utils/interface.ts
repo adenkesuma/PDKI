@@ -68,6 +68,7 @@ export interface RegionProps {
 export interface SearchProps {
   search: string;
   onSetSearch: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  holder: string;
 }
 
 export interface VideoPlayerProps {

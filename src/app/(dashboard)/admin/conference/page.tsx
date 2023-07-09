@@ -42,7 +42,7 @@ const Conference = () => {
           <h3 className="font-semibold text-[30px] text-[#1a1a1a]">Konferensi</h3>
           {/* search */}
           <div className="flex items-center justify-between gap-6">
-            <Search search={search} onSetSearch={onSetSearch} />
+            <Search search={search} onSetSearch={onSetSearch} holder={"Cari sesuai judul konferensi..."} />
             <div className="flex gap-4 items-center justify-between">
               <Link href={`#`} className="rounded-2xl bg-[#fff] shadow-md shadow-gray-300 p-3">
                 <TbUser className="text-lg text-[#888]" />
