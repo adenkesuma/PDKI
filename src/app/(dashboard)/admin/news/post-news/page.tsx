@@ -44,7 +44,7 @@ const PostNews = () => {
         formData.append("published", newsData.published)
         formData.append("region", newsData.region)
         try {
-            await fetch(`http://localhost:8080/api/route/admin/news`, {
+            await fetch(`${process.env.BASE_URL}/api/route/admin/news`, {
                 method: "POST",
                 body: formData,
                 credentials: "include"

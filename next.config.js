@@ -16,6 +16,11 @@ const nextConfig = {
             'https://images.unsplash.com',
             'https://unsplash.com'
         ]
+    },
+    env: {
+        BASE_URL: process.env.BASE_URL,
+        JWT_SIGNIN_PRIVATE_KEY: process.env.JWT_SIGNIN_PRIVATE_KEY,
+        NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET
     }
 }
 

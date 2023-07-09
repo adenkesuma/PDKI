@@ -48,7 +48,7 @@ const PostConference = () => {
         formData.append("speakers", conferenceData.speakers)
         formData.append("topic", conferenceData.topic)
         try {
-            await fetch(`http://localhost:8080/api/route/admin/conference`, {
+            await fetch(`${process.env.BASE_URL}/api/route/admin/conference`, {
                 method: "POST",
                 body: formData,
                 credentials: "include"

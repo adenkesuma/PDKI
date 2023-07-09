@@ -3,16 +3,16 @@ import Image from "next/image"
 import Link from "next/link"
 
 async function fetchTrendingVideo() {
-  const res = await fetch("http://localhost:8080/api/route/video", {
+  const res = await fetch(`${process.env.BASE_URL}/api/route/video`, {
     cache: 'no-store',
-    next: {
-      revalidate: 10
-    }
+    method: 'GET'
   })
 
-  if (!res.ok) {
-    throw new Error("fetching data invalid")
-  }
+  // if (!res.ok) {
+  //   console.log(res);
+
+  //   throw new Error("fetching data invalid")
+  // }
 
   const trendingVideo = await res.json()
 
@@ -23,7 +23,7 @@ const TrendingVideo = async () => {
   const getTrendingVideo = await fetchTrendingVideo()
 
   // mengurutkan data berdasarkan views
-  const sortedVideos = await getTrendingVideo.data.sort((a: { views: number}, b: { views: number}) => b.views - a.views)
+  const sortedVideos = await getTrendingVideo.data.sort((a: { views: number }, b: { views: number }) => b.views - a.views)
 
   // mengambil 5 data teratas dengan views terbanyak
   const topVideos: [] = await sortedVideos.slice(0, 5)
@@ -38,8 +38,8 @@ const TrendingVideo = async () => {
               <Image
                 width={300}
                 height={200}
-                className="w-full h-full object-cover bg-center rounded-xl border-2 border-white" 
-                src={item.thumbnailUrl} 
+                className="w-full h-full object-cover bg-center rounded-xl border-2 border-white"
+                src={item.thumbnailUrl}
                 alt="Image"
               />
             </div>
@@ -48,7 +48,7 @@ const TrendingVideo = async () => {
               <p className="font-medium text-[14px] text-[#cacaca] text-ellipsis whitespace-nowrap overflow-hidden">{item.description}</p>
             </Link>
           </div>
-        ))} 
+        ))}
       </div>
     </div>
   )

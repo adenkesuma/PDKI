@@ -25,7 +25,7 @@ const NewsDetail = ({
 
     useEffect(() => {
         const fetchNews = async () => {
-            await fetch(`http://localhost:8080/api/route/news/${newsId}`)
+            await fetch(`${process.env.BASE_URL}/api/route/news/${newsId}`)
                 .then((res) => res.json())
                 .then((data) => {
                     setNews(data)

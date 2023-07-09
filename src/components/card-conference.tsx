@@ -30,7 +30,7 @@ const CardConference = ({
 
     const deleteConfirm = window.confirm("apakah anda yakin ingin menghapus konferensi ini ?")
     if (deleteConfirm === true) {
-      await fetch(`http://localhost:8080/api/route/admin/conference/${id}`, {
+      await fetch(`${process.env.BASE_URL}/api/route/admin/conference/${id}`, {
         method: "DELETE",
         headers: { 'Content-Type': 'application/json' },
         credentials: "include"

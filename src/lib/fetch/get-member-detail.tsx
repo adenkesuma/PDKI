@@ -1,7 +1,7 @@
 import { cache } from "react"
 
 export const fetchMemberDetail = cache(async (id: string) => {
-    const res = await fetch(`http://localhost:8080/api/route/admin/${id}`, {
+    const res = await fetch(`${process.env.BASE_URL}/api/route/admin/${id}`, {
         mode: 'cors',
         method: 'GET'
     })

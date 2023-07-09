@@ -34,7 +34,7 @@ const MemberDetil = ({
 
   useEffect(() => {
     const fetchMember = () => {
-      fetch(`http://localhost:8080/api/route/admin/member/${memberId}`, {
+      fetch(`${process.env.BASE_URL}/api/route/admin/member/${memberId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json"

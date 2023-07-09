@@ -54,7 +54,7 @@ const PostMember = () => {
 
         // post data
         try {
-            await fetch(`http://localhost:8080/api/route/admin/member`, {
+            await fetch(`${process.env.BASE_URL}/api/route/admin/member`, {
                 method: "POST",
                 body: formData,
                 credentials: "include"

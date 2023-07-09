@@ -15,7 +15,7 @@ const Home = () => {
       <Navbar />
       <main className="relative px-4 sm:px-0 container mx-auto">
         {/* header dari halaman awal */}
-        <Header heading="PDKI" subheading="Perhimpunan Keluarga Dokter Indonesia" />
+        <Header heading="PDKI" subheading="Perhimpunan Dokter Keluarga Indonesia" />
 
         <section className="mt-8 grid gap-6 md:grid-cols-3 px-6 xl:px-12">
           <TrendingVideo />

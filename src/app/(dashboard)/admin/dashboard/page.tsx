@@ -18,9 +18,9 @@ const Dashboard = () => {
   useEffect(() => {
 
     const fetchAllData = async () => {
-      const memberUrl = "http://localhost:8080/api/route/admin/member"
-      const newsUrl = "http://localhost:8080/api/route/news"
-      const conferenceUrl = "http://localhost:8080/api/route/conference"
+      const memberUrl = `${process.env.BASE_URL}/api/route/admin/member`
+      const newsUrl = `${process.env.BASE_URL}/api/route/news`
+      const conferenceUrl = `${process.env.BASE_URL}/api/route/conference`
 
       // fetching member data
       const memberData = await fetchData(

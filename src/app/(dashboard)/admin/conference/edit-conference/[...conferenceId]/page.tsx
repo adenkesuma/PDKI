@@ -41,7 +41,7 @@ const EditConference = ({
     useEffect(() => {
         const fetchDataNews = async () => {
             const getConferenceData = await fetchData(
-                `http://localhost:8080/api/route/conference/${conferenceId}`,
+                `${process.env.BASE_URL}/api/route/conference/${conferenceId}`,
                 options
             )
             setConferenceData({
@@ -81,7 +81,7 @@ const EditConference = ({
         formData.append("speakers", conferenceData.speakers)
         formData.append("topic", conferenceData.topic)
         try {
-            await fetch(`http://localhost:8080/api/route/admin/conference/${conferenceId}`, {
+            await fetch(`${process.env.BASE_URL}/api/route/admin/conference/${conferenceId}`, {
                 method: "PUT",
                 body: formData,
                 credentials: "include"

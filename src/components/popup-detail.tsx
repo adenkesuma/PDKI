@@ -12,7 +12,7 @@ const PopupDetail = ({ npaPdki }: Props) => {
   const handleDeleteMember = async () => {
     const deleteConfirm = window.confirm("apakah anda yakin ingin menghapus member ini ?")
     if (deleteConfirm === true) {
-      await fetch(`http://localhost:8080/api/route/admin/member/${npaPdki}`, {
+      await fetch(`${process.env.BASE_URL}/api/route/admin/member/${npaPdki}`, {
         method: "DELETE",
         headers: { 'Content-Type': 'application/json' },
         credentials: "include"

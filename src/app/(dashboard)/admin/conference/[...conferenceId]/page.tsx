@@ -30,7 +30,7 @@ const ConferenceDetail = ({
 
     useEffect(() => {
         const fetchConference = () => {
-            fetch(`http://localhost:8080/api/route/conference/${conferenceId}`)
+            fetch(`${process.env.BASE_URL}/api/route/conference/${conferenceId}`)
                 .then((res) => res.json())
                 .then((data) => {
                     setConference(data)

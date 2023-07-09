@@ -36,7 +36,7 @@ const EditMember = ({
     useEffect(() => {
         const fetchDataMember = async () => {
             const getMemberData = await fetchData(
-                `http://localhost:8080/api/route/admin/member/${memberId}`,
+                `${process.env.BASE_URL}/api/route/admin/member/${memberId}`,
                 options,
             )
             setMemberData({
@@ -57,7 +57,7 @@ const EditMember = ({
                 sertifikat: getMemberData.data.sertifikat,
                 pasFoto: getMemberData.data.pasFoto
             })
-            
+
         }
 
         fetchDataMember()
@@ -99,7 +99,7 @@ const EditMember = ({
 
         // post data
         try {
-            await fetch(`http://localhost:8080/api/route/admin/member/${memberId}`, {
+            await fetch(`${process.env.BASE_URL}/api/route/admin/member/${memberId}`, {
                 method: "PUT",
                 body: formData,
                 credentials: "include"

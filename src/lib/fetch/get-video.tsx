@@ -1,7 +1,7 @@
 import { cache } from "react"
 
 export const fetchVideo = cache(async () => {
-  const res = await fetch('http://localhost:8080/api/route/video', {
+  const res = await fetch(`${process.env.BASE_URL}/api/route/video`, {
     mode: 'cors',
     method: 'GET'
   })

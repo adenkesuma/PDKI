@@ -5,39 +5,39 @@ import Image from "next/image"
 import Link from "next/link"
 
 const CardNews = ({
-    id,
-    title,
-    content,
-    description,
-    image,
-    published,
-    publishedDate,
-    categories,
-    region,
-    video,
-    tags
-} : NewsProps) => {
+  id,
+  title,
+  content,
+  description,
+  image,
+  published,
+  publishedDate,
+  categories,
+  region,
+  video,
+  tags
+}: NewsProps) => {
 
   const handleDeleteNews = () => {
-    const deleteConfirm = window.confirm("apakah anda yakin ingin menghapus berita ini ?") 
+    const deleteConfirm = window.confirm("apakah anda yakin ingin menghapus berita ini ?")
     if (deleteConfirm === true) {
-      fetch(`http://localhost:8080/api/route/admin/news/${id}`,  {
+      fetch(`${process.env.BASE_URL}/api/route/admin/news/${id}`, {
         method: "DELETE",
         headers: { 'Content-Type': 'application/json' },
         credentials: "include"
       })
+      window.location.reload()
     }
-    window.location.reload()
   }
 
   return (
     <div className="bg-[#fff] rounded-2xl p-3 shadow-md shadow-gray-300">
       <figure className="relative">
-        <Image 
+        <Image
           width={200}
           height={200}
           className="rounded-[12px] w-full h-[200px] lg:h-[230px] object-cover bg-center bg-cover"
-          src={image}
+          src={process.env.BASE_URL + image}
           alt={title}
         />
 
@@ -46,10 +46,10 @@ const CardNews = ({
           <Link href={`news/${id}`} className="hover:bg-[#274698] hover:text-[#fff] text-[#555] duration-75 bg-[#fff] rounded-lg p-2 shadow-sm shadow-gray-500">
             <TbEye className="text-[24px]" />
           </Link>
-        <Link href={`/admin/news/edit-news/${id}`} className="hover:bg-[#274698] hover:text-[#fff] text-[#555] duration-75 bg-[#fff] rounded-lg p-2 shadow-sm shadow-gray-500">
+          <Link href={`/admin/news/edit-news/${id}`} className="hover:bg-[#274698] hover:text-[#fff] text-[#555] duration-75 bg-[#fff] rounded-lg p-2 shadow-sm shadow-gray-500">
             <TbEdit className="text-[24px]" />
           </Link>
-          <button 
+          <button
             className="bg-[#fff] rounded-lg p-2 shadow-sm shadow-gray-500 hover:bg-red-600 hover:text-[#fff] text-red-600"
             onClick={handleDeleteNews}
           >

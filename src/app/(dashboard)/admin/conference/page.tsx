@@ -16,7 +16,7 @@ const Conference = () => {
   const router = useRouter()
 
   useEffect(() => {
-    fetch(`http://localhost:8080/api/route/conference?title=${search}`, {
+    fetch(`${process.env.BASE_URL}/api/route/conference?title=${search}`, {
       cache: 'no-store',
       mode: 'cors',
       credentials: "include"
