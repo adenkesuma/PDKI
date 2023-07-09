@@ -8,12 +8,6 @@ async function fetchTrendingVideo() {
     method: 'GET'
   })
 
-  // if (!res.ok) {
-  //   console.log(res);
-
-  //   throw new Error("fetching data invalid")
-  // }
-
   const trendingVideo = await res.json()
 
   return trendingVideo

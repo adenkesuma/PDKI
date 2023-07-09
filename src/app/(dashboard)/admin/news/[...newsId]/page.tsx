@@ -60,7 +60,7 @@ const NewsDetail = ({
                                 width={400}
                                 height={400}
                                 className="w-full h-full rounded-2xl"
-                                src={news?.image}
+                                src={process.env.BASE_URL + news?.image}
                                 alt="news image"
                             />
                         </figure>

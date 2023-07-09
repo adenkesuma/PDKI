@@ -59,7 +59,7 @@ const ConferenceDetail = ({
                                 width={400}
                                 height={400}
                                 className="w-full h-full rounded-2xl"
-                                src={conference?.image}
+                                src={process.env.BASE_URL + conference?.image}
                                 alt={conference?.title}
                             />
                         </figure>

@@ -31,7 +31,7 @@ const RegionData: FC<RegionProps> = ({ selectedRegion }) => {
                                 width={300}
                                 height={300}
                                 className="duration-100 object-cover bg-cover h-full hover:scale-110 w-full rounded-tr-2xl rounded-tl-2xl"
-                                src={item.image}
+                                src={process.env.BASE_URL + item?.image}
                                 alt="news 1"
                             />
                             <div className="absolute top-5 right-5 p-2 rounded-[50%] bg-[#fff] shadow-md shadow-gray-400">

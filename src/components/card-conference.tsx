@@ -47,7 +47,7 @@ const CardConference = ({
           width={200}
           height={200}
           className="rounded-[12px] w-full h-[200px] lg:h-[230px] object-cover bg-center bg-cover"
-          src={image}
+          src={process.env.BASE_URL + image}
           alt={title}
         />
 

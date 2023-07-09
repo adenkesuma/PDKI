@@ -25,7 +25,7 @@ const ConferenceId = async ({
                             width={400}
                             height={400}
                             className="w-full h-full rounded-2xl"
-                            src={conferenceDetail?.image}
+                            src={process.env.BASE_URL + conferenceDetail?.image}
                             alt={conferenceDetail?.title}
                         />
                     </figure>

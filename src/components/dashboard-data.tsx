@@ -59,7 +59,7 @@ const DashboardData = ({ news, member, conference, totalNews, totalConference, t
               <ul key={item.npaPdki} className="p-6 mb-6 flex justify-between items-center font-medium text-gray-800 bg-[#fff] rounded-2xl shadow-md shadow-gray-200">
                 <li className="w-[8%] pr-4">
                   <Image
-                    src={item.pasFoto}
+                    src={process.env.BASE_URL + item?.pasFoto}
                     alt={item.nama}
                     width={100}
                     height={100}

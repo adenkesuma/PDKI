@@ -62,7 +62,7 @@ const MemberDetil = ({
           <Image
             className="w-[150px] h-[200px] object-cover rounded-xl"
             alt="profile user"
-            src={member?.pasFoto}
+            src={process.env.BASE_URL + member?.pasFoto}
             width={150}
             height={200}
           />
@@ -90,7 +90,7 @@ const MemberDetil = ({
               <Image
                 width={300}
                 height={300}
-                src={member?.sertifikat}
+                src={process.env.BASE_URL + member?.sertifikat}
                 alt="sertifikat"
                 className="w-full"
               />
