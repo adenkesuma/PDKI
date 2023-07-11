@@ -15,7 +15,7 @@ const RegionData: FC<RegionProps> = ({ selectedRegion }) => {
             mode: 'cors'
         })
             .then((res) => res.json())
-            .then((data) => setNewsList(data.data))
+            .then((data) => setNewsList(data))
             .catch((err) => {
                 console.log(err)
             })

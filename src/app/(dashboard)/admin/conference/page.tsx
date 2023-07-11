@@ -22,7 +22,7 @@ const Conference = () => {
       credentials: "include"
     })
       .then((res) => res.json())
-      .then((data) => setConference(data.data))
+      .then((data) => setConference(data))
       .catch((err) => {
         console.log(err)
       })

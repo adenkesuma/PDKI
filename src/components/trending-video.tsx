@@ -17,7 +17,7 @@ const TrendingVideo = async () => {
   const getTrendingVideo = await fetchTrendingVideo()
 
   // mengurutkan data berdasarkan views
-  const sortedVideos = await getTrendingVideo.data.sort((a: { views: number }, b: { views: number }) => b.views - a.views)
+  const sortedVideos = await getTrendingVideo.sort((a: { views: number }, b: { views: number }) => b.views - a.views)
 
   // mengambil 5 data teratas dengan views terbanyak
   const topVideos: [] = await sortedVideos.slice(0, 5)
@@ -33,7 +33,7 @@ const TrendingVideo = async () => {
                 width={300}
                 height={200}
                 className="w-full h-full object-cover bg-center rounded-xl border-2 border-white"
-                src={item.thumbnail_url}
+                src={item.thumbnail_ulr}
                 alt="Image"
               />
             </div>

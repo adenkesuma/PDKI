@@ -7,7 +7,7 @@ const TrendingNews = async () => {
   const getTrendingNews = await fetchNews()
 
   // mengurutkan data berdasarkan views
-  const sortedVideos = await getTrendingNews.data.sort((a: { views: number }, b: { views: number }) => b.views - a.views)
+  const sortedVideos = await getTrendingNews.sort((a: { views: number }, b: { views: number }) => b.views - a.views)
 
   // mengambil 5 data teratas dengan views terbanyak
   const topVideos: [] = await sortedVideos.slice(0, 5)

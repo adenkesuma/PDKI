@@ -1,10 +1,10 @@
 export interface VideoProps {
-  id: number;
+  _id: number;
   title: string;
   description: string;
   duration: string;
   video_url: string;
-  thumbnail_url: string;
+  thumbnail_ulr: string;
   isPrivate: boolean;
   harga: number;
   published_date: string;
@@ -29,7 +29,7 @@ export interface NewsProps {
 }
 
 export interface ConferenceProps {
-  id: number;
+  conference_id: string;
   title: string;
   description: string;
   image: string;
@@ -73,7 +73,7 @@ export interface SearchProps {
 
 export interface VideoPlayerProps {
   video_url: string;
-  thumbnail_url: string;
+  thumbnail_ulr: string;
 }
 
 export interface MemberProps {

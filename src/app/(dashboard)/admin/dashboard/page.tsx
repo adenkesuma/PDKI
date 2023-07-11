@@ -27,20 +27,20 @@ const Dashboard = () => {
         `${memberUrl}`,
         options
       )
-      setMember(memberData.data)
+      setMember(memberData)
       // fetching news data
       const newsData = await fetchData(
         `${newsUrl}`,
         options
       )
-      setNews(newsData.data)
+      setNews(newsData)
 
       // fetching conference data
       const conferenceData = await fetchData(
         `${conferenceUrl}`,
         options
       )
-      setConference(conferenceData.data)
+      setConference(conferenceData)
     }
 
     fetchAllData()

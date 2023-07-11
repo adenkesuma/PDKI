@@ -7,7 +7,7 @@ import { Item } from "@/utils/interface";
 
 const LatestNews = async () => {
   const getLatestNews = await fetchNews()
-  const sortedData = await getLatestNews.data.sort((a: Item, b: Item) => b.id - a.id)
+  const sortedData = await getLatestNews.sort((a: Item, b: Item) => b.id - a.id)
   const fourLatestNews = await sortedData.slice(0, 4)
 
   return (
@@ -15,7 +15,7 @@ const LatestNews = async () => {
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-[20px] lg:text-[22px] font-semibold text-black">Berita Terbaru</h2>
         <Link href="/news" className="flex justify-between items-center gap-1 sm:gap-2 font-medium text-[14px] md:text-[16px] lg:text-[18px]">
-          Lihat semua 
+          Lihat semua
           <TbChevronRight
             className="w-8 h-8 font-semibold text-black"
           />
@@ -23,10 +23,10 @@ const LatestNews = async () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {fourLatestNews.map((item: NewsProps) => ( 
+        {fourLatestNews.map((item: NewsProps) => (
           <div key={item.id}>
             <figure className="h-[160px] relative block overflow-hidden rounded-tl-2xl rounded-tr-2xl">
-              <Image 
+              <Image
                 width={300}
                 height={300}
                 className="duration-100 object-cover bg-cover h-full hover:scale-110 w-full rounded-tr-2xl rounded-tl-2xl"
@@ -35,7 +35,7 @@ const LatestNews = async () => {
               />
               <div className="absolute top-5 right-5 p-2 rounded-[50%] bg-[#fff] shadow-sm shadow-gray-600">
                 <Link href={`/news/${item.id}`}>
-                  <TbArrowUpRight className="w-[24px] h-[24px] text-[#274698]"/>
+                  <TbArrowUpRight className="w-[24px] h-[24px] text-[#274698]" />
                 </Link>
               </div>
             </figure>
@@ -49,7 +49,7 @@ const LatestNews = async () => {
                 <span className="text-[14px] text-gray-100 font-medium">{item.tags}</span>
               </div>
             </div>
-          </div> 
+          </div>
         ))}
       </div>
     </div>

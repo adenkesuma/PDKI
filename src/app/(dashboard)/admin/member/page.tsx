@@ -22,7 +22,7 @@ const Member = () => {
       credentials: 'include'
     })
       .then((res) => res.json())
-      .then((data) => setMember(data.data))
+      .then((data) => setMember(data))
       .catch((err) => {
         console.log(err)
       })

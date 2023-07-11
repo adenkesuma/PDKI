@@ -22,7 +22,7 @@ const Video = () => {
       credentials: "include"
     })
       .then((res) => res.json())
-      .then((data) => setVideo(data.data))
+      .then((data) => setVideo(data))
       .catch((err) => {
         console.log(err)
       })

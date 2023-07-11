@@ -5,7 +5,7 @@ import { fetchConference } from "@/lib/fetch/get-conference"
 
 const UpcomingConference = async () => {
   const upcomingConference = await fetchConference()
-  const upcomingDataConference = await upcomingConference.data
+  const upcomingDataConference = await upcomingConference
   const data = await upcomingDataConference[upcomingDataConference.length - 1]
 
   // start date data

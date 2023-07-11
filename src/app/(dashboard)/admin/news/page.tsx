@@ -22,7 +22,7 @@ const News = () => {
       credentials: "include"
     })
       .then((res) => res.json())
-      .then((data) => setNews(data.data))
+      .then((data) => setNews(data))
       .catch((err) => {
         console.log(err)
       })

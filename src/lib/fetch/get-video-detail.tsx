@@ -12,5 +12,7 @@ export const fetchVideoDetail = cache(async (id: string) => {
 
     const videoDetail = await res.json()
 
-    return videoDetail
+    console.log(videoDetail[0]);
+
+    return videoDetail[0]
 })

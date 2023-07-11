@@ -12,5 +12,5 @@ export const fetchNewsDetail = cache(async (id: string) => {
 
     const newsDetail = await res.json()
 
-    return newsDetail
+    return newsDetail[0]
 })

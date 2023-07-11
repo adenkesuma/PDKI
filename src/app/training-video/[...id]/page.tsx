@@ -5,7 +5,7 @@ import Footer from "@/components/footer"
 
 const TrainingVideoId = async ({
     params: { id }
-} : {
+}: {
     params: { id: string }
 }) => {
 
@@ -17,9 +17,9 @@ const TrainingVideoId = async ({
             <div className="px-8 container mx-auto mt-8 xl:px-12">
                 <div>
                     <h2 className="font-semibold md:text-[20px] lg:text-[25px] xl:text-[30px] mb-6">{videoDetail?.title}</h2>
-                    <VideoPlayer video_url={videoDetail.video_url ? videoDetail?.video_url : ""} thumbnail_url={videoDetail?.thumbnail_url} />
+                    <VideoPlayer video_url={videoDetail.video_url ? videoDetail?.video_url : ""} thumbnail_ulr={videoDetail?.thumbnail_ulr} />
                     <div className="mt-6 flex justify-between items-center gap-8 mx-12 pb-6 border-b border-[#666]">
-                        <p>{process.env.BASE_URL + videoDetail?.instructor}</p>
+                        <p>{videoDetail?.instructor}</p>
                         <span>{videoDetail?.views} : views</span>
                     </div>
                     <p className="mx-12 text-[16px] my-6">{videoDetail?.description}</p>

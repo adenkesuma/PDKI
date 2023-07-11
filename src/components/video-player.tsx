@@ -1,15 +1,15 @@
 import { VideoPlayerProps } from "@/utils/interface"
 
-const VideoPlayer = ({ video_url, thumbnail_url } : VideoPlayerProps) => {
+const VideoPlayer = ({ video_url, thumbnail_ulr }: VideoPlayerProps) => {
     return (
         <div className="w-full">
-            <video 
+            <video
                 className="w-full h-full rounded-xl"
-                src={video_url} 
-                poster={thumbnail_url} 
-                autoPlay 
+                src={video_url}
+                poster={thumbnail_ulr}
+                autoPlay
                 controls
-            >     
+            >
             </video>
         </div>
     )
