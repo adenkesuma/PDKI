@@ -17,7 +17,7 @@ const Home = () => {
         {/* header dari halaman awal */}
         <Header heading="PDKI" subheading="Perhimpunan Dokter Keluarga Indonesia" />
 
-        <section className="mt-8 grid gap-6 md:grid-cols-3 px-6 xl:px-12">
+        <section className="mt-8 grid gap-6 items-end md:grid-cols-3 px-6 xl:px-12">
           <TrendingVideo />
           <UpcomingConference />
           <TrendingNews />

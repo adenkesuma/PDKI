@@ -6,7 +6,6 @@ import { aboutFooter, contactUsFooter, termsConditionsFooter } from "../utils/li
 import LOGOS from "../../public/assets/logos/footer-logos.svg"
 
 const Footer: FC = () => {
-
   return (
     <footer className="px-4 pb-4 lg:px-0 lg:pb-0 xl:px-8">
       <div className="container mx-auto px-4 md:px-6 py-8 lg:px-10 mb:mb-6 lg:mb-8 xl:mb-14 lg:py-10 rounded-3xl bg-[#274698]">
