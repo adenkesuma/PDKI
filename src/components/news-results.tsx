@@ -58,7 +58,7 @@ const NewsResults = () => {
                     <p className="text-gray-300 text-[14px] font-medium text-ellipsis overflow-hidden whitespace-nowrap">{item.description}</p>
                   </div>
                   <div className="mt-4 flex justify-between items-center">
-                    <span className="text-[14px] text-gray-100 font-medium">{`${new Date(item.publishedDate).getDate()} - ${new Date(item.publishedDate).getMonth()} - ${new Date(item.publishedDate).getFullYear()}`}</span>
+                    <span className="text-[14px] text-gray-100 font-medium">{`${new Date(item.published_date).getDate()} - ${new Date(item.published_date).getMonth()} - ${new Date(item.published_date).getFullYear()}`}</span>
                     <span className="text-[14px] text-gray-100 font-medium">{item.tags}</span>
                   </div>
                 </div>

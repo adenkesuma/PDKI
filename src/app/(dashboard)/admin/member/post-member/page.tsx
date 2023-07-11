@@ -12,15 +12,15 @@ const PostMember = () => {
         nama: "",
         username: "",
         password: "",
-        namaSertifikat: "",
+        nama_sertifikat: "",
         subspesialisasi: "",
-        asalInstitusi: "",
-        noSeri: "",
-        noSerkom: "",
-        tempatLahir: "",
-        tanggalLahir: "",
-        noIdi: "",
-        npaPdki: "",
+        asal_institusi: "",
+        no_seri: "",
+        no_serkom: "",
+        tempat_lahir: "",
+        tanggal_lahir: "",
+        no_idi: "",
+        npa_pdki: "",
         imageFile: "",
         pdfFile: ""
     })
@@ -40,17 +40,17 @@ const PostMember = () => {
         formData.append("imageFile", memberData.imageFile)
         formData.append("pdfFile", memberData.pdfFile)
         formData.append("nama", memberData.nama)
-        formData.append("namaSertifikat", memberData.namaSertifikat)
+        formData.append("nama_sertifikat", memberData.nama_sertifikat)
         formData.append("username", memberData.username)
         formData.append("password", memberData.password)
-        formData.append("asalInstitusi", memberData.asalInstitusi)
+        formData.append("asal_institusi", memberData.asal_institusi)
         formData.append("subspesialisasi", memberData.subspesialisasi)
-        formData.append("tanggalLahir", memberData.tanggalLahir)
-        formData.append("tempatLahir", memberData.tempatLahir)
-        formData.append("noSeri", memberData.noSeri)
-        formData.append("noIdi", memberData.noIdi)
-        formData.append("noSerkom", memberData.noSerkom)
-        formData.append("npaPdki", memberData.npaPdki)
+        formData.append("tanggal_lahir", memberData.tanggal_lahir)
+        formData.append("tempat_lahir", memberData.tempat_lahir)
+        formData.append("no_seri", memberData.no_seri)
+        formData.append("no_idi", memberData.no_idi)
+        formData.append("no_serkom", memberData.no_serkom)
+        formData.append("npa_pdki", memberData.npa_pdki)
 
         // post data
         try {
@@ -155,11 +155,11 @@ const PostMember = () => {
                             className="w-full rounded-2xl py-3 px-4 border border-[#d4d4d4] mt-2 outline-none" />
                     </div>
                     <div className="w-full">
-                        <label htmlFor="namaSertifikat" className="font-medium">Nama Sertifikat</label>
+                        <label htmlFor="nama_sertifikat" className="font-medium">Nama Sertifikat</label>
                         <input
-                            id="namaSertifikat"
-                            name="namaSertifikat"
-                            value={memberData.namaSertifikat}
+                            id="nama_sertifikat"
+                            name="nama_sertifikat"
+                            value={memberData.nama_sertifikat}
                             onChange={handleChange}
                             type="text"
                             placeholder="Masukan Nama Sertifikat Member..."
@@ -193,11 +193,11 @@ const PostMember = () => {
                         </div>
                     </div>
                     <div className="w-full">
-                        <label htmlFor="asalInstitusi" className="font-medium">Asal Institusi</label>
+                        <label htmlFor="asal_institusi" className="font-medium">Asal Institusi</label>
                         <input
-                            id="asalInstitusi"
-                            name="asalInstitusi"
-                            value={memberData.asalInstitusi}
+                            id="asal_institusi"
+                            name="asal_institusi"
+                            value={memberData.asal_institusi}
                             onChange={handleChange}
                             type="text"
                             placeholder="Masukan Asal Institusi..."
@@ -259,65 +259,65 @@ const PostMember = () => {
                         </div>
                     </div>
                     <div className="w-full">
-                        <label htmlFor="noSeri" className="font-medium">Nomor Seri</label>
+                        <label htmlFor="no_seri" className="font-medium">Nomor Seri</label>
                         <input
-                            id="noSeri"
-                            name="noSeri"
-                            value={memberData.noSeri}
+                            id="no_seri"
+                            name="no_seri"
+                            value={memberData.no_seri}
                             onChange={handleChange}
                             type="text"
                             placeholder="Masukan Nomor Seri..."
                             className="w-full rounded-2xl py-3 px-4 border border-[#d4d4d4] mt-2 outline-none" />
                     </div>
                     <div className="w-full">
-                        <label htmlFor="noSerkom" className="font-medium">Nomor Serkom</label>
+                        <label htmlFor="no_serkom" className="font-medium">Nomor Serkom</label>
                         <input
-                            id="noSerkom"
-                            name="noSerkom"
-                            value={memberData.noSerkom}
+                            id="no_serkom"
+                            name="no_serkom"
+                            value={memberData.no_serkom}
                             onChange={handleChange}
                             type="text"
                             placeholder="Masukan Nomor Serkom..."
                             className="w-full rounded-2xl py-3 px-4 border border-[#d4d4d4] mt-2 outline-none" />
                     </div>
                     <div className="w-full">
-                        <label htmlFor="tempatLahir" className="font-medium">Kota Kelahiran</label>
+                        <label htmlFor="tempat_lahir" className="font-medium">Kota Kelahiran</label>
                         <input
-                            id="tempatLahir"
-                            name="tempatLahir"
-                            value={memberData.tempatLahir}
+                            id="tempat_lahir"
+                            name="tempat_lahir"
+                            value={memberData.tempat_lahir}
                             onChange={handleChange}
                             type="text"
                             placeholder="Masukan Tempat Lahir..."
                             className="w-full rounded-2xl py-3 px-4 border border-[#d4d4d4] mt-2 outline-none" />
                     </div>
                     <div className="w-full">
-                        <label htmlFor="tanggalLahir" className="font-medium">Tanggal Lahir</label>
+                        <label htmlFor="tanggal_lahir" className="font-medium">Tanggal Lahir</label>
                         <input
-                            name="tanggalLahir"
-                            value={memberData.tanggalLahir}
+                            name="tanggal_lahir"
+                            value={memberData.tanggal_lahir}
                             onChange={handleChange}
                             type="date"
                             placeholder="Masukan Tanggal Lahir..."
                             className="w-full rounded-2xl py-3 px-4 border border-[#d4d4d4] mt-2 outline-none" />
                     </div>
                     <div className="w-full">
-                        <label htmlFor="noIdi" className="font-medium">Nomor IDI</label>
+                        <label htmlFor="no_idi" className="font-medium">Nomor IDI</label>
                         <input
-                            id="noIdi"
-                            name="noIdi"
-                            value={memberData.noIdi}
+                            id="no_idi"
+                            name="no_idi"
+                            value={memberData.no_idi}
                             onChange={handleChange}
                             type="text"
                             placeholder="Masukan Nomor IDI..."
                             className="w-full rounded-2xl py-3 px-4 mt-2 border border-[#d4d4d4] outline-none" />
                     </div>
                     <div className="w-full">
-                        <label htmlFor="npaPdki" className="font-medium">NPA PDKI</label>
+                        <label htmlFor="npa_pdki" className="font-medium">NPA PDKI</label>
                         <input
-                            id="npaPdki"
-                            name="npaPdki"
-                            value={memberData.npaPdki}
+                            id="npa_pdki"
+                            name="npa_pdki"
+                            value={memberData.npa_pdki}
                             onChange={handleChange}
                             type="text"
                             placeholder="Masukan NPA PDKI..."

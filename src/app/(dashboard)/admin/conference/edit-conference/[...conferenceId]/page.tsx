@@ -17,13 +17,13 @@ const EditConference = ({
     const [conferenceData, setConferenceData] = useState({
         title: "",
         description: "",
-        startDate: "",
-        endDate: "",
+        start_date: "",
+        end_date: "",
         region: "",
         location: "",
         organizer: "",
-        websiteUrl: "",
-        registrationRequired: "false",
+        website_url: "",
+        registration_required: "false",
         speakers: "",
         topic: '',
         file: ""
@@ -47,18 +47,18 @@ const EditConference = ({
             setConferenceData({
                 title: getConferenceData.title,
                 description: getConferenceData.description,
-                startDate: getConferenceData.startDate,
-                endDate: getConferenceData.endDate,
+                start_date: getConferenceData.start_date,
+                end_date: getConferenceData.end_date,
                 region: getConferenceData.region,
                 location: getConferenceData.location,
                 organizer: getConferenceData.organizer,
-                websiteUrl: getConferenceData.websiteUrl,
-                registrationRequired: getConferenceData.registrationRequired,
+                website_url: getConferenceData.website_url,
+                registration_required: getConferenceData.registration_required,
                 speakers: getConferenceData.speakers,
                 topic: getConferenceData.topic,
                 file: getConferenceData.image
             })
-            console.log(getConferenceData.startDate);
+            console.log(getConferenceData.start_date);
 
         }
 
@@ -71,12 +71,12 @@ const EditConference = ({
         formData.append("file", conferenceData.file)
         formData.append("title", conferenceData.title)
         formData.append("description", conferenceData.description)
-        formData.append("startDate", conferenceData.startDate)
-        formData.append("endDate", conferenceData.endDate)
+        formData.append("start_date", conferenceData.start_date)
+        formData.append("end_date", conferenceData.end_date)
         formData.append("location", conferenceData.location)
         formData.append("organizer", conferenceData.organizer)
-        formData.append("websiteUrl", conferenceData.websiteUrl)
-        formData.append("registrationRequired", conferenceData.registrationRequired)
+        formData.append("website_url", conferenceData.website_url)
+        formData.append("registration_required", conferenceData.registration_required)
         formData.append("region", conferenceData.region)
         formData.append("speakers", conferenceData.speakers)
         formData.append("topic", conferenceData.topic)
@@ -193,11 +193,11 @@ const EditConference = ({
                         </div>
                     </div>
                     <div className="w-full">
-                        <label htmlFor="startDate" className="font-medium">Tanggal Mulai Konferensi</label>
+                        <label htmlFor="start_date" className="font-medium">Tanggal Mulai Konferensi</label>
                         <input
-                            id="startDate"
-                            name="startDate"
-                            value={conferenceData.startDate}
+                            id="start_date"
+                            name="start_date"
+                            value={conferenceData.start_date}
                             onChange={handleChange}
                             type="date"
                             placeholder="Masukan Tanggal Mulai Konferensi..."
@@ -205,11 +205,11 @@ const EditConference = ({
                         />
                     </div>
                     <div className="w-full">
-                        <label htmlFor="endDate" className="font-medium">Tanggal Selesai Konferensi</label>
+                        <label htmlFor="end_date" className="font-medium">Tanggal Selesai Konferensi</label>
                         <input
-                            id="endDate"
-                            name="endDate"
-                            value={conferenceData.endDate}
+                            id="end_date"
+                            name="end_date"
+                            value={conferenceData.end_date}
                             onChange={handleChange}
                             type="date"
                             placeholder="Masukan Tanggal Selesai Konferensi..."
@@ -253,11 +253,11 @@ const EditConference = ({
                         />
                     </div>
                     <div className="w-full">
-                        <label htmlFor="websiteUrl" className="font-medium">Link Website Konferensi</label>
+                        <label htmlFor="website_url" className="font-medium">Link Website Konferensi</label>
                         <input
-                            id="websiteUrl"
-                            name="websiteUrl"
-                            value={conferenceData.websiteUrl}
+                            id="website_url"
+                            name="website_url"
+                            value={conferenceData.website_url}
                             onChange={handleChange}
                             type="text"
                             placeholder="Masukan URL Website Konferensi..."
@@ -265,15 +265,15 @@ const EditConference = ({
                         />
                     </div>
                     <div className="w-full flex flex-col gap-2">
-                        <label htmlFor="registrationRequired" className="font-medium">Registrasi Konferensi</label>
+                        <label htmlFor="registration_required" className="font-medium">Registrasi Konferensi</label>
                         <div className="flex flex-col">
                             <div className="flex gap-8">
                                 <input
                                     type="radio"
-                                    name="registrationRequired"
+                                    name="registration_required"
                                     value="true"
                                     id="true"
-                                    checked={conferenceData.registrationRequired === "true"}
+                                    checked={conferenceData.registration_required === "true"}
                                     onChange={handleChange}
                                 />
                                 <label htmlFor="true" className="text-[14px] font-medium text-gray-800">Perlu Registrasi</label>
@@ -281,10 +281,10 @@ const EditConference = ({
                             <div className="flex gap-8">
                                 <input
                                     type="radio"
-                                    name="registrationRequired"
+                                    name="registration_required"
                                     value="false"
                                     id="false"
-                                    checked={conferenceData.registrationRequired === "false"}
+                                    checked={conferenceData.registration_required === "false"}
                                     onChange={handleChange}
                                 />
                                 <label htmlFor="false" className="text-[14px] font-medium text-gray-800">Tidak Perlu Registrasi</label>

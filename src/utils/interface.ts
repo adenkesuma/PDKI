@@ -3,11 +3,11 @@ export interface VideoProps {
   title: string;
   description: string;
   duration: string;
-  videoUrl: string;
-  thumbnailUrl: string;
+  video_url: string;
+  thumbnail_url: string;
   isPrivate: boolean;
   harga: number;
-  publishedDate: string;
+  published_date: string;
   categories: string;
   tags: string;
   view: number;
@@ -19,7 +19,7 @@ export interface NewsProps {
   title: string;
   content: string;
   description: string;
-  publishedDate: string;
+  published_date: string;
   image: string;
   video: string;
   tags: string;
@@ -33,17 +33,17 @@ export interface ConferenceProps {
   title: string;
   description: string;
   image: string;
-  startDate: string;
-  endDate: string;
+  start_date: string;
+  end_date: string;
   location: string;
   organizer: string;
-  websiteUrl: string;
-  registrationRequired: boolean;
+  website_url: string;
+  registration_required: boolean;
   speakers: string;
-  isFree: boolean;
+  is_free: boolean;
   topic: string;
-  createdAt: string;
-  updatedAt: string;
+  created_at: string;
+  updated_at: string;
 }
 
 export interface Item {
@@ -72,27 +72,27 @@ export interface SearchProps {
 }
 
 export interface VideoPlayerProps {
-  videoUrl: string;
-  thumbnailUrl: string;
+  video_url: string;
+  thumbnail_url: string;
 }
 
 export interface MemberProps {
   nama: string;
   username: string;
   password: string;
-  namaSertifikat: string;
+  nama_sertifikat: string;
   subspesialisasi: string;
-  asalInstitusi: string;
-  pasFoto: string;
+  asal_institusi: string;
+  pas_foto: string;
   sertifikat: string;
-  noSeri: string;
-  noSerkom: string;
-  tempatLahir: string;
-  tanggalLahir: string;
-  noIdi: string;
-  npaPdki: any;
-  createdAt: string;
-  updatedAt: string;
-  isExLeader: boolean;
-  isLeader: boolean;
+  no_seri: string;
+  no_serkom: string;
+  tempat_lahir: string;
+  tanggal_lahir: string;
+  no_idi: string;
+  npa_pdki: any;
+  created_at: string;
+  updated_at: string;
+  is_ex_leader: boolean;
+  is_leader: boolean;
 }

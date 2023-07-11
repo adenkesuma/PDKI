@@ -56,10 +56,10 @@ const DashboardData = ({ news, member, conference, totalNews, totalConference, t
         <section>
           <div className="w-full">
             {fiveLatestMember?.map((item: MemberProps, idx: number) => (
-              <ul key={item.npaPdki} className="p-6 mb-6 flex justify-between items-center font-medium text-gray-800 bg-[#fff] rounded-2xl shadow-md shadow-gray-200">
+              <ul key={item.npa_pdki} className="p-6 mb-6 flex justify-between items-center font-medium text-gray-800 bg-[#fff] rounded-2xl shadow-md shadow-gray-200">
                 <li className="w-[8%] pr-4">
                   <Image
-                    src={process.env.BASE_URL + item?.pasFoto}
+                    src={process.env.BASE_URL + item?.pas_foto}
                     alt={item.nama}
                     width={100}
                     height={100}
@@ -67,13 +67,13 @@ const DashboardData = ({ news, member, conference, totalNews, totalConference, t
                   />
                 </li>
                 <li className="w-[58%]">{item.nama}</li>
-                <li className="w-[10%]">{item.noIdi}</li>
-                <li className="w-[13%]">{item.npaPdki}</li>
-                <li className="w-[10%]">{item.noSeri}</li>
+                <li className="w-[10%]">{item.no_idi}</li>
+                <li className="w-[13%]">{item.npa_pdki}</li>
+                <li className="w-[10%]">{item.no_seri}</li>
                 <li className="w-[2%] relative">
-                  <button className="cursor-pointer" onClick={() => handleShowDetail(item.npaPdki)}>
+                  <button className="cursor-pointer" onClick={() => handleShowDetail(item.npa_pdki)}>
                     <TbDots />
-                    {selectedMemberClick === item.npaPdki && <PopupDetail npaPdki={item.npaPdki} />}
+                    {selectedMemberClick === item.npa_pdki && <PopupDetail npa_pdki={item.npa_pdki} />}
                   </button>
                 </li>
               </ul>
@@ -104,7 +104,7 @@ const DashboardData = ({ news, member, conference, totalNews, totalConference, t
               content={item?.content}
               published={item?.published}
               region={item?.region}
-              publishedDate={item?.publishedDate}
+              published_date={item?.published_date}
               categories={item?.categories}
               tags={item?.tags}
             />
@@ -130,17 +130,17 @@ const DashboardData = ({ news, member, conference, totalNews, totalConference, t
               title={item?.title}
               description={item?.description}
               image={item?.image}
-              startDate={item?.startDate}
-              endDate={item?.endDate}
+              start_date={item?.start_date}
+              end_date={item?.end_date}
               location={item?.location}
               organizer={item?.organizer}
-              websiteUrl={item?.websiteUrl}
-              registrationRequired={item?.registrationRequired}
+              website_url={item?.website_url}
+              registration_required={item?.registration_required}
               speakers={item?.speakers}
-              isFree={item?.isFree}
+              is_free={item?.is_free}
               topic={item?.topic}
-              createdAt={item?.createdAt}
-              updatedAt={item?.updatedAt}
+              created_at={item?.created_at}
+              updated_at={item?.updated_at}
             />
           ))}
         </section>

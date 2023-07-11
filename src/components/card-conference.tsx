@@ -10,17 +10,17 @@ const CardConference = ({
   title,
   description,
   image,
-  startDate,
-  endDate,
+  start_date,
+  end_date,
   location,
   organizer,
-  websiteUrl,
-  registrationRequired,
+  website_url,
+  registration_required,
   speakers,
-  isFree,
+  is_free,
   topic,
-  createdAt,
-  updatedAt
+  created_at,
+  updated_at
 }: ConferenceProps) => {
 
   const handleDeleteConference = async () => {
@@ -67,7 +67,7 @@ const CardConference = ({
           <p className="text-[14px] xl:text-[16px] font-medium text-[#444]">{location}</p>
         </div>
         <div className="flex justify-between items-center gap-14 overflow-hidden text-ellipsis whitespace-nowrap">
-          <span className="text-[14px] xl:text-[16px] font-medium text-[#777]">{`${new Date(startDate).getDate()} - ${new Date(startDate).getMonth()} - ${new Date(startDate).getFullYear()}`}</span>
+          <span className="text-[14px] xl:text-[16px] font-medium text-[#777]">{`${new Date(start_date).getDate()} - ${new Date(start_date).getMonth()} - ${new Date(start_date).getFullYear()}`}</span>
           <span className="text-[14px] xl:text-[16px] font-medium text-[#777] text-ellipsis whitespace-nowrap overflow-hidden">{speakers}</span>
         </div>
       </div>

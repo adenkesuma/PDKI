@@ -15,17 +15,17 @@ const ConferenceDetail = ({
         title: "",
         description: "",
         image: "",
-        startDate: "",
-        endDate: "",
+        start_date: "",
+        end_date: "",
         location: "",
         organizer: "",
-        websiteUrl: "",
-        registrationRequired: false,
+        website_url: "",
+        registration_required: false,
         speakers: "",
-        isFree: false,
+        is_free: false,
         topic: "",
-        createdAt: "",
-        updatedAt: "",
+        created_at: "",
+        updated_at: "",
     })
 
     useEffect(() => {
@@ -76,7 +76,7 @@ const ConferenceDetail = ({
                                 <p className="text-[14px] md:text-[16px] font-medium text-[#1a1a1a]">Penyelenggara: {conference?.organizer}</p>
                                 <p className="text-[14px] md:text-[16px] font-medium text-[#1a1a1a]">Location: {conference?.location}</p>
                                 <p className="text-[14px] md:text-[16px] font-medium text-[#1a1a1a]">Link url click :
-                                    <Link className="text-[#274698] hover:font-bold" href={conference ? conference?.websiteUrl : ""}>
+                                    <Link className="text-[#274698] hover:font-bold" href={conference ? conference?.website_url : ""}>
                                         {" "}disini
                                     </Link>
                                 </p>

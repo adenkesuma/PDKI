@@ -11,7 +11,7 @@ const CardNews = ({
   description,
   image,
   published,
-  publishedDate,
+  published_date,
   categories,
   region,
   video,
@@ -60,7 +60,7 @@ const CardNews = ({
       <div className="mt-6 pb-4 px-4 w-full flex flex-col gap-4">
         <h4 className="text-[16px] xl:text-[18px] font-medium text-ellipsis whitespace-nowrap overflow-hidden">{title}</h4>
         <div className="flex justify-between items-center gap-6">
-          <span className="text-[14px] xl:text-[16px] font-medium text-[#777]">{`${new Date(publishedDate).getDate()} - ${new Date(publishedDate).getMonth()} - ${new Date(publishedDate).getFullYear()}`}</span>
+          <span className="text-[14px] xl:text-[16px] font-medium text-[#777]">{`${new Date(published_date).getDate()} - ${new Date(published_date).getMonth()} - ${new Date(published_date).getFullYear()}`}</span>
           <span className="text-[14px] xl:text-[16px] font-medium text-[#777]">{region}</span>
         </div>
       </div>

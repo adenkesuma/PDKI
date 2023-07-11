@@ -14,7 +14,7 @@ const NewsDetail = ({
         title: "",
         content: "",
         description: "",
-        publishedDate: "",
+        published_date: "",
         image: "",
         video: "",
         tags: "",
@@ -38,7 +38,7 @@ const NewsDetail = ({
         fetchNews()
     }, [])
 
-    const dateFromNewsDetail = news?.publishedDate
+    const dateFromNewsDetail = news?.published_date
     const newsDate = new Date(dateFromNewsDetail)
     const year = newsDate.getFullYear()
     const month = newsDate.getMonth()

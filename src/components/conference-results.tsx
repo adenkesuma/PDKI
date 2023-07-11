@@ -58,7 +58,7 @@ const ConferenceResults = () => {
                         <p className="text-gray-300 text-[14px] font-medium text-ellipsis overflow-hidden whitespace-nowrap">{item.description}</p>
                     </div>
                     <div className="mt-4 flex justify-between items-center gap-4">
-                        <span className="text-[14px] text-gray-100 font-medium">{`${new Date(item.startDate).getDate()} - ${new Date(item.startDate).getMonth()} - ${new Date(item.startDate).getFullYear()}`}</span>
+                        <span className="text-[14px] text-gray-100 font-medium">{`${new Date(item.start_date).getDate()} - ${new Date(item.start_date).getMonth()} - ${new Date(item.start_date).getFullYear()}`}</span>
                         <span className="text-[14px] text-gray-100 font-medium overflow-hidden text-normal whitespace-nowrap">{item.organizer}</span>
                     </div>
                     </div>

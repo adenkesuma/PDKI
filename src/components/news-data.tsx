@@ -29,7 +29,7 @@ const NewsData = ({ news } : any) => {
             content={item?.content}
             published={item?.published}
             region={item?.region}
-            publishedDate={item?.publishedDate}
+            published_date={item?.published_date}
             categories={item?.categories}
             tags={item?.tags}
           />

@@ -33,7 +33,7 @@ const TrendingVideo = async () => {
                 width={300}
                 height={200}
                 className="w-full h-full object-cover bg-center rounded-xl border-2 border-white"
-                src={item.thumbnailUrl}
+                src={item.thumbnail_url}
                 alt="Image"
               />
             </div>

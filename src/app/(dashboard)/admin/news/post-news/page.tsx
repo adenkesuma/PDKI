@@ -12,7 +12,7 @@ const PostNews = () => {
         title: "",
         content: "",
         description: "",
-        publishedDate: "",
+        published_date: "",
         video: "",
         tags: "",
         category: "",
@@ -37,7 +37,7 @@ const PostNews = () => {
         formData.append("title", newsData.title)
         formData.append("description", newsData.description)
         formData.append("content", newsData.content)
-        formData.append("publishedDate", newsData.publishedDate)
+        formData.append("published_date", newsData.published_date)
         formData.append("video", newsData.video)
         formData.append("tags", newsData.tags)
         formData.append("category", newsData.category)
@@ -128,10 +128,10 @@ const PostNews = () => {
                         />
                     </div>
                     <div className="w-full">
-                        <label htmlFor="publishedDate" className="font-medium">Tanggal Saat Membuat Berita</label>
+                        <label htmlFor="published_date" className="font-medium">Tanggal Saat Membuat Berita</label>
                         <input
-                            name="publishedDate"
-                            value={newsData.publishedDate}
+                            name="published_date"
+                            value={newsData.published_date}
                             onChange={handleChange}
                             type="date"
                             placeholder="Masukan Nama Tanggal..."

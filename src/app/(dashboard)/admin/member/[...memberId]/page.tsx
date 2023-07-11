@@ -15,21 +15,21 @@ const MemberDetil = ({
     nama: "",
     username: "",
     password: "",
-    namaSertifikat: "",
+    nama_sertifikat: "",
     subspesialisasi: "",
-    asalInstitusi: "",
-    pasFoto: "",
+    asal_institusi: "",
+    pas_foto: "",
     sertifikat: "",
-    noSeri: "",
-    noSerkom: "",
-    tempatLahir: "",
-    tanggalLahir: "",
-    noIdi: "",
-    npaPdki: null,
-    createdAt: "",
-    updatedAt: "",
-    isExLeader: false,
-    isLeader: false
+    no_seri: "",
+    no_serkom: "",
+    tempat_lahir: "",
+    tanggal_lahir: "",
+    no_idi: "",
+    npa_pdki: null,
+    created_at: "",
+    updated_at: "",
+    is_ex_leader: false,
+    is_leader: false
   })
 
   useEffect(() => {
@@ -62,24 +62,24 @@ const MemberDetil = ({
           <Image
             className="w-[150px] h-[200px] object-cover rounded-xl"
             alt="profile user"
-            src={process.env.BASE_URL + member?.pasFoto}
+            src={process.env.BASE_URL + member?.pas_foto}
             width={150}
             height={200}
           />
-          <h2 className="mt-6 text-center font-semibold text-[20px] text-[#1a1a1a]">{member?.namaSertifikat}</h2>
+          <h2 className="mt-6 text-center font-semibold text-[20px] text-[#1a1a1a]">{member?.nama_sertifikat}</h2>
         </div>
 
         <div className="flex flex-col gap-2">
           <span className="text-[18px] text-[#333] font-medium">Nama: {member?.nama}</span>
-          <span className="text-[18px] text-[#333] font-medium">Npa PDKI: {member?.npaPdki}</span>
-          <span className="text-[18px] text-[#333] font-medium">Nomor Idi: {member?.noIdi}</span>
-          <span className="text-[18px] text-[#333] font-medium">Nomor Seri: {member?.noSeri}</span>
-          <span className="text-[18px] text-[#333] font-medium">Nomor Serkom: {member?.noSerkom}</span>
-          <span className="text-[18px] text-[#333] font-medium">Tanggal Lahir: {member?.tanggalLahir}</span>
-          <span className="text-[18px] text-[#333] font-medium">Tempat Lahir: {member?.tempatLahir}</span>
+          <span className="text-[18px] text-[#333] font-medium">Npa PDKI: {member?.npa_pdki}</span>
+          <span className="text-[18px] text-[#333] font-medium">Nomor Idi: {member?.no_idi}</span>
+          <span className="text-[18px] text-[#333] font-medium">Nomor Seri: {member?.no_seri}</span>
+          <span className="text-[18px] text-[#333] font-medium">Nomor Serkom: {member?.no_serkom}</span>
+          <span className="text-[18px] text-[#333] font-medium">Tanggal Lahir: {member?.tanggal_lahir}</span>
+          <span className="text-[18px] text-[#333] font-medium">Tempat Lahir: {member?.tempat_lahir}</span>
           <div className="mt-6 w-[200px]">
             <span className="text-[18px] text-[#333] font-medium">Barcode User</span>
-            <BarcodeGenerator code={member?.npaPdki} />
+            <BarcodeGenerator code={member?.npa_pdki} />
           </div>
         </div>
 

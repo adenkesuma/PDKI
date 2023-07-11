@@ -12,7 +12,7 @@ const NewsId = async ({
     const newsDetail = await fetchNewsDetail(id)
 
     // date data
-    const dateFromNewsDetail = newsDetail?.publishedDate
+    const dateFromNewsDetail = newsDetail?.published_date
     const newsDate = new Date(dateFromNewsDetail)
     const year = newsDate.getFullYear()
     const month = newsDate.getMonth()

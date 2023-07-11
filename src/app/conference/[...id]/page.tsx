@@ -42,7 +42,7 @@ const ConferenceId = async ({
                             <p className="text-[14px] md:text-[16px] font-medium text-[#1a1a1a]">Penyelenggara: {conferenceDetail?.organizer}</p>
                             <p className="text-[14px] md:text-[16px] font-medium text-[#1a1a1a]">Location: {conferenceDetail?.location}</p>
                             <p className="text-[14px] md:text-[16px] font-medium text-[#1a1a1a]">Link url click :
-                                <Link className="text-[#274698] hover:font-bold" href={conferenceDetail?.websiteUrl}>
+                                <Link className="text-[#274698] hover:font-bold" href={conferenceDetail?.website_url}>
                                     {" "}disini
                                 </Link>
                             </p>

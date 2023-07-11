@@ -35,7 +35,7 @@ const TrainingVideo = async () => {
                     width={500}
                     height={400}
                     className="w-full h-full rounded-xl"
-                    src={vid?.thumbnailUrl} 
+                    src={vid?.thumbnail_url} 
                     alt={vid.title}
                   />
                   {vid.isPrivate === true ?

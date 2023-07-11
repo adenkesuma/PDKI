@@ -41,12 +41,12 @@ const MemberData = ({ member }: any) => {
 
             <div className="w-full">
                 {member?.map((item: MemberProps, idx: number) => (
-                    <ul key={item.npaPdki} className="p-6 mb-6 flex justify-between items-center font-medium text-gray-800 bg-[#fff] rounded-2xl shadow-md shadow-gray-200">
+                    <ul key={item.npa_pdki} className="p-6 mb-6 flex justify-between items-center font-medium text-gray-800 bg-[#fff] rounded-2xl shadow-md shadow-gray-200">
                         <li className="w-[4%]">{idx + 1}</li>
                         {/* image */}
                         <li className="w-[8%] flex justify-start">
                             <Image
-                                src={process.env.BASE_URL + item.pasFoto}
+                                src={process.env.BASE_URL + item.pas_foto}
                                 alt="foto member"
                                 width={100}
                                 height={100}
@@ -55,13 +55,13 @@ const MemberData = ({ member }: any) => {
                         </li>
                         {/* another data */}
                         <li className="w-[53%]">{item.nama}</li>
-                        <li className="w-[10%]">{item.noIdi}</li>
-                        <li className="w-[13%]">{item.npaPdki}</li>
-                        <li className="w-[10%]">{item.noSeri}</li>
+                        <li className="w-[10%]">{item.no_idi}</li>
+                        <li className="w-[13%]">{item.npa_pdki}</li>
+                        <li className="w-[10%]">{item.no_seri}</li>
                         <li className="w-[2%] relative">
-                            <button className="cursor-pointer" onClick={() => handleShowDetail(item.npaPdki)}>
+                            <button className="cursor-pointer" onClick={() => handleShowDetail(item.npa_pdki)}>
                                 <TbDots />
-                                {selectedMemberClick === item.npaPdki && <PopupDetail npaPdki={item.npaPdki} />}
+                                {selectedMemberClick === item.npa_pdki && <PopupDetail npa_pdki={item.npa_pdki} />}
                             </button>
                         </li>
                     </ul>

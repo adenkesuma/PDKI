@@ -25,17 +25,17 @@ const ConferenceData = ({ conference }: any) => {
             title={item?.title}
             description={item?.description}
             image={item?.image}
-            startDate={item?.startDate}
-            endDate={item?.endDate}
+            start_date={item?.start_date}
+            end_date={item?.end_date}
             location={item?.location}
             organizer={item?.organizer}
-            websiteUrl={item?.websiteUrl}
-            registrationRequired={item?.registrationRequired}
+            website_url={item?.website_url}
+            registration_required={item?.registration_required}
             speakers={item?.speakers}
-            isFree={item?.isFree}
+            is_free={item?.is_free}
             topic={item?.topic}
-            createdAt={item?.createdAt}
-            updatedAt={item?.updatedAt}
+            created_at={item?.created_at}
+            updated_at={item?.updated_at}
           />
         ))}
       </section>

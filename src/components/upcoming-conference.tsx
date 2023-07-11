@@ -9,11 +9,11 @@ const UpcomingConference = async () => {
   const data = await upcomingDataConference[upcomingDataConference.length - 1]
 
   // start date data
-  const conferenceDate = await data?.startDate
-  const startDate = new Date(conferenceDate)
-  const year = startDate.getFullYear()
-  const month = startDate.getMonth()
-  const date = startDate.getDate()
+  const conferenceDate = await data?.start_date
+  const start_date = new Date(conferenceDate)
+  const year = start_date.getFullYear()
+  const month = start_date.getMonth()
+  const date = start_date.getDate()
 
   return (
     <div className="w-full">
@@ -34,8 +34,13 @@ const UpcomingConference = async () => {
               </Link>
             </div>
           </div>
-          <div className="py-3 px-6 text-white flex flex-col justify-between gap-4 h-[35%] sm:h-[30%] overflow-hidden">
-            <h3 className="text-[16px] md:text-[18px] xl:text-[20px] font-semibold md:text-ellipsis md:overflow-hidden md:whitespace-nowrap lg:text-left lg:whitespace-normal">{data?.title}</h3>
+          <div className="py-3 px-6 text-white flex flex-col justify-between gap-2 h-[35%] sm:h-[30%] overflow-hidden">
+            <div>
+              <h3 className="text-[16px] md:text-[18px] xl:text-[20px] font-semibold md:text-ellipsis md:overflow-hidden md:whitespace-nowrap lg:text-left lg:whitespace-normal">{data?.title}</h3>
+              <p className="text-[16px] font-medium text-[#bbbbbb] overflow-hidden whitespace-nowrap text-ellipsis">
+                {data?.description}
+              </p>
+            </div>
             <div className="flex justify-between items-center">
               <span className="text-[14px]">{data?.location}</span>
               <span className="text-[14px]">{`${date} - ${month} - ${year}`}</span>
