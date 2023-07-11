@@ -1,3 +1,4 @@
+import { Metadata } from "next"
 import Header from "@/components/header.tsx"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
@@ -6,6 +7,12 @@ import Link from "next/link"
 import { fetchVideo } from "@/lib/fetch/get-video"
 import { TbArrowUpRight, TbBrandWhatsapp } from "react-icons/tb"
 import { VideoProps } from "@/utils/interface"
+
+// metadata for traning video page
+export const metadata: Metadata = {
+  title: 'PDKI | Video',
+  description: 'PDKI training video',
+}
 
 const TrainingVideo = async () => { 
   const videoData = await fetchVideo()

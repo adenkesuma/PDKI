@@ -7,10 +7,10 @@ import Navbar from "@/components/navbar"
 import { Metadata } from "next"
 import Footer from "@/components/footer"
 
-// metadata
+// metadata for about page
 export const metadata: Metadata = {
   title: 'PDKI | About',
-  description: 'persatuan dokter keluarga indonesia',
+  description: 'PDKI history here',
 }
 
 const About = () => {

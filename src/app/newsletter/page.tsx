@@ -1,6 +1,16 @@
+import { Metadata } from "next"
 import Header from "@/components/header.tsx"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
+
+// metadata for newsletter page
+export const metadata: Metadata = {
+  title: 'PDKI | Newsletter',
+  openGraph: {
+    title: 'PDKI | Newsletter',
+    description: 'PDKI newsletter'
+  }
+}
 
 const Newsletter = () => {
   return (

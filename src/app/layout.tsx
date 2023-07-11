@@ -5,6 +5,12 @@ import { montserrat } from '@/utils/font'
 export const metadata = {
   title: 'PDKI | perhimpunan dokter keluarga indonesia',
   description: 'perhimpunan dokter keluarga indonesia',
+  icons: {
+    rel: 'icon',
+    type: 'image/png',
+    sizes: '32x32',
+    url: '/favicon.png'
+  }
 }
 
 export default function RootLayout({
