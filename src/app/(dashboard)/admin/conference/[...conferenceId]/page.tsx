@@ -11,7 +11,7 @@ const ConferenceDetail = ({
     params: { conferenceId: string }
 }) => {
     const [conference, setConference] = useState<ConferenceProps>({
-        id: 0,
+        conference_id: "",
         title: "",
         description: "",
         image: "",

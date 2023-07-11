@@ -6,7 +6,7 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 
 const CardConference = ({
-  id,
+  conference_id,
   title,
   description,
   image,
@@ -26,7 +26,7 @@ const CardConference = ({
   const handleDeleteConference = async () => {
     const deleteConfirm = window.confirm("apakah anda yakin ingin menghapus konferensi ini ?")
     if (deleteConfirm === true) {
-      await fetch(`${process.env.BASE_URL}/api/route/admin/conference/${id}`, {
+      await fetch(`${process.env.BASE_URL}/api/route/admin/conference/${conference_id}`, {
         method: "DELETE",
         headers: { 'Content-Type': 'application/json' },
         credentials: "include"
@@ -47,10 +47,10 @@ const CardConference = ({
 
         {/* icons */}
         <div className="flex flex-col gap-3 absolute top-4 right-4">
-          <Link href={`conference/${id}`} className="hover:bg-[#274698] hover:text-[#fff] text-[#555] duration-75 bg-[#fff] rounded-lg p-2 shadow-sm shadow-gray-500">
+          <Link href={`conference/${conference_id}`} className="hover:bg-[#274698] hover:text-[#fff] text-[#555] duration-75 bg-[#fff] rounded-lg p-2 shadow-sm shadow-gray-500">
             <TbEye className="text-[24px]" />
           </Link>
-          <Link href={`/admin/conference/edit-conference/${id}`} className="hover:bg-[#274698] hover:text-[#fff] text-[#555] duration-75 bg-[#fff] rounded-lg p-2 shadow-sm shadow-gray-500">
+          <Link href={`/admin/conference/edit-conference/${conference_id}`} className="hover:bg-[#274698] hover:text-[#fff] text-[#555] duration-75 bg-[#fff] rounded-lg p-2 shadow-sm shadow-gray-500">
             <TbEdit className="text-[24px]" />
           </Link>
           <button

@@ -3,13 +3,12 @@ import { useEffect, useState } from 'react'
 import AnalyticsOverview from './analytics-overview'
 import CardConference from './card-conference'
 import CardNews from './card-news'
-import { Item, NewsProps, ConferenceProps, MemberProps } from '@/utils/interface'
+import { Item, NewsProps, ConferenceProps, MemberProps } from '../utils/interface'
 import MemberData from './member-data'
 import PopupDetail from './popup-detail'
 import { TbChevronRight, TbDots } from 'react-icons/tb'
 import Link from 'next/link'
 import Image from 'next/image'
-import { fetchData, options } from '@/lib/fetch/dashboard-fetch'
 
 const DashboardData = ({ news, member, conference, totalNews, totalConference, totalMember }: any) => {
   const [selectedMemberClick, setSelectedMemberClick] = useState<string | null>(null)
@@ -125,8 +124,8 @@ const DashboardData = ({ news, member, conference, totalNews, totalConference, t
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-2">
           {threeLatestConference.map((item: ConferenceProps) => (
             <CardConference
-              key={item?.id}
-              id={item?.id}
+              key={item?.conference_id}
+              conference_id={item?.conference_id}
               title={item?.title}
               description={item?.description}
               image={item?.image}

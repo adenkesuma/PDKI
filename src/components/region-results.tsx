@@ -1,6 +1,6 @@
 "use client"
 import { useState, ChangeEvent } from 'react'
-import { ProvinsiIndonesia } from '@/utils/constant'
+import { ProvinsiIndonesia } from '../utils/constant'
 import RegionData from './region-data'
 import Link from 'next/link'
 
@@ -18,15 +18,15 @@ const RegionResults = () => {
                 <div className="flex flex-col items-center sm:flex-row sm:items-center gap-6">
                     <h3 className="text-lg font-medium text-[#1a1a1a]">Filter sesuai provinsi</h3>
                     <select
-                    value={selectedRegion}
-                    className="rounded-xl p-2 bg-[#274698] text-white"
-                    onChange={handleRegionChange}
+                        value={selectedRegion}
+                        className="rounded-xl p-2 bg-[#274698] text-white"
+                        onChange={handleRegionChange}
                     >
-                    {ProvinsiIndonesia.map((prov, idx) => (
-                        <option value={prov.value} key={idx}>
-                        {prov.opt}
-                        </option>
-                    ))}
+                        {ProvinsiIndonesia.map((prov, idx) => (
+                            <option value={prov.value} key={idx}>
+                                {prov.opt}
+                            </option>
+                        ))}
                     </select>
                 </div>
             </section>
@@ -34,11 +34,11 @@ const RegionResults = () => {
             <section className="mb-8 px-6">
                 {/* data region */}
                 <RegionData selectedRegion={selectedRegion} />
-                        
+
                 <div className="mt-6">
                     <h3 className="text-[18px] font-medium text-[#1a1a1a]">
-                    Contact Admin klik :
-                    <Link href="https://wa.me/081276169833" className="text-[#274698]"> disini</Link>
+                        Contact Admin klik :
+                        <Link href="https://wa.me/081276169833" className="text-[#274698]"> disini</Link>
                     </h3>
                 </div>
             </section>

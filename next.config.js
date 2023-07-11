@@ -14,14 +14,16 @@ const nextConfig = {
             'i.ytimg.com',
             'localhost',
             'https://images.unsplash.com',
-            'https://unsplash.com'
+            'https://unsplash.com',
+            'api.pdkindonesia.com'
         ]
     },
     env: {
         BASE_URL: process.env.BASE_URL,
         JWT_SIGNIN_PRIVATE_KEY: process.env.JWT_SIGNIN_PRIVATE_KEY,
         NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET
-    }
+    },
+    output: "export"
 }
 
 module.exports = nextConfig

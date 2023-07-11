@@ -1,4 +1,4 @@
-import NavbarAdmin from '@/components/navbar-admin'
+import NavbarAdmin from '../../../components/navbar-admin'
 
 export const metadata = {
   title: 'PDKI | Admin',
@@ -10,10 +10,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-    
+
   return (
     <main className='flex gap-8'>
-      <NavbarAdmin /> 
+      <NavbarAdmin />
       {children}
     </main>
   )

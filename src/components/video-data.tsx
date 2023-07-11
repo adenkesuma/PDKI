@@ -14,7 +14,7 @@ const VideoData = ({ video }: any) => {
       </div>
 
       {video.map((item: VideoProps) => (
-        <p key={item.id}>{item.title}</p>
+        <p key={item._id}>{item.title}</p>
       ))}
     </div>
   )

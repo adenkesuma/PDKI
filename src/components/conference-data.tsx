@@ -20,8 +20,8 @@ const ConferenceData = ({ conference }: any) => {
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
         {conference.map((item: ConferenceProps) => (
           <CardConference
-            key={item?.id}
-            id={item?.id}
+            key={item?.conference_id}
+            conference_id={item?.conference_id}
             title={item?.title}
             description={item?.description}
             image={item?.image}

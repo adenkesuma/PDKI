@@ -24,7 +24,7 @@ const LatestConference = async () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {fourLatestConference.map((item: ConferenceProps) => (
-          <div key={item.id}>
+          <div key={item.conference_id}>
             <figure className="h-[160px] relative block overflow-hidden rounded-tl-2xl rounded-tr-2xl">
               <Image
                 width={300}
@@ -34,7 +34,7 @@ const LatestConference = async () => {
                 alt="news 1"
               />
               <div className="absolute top-5 right-5 p-2 rounded-[50%] bg-[#fff] shadow-sm shadow-gray-600">
-                <Link href={`/conference/${item.id}`}>
+                <Link href={`/conference/${item.conference_id}`}>
                   <TbArrowUpRight className="w-[24px] h-[24px] text-[#274698]" />
                 </Link>
               </div>
