@@ -72,16 +72,21 @@ export const navigation = [
   },
   {
     id: 5,
+    text: "Member",
+    link: "/member"
+  },
+  {
+    id: 6,
     text: "Surat",
     link: "/newsletter"
   }, 
   {
-    id: 6,
-    text: "wilayah PDKI",
+    id: 7,
+    text: `wilayah PDKI`,
     link: "/pdki-regions"
   },
   {
-    id: 7,
+    id: 8,
     text: "Video Pelatihan",
     link: "/training-video"
   }
