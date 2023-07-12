@@ -1,11 +1,12 @@
 "use client"
 import Link from "next/link"
 import { TbUser } from "react-icons/tb"
-import { getSession, useSession } from "next-auth/react"
+import { useSession } from "next-auth/react"
 import { redirect } from "next/navigation"
 import DashboardData from "@/components/dashboard-data"
 import { useEffect, useState } from "react"
 import { fetchData, options } from "@/lib/fetch/dashboard-fetch"
+
 
 const Dashboard = () => {
   const [member, setMember] = useState([])
@@ -13,9 +14,10 @@ const Dashboard = () => {
   const [conference, setConference] = useState([])
 
   // session  
-  const { status } = useSession()
+  const { status, data: token } = useSession()
 
   useEffect(() => {
+    console.log(token);
 
     const fetchAllData = async () => {
       const memberUrl = `${process.env.BASE_URL}/api/route/admin/member`
@@ -79,6 +81,8 @@ const Dashboard = () => {
 
       </div>
     )
+  } else if (status === "unauthenticated") {
+    redirect('/')
   }
 }
 

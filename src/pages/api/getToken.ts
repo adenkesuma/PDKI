@@ -1,8 +1,8 @@
 import jwt from "next-auth/jwt"
 
-const secret = process.env.NEXTAUTH_SECRET
+const secret = process.env.JWT_SIGNIN_PRIVATE_KEY
 
-export default async (req:any , res:any) => {
+export default async (req: any, res: any) => {
   const token = await jwt.getToken({ req, secret })
   if (token) {
     // Signed in

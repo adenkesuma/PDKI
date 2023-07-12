@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    distDir: "build",
     images: {
+        unoptimized: true,
         domains: [
             'www.woncaaprc2022.org',
             'www.globalfamilydoctor.com',
@@ -22,8 +22,7 @@ const nextConfig = {
         BASE_URL: process.env.BASE_URL,
         JWT_SIGNIN_PRIVATE_KEY: process.env.JWT_SIGNIN_PRIVATE_KEY,
         NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET
-    },
-    output: "export"
+    }
 }
 
 module.exports = nextConfig

@@ -1,6 +1,6 @@
-import {NextAuthProvider} from './provider'
+import { NextAuthProvider } from './provider'
 import './globals.css'
-import { montserrat } from '@/utils/font'
+import { montserrat } from '../utils/font'
 
 export const metadata = {
   title: 'PDKI | perhimpunan dokter keluarga indonesia',
@@ -22,9 +22,9 @@ export default function RootLayout({
 
     <html lang="en">
       <body className={`${montserrat.className} bg-gray-100`}>
-      <NextAuthProvider>
+        <NextAuthProvider>
           {children}
-      </NextAuthProvider>
+        </NextAuthProvider>
       </body>
     </html>
 

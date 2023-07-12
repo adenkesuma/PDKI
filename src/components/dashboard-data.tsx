@@ -1,10 +1,9 @@
 "use client"
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import AnalyticsOverview from './analytics-overview'
 import CardConference from './card-conference'
 import CardNews from './card-news'
 import { Item, NewsProps, ConferenceProps, MemberProps } from '../utils/interface'
-import MemberData from './member-data'
 import PopupDetail from './popup-detail'
 import { TbChevronRight, TbDots } from 'react-icons/tb'
 import Link from 'next/link'

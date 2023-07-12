@@ -93,7 +93,7 @@ const MemberDetil = ({
                 src={process.env.BASE_URL + member?.sertifikat}
                 className="w-full rounded-xl border-b border-gray-200"
               /> :
-              <h2 className="text-center text-[#888] font-medium text-[18px]">Belum Memiliki Sertifikat</h2> 
+              <h2 className="text-center text-[#888] font-medium text-[18px]">Belum Memiliki Sertifikat</h2>
             }
           </div>
         </div>
