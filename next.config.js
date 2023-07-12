@@ -23,7 +23,7 @@ const nextConfig = {
         JWT_SIGNIN_PRIVATE_KEY: process.env.JWT_SIGNIN_PRIVATE_KEY,
         NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET
     },
-    output: "export"
+    // output: "export"
 }
 
 module.exports = nextConfig
