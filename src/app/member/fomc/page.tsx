@@ -1,4 +1,3 @@
-import BarcodeGenerator from '@/components/barcode-generator'
 import BarcodeMember from '@/components/barcode-member'
 import { fetchMember } from '@/lib/fetch/get-member'
 import { MemberProps } from '@/utils/interface'
