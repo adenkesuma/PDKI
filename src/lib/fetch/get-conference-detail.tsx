@@ -12,5 +12,5 @@ export const fetchConferenceDetail = cache(async (id: string) => {
 
     const conferenceDetail = await res.json()
 
-    return conferenceDetail[0]
+    return conferenceDetail
 })
